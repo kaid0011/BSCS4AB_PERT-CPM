@@ -34,7 +34,7 @@ class Cpm extends CI_Controller
             $data['task_id_' . $i]['ls'] = 0;
             $data['task_id_' . $i]['lf'] = 0;
             $data['task_id_' . $i]['float'] = 0;
-            $data['task_id_' . $i]['isCritical'] = False;
+            $data['task_id_' . $i]['isCritical'] = "no";
         }
 
         $this->forward_pass($data);
@@ -44,37 +44,71 @@ class Cpm extends CI_Controller
     { 
         foreach ($data as $tasks) 
         {
-            echo $tasks['id']."<br>";
             $id = $tasks['id'];
             if(in_array("-", $tasks)) //check if first task
             {
-                echo 'yes'."<br>";
                 $data['task_id_'.$id]['es'] = 0;
                 $data['task_id_'.$id]['ef'] = $tasks['time'];
-                echo "ES: ".$data['task_id_'.$id]['es']."<br>";//
-                echo "EF: ".$data['task_id_'.$id]['ef']."<br>";//
             }
             else{   //if not first task
-                echo "no"."<br>";//
-                echo "Pre: ".$tasks['prereq']."<br>";
                 $prereq = $tasks['prereq'];     //get prereq
                 $prereq_id = array_search($prereq, array_column($data, 'name')) + 1;      //get prereq id
-                echo "Pre ID: ".$prereq_id."<br>";
                 $data['task_id_'.$id]['es'] = $data['task_id_' . $prereq_id]['ef'];
                 $data['task_id_'.$id]['ef'] = $data['task_id_'.$id]['es'] + $tasks['time'];
-                echo "ES: ".$data['task_id_'.$id]['es']."<br>";
-                echo "EF: ".$data['task_id_'.$id]['ef']."<br>";
             }
         }
         //project finish time
         $data['finish_time'] = max(array_column($data, 'ef'));
-        echo $data['finish_time'];
 
-        // $this->backward_pass($data);
+        $this->backward_pass($data);
     }
 
     public function backward_pass($data)
     {
+        // reverse $data array
+        $cnt = count($data)-1;
+        $rev_data = array();
+        for($j = $cnt; $j >= 1; $j--)
+        {
+            $rev_data[] = $data['task_id_'.$j];
+        }
 
+        $index = -1;
+        foreach($rev_data as $revtasks)
+        {
+            $rev_id = $revtasks['id'];
+            $index++;
+            if($index == 0) // check if last task
+            {
+                $data['task_id_'.$rev_id]['lf'] = $data['task_id_' . $rev_id]['ef'];
+                $data['task_id_'.$rev_id]['ls'] = $data['task_id_' . $rev_id]['es'];
+                $data['task_id_'.$rev_id]['isCritical'] = "yes";
+            }
+
+            $rprereq = $revtasks['prereq'];
+            $rprereq_id = array_search($rprereq, array_column($data, 'name')) + 1;
+            if($rprereq != '-')
+            {
+                if($data['task_id_'.$rprereq_id]['lf'] == 0)
+                {
+                    $data['task_id_'.$rprereq_id]['lf'] = $data['task_id_'.$rev_id]['ls'];
+                    $data['task_id_'.$rprereq_id]['ls'] = $data['task_id_'.$rprereq_id]['lf'] - $data['task_id_'.$rprereq_id]['time'];
+                    $data['task_id_'.$rprereq_id]['float'] = $data['task_id_'.$rprereq_id]['lf'] - $data['task_id_'.$rprereq_id]['ef'];
+                    if($data['task_id_'.$rprereq_id]['float'] == 0)
+                    {
+                        $data['task_id_'.$rprereq_id]['isCritical'] = "yes";
+                    }
+                }
+            } 
+        }
+
+        // $this->isCritical($data);
+        $this->show_result($data);
+    }
+
+    public function show_result($data)
+    {
+        $data['qty'] = count($data);
+        $this->load->view('results', $data);
     }
 }

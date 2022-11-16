@@ -1,43 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CPM:Results</title>
 </head>
+
 <body>
     <table>
         <tr>
-            <th>Task ID</th>
-            <th>Task Name</th>
-            <th>Task Time</th>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Time</th>
+        <th>Prereq</th>
+        <th>ES</th>
+        <th>EF</th>
+        <th>LS</th>
+        <th>LF</th>
+        <th>Float</th>
+        <th>isCritical</th>
         </tr>
-        <tr>
-            <td>1</td>
-            <td><?php echo $task_1['1_task_name']; ?></td>
-            <td><?php echo $task_1['1_task_time']; ?></td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td><?php echo $task_2['2_task_name']; ?></td>
-            <td><?php echo $task_2['2_task_time']; ?></td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td><?php echo $task_3['3_task_name']; ?></td>
-            <td><?php echo $task_3['3_task_time']; ?></td>
-        </tr>
-        <!-- <tr>
-            <td>4</td>
-            <td><?php //echo $task_4['4_task_name']; ?></td>
-            <td><?php //echo $task_4['4_task_time']; ?></td>
-        </tr>
-        <tr>
-            <td>5</td>
-            <td><?php //echo $task_5['5_task_name']; ?></td>
-            <td><?php //echo $task_5['5_task_time']; ?></td>
-        </tr> -->
+        <?php
+        for ($i = 1; $i < $qty; $i++) {
+        ?>
+            <tr>
+                <td><?php echo ${"task_id_" . $i}['id']; ?></td>
+                <td><?php echo ${"task_id_" . $i}['name']; ?></td>
+                <td><?php echo ${"task_id_" . $i}['time']; ?></td>
+                <td><?php echo ${"task_id_" . $i}['prereq']; ?></td>
+                <td><?php echo ${"task_id_" . $i}['es']; ?></td>
+                <td><?php echo ${"task_id_" . $i}['ef']; ?></td>
+                <td><?php echo ${"task_id_" . $i}['ls']; ?></td>
+                <td><?php echo ${"task_id_" . $i}['lf']; ?></td>
+                <td><?php echo ${"task_id_" . $i}['float']; ?></td>
+                <td><?php echo ${"task_id_" . $i}['isCritical']; ?></td>
+            </tr>
+        <?php
+        }
+        ?>
     </table>
 </body>
+
 </html>
