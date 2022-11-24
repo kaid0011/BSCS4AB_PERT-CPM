@@ -11,31 +11,45 @@
 <body>
     <table>
         <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Time</th>
-        <th>Prereq</th>
-        <th>ES</th>
-        <th>EF</th>
-        <th>LS</th>
-        <th>LF</th>
-        <th>Float</th>
-        <th>isCritical</th>
+            <th>ID</th>
+            <th>Description</th>
+            <th>Duration</th>
+            <th>Prereq</th>
+            <th>ES</th>
+            <th>EF</th>
+            <th>LS</th>
+            <th>LF</th>
+            <th>Float</th>
+            <th>isCritical</th>
         </tr>
         <?php
-        for ($i = 1; $i < $qty; $i++) {
+        foreach ($project as $task) {
         ?>
             <tr>
-                <td><?php echo ${"task_id_" . $i}['id']; ?></td>
-                <td><?php echo ${"task_id_" . $i}['name']; ?></td>
-                <td><?php echo ${"task_id_" . $i}['time']; ?></td>
-                <td><?php echo ${"task_id_" . $i}['prereq']; ?></td>
-                <td><?php echo ${"task_id_" . $i}['es']; ?></td>
-                <td><?php echo ${"task_id_" . $i}['ef']; ?></td>
-                <td><?php echo ${"task_id_" . $i}['ls']; ?></td>
-                <td><?php echo ${"task_id_" . $i}['lf']; ?></td>
-                <td><?php echo ${"task_id_" . $i}['float']; ?></td>
-                <td><?php echo ${"task_id_" . $i}['isCritical']; ?></td>
+                <td><?php echo $task['id']; ?></td>
+                <td><?php echo $task['desc']; ?></td>
+                <td><?php echo $task['time']; ?></td>
+                <td><?php
+                    foreach($task['prereq'] as $pre) {
+                        if($pre == '-1') {
+                            echo '-';
+                        }
+                        else {
+                            if(count($task['prereq']) == 1) {                           
+                                echo $pre;
+                            }
+                            else {
+                                echo $pre." ";
+                            }
+                        }
+                    }                   
+                    ?></td>
+                <td><?php echo $task['es']; ?></td>
+                <td><?php echo $task['ef']; ?></td>
+                <td><?php echo $task['ls']; ?></td>
+                <td><?php echo $task['lf']; ?></td>
+                <td><?php echo $task['float']; ?></td>
+                <td><?php echo $task['isCritical']; ?></td>
             </tr>
         <?php
         }

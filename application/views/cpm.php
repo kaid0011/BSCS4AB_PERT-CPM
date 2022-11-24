@@ -10,15 +10,15 @@
 
 <body>
     <h1>CPM</h1>
-    <p>Note: Put - if no prerequisite task/first task. Only one prerequisite.</p>
+    <p>Note: Put Task ID in prerequisite. Put - if no prerequisite task/first task. No spaces.</p>
     <div>
         <b>Task ID</b>
         -
-        <b>Task Name</b>
+        <b>Description</b>
         -
-        <b>Task Time</b>
+        <b>Duration</b>
         -
-        <b>Prerequisite</b>
+        <b>Prerequisite/s</b>
     </div>
 
     <form action="<?php echo base_url('cpm/calculate') ?>" method="post">
@@ -27,9 +27,9 @@
         for ($i = 1; $i <= $proj_len; $i++) {
         ?>
             <div>
-                <input type="text" name="task_id_<?php echo $i; ?>" value="<?php echo $i; ?>" readonly>
+                <input type="text" name="<?php echo $i; ?>" value="<?php echo $i; ?>" readonly>
                 -
-                <input type="text" name="task_name_<?php echo $i; ?>">
+                <input type="text" name="task_desc_<?php echo $i; ?>">
                 -
                 <input type="number" name="task_time_<?php echo $i; ?>">
                 -
