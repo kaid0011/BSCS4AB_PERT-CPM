@@ -80,23 +80,21 @@
             ?>
             <button>OK</button>
         </form>
-    <?php } elseif ($choice == 'Monte Carlo') { ?>
-        <h1>Monte Carlo Simulation</h1>
+    <?php } elseif ($choice == 'Uniform Distribution') { ?>
+        <h1>Uniform Distribution</h1>
         <p>Note: Put Task ID in prerequisite. Put - if no prerequisite task/first task. No spaces.</p>
         <div>
             <b>Task ID</b>
             -
             <b>Description</b>
             -
-            <b>Optimistic</b>
+            <b>Min</b>
             -
-            <b>Most Likely</b>
-            -
-            <b>Pessimistic</b>
+            <b>Max</b>
             -
             <b>Prerequisite/s</b>
         </div>
-        <form action="<?php echo base_url('montecarlo/calculate') ?>" method="post">
+        <form action="<?php echo base_url('uniform/calculate') ?>" method="post">
             <input type="number" name="proj_len" value="<?php echo $proj_len; ?>" hidden>
             <input type="text" name="choice" value="<?php echo $choice; ?>" hidden>
             <?php
@@ -107,11 +105,9 @@
                     -
                     <input type="text" name="task_desc_<?php echo $i; ?>">
                     -
-                    <input type="number" name="task_opt_<?php echo $i; ?>">
+                    <input type="number" name="task_min_<?php echo $i; ?>">
                     -
-                    <input type="number" name="task_ml_<?php echo $i; ?>">
-                    -
-                    <input type="number" name="task_pes_<?php echo $i; ?>">
+                    <input type="number" name="task_max_<?php echo $i; ?>">
                     -
                     <input type="text" name="task_prereq_<?php echo $i; ?>">
                 </div>

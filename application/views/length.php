@@ -14,7 +14,7 @@
         <input type="submit" name="choice" value="CPM">
         <input type="submit" name="choice" value="PERT">
         <h4>With Simulation</h4>
-        <input type="submit" name="choice" value="Monte Carlo">
+        <input type="submit" name="choice" value="Uniform Distribution">
     </form>
 </body>
 </html>
