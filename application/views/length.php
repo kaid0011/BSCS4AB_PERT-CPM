@@ -7,10 +7,14 @@
     <title>CPM:Project Length</title>
 </head>
 <body>
-    <h3>enter how many tasks</h3>
-    <form action="<?php echo base_url('cpm/proj_len') ?>" method="post">
-        <input type="num" name="proj_len">
-        <button>beep boop</button>
+    <h3>Enter task quantity</h3>
+    <form action="<?php echo base_url('home/choose') ?>" method="post">
+        <input type="number" name="proj_len">
+        <h4>Without Simulation</h4>
+        <input type="submit" name="choice" value="CPM">
+        <input type="submit" name="choice" value="PERT">
+        <h4>With Simulation</h4>
+        <input type="submit" name="choice" value="Monte Carlo">
     </form>
 </body>
 </html>

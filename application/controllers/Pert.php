@@ -1,32 +1,46 @@
 <?php
-class Cpm extends CI_Controller
+class Pert extends CI_Controller
 {
-    public function __contruct()
+    public function __construct()
     {
         parent::__construct();
     }
 
     public function calculate()
     {
-        $data['qty'] = $this->input->post('proj_len');
-        $data['choice'] = $this->input->post('choice');
+        $proj_len = $this->input->post('proj_len');
 
         // ASSIGNING VALUES TO ARRAY
-        for ($i = 1; $i <= $data['qty']; $i++) {
+        for ($i = 1; $i <= $proj_len; $i++) {
             $data[$i]['id'] = $this->input->post($i);
             $data[$i]['desc'] = $this->input->post('task_desc_' . $i);
-            $data[$i]['time'] = $this->input->post('task_time_' . $i);
+            $data[$i]['opt'] = $this->input->post('task_opt_' . $i);
+            $data[$i]['ml'] = $this->input->post('task_ml_' . $i);
+            $data[$i]['pes'] = $this->input->post('task_pes_' . $i);
+            $data[$i]['time'] = 0;
             if ($this->input->post('task_prereq_' . $i) != '-') {
                 $data[$i]['prereq'] = explode(",", $this->input->post('task_prereq_' . $i));
             } else {
                 $data[$i]['prereq'][] = -1;
             }
+            $data[$i]['sd'] = 0;
             $data[$i]['es'] = 0;
             $data[$i]['ef'] = 0;
             $data[$i]['ls'] = 0;
             $data[$i]['lf'] = 0;
             $data[$i]['float'] = 0;
             $data[$i]['isCritical'] = "No";
+        }
+        $this->time($data);
+    }
+
+    public function time($data)
+    {
+        foreach ($data as $time)
+        {
+            $tid = $time['id'];
+            $data[$tid]['time'] = ($time['opt'] + (4 * $time['ml']) + $time['pes']) / 6;
+            $data[$tid]['sd'] = ($time['pes'] - $time['opt']) / 6;
         }
         $this->forward_pass($data);
     }
@@ -103,11 +117,12 @@ class Cpm extends CI_Controller
 
     public function show_result($data)
     {
+        $data['qty'] = count($data);
         for ($j = 1; $j < $data['qty']; $j++) {
             $project[] = $data[$j];
         }
         $data['project'] = $project;
 
-        $this->load->view('cpm_results', $data);
+        $this->load->view('pert_results', $data);
     }
 }

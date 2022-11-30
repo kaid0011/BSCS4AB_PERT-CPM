@@ -9,6 +9,7 @@
 </head>
 
 <body>
+    <h1>CPM</h1>
     <table>
         <tr>
             <th>ID</th>
@@ -30,19 +31,11 @@
                 <td><?php echo $task['desc']; ?></td>
                 <td><?php echo $task['time']; ?></td>
                 <td><?php
-                    foreach($task['prereq'] as $pre) {
-                        if($pre == '-1') {
-                            echo '-';
-                        }
-                        else {
-                            if(count($task['prereq']) == 1) {                           
-                                echo $pre;
-                            }
-                            else {
-                                echo $pre." ";
-                            }
-                        }
-                    }                   
+                    $pre = implode(",", $task['prereq']);
+                    if($pre == '-1') {
+                        $pre = '-';
+                    }
+                    echo $pre;
                     ?></td>
                 <td><?php echo $task['es']; ?></td>
                 <td><?php echo $task['ef']; ?></td>
