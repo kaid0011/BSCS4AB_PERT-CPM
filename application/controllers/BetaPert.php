@@ -4,6 +4,7 @@ class BetaPert extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        require 'vendor/autoload.php';
     }
 
     public function calculate()
@@ -32,6 +33,16 @@ class BetaPert extends CI_Controller
             $data[$i]['isCritical'] = "No";
         }
         $this->alphabeta($data);
+    }
+
+    public function sample()
+    {
+        use gburtini\Distributions\Beta;
+        $beta = new Beta(1, 100);
+        $draw = $beta->rand();
+        if($draw > 0.5) {
+        echo "We drew a number bigger than 0.5 from a Beta(1,100).\n";
+        }
     }
 
     public function alphabeta($data)
