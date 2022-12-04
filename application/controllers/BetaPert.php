@@ -35,16 +35,6 @@ class BetaPert extends CI_Controller
         $this->alphabeta($data);
     }
 
-    public function sample()
-    {
-        use gburtini\Distributions\Beta;
-        $beta = new Beta(1, 100);
-        $draw = $beta->rand();
-        if($draw > 0.5) {
-        echo "We drew a number bigger than 0.5 from a Beta(1,100).\n";
-        }
-    }
-
     public function alphabeta($data)
     {
         $r = mt_rand(0, 100) / 100;
