@@ -8,7 +8,11 @@ class Home extends CI_Controller
 
     public function index()
     {
-        $this->load->view('length');
+        // $this->load->view('length');
+        $command = escapeshellcmd('python sample.py');
+        $output = shell_exec($command);
+        echo $output;
+
     }
 
     public function choose()
