@@ -1,4 +1,4 @@
-# C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.10_3.10.2288.0_x64__qbz5n2kfra8p0\python3.10.exe
+#!C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.10_3.10.2288.0_x64__qbz5n2kfra8p0\python3.10.exe
 
 import os
 import urllib.parse
