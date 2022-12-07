@@ -153,7 +153,93 @@
                     <input type="text" name="task_prereq_<?php echo $i; ?>">
                 </div>
             <?php }
+            ?><br>
+            <label for="N">Enter number of trials: </label>
+            <input type="number" name="N"><br>
+            <button>OK</button>
+        </form>
+        <!-- ##################################################################################### -->
+    <?php } elseif ($choice == 'Normal') { ?>
+        <h1>Normal</h1>
+        <p>Note: Put Task ID in prerequisite. Put - if no prerequisite task/first task. No spaces.</p>
+        <div>
+            <b>Task ID</b>
+            -
+            <b>Description</b>
+            -
+            <b>Optimistic</b>
+            -
+            <b>Most Likely</b>
+            -
+            <b>Pessimistic</b>
+            -
+            <b>Prerequisite/s</b>
+        </div>
+        <form action="<?php echo base_url('normal/calculate') ?>" method="post">
+            <input type="number" name="proj_len" value="<?php echo $proj_len; ?>" hidden>
+            <input type="text" name="choice" value="<?php echo $choice; ?>" hidden>
+            <?php
+            for ($i = 1; $i <= $proj_len; $i++) {
             ?>
+                <div>
+                    <input type="text" name="<?php echo $i; ?>" value="<?php echo $i; ?>" readonly>
+                    -
+                    <input type="text" name="task_desc_<?php echo $i; ?>">
+                    -
+                    <input type="number" name="task_opt_<?php echo $i; ?>">
+                    -
+                    <input type="number" name="task_ml_<?php echo $i; ?>">
+                    -
+                    <input type="number" name="task_pes_<?php echo $i; ?>">
+                    -
+                    <input type="text" name="task_prereq_<?php echo $i; ?>">
+                </div>
+            <?php }
+            ?><br>
+            <label for="N">Enter number of trials: </label>
+            <input type="number" name="N"><br>
+            <button>OK</button>
+        </form>
+        <!-- ##################################################################################### -->
+    <?php } elseif ($choice == 'Triangular') { ?>
+        <h1>Triangular</h1>
+        <p>Note: Put Task ID in prerequisite. Put - if no prerequisite task/first task. No spaces.</p>
+        <div>
+            <b>Task ID</b>
+            -
+            <b>Description</b>
+            -
+            <b>Optimistic</b>
+            -
+            <b>Most Likely</b>
+            -
+            <b>Pessimistic</b>
+            -
+            <b>Prerequisite/s</b>
+        </div>
+        <form action="<?php echo base_url('triangular/calculate') ?>" method="post">
+            <input type="number" name="proj_len" value="<?php echo $proj_len; ?>" hidden>
+            <input type="text" name="choice" value="<?php echo $choice; ?>" hidden>
+            <?php
+            for ($i = 1; $i <= $proj_len; $i++) {
+            ?>
+                <div>
+                    <input type="text" name="<?php echo $i; ?>" value="<?php echo $i; ?>" readonly>
+                    -
+                    <input type="text" name="task_desc_<?php echo $i; ?>">
+                    -
+                    <input type="number" name="task_opt_<?php echo $i; ?>">
+                    -
+                    <input type="number" name="task_ml_<?php echo $i; ?>">
+                    -
+                    <input type="number" name="task_pes_<?php echo $i; ?>">
+                    -
+                    <input type="text" name="task_prereq_<?php echo $i; ?>">
+                </div>
+            <?php }
+            ?><br>
+            <label for="N">Enter number of trials: </label>
+            <input type="number" name="N"><br>
             <button>OK</button>
         </form>
     <?php } ?>
