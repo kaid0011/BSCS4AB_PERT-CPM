@@ -14,8 +14,10 @@
         <input type="submit" name="choice" value="CPM">
         <input type="submit" name="choice" value="PERT">
         <h4>With Simulation</h4>
-        <input type="submit" name="choice" value="Uniform Distribution">
+        <!-- <input type="submit" name="choice" value="Uniform Distribution"> -->
         <input type="submit" name="choice" value="BETA-PERT">
+        <input type="submit" name="choice" value="Normal">
+        <input type="submit" name="choice" value="Triangular">
     </form>
 </body>
 </html>
