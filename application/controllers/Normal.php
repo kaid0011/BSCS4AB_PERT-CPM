@@ -126,6 +126,9 @@ class Normal extends CI_Controller
                 $data[$rid]['isCritical'] = "Yes";
             }
         }
+        // var_dump($data);
+        flush();
+        print_r($data);
         $this->show_result($data);
     }
 
@@ -136,6 +139,8 @@ class Normal extends CI_Controller
             $project[] = $data[$j];
         }
         $data['project'] = $project;
+
+        // var_dump($data);
 
         $this->load->view('normal_results', $data);
     }
