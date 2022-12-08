@@ -109,19 +109,19 @@ class BetaPert extends CI_Controller
                         if ($data[$rid]['lf'] == 0) {
                             $data[$rid]['lf'] = $data[$key + 1]['ls'];
                             $data[$rid]['ls'] = $data[$rid]['lf'] - $rtasks['time'];
-                            echo $rid."-".$data[$rid]['ls']." = ".$data[$rid]['lf']." - ".$rtasks['time']."<br>";
+                            // echo $rid."-".$data[$rid]['ls']." = ".$data[$rid]['lf']." - ".$rtasks['time']."<br>";
                         }
                         if ($data[$rid]['lf'] > $data[$key + 1]['ls']) {
                             $data[$rid]['lf'] = $data[$key + 1]['ls'];
                             $data[$rid]['ls'] = $data[$rid]['lf'] - $rtasks['time'];
-                            echo $rid."-".$data[$rid]['ls']."<br>";
+                            // echo $rid."-".$data[$rid]['ls']."<br>";
                         }
                     }
                 }
             } else {
                 $data[$rid]['lf'] = $data['finish_time'];
                 $data[$rid]['ls'] = $data[$rid]['lf'] - $rtasks['time'];
-                echo $rid."-".$data[$rid]['ls']."<br>";
+                // echo $rid."-".$data[$rid]['ls']."<br>";
             }
             //compute float and if critical task
             $data[$rid]['float'] = $data[$rid]['lf'] - $data[$rid]['ef'];
@@ -139,6 +139,8 @@ class BetaPert extends CI_Controller
             $project[] = $data[$j];
         }
         $data['project'] = $project;
+
+        var_dump($data);
 
         $this->load->view('beta_results', $data);
     }

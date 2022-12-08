@@ -137,6 +137,8 @@ class Triangular extends CI_Controller
         }
         $data['project'] = $project;
 
+        var_dump($data);
+
         $this->load->view('tri_results', $data);
     }
 }
