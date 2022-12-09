@@ -32,7 +32,7 @@
                 <td><?php echo $task['time']; ?></td>
                 <td><?php
                     $pre = implode(",", $task['prereq']);
-                    if($pre == '-1') {
+                    if ($pre == '-1') {
                         $pre = '-';
                     }
                     echo $pre;
@@ -48,6 +48,19 @@
         }
         ?>
     </table>
+    <h4>Critical Path:
+        <?php
+        $max = max(array_column($cp, 'id'));
+        foreach ($cp as $cp) {
+            if ($cp['id'] == $max) {
+                echo $cp['id'];
+            } else {
+                echo $cp['id'] . "-";
+            }
+        }
+        ?>
+    </h4>
+    <h4>Project Finish Time: <?php echo $finish_time; ?></h4>
 </body>
 
 </html>

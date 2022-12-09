@@ -134,8 +134,13 @@ class Triangular extends CI_Controller
         $data['qty'] = count($data);
         for ($j = 1; $j < $data['qty']; $j++) {
             $project[] = $data[$j];
+            if ($data[$j]['isCritical'] == "Yes")
+            {
+                $cp[] = $data[$j];
+            }
         }
         $data['project'] = $project;
+        $data['cp'] = $cp;
 
         var_dump($data);
 
