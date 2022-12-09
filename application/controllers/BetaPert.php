@@ -46,8 +46,6 @@ class BetaPert extends CI_Controller
             $b = $ab['pes'];    // pessimistic
             $pd = 'beta';       // type of probability distribution
             $N = $ab['N'];      // number of trials
-            
-            // echo $id."<br>";
 
             // Pass values to python to compute task duration
             $command = escapeshellcmd("python pd.py $pd $a $m $b $N");
