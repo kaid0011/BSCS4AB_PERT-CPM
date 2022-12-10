@@ -21,9 +21,9 @@ def inv_beta(a, m, b):
 
 def inv_norm(a, m , b):
     mean = (a + m + b) / 3
-    sd = (((a - mean)**2) + ((m - mean)**2) + ((b - mean)**2)) / 3
-    var = sqrt(sd)
-    result = norm.ppf(random(), mean, var)
+    var = (((a - mean)**2) + ((m - mean)**2) + ((b - mean)**2)) / 3
+    sd = sqrt(var)
+    result = norm.ppf(random(), mean, sd)
     return result
 
 def inv_tri(a, m, b):
