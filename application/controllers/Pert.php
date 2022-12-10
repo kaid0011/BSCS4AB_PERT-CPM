@@ -24,6 +24,7 @@ class Pert extends CI_Controller
                 $data[$i]['prereq'][] = -1;
             }
             $data[$i]['sd'] = 0;
+            $data[$i]['v'] = 0;     // variance
             $data[$i]['es'] = 0;
             $data[$i]['ef'] = 0;
             $data[$i]['ls'] = 0;
@@ -41,6 +42,7 @@ class Pert extends CI_Controller
             $tid = $time['id'];
             $data[$tid]['time'] = ($time['opt'] + (4 * $time['ml']) + $time['pes']) / 6;    // compute task mean
             $data[$tid]['sd'] = ($time['pes'] - $time['opt']) / 6;                          // compute task standard deviation
+            $data[$tid]['v'] = pow($data[$tid]['sd'], 2);                                   // compute task variance
         }
         $this->forward_pass($data);     // proceed to forward pass
     }
@@ -135,16 +137,20 @@ class Pert extends CI_Controller
 
     public function show_result($data)
     {
+        $proj_var = 0;
         $data['qty'] = count($data);
         for ($j = 1; $j < $data['qty']; $j++) {
             $project[] = $data[$j];
             if ($data[$j]['isCritical'] == "Yes")
             {
                 $cp[] = $data[$j];
+                $proj_var += $data[$j]['v'];    // add up variance of critical tasks to get project variance
             }
         }
         $data['project'] = $project;
         $data['cp'] = $cp;
+        $data['proj_variance'] = $proj_var;
+        $data['proj_sd'] = sqrt($proj_var);     // project SD = square root of project variance
 
         $this->load->view('pert_results', $data);
     }
