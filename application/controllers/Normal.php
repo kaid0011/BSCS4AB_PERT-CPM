@@ -123,17 +123,20 @@ class Normal extends CI_Controller
                         $key = $k;
                         if ($data[$rid]['lf'] == 0) {   // if LF not yet computed
                             $data[$rid]['lf'] = $data[$key + 1]['ls'];
-                            $data[$rid]['ls'] = $data[$rid]['lf'] - $rtasks['time'];
+                            // $data[$rid]['ls'] = $data[$rid]['lf'] - $rtasks['time'];
+                            $data[$rid]['ls'] = bcsub($data[$rid]['lf'], $rtasks['time'], 2);
                         }
                         if ($data[$rid]['lf'] > $data[$key + 1]['ls']) {    // if current task's LF is greater than succesor's LS
                             $data[$rid]['lf'] = $data[$key + 1]['ls'];
-                            $data[$rid]['ls'] = $data[$rid]['lf'] - $rtasks['time'];
+                            // $data[$rid]['ls'] = $data[$rid]['lf'] - $rtasks['time'];
+                            $data[$rid]['ls'] = bcsub($data[$rid]['lf'], $rtasks['time'], 2);
                         }
                     }
                 }
             } else {    // if not a prereq of any task
                 $data[$rid]['lf'] = $data['finish_time'];
-                $data[$rid]['ls'] = $data[$rid]['lf'] - $rtasks['time'];
+                // $data[$rid]['ls'] = $data[$rid]['lf'] - $rtasks['time'];
+                $data[$rid]['ls'] = bcsub($data[$rid]['lf'], $rtasks['time'], 2);
             }
             //compute float and if critical task
             $data[$rid]['float'] = $data[$rid]['lf'] - $data[$rid]['ef'];
