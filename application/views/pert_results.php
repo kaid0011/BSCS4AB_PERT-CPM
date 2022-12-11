@@ -37,7 +37,7 @@
                 <td><?php echo $task['opt']; ?></td>
                 <td><?php echo $task['ml']; ?></td>
                 <td><?php echo $task['pes']; ?></td>
-                <td><?php echo $task['time']; ?></td>
+                <td><?php echo round($task['time'], 2); ?></td>
                 <td><?php echo round($task['sd'], 2); ?></td>
                 <td><?php echo round($task['v'], 2); ?></td>
                 <td><?php
@@ -47,11 +47,11 @@
                     }
                     echo $pre;
                     ?></td>
-                <td><?php echo $task['es']; ?></td>
-                <td><?php echo $task['ef']; ?></td>
-                <td><?php echo $task['ls']; ?></td>
-                <td><?php echo $task['lf']; ?></td>
-                <td><?php echo $task['float']; ?></td>
+                <td><?php echo round($task['es'], 2); ?></td>
+                <td><?php echo round($task['ef'], 2); ?></td>
+                <td><?php echo round($task['ls'], 2); ?></td>
+                <td><?php echo round($task['lf'], 2); ?></td>
+                <td><?php echo round($task['float'], 2); ?></td>
                 <td><?php echo $task['isCritical']; ?></td>
             </tr>
         <?php
