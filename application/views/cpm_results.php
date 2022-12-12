@@ -63,4 +63,9 @@
     <h4>Project Finish Time: <?php echo $finish_time; ?></h4>
 </body>
 
+<style>
+    table, th, td {
+        border: 1px solid black;
+    }
+</style>
 </html>
