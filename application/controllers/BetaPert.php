@@ -1,5 +1,5 @@
 <?php
-class BetaPert extends CI_Controller
+class Betapert extends CI_Controller
 {
     public function __construct()
     {
