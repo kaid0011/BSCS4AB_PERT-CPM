@@ -29,7 +29,7 @@ class Pert extends CI_Controller
             $data[$i]['ef'] = 0;
             $data[$i]['ls'] = 0;
             $data[$i]['lf'] = 0;
-            $data[$i]['float'] = 0;
+            $data[$i]['slack'] = 0;
             $data[$i]['isCritical'] = "No";
         }
         $this->time($data);
@@ -126,9 +126,9 @@ class Pert extends CI_Controller
                 $data[$rid]['lf'] = $data['finish_time'];
                 $data[$rid]['ls'] = $data[$rid]['lf'] - $rtasks['time'];
             }
-            //compute float and if critical task
-            $data[$rid]['float'] = $data[$rid]['lf'] - $data[$rid]['ef'];
-            if ($data[$rid]['float'] == 0) {
+            //compute slack and if critical task
+            $data[$rid]['slack'] = $data[$rid]['lf'] - $data[$rid]['ef'];
+            if ($data[$rid]['slack'] == 0) {
                 $data[$rid]['isCritical'] = "Yes";
             }
         }

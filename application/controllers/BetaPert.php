@@ -28,7 +28,7 @@ class BetaPert extends CI_Controller
             $data[$i]['ef'] = 0;    // Earliest Finish
             $data[$i]['ls'] = 0;    // Latest Start
             $data[$i]['lf'] = 0;    // Latest Finish
-            $data[$i]['float'] = 0; // Float
+            $data[$i]['slack'] = 0; // slack
             $data[$i]['isCritical'] = "No"; // Critical task or not
             $data[$i]['N'] = $this->input->post('N');   // Number of trials
         }
@@ -138,9 +138,9 @@ class BetaPert extends CI_Controller
                 // $data[$rid]['ls'] = $data[$rid]['lf'] - $rtasks['time'];
                 $data[$rid]['ls'] = bcsub($data[$rid]['lf'], $rtasks['time'], 2);
             }
-            //compute float and if critical task
-            $data[$rid]['float'] = $data[$rid]['lf'] - $data[$rid]['ef'];
-            if ($data[$rid]['float'] == 0) {
+            //compute slack and if critical task
+            $data[$rid]['slack'] = $data[$rid]['lf'] - $data[$rid]['ef'];
+            if ($data[$rid]['slack'] == 0) {
                 $data[$rid]['isCritical'] = "Yes";
             }
         }
