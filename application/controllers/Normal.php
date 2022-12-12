@@ -1,9 +1,10 @@
 <?php
-class BetaPert extends CI_Controller
+class Normal extends CI_Controller
 {
     public function __construct()
     {
         parent::__construct();
+        require 'vendor/autoload.php';
     }
 
     public function calculate()
@@ -15,7 +16,7 @@ class BetaPert extends CI_Controller
             $data[$i]['id'] = $this->input->post($i);   // Task ID
             $data[$i]['desc'] = $this->input->post('task_desc_' . $i);  // Task Description
             $data[$i]['opt'] = $this->input->post('task_opt_' . $i);    // Optimistic 
-            $data[$i]['ml'] = $this->input->post('task_ml_' . $i);  // Most Likely
+            $data[$i]['ml'] = $this->input->post('task_ml_' . $i);      // Most Likely
             $data[$i]['pes'] = $this->input->post('task_pes_' . $i);    // Pessimistic
             $data[$i]['time'] = 0;  // Duration
             if ($this->input->post('task_prereq_' . $i) != '-') {   // If not 1st task
@@ -37,21 +38,20 @@ class BetaPert extends CI_Controller
 
     public function alphabeta($data)
     {
-        // Loop through each task to calculate task duration with beta distribution
         foreach($data as $ab)
         {
-            $id = $ab['id'];    // task id
-            $a = $ab['opt'];    // optimistic
-            $m = $ab['ml'];     // most likely
-            $b = $ab['pes'];    // pessimistic
-            $pd = 'beta';       // type of probability distribution
-            $N = $ab['N'];      // number of trials
+            $id = $ab['id'];
+            $a = $ab['opt'];
+            $m = $ab['ml'];
+            $b = $ab['pes'];
+            $pd = 'normal';
+            $N = $ab['N'];
 
             // Pass values to python to compute task duration
             $command = escapeshellcmd("python pd.py $pd $a $m $b $N");
             $output = shell_exec($command);
 
-            $data[$id]['time'] = round($output, 2);     // assign python output to task duration
+            $data[$id]['time'] = round($output, 2); // assign python output to task duration
         }
         $this->forward_pass($data); // proceed to forward pass
     }
@@ -160,6 +160,6 @@ class BetaPert extends CI_Controller
         $data['project'] = $project;
         $data['cp'] = $cp;
 
-        $this->load->view('beta_results', $data);
+        $this->load->view('normal_results', $data);
     }
 }

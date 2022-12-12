@@ -5,15 +5,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CPM:Results</title>
+    <title>Normal Results</title>
 </head>
 
 <body>
-    <h1>CPM</h1>
+    <h1>Normal</h1>
     <table>
         <tr>
             <th>ID</th>
             <th>Description</th>
+            <th>Optimistic</th>
+            <th>Most Likely</th>
+            <th>Pessimistic</th>
             <th>Duration</th>
             <th>Prereq</th>
             <th>ES</th>
@@ -29,6 +32,9 @@
             <tr>
                 <td><?php echo $task['id']; ?></td>
                 <td><?php echo $task['desc']; ?></td>
+                <td><?php echo $task['opt']; ?></td>
+                <td><?php echo $task['ml']; ?></td>
+                <td><?php echo $task['pes']; ?></td>
                 <td><?php echo $task['time']; ?></td>
                 <td><?php
                     $pre = implode(",", $task['prereq']);

@@ -9,6 +9,10 @@ class Home extends CI_Controller
     public function index()
     {
         $this->load->view('length');
+        // $command = escapeshellcmd('python proba.py');
+        // $output = shell_exec($command);
+        // echo $output;
+
     }
 
     public function choose()
