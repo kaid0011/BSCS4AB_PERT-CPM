@@ -25,7 +25,7 @@
             <th>EF</th>
             <th>LS</th>
             <th>LF</th>
-            <th>Float</th>
+            <th>Slack</th>
             <th>isCritical</th>
         </tr>
         <?php
@@ -57,7 +57,7 @@
                 <td><?php echo round($task['ef'], 2); ?></td>
                 <td><?php echo round($task['ls'], 2); ?></td>
                 <td><?php echo round($task['lf'], 2); ?></td>
-                <td><?php echo round($task['float'], 2); ?></td>
+                <td><?php echo round($task['slack'], 2); ?></td>
                 <td><?php echo $task['isCritical']; ?></td>
             </tr>
         <?php
