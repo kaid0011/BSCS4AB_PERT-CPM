@@ -34,7 +34,14 @@
                     -
                     <input type="number" name="task_time_<?php echo $i; ?>">
                     -
-                    <input type="text" name="task_prereq_<?php echo $i; ?>">
+                    <?php
+                    if ($i == 1) {
+                    ?>
+                        <input type="text" name="task_prereq_<?php echo $i; ?>" value="-" readonly>
+                    <?php
+                    } else { ?>
+                        <input type="text" name="task_prereq_<?php echo $i; ?>">
+                    <?php } ?>
                 </div>
             <?php }
             ?>
@@ -74,7 +81,14 @@
                     -
                     <input type="number" name="task_pes_<?php echo $i; ?>">
                     -
-                    <input type="text" name="task_prereq_<?php echo $i; ?>">
+                    <?php
+                    if ($i == 1) {
+                    ?>
+                        <input type="text" name="task_prereq_<?php echo $i; ?>" value="-" readonly>
+                    <?php
+                    } else { ?>
+                        <input type="text" name="task_prereq_<?php echo $i; ?>">
+                    <?php } ?>
                 </div>
             <?php }
             ?>
@@ -150,7 +164,14 @@
                     -
                     <input type="number" name="task_pes_<?php echo $i; ?>">
                     -
-                    <input type="text" name="task_prereq_<?php echo $i; ?>">
+                    <?php
+                    if ($i == 1) {
+                    ?>
+                        <input type="text" name="task_prereq_<?php echo $i; ?>" value="-" readonly>
+                    <?php
+                    } else { ?>
+                        <input type="text" name="task_prereq_<?php echo $i; ?>">
+                    <?php } ?>
                 </div>
             <?php }
             ?><br>
@@ -192,7 +213,14 @@
                     -
                     <input type="number" name="task_pes_<?php echo $i; ?>">
                     -
-                    <input type="text" name="task_prereq_<?php echo $i; ?>">
+                    <?php
+                    if ($i == 1) {
+                    ?>
+                        <input type="text" name="task_prereq_<?php echo $i; ?>" value="-" readonly>
+                    <?php
+                    } else { ?>
+                        <input type="text" name="task_prereq_<?php echo $i; ?>">
+                    <?php } ?>
                 </div>
             <?php }
             ?><br>
@@ -234,7 +262,14 @@
                     -
                     <input type="number" name="task_pes_<?php echo $i; ?>">
                     -
-                    <input type="text" name="task_prereq_<?php echo $i; ?>">
+                    <?php
+                    if ($i == 1) {
+                    ?>
+                        <input type="text" name="task_prereq_<?php echo $i; ?>" value="-" readonly>
+                    <?php
+                    } else { ?>
+                        <input type="text" name="task_prereq_<?php echo $i; ?>">
+                    <?php } ?>
                 </div>
             <?php }
             ?><br>
