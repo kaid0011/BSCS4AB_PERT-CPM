@@ -9,6 +9,7 @@
 </head>
 
 <body>
+    <a href="<?=base_url('Home')?>">Back to home</a>
     <h1>Beta</h1>
     <table>
         <tr>

@@ -6,7 +6,7 @@ from scipy import stats as stats
 from math import sqrt
 import sys
 
-from scipy.stats import norm, weibull_min, beta
+from scipy.stats import norm, beta
 
 pd = sys.argv[1]
 a = int(sys.argv[2])
