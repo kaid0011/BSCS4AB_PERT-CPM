@@ -40,7 +40,8 @@ class Pert extends CI_Controller
         foreach ($data as $time)
         {
             $tid = $time['id'];
-            $data[$tid]['time'] = ($time['opt'] + (4 * $time['ml']) + $time['pes']) / 6;    // compute task mean
+            $duration = ($time['opt'] + (4 * $time['ml']) + $time['pes']) / 6;              // compute task mean
+            $data[$tid]['time'] = round($duration, 2);                                      // round mean to 2 decimal places
             $data[$tid]['sd'] = ($time['pes'] - $time['opt']) / 6;                          // compute task standard deviation
             $data[$tid]['v'] = pow($data[$tid]['sd'], 2);                                   // compute task variance
         }
@@ -114,17 +115,20 @@ class Pert extends CI_Controller
                         $key = $k;
                         if ($data[$rid]['lf'] == 0) {   // if LF not yet computed
                             $data[$rid]['lf'] = $data[$key + 1]['ls'];
-                            $data[$rid]['ls'] = $data[$rid]['lf'] - $rtasks['time'];
+                            // $data[$rid]['ls'] = $data[$rid]['lf'] - $rtasks['time'];
+                            $data[$rid]['ls'] = bcsub($data[$rid]['lf'], $rtasks['time'], 2);
                         }
                         if ($data[$rid]['lf'] > $data[$key + 1]['ls']) {    // if current task's LF is greater than succesor's LS
                             $data[$rid]['lf'] = $data[$key + 1]['ls'];
-                            $data[$rid]['ls'] = $data[$rid]['lf'] - $rtasks['time'];
+                            // $data[$rid]['ls'] = $data[$rid]['lf'] - $rtasks['time'];
+                            $data[$rid]['ls'] = bcsub($data[$rid]['lf'], $rtasks['time'], 2);
                         }
                     }
                 }
             } else {    // if not a prereq of any task
                 $data[$rid]['lf'] = $data['finish_time'];
-                $data[$rid]['ls'] = $data[$rid]['lf'] - $rtasks['time'];
+                // $data[$rid]['ls'] = $data[$rid]['lf'] - $rtasks['time'];
+                $data[$rid]['ls'] = bcsub($data[$rid]['lf'], $rtasks['time'], 2);
             }
             //compute slack and if critical task
             $data[$rid]['slack'] = $data[$rid]['lf'] - $data[$rid]['ef'];

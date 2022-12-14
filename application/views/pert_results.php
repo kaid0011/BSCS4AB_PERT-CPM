@@ -9,6 +9,7 @@
 </head>
 
 <body>
+    <a href="<?= base_url('Home') ?>">Back to home</a>
     <h1>PERT</h1>
     <table>
         <tr>
@@ -83,8 +84,8 @@
     <!-- Probability of Project Completion by Given Date -->
     <h3>Compute Project Completion Probability</h3>
     <label for="pcg">Enter expected project duration: </label>
-    <input type="number" name="x" id="x">
-    <input type="number" name="m" id="m" value="<?php echo $finish_time; ?>" hidden>
+    <input type="number" name="x" id="x" required>
+    <input type="number" name="m" id="m" value="<?php echo round($finish_time, 2); ?>" hidden>
     <input type="number" name="s" id="s" value="<?php echo round($proj_sd, 2); ?>" hidden>
     <button id="compute" class="compute">Calculate</button>
     <br><label for="p">Probability of completion: </label>
@@ -102,7 +103,9 @@
 </body>
 
 <style>
-    table, th, td {
+    table,
+    th,
+    td {
         border: 1px solid black;
     }
 </style>

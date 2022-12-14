@@ -3,7 +3,7 @@
 import sys
 import scipy.stats
 
-x = int(sys.argv[1])      #expected duration
+x = float(sys.argv[1])      #expected duration
 m = float(sys.argv[2])      #mean
 s = float(sys.argv[3])      #standard deviation
 
