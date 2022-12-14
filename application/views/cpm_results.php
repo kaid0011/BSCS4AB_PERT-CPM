@@ -61,7 +61,7 @@
         }
         ?>
     </h4>
-    <h4>Project Finish Time: <?php echo $finish_time; ?></h4>
+    <h4>Project Completion Time: <?php echo $finish_time; ?></h4>
 </body>
 
 <style>
