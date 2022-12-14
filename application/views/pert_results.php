@@ -77,7 +77,7 @@
         }
         ?>
     </h4>
-    <h4>Project Finish Time: <?php echo $finish_time; ?></h4>
+    <h4>Project Completion Time: <?php echo $finish_time; ?></h4>
     <h4>Project Variance: <?php echo round($proj_variance, 2); ?></h4>
     <h4>Project Standard Deviation: <?php echo round($proj_sd, 2); ?></h4>
 
