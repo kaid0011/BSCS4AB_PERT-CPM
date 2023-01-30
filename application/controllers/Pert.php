@@ -18,6 +18,7 @@ class Pert extends CI_Controller
             $data[$i]['ml'] = $this->input->post('task_ml_' . $i);
             $data[$i]['pes'] = $this->input->post('task_pes_' . $i);
             $data[$i]['time'] = 0;
+            $data[$i]['unit'] = $this->input->post('unit');     // Unit
             if ($this->input->post('task_prereq_' . $i) != '-') {
                 $data[$i]['prereq'] = explode(",", $this->input->post('task_prereq_' . $i));
             } else {
