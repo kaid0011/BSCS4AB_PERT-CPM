@@ -18,6 +18,7 @@ class Betapert extends CI_Controller
             $data[$i]['ml'] = $this->input->post('task_ml_' . $i);  // Most Likely
             $data[$i]['pes'] = $this->input->post('task_pes_' . $i);    // Pessimistic
             $data[$i]['time'] = 0;  // Duration
+            $data[$i]['unit'] = $this->input->post('unit');     // Unit
             if ($this->input->post('task_prereq_' . $i) != '-') {   // If not 1st task
                 $data[$i]['prereq'] = explode(",", $this->input->post('task_prereq_' . $i));    // Turn prereqs into array
             } else {    //If first task

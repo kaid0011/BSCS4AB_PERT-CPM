@@ -33,10 +33,10 @@
             <tr>
                 <td><?php echo $task['id']; ?></td>
                 <td><?php echo $task['desc']; ?></td>
-                <td><?php echo $task['opt']; ?></td>
-                <td><?php echo $task['ml']; ?></td>
-                <td><?php echo $task['pes']; ?></td>
-                <td><?php echo $task['time']; ?></td>
+                <td><?php echo $task['opt']." ".$task['unit']; ?></td>
+                <td><?php echo $task['ml']." ".$task['unit']; ?></td>
+                <td><?php echo $task['pes']." ".$task['unit']; ?></td>
+                <td><?php echo $task['time']." ".$task['unit']; ?></td>
                 <td><?php
                     $pre = implode(",", $task['prereq']);
                     if ($pre == '-1') {

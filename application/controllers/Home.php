@@ -15,6 +15,7 @@ class Home extends CI_Controller
     {
         $data['choice'] = $this->input->post('choice');
         $data['proj_len'] = $this->input->post('proj_len');
+        $data['unit'] = $this->input->post('unit');
         $this->load->view('projectdetails', $data);
     }
 }

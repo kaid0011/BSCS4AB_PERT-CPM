@@ -22,13 +22,15 @@
             <form action="<?php echo base_url('cpm/calculate') ?>" method="post">
                 <input type="number" name="proj_len" value="<?php echo $proj_len; ?>" hidden>
                 <input type="text" name="choice" value="<?php echo $choice; ?>" hidden>
+                <input type="text" name="unit" value="<?php echo $unit; ?>" hidden>
                 <?php
                 for ($i = 1; $i <= $proj_len; $i++) {
                 ?>
                     <tr>
                         <td><input type="text" name="<?php echo $i; ?>" value="<?php echo $i; ?>" readonly></td>
                         <td><input type="text" name="task_desc_<?php echo $i; ?>" required></td>
-                        <td><input type="number" name="task_time_<?php echo $i; ?>" min="1" max="20" step="any" required></td>
+                        <td><input type="number" name="task_time_<?php echo $i; ?>" min="1" max="20" step="any" required><?php echo $unit; ?></td>
+    
                         <td><?php
                             if ($i == 1) {
                             ?>
@@ -60,15 +62,16 @@
             <form action="<?php echo base_url('pert/calculate') ?>" method="post">
                 <input type="number" name="proj_len" value="<?php echo $proj_len; ?>" hidden>
                 <input type="text" name="choice" value="<?php echo $choice; ?>" hidden>
+                <input type="text" name="unit" value="<?php echo $unit; ?>" hidden>
                 <?php
                 for ($i = 1; $i <= $proj_len; $i++) {
                 ?>
                     <tr>
                         <td><input type="text" name="<?php echo $i; ?>" value="<?php echo $i; ?>" readonly></td>
                         <td><input type="text" name="task_desc_<?php echo $i; ?>" required></td>
-                        <td><input type="number" name="task_opt_<?php echo $i; ?>" step="any" min="1" max="20" required></td>
-                        <td><input type="number" name="task_ml_<?php echo $i; ?>" step="any" min="1" max="20" required></td>
-                        <td><input type="number" name="task_pes_<?php echo $i; ?>" step="any" min="1" max="20" required></td>
+                        <td><input type="number" name="task_opt_<?php echo $i; ?>" step="any" min="1" max="20" required><?php echo $unit; ?></td>
+                        <td><input type="number" name="task_ml_<?php echo $i; ?>" step="any" min="1" max="20" required><?php echo $unit; ?></td>
+                        <td><input type="number" name="task_pes_<?php echo $i; ?>" step="any" min="1" max="20" required><?php echo $unit; ?></td>
                         <td><?php
                             if ($i == 1) {
                             ?>
@@ -100,15 +103,16 @@
             <form action="<?php echo base_url('betapert/calculate') ?>" method="post">
                 <input type="number" name="proj_len" value="<?php echo $proj_len; ?>" hidden>
                 <input type="text" name="choice" value="<?php echo $choice; ?>" hidden>
+                <input type="text" name="unit" value="<?php echo $unit; ?>" hidden>
                 <?php
                 for ($i = 1; $i <= $proj_len; $i++) {
                 ?>
                     <tr>
                         <td><input type="text" name="<?php echo $i; ?>" value="<?php echo $i; ?>" readonly></td>
                         <td><input type="text" name="task_desc_<?php echo $i; ?>" required></td>
-                        <td><input type="number" name="task_opt_<?php echo $i; ?>" step="any" min="1" max="20" required></td>
-                        <td><input type="number" name="task_ml_<?php echo $i; ?>" step="any" min="1" max="20" required></td>
-                        <td><input type="number" name="task_pes_<?php echo $i; ?>" step="any" min="1" max="20" required></td>
+                        <td><input type="number" name="task_opt_<?php echo $i; ?>" step="any" min="1" max="20" required><?php echo $unit; ?></td>
+                        <td><input type="number" name="task_ml_<?php echo $i; ?>" step="any" min="1" max="20" required><?php echo $unit; ?></td>
+                        <td><input type="number" name="task_pes_<?php echo $i; ?>" step="any" min="1" max="20" required><?php echo $unit; ?></td>
                         <td><?php
                             if ($i == 1) {
                             ?>
@@ -142,15 +146,16 @@
             <form action="<?php echo base_url('normal/calculate') ?>" method="post">
                 <input type="number" name="proj_len" value="<?php echo $proj_len; ?>" hidden>
                 <input type="text" name="choice" value="<?php echo $choice; ?>" hidden>
+                <input type="text" name="unit" value="<?php echo $unit; ?>" hidden>
                 <?php
                 for ($i = 1; $i <= $proj_len; $i++) {
                 ?>
                     <tr>
                         <td><input type="text" name="<?php echo $i; ?>" value="<?php echo $i; ?>" readonly></td>
                         <td><input type="text" name="task_desc_<?php echo $i; ?>" required></td>
-                        <td><input type="number" name="task_opt_<?php echo $i; ?>" step="any" min="1" max="20" required></td>
-                        <td><input type="number" name="task_ml_<?php echo $i; ?>" step="any" min="1" max="20" required></td>
-                        <td><input type="number" name="task_pes_<?php echo $i; ?>" step="any" min="1" max="20" required></td>
+                        <td><input type="number" name="task_opt_<?php echo $i; ?>" step="any" min="1" max="20" required><?php echo $unit; ?></td>
+                        <td><input type="number" name="task_ml_<?php echo $i; ?>" step="any" min="1" max="20" required><?php echo $unit; ?></td>
+                        <td><input type="number" name="task_pes_<?php echo $i; ?>" step="any" min="1" max="20" required><?php echo $unit; ?></td>
                         <td><?php
                             if ($i == 1) {
                             ?>
@@ -184,15 +189,16 @@
             <form action="<?php echo base_url('triangular/calculate') ?>" method="post">
                 <input type="number" name="proj_len" value="<?php echo $proj_len; ?>" hidden>
                 <input type="text" name="choice" value="<?php echo $choice; ?>" hidden>
+                <input type="text" name="unit" value="<?php echo $unit; ?>" hidden>
                 <?php
                 for ($i = 1; $i <= $proj_len; $i++) {
                 ?>
                     <tr>
                         <td><input type="text" name="<?php echo $i; ?>" value="<?php echo $i; ?>" readonly></td>
                         <td><input type="text" name="task_desc_<?php echo $i; ?>" required></td>
-                        <td><input type="number" name="task_opt_<?php echo $i; ?>" step="any" min="1" max="20" required></td>
-                        <td><input type="number" name="task_ml_<?php echo $i; ?>" step="any" min="1" max="20" required></td>
-                        <td><input type="number" name="task_pes_<?php echo $i; ?>" step="any" min="1" max="20" required></td>
+                        <td><input type="number" name="task_opt_<?php echo $i; ?>" step="any" min="1" max="20" required><?php echo $unit; ?></td>
+                        <td><input type="number" name="task_ml_<?php echo $i; ?>" step="any" min="1" max="20" required><?php echo $unit; ?></td>
+                        <td><input type="number" name="task_pes_<?php echo $i; ?>" step="any" min="1" max="20" required><?php echo $unit; ?></td>
                         <td><?php
                             if ($i == 1) {
                             ?>
