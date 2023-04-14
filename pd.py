@@ -50,12 +50,15 @@ def inv_tri(a, m, b):
 
 # if-else for type of distribution
 if pd == 'beta':
-    for i in range(N):
-        output_beta = (inv_beta(a, m, b))
-        arr_beta.append(output_beta)
+    # for i in range(N):
+    #     output_beta = (inv_beta(a, m, b))
+    #     arr_beta.append(output_beta)
         
-    average_beta = sum(arr_beta)/len(arr_beta)
-    print (average_beta)
+    # average_beta = sum(arr_beta)/len(arr_beta)
+    # print (average_beta)
+    # print(arr_beta)
+    output_beta = (inv_beta(a, m, b))
+    print(output_beta)
 elif pd == 'normal':
     for i in range(N):
         output_norm = (inv_norm(a, m, b))

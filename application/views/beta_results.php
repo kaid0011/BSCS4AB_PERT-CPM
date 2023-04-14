@@ -68,6 +68,23 @@
         ?>
     </h4>
     <h4>Project Completion Time: <?php echo $finish_time; ?></h4>
+    <!-- Export Simulation Values Excel File -->
+    <form action="<?php echo base_url('export') ?>" method="post">
+        <?php
+            foreach ($project as $sim) {
+                $id = $sim['id'];
+                $n = $sim['N'];
+        ?>
+                <input type="hidden" name="<?php echo $id; ?>" value="<?php echo $id; ?>">
+                <input type="hidden" name="N_<?php echo $id; ?>" value="<?php echo $n; ?>">
+                <input type="hidden" name="pqty_<?php echo $id; ?>" value="<?php echo $sim['pqty']; ?>">
+            <?php
+                $sv = implode(",", $sim['sim_val']);
+            ?>
+                <input type="hidden" name="sv_<?php echo $id; ?>" value="<?php echo $sv; ?>">
+        <?php } ?>
+        <input type="submit" value="Export" name="export">
+    </form>
 </body>
 
 <style>
