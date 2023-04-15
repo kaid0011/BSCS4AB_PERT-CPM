@@ -52,8 +52,6 @@ class Betapert extends CI_Controller
             // Pass values to python to compute task duration
             //$command = escapeshellcmd("python pd.py $pd $a $m $b $N");
             //$res = shell_exec($command);
-
-            //$f = floatval($res);
             
             for($k = 1; $k <= $N; $k++)
             {

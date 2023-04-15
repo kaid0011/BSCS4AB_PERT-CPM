@@ -22,7 +22,7 @@ class Export extends CI_Controller
             }
 
             header('Content-Type: text/csv; charset=utf-8');
-            header('Content-Disposition: attachment; filename=sampleeeee.csv');
+            header('Content-Disposition: attachment; filename=Simulation Values.csv');
             $output = fopen("php://output", "w");
             foreach($sv as $row)
             {

@@ -33,6 +33,7 @@ class Triangular extends CI_Controller
             $data[$i]['slack'] = 0;
             $data[$i]['isCritical'] = "No";
             $data[$i]['N'] = $this->input->post('N');
+            $data[$i]['pqty'] = $proj_len;
         }
         $this->alphabeta($data);
     }
@@ -49,10 +50,20 @@ class Triangular extends CI_Controller
             $N = $ab['N'];
 
             // Pass values to python to compute task duration
-            $command = escapeshellcmd("python pd.py $pd $a $m $b $N");
-            $output = shell_exec($command);
+            // $command = escapeshellcmd("python pd.py $pd $a $m $b $N");
+            // $output = shell_exec($command);
 
-            $data[$id]['time'] = round($output, 2); // assign python output to task duration
+            for($k = 1; $k <= $N; $k++)
+            {
+                $command = escapeshellcmd("python pd.py $pd $a $m $b $N");
+                $res = shell_exec($command);
+                $f = floatval($res);
+                $sim_arr[$id][] = $f; 
+                $data[$id]['sim_val'][] = $f;          
+            }
+            $t = array_sum($data[$id]['sim_val']) / count($data[$id]['sim_val']);
+
+            $data[$id]['time'] = round($t, 2);     // assign task duration
         }
         $this->forward_pass($data); // proceed to forward pass
     }
