@@ -35,11 +35,11 @@
             <tr>
                 <td><?php echo $task['id']; ?></td>
                 <td><?php echo $task['desc']; ?></td>
-                <td><?php echo $task['opt']; ?></td>
-                <td><?php echo $task['ml']; ?></td>
-                <td><?php echo $task['pes']; ?></td>
+                <td><?php echo $task['opt']." ".$task['unit']; ?></td>
+                <td><?php echo $task['ml']." ".$task['unit']; ?></td>
+                <td><?php echo $task['pes']." ".$task['unit']; ?></td>
                 <td>
-                    <?php echo round($task['time'], 2); ?>
+                    <?php echo round($task['time'], 2)." ".$task['unit']; ?>
                     <input type="number" name="m" id="m_<?php echo $task['id']; ?>" value="<?php echo round($task['time'], 2); ?>" hidden>
                 </td>
                 <td>
@@ -77,7 +77,7 @@
         }
         ?>
     </h4>
-    <h4>Project Finish Time: <?php echo $finish_time; ?></h4>
+    <h4>Project Completion Time: <?php echo $finish_time; ?></h4>
     <h4>Project Variance: <?php echo round($proj_variance, 2); ?></h4>
     <h4>Project Standard Deviation: <?php echo round($proj_sd, 2); ?></h4>
 

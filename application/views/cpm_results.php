@@ -30,7 +30,7 @@
             <tr>
                 <td><?php echo $task['id']; ?></td>
                 <td><?php echo $task['desc']; ?></td>
-                <td><?php echo $task['time']; ?></td>
+                <td><?php echo $task['time']." ".$task['unit']; ?></td>
                 <td><?php
                     $pre = implode(",", $task['prereq']);
                     if ($pre == '-1') {
@@ -61,7 +61,7 @@
         }
         ?>
     </h4>
-    <h4>Project Finish Time: <?php echo $finish_time; ?></h4>
+    <h4>Project Completion Time: <?php echo $finish_time; ?></h4>
 </body>
 
 <style>

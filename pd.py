@@ -50,23 +50,29 @@ def inv_tri(a, m, b):
 
 # if-else for type of distribution
 if pd == 'beta':
-    for i in range(N):
-        output_beta = (inv_beta(a, m, b))
-        arr_beta.append(output_beta)
+    # for i in range(N):
+    #     output_beta = (inv_beta(a, m, b))
+    #     arr_beta.append(output_beta)
         
-    average_beta = sum(arr_beta)/len(arr_beta)
-    print (average_beta)
+    # average_beta = sum(arr_beta)/len(arr_beta)
+    # print (average_beta)
+    output_beta = (inv_beta(a, m, b))
+    print(output_beta)
 elif pd == 'normal':
-    for i in range(N):
-        output_norm = (inv_norm(a, m, b))
-        arr_norm.append(output_norm)
+    # for i in range(N):
+    #     output_norm = (inv_norm(a, m, b))
+    #     arr_norm.append(output_norm)
     
-    average_norm = sum(arr_norm)/len(arr_norm)
-    print (average_norm)
+    # average_norm = sum(arr_norm)/len(arr_norm)
+    # print (average_norm)
+    output_norm = (inv_norm(a, m, b))
+    print(output_norm)
 elif pd == 'tri':
-    for i in range(N):
-        output_tri = (inv_tri(a, m, b))
-        arr_tri.append(output_tri)
+    # for i in range(N):
+    #     output_tri = (inv_tri(a, m, b))
+    #     arr_tri.append(output_tri)
     
-    average_tri = sum(arr_tri)/len(arr_tri)
-    print (average_tri)
+    # average_tri = sum(arr_tri)/len(arr_tri)
+    # print (average_tri)
+    output_tri = (inv_tri(a, m, b))
+    print(output_tri)

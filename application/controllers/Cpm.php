@@ -15,6 +15,7 @@ class Cpm extends CI_Controller
             $data[$i]['id'] = $this->input->post($i);   // Task ID
             $data[$i]['desc'] = $this->input->post('task_desc_' . $i);  // Task Description
             $data[$i]['time'] = $this->input->post('task_time_' . $i);  // Duration
+            $data[$i]['unit'] = $this->input->post('unit');     // Unit
             if ($this->input->post('task_prereq_' . $i) != '-') {   // If not 1st task
                 $data[$i]['prereq'] = explode(",", $this->input->post('task_prereq_' . $i));    // Turn prereqs into array
             } else {    //If first task
