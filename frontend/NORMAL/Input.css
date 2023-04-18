@@ -21,6 +21,12 @@
     margin-bottom: 2rem;
 }
 
+.btn:hover
+{
+    background-color: #eeee;
+    color:#B19090;
+    
+}
 .container
 {
     width: 99rem;
@@ -43,12 +49,7 @@
     border-color: #544141;
 }
 
-.btn:hover
-{
-    background-color: #eeee;
-    color:#B19090;
-    
-}
+
 
 .trials
 {
