@@ -18,7 +18,7 @@
         <div class="navi">
             <a href="<?= base_url() ?>" style="align-self:left;"><img src="assets\images\logo.svg" height="40px" width="40px"></a>
             <ul>
-                <li><a href="/PERT/PERTMain.html">PERT</a></li>
+                <li><a href="<?=base_url('pert')?>">PERT</a></li>
                 <li><a href="<?= base_url('cpm') ?>">CPM</a></li>
                 <li class="dropdown">
                     <a href="javascript:void(0)" class="dropbtn">SIMULATIONS <i class="fa fa-caret-down"></i></a>

@@ -1,6 +1,6 @@
 <div class="firstpg">
     <div class="title">
-        <b> CPM </b>
+        <b> Project Evaluation Review Technique (PERT) </b>
     </div>
     <div class="paragone">
         Lorem ipsum dolor sit amet, no clita veritus maiestatis vim, est illum consetetur no. Agam modus an vel. Nibh
@@ -14,10 +14,10 @@
 
     <center>
         <div class="form">
-            <form action="<?= base_url('cpm/proj_details') ?>" method="post">
+            <form action="<?=base_url('pert/proj_details')?>" method="post">
                 <div class="form-group">
                     <label for="InputTask">Number of Tasks:</label>
-                    <input type="number" name="proj_len" class="form-control" id="InputTask" aria-describedby="input" placeholder="Max. 20." required>
+                    <input type="number" name ="proj_len" class="form-control" id="InputTask" aria-describedby="input" placeholder="Max. 20." required>
                 </div>
                 <div class="form-group">
                     <label for="InputTime">Unit of Time:</label>
@@ -27,16 +27,16 @@
                         <option value="Weeks">Weeks</option>
                         <option value="Months">Months</option>
                     </select>
-                    <!-- <input type="text" name="unit" class="form-control" id="InputTime" placeholder="(e.g. Days, Weeks, Months)" required> -->
+                    <!-- <input type="text" class="form-control" id="InputTime" placeholder="(e.g. Days, Weeks, Months)"> -->
                 </div>
                 <br>
-
+            
         </div>
     </center>
 </div>
 
+
 <div class="generate">
-    <!-- <a class="btn" href="CPMInput.html">Generate Table</a> -->
     <button class="btn">Generate Table</button>
 </div>
 </form>
@@ -84,8 +84,7 @@
 
     }
 
-    input,
-    select {
+    input, select {
         width: 100%;
         padding: 12px 20px;
         margin: 8px 0;
