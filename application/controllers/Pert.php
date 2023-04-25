@@ -173,6 +173,8 @@ class Pert extends CI_Controller
         $data['proj_variance'] = $proj_var;
         $data['proj_sd'] = sqrt($proj_var);     // project SD = square root of project variance
 
-        $this->load->view('pert_results', $data);
+        $this->load->view('template/header');
+        $this->load->view('pert/pert_output', $data);
+        $this->load->view('template/footer'); 
     }
 }
