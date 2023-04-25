@@ -111,12 +111,12 @@
         align-items: center;
     }
 
-    tbody,
+    /* tbody,
     thead,
     tr,
     td,
     .responsive-table,
-    table {}
+    table {} */
 
     /* RESPONSIVE */
     @media screen {
