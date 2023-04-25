@@ -70,7 +70,7 @@
                 </p>
                 <center>
                     <div class="learn">
-                        <a class="btn" href="/NORMAL/NormalMain.html">USE NORMAL</a>
+                        <a class="btn" href="<?= base_url('normal') ?>">USE NORMAL</a>
                     </div>
                 </center>
             </div>
@@ -83,7 +83,7 @@
                 </p>
                 <center>
                     <div class="learn">
-                        <a class="btn" href="/TRIANGLE/TriangleMain.html">USE TRIANGULAR</a>
+                        <a class="btn" href="<?= base_url('triangular') ?>">USE TRIANGULAR</a>
                     </div>
                 </center>
             </div>
@@ -96,7 +96,7 @@
                 </p>
                 <center>
                     <div class="learn">
-                        <a class="btn" href="/BETA-PERT/BETAPERTMain.html">USE BETA-PERT</a>
+                        <a class="btn" href="<?= base_url('betapert') ?>">USE BETA-PERT</a>
                     </div>
                 </center>
             </div>

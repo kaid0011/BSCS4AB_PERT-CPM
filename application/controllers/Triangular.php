@@ -7,6 +7,22 @@ class Triangular extends CI_Controller
         require 'vendor/autoload.php';
     }
 
+    public function index()
+    {
+        $this->load->view('template/header');
+        $this->load->view('triangular/triangular_main');
+        $this->load->view('template/footer');        
+    }
+
+    public function proj_details()
+    {
+        $data['proj_len'] = $this->input->post('proj_len');
+        $data['unit'] = $this->input->post('unit');
+        $this->load->view('template/header');
+        $this->load->view('triangular/triangular_input', $data);
+        $this->load->view('template/footer');
+    }
+
     public function calculate()
     {
         $proj_len = $this->input->post('proj_len');
@@ -172,7 +188,8 @@ class Triangular extends CI_Controller
         $data['project'] = $project;
         $data['cp'] = $cp;
 
-
-        $this->load->view('tri_results', $data);
+        $this->load->view('template/header');
+        $this->load->view('triangular/triangular_output', $data);
+        $this->load->view('template/footer');
     }
 }

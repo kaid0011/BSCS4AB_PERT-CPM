@@ -23,9 +23,9 @@
                 <li class="dropdown">
                     <a href="javascript:void(0)" class="dropbtn">SIMULATIONS <i class="fa fa-caret-down"></i></a>
                     <div class="dropdown-content">
-                        <a href="/NORMAL/NormalMain.html">Normal Distribution</a>
-                        <a href="/TRIANGLE/TriangleMain.html">Triangular Distribution</a>
-                        <a href="/BETA-PERT/BETAPERTMain.html">BETA - PERT Distribution</a>
+                        <a href="<?= base_url('normal') ?>">Normal Distribution</a>
+                        <a href="<?= base_url('triangular') ?>">Triangular Distribution</a>
+                        <a href="<?= base_url('betapert') ?>">BETA - PERT Distribution</a>
                     </div>
                 </li>
             </ul>
