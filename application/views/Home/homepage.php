@@ -26,7 +26,7 @@
                 </p>
                 <center>
                     <div class="learn">
-                        <a class="btn" href="/PERT/PERTMain.html">USE PERT</a>
+                        <a class="btn" href="<?=base_url('pert')?>">USE PERT</a>
                     </div>
                 </center>
             </div>

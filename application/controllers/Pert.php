@@ -6,6 +6,22 @@ class Pert extends CI_Controller
         parent::__construct();
     }
 
+    public function index()
+    {
+        $this->load->view('template/header');
+        $this->load->view('pert/pert_main');
+        $this->load->view('template/footer');        
+    }
+
+    public function proj_details()
+    {
+        $data['proj_len'] = $this->input->post('proj_len');
+        $data['unit'] = $this->input->post('unit');
+        $this->load->view('template/header');
+        $this->load->view('pert/pert_input', $data);
+        $this->load->view('template/footer');
+    }
+
     public function calculate()
     {
         $proj_len = $this->input->post('proj_len');
