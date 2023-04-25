@@ -4,9 +4,10 @@
     text-align: center;
     margin: 1rem;
 }
+
 .paragone
 {
-    font-size: 24px;
+    font-size: normal;
     font-style: normal;
     text-align: justify;
     margin: 2rem 5rem;
