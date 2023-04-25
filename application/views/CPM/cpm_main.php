@@ -22,7 +22,13 @@
                     </div>
                     <div class="form-group">
                         <label for="InputTime">Unit of Time:</label>
-                        <input type="text" name="unit" class="form-control" id="InputTime" placeholder="(e.g. Days, Weeks, Months)" required>
+                        <select id="InputTime" name="unit" class="form-control" required>
+                            <option value="" disabled selected hidden></option>
+                            <option value="Days">Days</option>
+                            <option value="Weeks">Weeks</option>
+                            <option value="Months">Months</option>
+                        </select>
+                        <!-- <input type="text" name="unit" class="form-control" id="InputTime" placeholder="(e.g. Days, Weeks, Months)" required> -->
                     </div>
                     <br>
 
@@ -79,7 +85,7 @@
 
     }
 
-    input {
+    input, select {
         width: 100%;
         padding: 12px 20px;
         margin: 8px 0;
