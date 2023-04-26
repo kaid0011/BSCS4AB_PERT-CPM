@@ -68,6 +68,24 @@
     <!-- <div class="grid-item">
 
     </div> -->
+
+    <!-- Final Results Display -->
+    <div class="container">
+            <div class="box">
+                <h3>Critical Path</h3>
+                <p>
+                    # -> # -> # -> # ->
+                </p>
+            </div>
+
+            <div class="box">
+                <h3>Project Completion Time</h3>
+                <p>
+                    456 Days
+                </p>
+                
+            </div>
+        </div>
     <div class="export">
         <!-- Export Simulation Values Excel File -->
         <form action="<?php echo base_url('export') ?>" method="post">
@@ -158,7 +176,44 @@
     table {
         border: 2px solid rgb(119, 115, 115);
     }
+/* Cards */
+.container {
+                justify-content: space-evenly;
+                display: flex;
+                width: auto;
+                height: auto;
+                margin-bottom: 3rem;
+            }
 
+            .box {
+                width: 30%;
+                height: auto;
+                padding: 3px 2px 25px 2px;
+                border: 1px solid #ccc;
+                margin: 5vh;
+                background: white;
+                border-radius: 10px;
+                transition: 0.9;
+            }
+
+            .box:hover {
+                box-shadow: 0 0 11px rgba(33, 33, 33, 0.5);
+                cursor: pointer;
+            }
+
+            h3
+             {
+                font-size: 20px;
+                padding: 5px 5px;
+                text-align: center;
+                color: rgb(104, 92, 92);
+            }
+
+            p{
+                font-size: 18px;
+                padding: 5px;
+                text-align: center;
+            }
     /* RESPONSIVE */
     @media screen {
         .form {
