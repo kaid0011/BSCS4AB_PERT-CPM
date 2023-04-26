@@ -4,7 +4,6 @@ html
     background-color: #FFFFFF;
     scroll-behavior: smooth;
     -ms-overflow-style: none;  /* IE and Edge */
-  
 }
 
 body
@@ -15,8 +14,6 @@ body
     padding-bottom: 40px;
     border: 0;
     height: 100%;
-    
-
 }
 
 
@@ -48,7 +45,6 @@ header
     font-size: 20px;
 }
 
-
 ul {
   list-style-type: none;
   margin: 0;
@@ -75,6 +71,15 @@ li a:hover, .dropdown:hover .dropbtn {
 
 li.dropdown {
   display: inline-block;
+}
+
+#logo
+{
+  width: auto;
+  position: absolute;
+  top: auto;
+  left: 5rem;
+  bottom: 3px;
 }
 
 .dropdown-content {
