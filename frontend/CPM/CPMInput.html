@@ -5,8 +5,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="headfoot.css">
-  <link rel="stylesheet" href="CPMInput.css">
+  <link rel="stylesheet" href="/headfoots.css">
+  <link rel="stylesheet" href="/CPM/CPMInput.css">
   <!-- Materialize CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@materializecss/materialize@1.2.2/dist/css/materialize.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -18,7 +18,7 @@
     <!-- Navigation Bar -->
     <div class="navi">
       <ul>
-        <li><a href="indexx.html">HOME</a></li>
+        <li><a href="/indexx.html">HOME</a></li>
         <li><a href="/PERT/PERTMain.html">PERT</a></li>
         <li><a href="/CPM/CPMMain.html">CPM</a></li>
         <li class="dropdown">
@@ -36,18 +36,25 @@
   <!-- Body  -->
   <div class="firstpg">
     <div class="title">
-      <b> LOREM IPSUM </b>
+      <b> CRITICAL PATH METHOD </b>
     </div>
     <div class="paragone">
-      Lorem ipsum dolor sit amet, no clita veritus maiestatis vim, est illum consetetur no. Agam modus an vel. Nibh
-      feugiat pericula id eam. Sit aliquam platonem omittantur ut, eum meliore offendit at. Suas alienum at per, ad sit
-      exerci vocent docendi, te sea summo feugait. At vim cibo accumsan mnesarchum.
-      <br><br>
-      Usu nominavi atomorum maluisset ne. Sed ex pertinacia repudiandae, ferri lorem aeque et per. Duo exerci munere an,
-      vix malorum diceret fabulas an, nam ei mutat phaedrum. Sed ea timeam suscipiantur, ad eos partem audiam
-      adversarium, dicam appetere necessitatibus sed ut.
+      CPM calculates the earliest and latest start and finish times for each activity, 
+      allowing project managers to determine which activities can be delayed without 
+      affecting the project's overall duration.
+    </div>
+    <div class="instructions">
+      <p>INSTRUCTIONS:</p>
+    <dl>
+      <li> DESCRIPTION - Enter the name or description of the activity.</li>
+      <li> OPTIMISTIC - Enter the measure of estimated optimistic time.</li>
+      <li> PESSIMISTIC - Enter the measure of estimated pessimistic time.</li>
+      <li> MOST LIKELY - Enter the measure of estimated most likely time.</li>
+      <li> PRE-REQUISITES - Enter the <b>activity number</b> of the required activity.</li>
+    </dl>
     </div>
   </div>
+  <br>
     <div class="container">
       <table class="responsive-table highlight centered">
         <thead>
@@ -98,7 +105,7 @@
         </tbody>
       </table>
       <div class="calculate">
-        <a class="btn" href="CPMOutput.html">Calculate</a>
+        <a class="btn" href="/CPM/CPMOutput.html">Calculate</a>
       </div>
     </div>
 

@@ -7,9 +7,10 @@
 
 .paragone
 {
+    font-size: 20px;
     font-style: normal;
-    text-align: justify;
-    margin: 2rem 5rem;
+    text-align: center;
+    margin: 2rem 30rem;
 }
 
 .calculate
