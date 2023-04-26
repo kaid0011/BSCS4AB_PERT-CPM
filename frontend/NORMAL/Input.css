@@ -12,6 +12,25 @@
     margin: 2rem 5rem;
 }
 
+.instructions
+{
+    font-style: normal;
+    text-align: justify;
+    margin-left: 25rem;
+    margin-right: 25rem;
+}
+
+.instructions p
+{
+    font-size: 20px;
+}
+
+dl
+{
+    padding-right: 20rem;
+    padding-bottom: 5rem;
+}
+
 .calculate
 {
     display: flex;
