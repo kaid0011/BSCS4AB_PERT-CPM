@@ -122,11 +122,15 @@ footer
   position: fixed;        
   padding: 1px 0;
   bottom: 0;
-  width: 100%;
   margin: 2rem 0rem 0rem;
   background-color: #EEEEEE;
 }
 
+footer li a
+{
+  text-decoration: none;
+  display: inline;
+}
 
 /* EXTRAS */ 
 ::-webkit-scrollbar {
