@@ -6,6 +6,22 @@ class Betapert extends CI_Controller
         parent::__construct();
     }
 
+    public function index()
+    {
+        $this->load->view('template/header');
+        $this->load->view('betapert/betapert_main');
+        $this->load->view('template/footer');        
+    }
+
+    public function proj_details()
+    {
+        $data['proj_len'] = $this->input->post('proj_len');
+        $data['unit'] = $this->input->post('unit');
+        $this->load->view('template/header');
+        $this->load->view('betapert/betapert_input', $data);
+        $this->load->view('template/footer');
+    }
+
     public function calculate()
     {
         $proj_len = $this->input->post('proj_len');
@@ -173,6 +189,8 @@ class Betapert extends CI_Controller
         $data['project'] = $project;
         $data['cp'] = $cp;
 
-        $this->load->view('beta_results', $data);
+        $this->load->view('template/header');
+        $this->load->view('betapert/betapert_output', $data);
+        $this->load->view('template/footer');
     }
 }
