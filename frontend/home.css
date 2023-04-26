@@ -8,7 +8,6 @@
 
 .paragone
 {
-    font-size: 24px;
     font-style: normal;
     text-align: justify;
     margin: 2rem 5rem;
@@ -21,6 +20,7 @@
     align-items: center;
     margin-bottom: 2rem;
 }
+
 .btn
 {
     text-decoration: none;
