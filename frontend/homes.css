@@ -1,0 +1,150 @@
+.title
+{
+    font-size: 2rem;
+    text-align: center;
+    margin: 1rem;
+}
+
+.paragone
+{
+    font-size: 20px;
+    font-style: normal;
+    color: black;
+    text-align: justify;
+    margin: 2rem 6rem;
+}
+
+.secondpara
+{
+    font-size: 20px;
+    font-style: normal;
+    color: black;
+    text-align: justify;
+    margin: 2rem 10rem;
+}
+
+.desc
+{
+    font-size: 20px;
+    font-style: normal;
+    color: black;
+    text-align: justify;
+    margin: 2rem 6rem;
+}
+
+
+/* Cards */
+.container{
+    justify-content: space-evenly;
+    display: flex;
+    width: auto;
+    height: auto;
+    margin-bottom: 3rem;
+}
+.box{
+    width: 30%;
+    height: auto;
+    padding:3px 2px 25px 2px;
+    border: 1px solid #ccc;
+    margin: 5vh;
+    background: white;
+    border-radius: 10px;
+    transition: 0.9;
+}
+.box:hover{
+    box-shadow: 0 0 11px rgba(33, 33, 33, 0.5);
+    cursor: pointer;
+}
+
+.container1{
+    justify-content: space-evenly;
+    display: flex;
+    width: auto;
+    height: auto;
+    margin-bottom: 5rem;
+}
+.box1{
+    width: 32%;
+    height: auto;
+    padding:3px 2px 25px 2px;
+    border: 1px solid #ccc;
+    margin: 5vh;
+    background: white;
+    border-radius: 10px;
+    transition: 0.9;
+}
+.box1:hover{
+    box-shadow: 0 0 11px rgba(33, 33, 33, 0.5);
+    cursor: pointer;
+}
+
+h3,p{
+    font-size: 20px;
+    padding: 5px 5px;
+    text-align: center;
+    color: rgb(104, 92, 92);
+}
+
+p{
+    font-size: 15px;
+    padding: 5px 5px;
+    margin: 5px 40px 5px;
+    text-align: justify;
+    color: rgb(104, 92, 92);
+}
+
+
+@media (max-width: 800px){
+    .container, .container1{
+        width: 85%;
+        display: block;
+    }
+    .box, .box1{
+        width: 100%;
+        margin-bottom: 4%;
+    }
+}
+
+/* .without
+{
+    flex-direction: column;
+    background-color: #eeee;
+    
+    width: 25%;
+    margin: 2rem 1rem;
+    padding: 20px 20px;
+    border-radius: 10px;
+    align-items: center;
+}
+.withouts
+{
+    flex-direction: column;
+    background-color: #eeee;
+    width: 25%;
+    margin: 2rem 1rem;
+    padding: 20px 20px;
+    border-radius: 10px;
+    align-items: center;
+} */
+.btn
+{
+    text-decoration: none;
+    text-align: center;
+    font-size: 1rem;
+    color: #eeee; 
+    background-color: #B19090;
+    border-radius: 40px;
+    display: inline-block;
+    padding: 10px 20px;
+    border-color: #544141;
+}
+
+.btn:hover
+{
+    background-color: #eeee;
+    color:#B19090;
+    
+}
+
+
+/* Navigation Hamburger */

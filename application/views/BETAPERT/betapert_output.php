@@ -1,0 +1,226 @@
+<div class="firstpg">
+    <div class="title">
+        <b> BetaPert Distribution</b>
+    </div>
+    <div class="paragone">
+        Lorem ipsum dolor sit amet, no clita veritus maiestatis vim, est illum consetetur no. Agam modus an vel. Nibh
+        feugiat pericula id eam. Sit aliquam platonem omittantur ut, eum meliore offendit at. Suas alienum at per, ad sit
+        exerci vocent docendi, te sea summo feugait. At vim cibo accumsan mnesarchum.
+        <br><br>
+        Usu nominavi atomorum maluisset ne. Sed ex pertinacia repudiandae, ferri lorem aeque et per. Duo exerci munere an,
+        vix malorum diceret fabulas an, nam ei mutat phaedrum. Sed ea timeam suscipiantur, ad eos partem audiam
+        adversarium, dicam appetere necessitatibus sed ut.
+    </div>
+</div>
+<div class="grid-container">
+    <div class="grid-item">
+        <table class="responsive-table highlight centered">
+            <thead>
+                <tr>
+                    <th>Activity</th>
+                    <th>Description</th>
+                    <th>Optimistic</th>
+                    <th>Most Likely</th>
+                    <th>Pessimistic</th>
+                    <th>Estimated Duration</th>
+                    <th>Pre-Requisites</th>
+                    <th>Standard Deviation</th>
+                    <th>Variance</th>
+                    <th>ES</th>
+                    <th>EF</th>
+                    <th>LS</th>
+                    <th>LF</th>
+                    <th>Slack</th>
+                    <th>Critical</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                foreach ($project as $task) {
+                ?>
+                    <tr>
+                        <td><?php echo $task['id']; ?></td>
+                        <td><?php echo $task['desc']; ?></td>
+                        <td><?php echo $task['opt'] . " " . $task['unit']; ?></td>
+                        <td><?php echo $task['ml'] . " " . $task['unit']; ?></td>
+                        <td><?php echo $task['pes'] . " " . $task['unit']; ?></td>
+                        <td><?php echo $task['time'] . " " . $task['unit']; ?></td>
+                        <td><?php
+                            $pre = implode(",", $task['prereq']);
+                            if ($pre == '-1') {
+                                $pre = '-';
+                            }
+                            echo $pre;
+                            ?></td>
+                        <td><?php echo $task['es']; ?></td>
+                        <td><?php echo $task['ef']; ?></td>
+                        <td><?php echo $task['ls']; ?></td>
+                        <td><?php echo $task['lf']; ?></td>
+                        <td><?php echo $task['slack']; ?></td>
+                        <td><?php echo $task['isCritical']; ?></td>
+                    </tr>
+                <?php
+                }
+                ?>
+            </tbody>
+        </table>
+    </div>
+    <!-- <div class="grid-item">
+    </div> -->
+    <!-- Final Results Display -->
+    <div class="container">
+            <div class="box">
+                <h3>Critical Path</h3>
+                <p>
+                    # -> # -> # -> #
+                </p>
+            </div>
+
+            <div class="box">
+                <h3>Project Completion Time</h3>
+                <p>
+                    456 Days
+                </p>
+                
+            </div>
+        </div>
+
+    <div class="export">
+        <!-- Export Simulation Values Excel File -->
+        <form action="<?php echo base_url('export') ?>" method="post">
+            <?php
+            foreach ($project as $sim) {
+                $id = $sim['id'];
+                $n = $sim['N'];
+            ?>
+                <input type="hidden" name="<?php echo $id; ?>" value="<?php echo $id; ?>">
+                <input type="hidden" name="N_<?php echo $id; ?>" value="<?php echo $n; ?>">
+                <input type="hidden" name="pqty_<?php echo $id; ?>" value="<?php echo $sim['pqty']; ?>">
+                <?php
+                $sv = implode(",", $sim['sim_val']);
+                ?>
+                <input type="hidden" name="sv_<?php echo $id; ?>" value="<?php echo $sv; ?>">
+            <?php } ?>
+            <!-- <input type="submit" value="Export" name="export"> -->
+            <button class="btn">Export to CSV</button>
+        </form>
+    </div>
+</div>
+<style>
+    .title {
+        font-size: 2rem;
+        text-align: center;
+        margin: 1rem;
+    }
+
+    .paragone {
+        font-size: 24px;
+        font-style: normal;
+        text-align: justify;
+        margin: 2rem 5rem;
+    }
+
+    .calculate {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 2rem;
+    }
+
+    .grid-container {
+        display: grid;
+        width: 90rem;
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+
+    .export {
+        text-align: right;
+    }
+
+    .btn {
+        text-decoration: none;
+        text-align: right;
+        font-size: 1.2rem;
+        color: #eeee;
+        background-color: #B19090;
+        border-radius: 40px;
+        display: inline-block;
+        padding: 10px 20px;
+        border-color: #544141;
+    }
+
+    .btn:hover {
+        background-color: #eeee;
+        color: #B19090;
+
+    }
+
+    /* TABLE */
+    .responsive-table {
+        margin-top: 3rem;
+        margin-bottom: 2rem;
+        margin-left: auto;
+        margin-right: auto;
+        align-items: center;
+    }
+
+    tbody,
+    thead,
+    tr,
+    td,
+    .responsive-table,
+    table {
+        border: 2px solid rgb(119, 115, 115);
+    }
+
+    /* Cards */
+    .container {
+                justify-content: space-evenly;
+                display: flex;
+                width: auto;
+                height: auto;
+                margin-bottom: 3rem;
+            }
+
+            .box {
+                width: 30%;
+                height: auto;
+                padding: 3px 2px 25px 2px;
+                border: 1px solid #ccc;
+                margin: 5vh;
+                background: white;
+                border-radius: 10px;
+                transition: 0.9;
+            }
+
+            .box:hover {
+                box-shadow: 0 0 11px rgba(33, 33, 33, 0.5);
+                cursor: pointer;
+            }
+
+            h3
+             {
+                font-size: 20px;
+                padding: 5px 5px;
+                text-align: center;
+                color: rgb(104, 92, 92);
+            }
+
+            p{
+                font-size: 18px;
+                padding: 5px;
+                text-align: center;
+            }
+    /* RESPONSIVE */
+    @media screen {
+        .form {
+            background-color: #f0f0f0;
+            margin: 3rem 10rem 2rem;
+            border-radius: 1.2rem;
+            padding: 0.25rem;
+        }
+    }
+</style>

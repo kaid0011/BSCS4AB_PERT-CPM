@@ -1,0 +1,42 @@
+.title
+{
+    font-size: 2rem;
+    text-align: center;
+    margin: 1rem;
+}
+
+
+.paragone
+{
+    font-style: normal;
+    text-align: justify;
+    margin: 2rem 5rem;
+}
+
+.learn
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.btn
+{
+    text-decoration: none;
+    text-align: center;
+    font-size: 1.2rem;
+    color: #eeee; 
+    background-color: #B19090;
+    border-radius: 40px;
+    display: inline-block;
+    padding: 10px 20px;
+    border-color: #544141;
+}
+
+.btn:hover
+{
+    background-color: #eeee;
+    color:#B19090;
+    
+}

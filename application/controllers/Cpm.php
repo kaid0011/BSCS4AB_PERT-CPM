@@ -6,6 +6,22 @@ class Cpm extends CI_Controller
         parent::__construct();
     }
 
+    public function index()
+    {
+        $this->load->view('template/header');
+        $this->load->view('cpm/cpm_main');
+        $this->load->view('template/footer');        
+    }
+
+    public function proj_details()
+    {
+        $data['proj_len'] = $this->input->post('proj_len');
+        $data['unit'] = $this->input->post('unit');
+        $this->load->view('template/header');
+        $this->load->view('cpm/cpm_input', $data);
+        $this->load->view('template/footer');
+    }
+
     public function calculate()
     {
         $proj_len = $this->input->post('proj_len');
@@ -134,7 +150,9 @@ class Cpm extends CI_Controller
         }
         $data['project'] = $project;
         $data['cp'] = $cp;
-
-        $this->load->view('cpm_results', $data);
+        
+        $this->load->view('template/header');
+        $this->load->view('cpm/cpm_output', $data);
+        $this->load->view('template/footer'); 
     }
 }
