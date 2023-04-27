@@ -6,13 +6,10 @@
                 <b> STANDARD </b>
             </div>
             <div class="paragone">
-                Lorem ipsum dolor sit amet, no clita veritus maiestatis vim, est illum consetetur no. Agam modus an vel. Nibh
-                feugiat pericula id eam. Sit aliquam platonem omittantur ut, eum meliore offendit at. Suas alienum at per, ad sit
-                exerci vocent docendi, te sea summo feugait. At vim cibo accumsan mnesarchum.
-                <br><br>
-                Usu nominavi atomorum maluisset ne. Sed ex pertinacia repudiandae, ferri lorem aeque et per. Duo exerci munere an,
-                vix malorum diceret fabulas an, nam ei mutat phaedrum. Sed ea timeam suscipiantur, ad eos partem audiam
-                adversarium, dicam appetere necessitatibus sed ut.
+            <p class="paragone"><b>PERT (Project Evaluation and Review Technique)</b> and <b>CPM (Critical Path Method)</b> are two
+            project management techniques used to plan, schedule, and control projects. They are used to determine the minimum time 
+            required to complete a project and identify the critical activities that can cause delays in the project timeline.
+            </p>
             </div>
         </div>
 
@@ -20,9 +17,8 @@
             <div class="box">
                 <h3>PERT</h3>
                 <p>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem
-                    nulla dolorum ducimus, tempora suscipit inventore obcaecati architecto
-                    rem fuga possimus!
+                PERT is appropriate technique which is used for the projects where the time required or needed to complete different 
+                activities are not known. It provides the blueprint of project and is efficient technique for project evaluation.
                 </p>
                 <center>
                     <div class="learn">
@@ -34,9 +30,8 @@
             <div class="box">
                 <h3>CPM</h3>
                 <p>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem
-                    nulla dolorum ducimus, tempora suscipit inventore obcaecati architecto
-                    rem fuga possimus!
+                CPM is a technique which is used for the projects where the time needed for completion of project is already known. 
+                It provides minimum time taken for completion of project.
                 </p>
                 <center>
                     <div class="learn">
@@ -50,21 +45,20 @@
             <div class="title">
                 <b> SIMULATIONS </b>
             </div>
-            <div class="paragone">
-                Lorem ipsum dolor sit amet, no clita veritus maiestatis vim, est illum consetetur no. Agam modus an vel. Nibh
-                feugiat pericula id eam. Sit aliquam platonem omittantur ut, eum meliore offendit at. Suas alienum at per, ad sit
-                exerci vocent docendi, te sea summo feugait. At vim cibo accumsan mnesarchum.
-                <br><br>
-                Usu nominavi atomorum maluisset ne. Sed ex pertinacia repudiandae, ferri lorem aeque et per. Duo exerci munere an,
-                vix malorum diceret fabulas an, nam ei mutat phaedrum. Sed ea timeam suscipiantur, ad eos partem audiam
-                adversarium, dicam appetere necessitatibus sed ut.
+            <div class="">
+            <p class="secondpara">A PERT-created estimation has only 50 percent reliability. By using these different probability distributions in a scheduler calculator, project managers can perform simulations to model the potential impact of different scenarios and uncertainties 
+            on the project timeline. This allows project managers to make more informed decisions about how to allocate resources and manage risks to ensure the project is completed on time and within budget.
+            <br><br>
+            Normal, triangular, and BETA-PERT simulations are types of probability distributions that can be used in a scheduler calculator to perform simulations and generate project schedules.
+            </p>
             </div>
         </div>
         <div class="container1">
             <div class="box1">
                 <h3>Normal</h3>
                 <p>
-                    It is a probability distribution that is symmetric about the mean, indicating that data nearer to the mean occur more frequently than data far from the mean.
+                A probability distribution that is symmetric about the mean, indicating that data
+                nearer to the mean occur more frequently than data far from the mean.
                 </p>
                 <center>
                     <div class="learn">
@@ -104,10 +98,20 @@
             }
 
             .paragone {
-                font-size: 24px;
+                font-size: 20px;
                 font-style: normal;
+                color: black;
                 text-align: justify;
-                margin: 2rem 5rem;
+                margin: 2rem 6rem;
+            }
+
+            .secondpara
+            {
+                font-size: 20px;
+                font-style: normal;
+                color: black;
+                text-align: justify;
+                margin: 2rem 10rem;
             }
 
             /* Cards */
