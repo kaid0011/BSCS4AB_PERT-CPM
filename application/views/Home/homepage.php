@@ -64,9 +64,7 @@
             <div class="box1">
                 <h3>Normal</h3>
                 <p>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem
-                    nulla dolorum ducimus, tempora suscipit inventore obcaecati architecto
-                    rem fuga possimus!
+                    It is a probability distribution that is symmetric about the mean, indicating that data nearer to the mean occur more frequently than data far from the mean.
                 </p>
                 <center>
                     <div class="learn">
@@ -77,9 +75,7 @@
             <div class="box1">
                 <h3>Triangular</h3>
                 <p>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem
-                    nulla dolorum ducimus, tempora suscipit inventore obcaecati architecto
-                    rem fuga possimus!
+                   A continuous probability distribution with a triangle-shaped probability density function. It is defined by three values: a minimum value, a maximum value, and a peak value.
                 </p>
                 <center>
                     <div class="learn">
@@ -90,9 +86,7 @@
             <div class="box1">
                 <h3>BETA-PERT</h3>
                 <p>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem
-                    nulla dolorum ducimus, tempora suscipit inventore obcaecati architecto
-                    rem fuga possimus!
+                    A special case of BETA Distribution that uses three parameters namely Optimistic, Most Likely, and Pessimistic to create a smooth curve that fits well to the normal or lognormal distribution.
                 </p>
                 <center>
                     <div class="learn">
