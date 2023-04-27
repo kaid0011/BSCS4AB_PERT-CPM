@@ -3,13 +3,15 @@
         <b> NORMAL DISTRIBUTION </b>
     </div>
     <div class="paragone">
-        Lorem ipsum dolor sit amet, no clita veritus maiestatis vim, est illum consetetur no. Agam modus an vel. Nibh
-        feugiat pericula id eam. Sit aliquam platonem omittantur ut, eum meliore offendit at. Suas alienum at per, ad sit
-        exerci vocent docendi, te sea summo feugait. At vim cibo accumsan mnesarchum.
+        In normal distribution, the probability of an 
+        event occurring is evenly distributed around the mean, and the probability 
+        decreases as the distance from the mean increases. The normal distribution 
+        is often used in scheduler calculators to represent task durations that are 
+        evenly distributed around an average value.
         <br><br>
-        Usu nominavi atomorum maluisset ne. Sed ex pertinacia repudiandae, ferri lorem aeque et per. Duo exerci munere an,
+        <!-- Usu nominavi atomorum maluisset ne. Sed ex pertinacia repudiandae, ferri lorem aeque et per. Duo exerci munere an,
         vix malorum diceret fabulas an, nam ei mutat phaedrum. Sed ea timeam suscipiantur, ad eos partem audiam
-        adversarium, dicam appetere necessitatibus sed ut.
+        adversarium, dicam appetere necessitatibus sed ut. -->
     </div>
     <form action="<?php echo base_url('normal/calculate') ?>" method="post">
         <input type="number" name="proj_len" value="<?php echo $proj_len; ?>" hidden>
