@@ -3,13 +3,14 @@
         <b> BETAPERT DISTRIBUTION </b>
     </div>
     <div class="paragone">
-        Lorem ipsum dolor sit amet, no clita veritus maiestatis vim, est illum consetetur no. Agam modus an vel. Nibh
-        feugiat pericula id eam. Sit aliquam platonem omittantur ut, eum meliore offendit at. Suas alienum at per, ad sit
-        exerci vocent docendi, te sea summo feugait. At vim cibo accumsan mnesarchum.
+        The BETA-PERT distribution is a type of probability 
+      distribution that is used in PERT analysis. It combines aspects of both the 
+      normal and triangular distributions to model uncertainty in task durations. 
         <br><br>
-        Usu nominavi atomorum maluisset ne. Sed ex pertinacia repudiandae, ferri lorem aeque et per. Duo exerci munere an,
-        vix malorum diceret fabulas an, nam ei mutat phaedrum. Sed ea timeam suscipiantur, ad eos partem audiam
-        adversarium, dicam appetere necessitatibus sed ut.
+        The BETA-PERT distribution is characterized by three parameters: the minimum, 
+      most likely, and maximum duration for a task. It is often used in scheduler 
+      calculators to perform simulations that take into account the uncertainty and 
+      variability of task durations.
     </div>
     <form action="<?php echo base_url('betapert/calculate') ?>" method="post">
         <input type="number" name="proj_len" value="<?php echo $proj_len; ?>" hidden>
