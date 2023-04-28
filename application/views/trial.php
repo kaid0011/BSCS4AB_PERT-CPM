@@ -3,14 +3,14 @@
         <div class="chart-row chart-period">
             <div class="chart-row-item"></div>
             <?php
-                for ($col = 1; $col <= 5; $col++) { ?>
-                    <span><?php echo $col; ?></span>
+            for ($col = 1; $col <= 5; $col++) { ?>
+                <span><?php echo $col; ?></span>
             <?php } ?>
         </div>
         <div class="chart-row chart-lines">
             <?php
-                for ($col = 1; $col <= 5; $col++) { ?>
-                    <span></span>
+            for ($col = 1; $col <= 5; $col++) { ?>
+                <span></span>
             <?php } ?>
             <!-- <span></span><span></span><span></span>
             <span></span><span></span><span></span>
@@ -18,17 +18,15 @@
             <span></span><span></span><span></span> -->
         </div>
         <?php
-            for ($row = 1; $row <= 5; $row++) { ?>
-                <div class="chart-row">
-                    <div class="chart-row-item"><?php echo "Activity " . $row; ?></div>
-                    <ul class="chart-row-bars">
-                        <li class="chart-li-one">Name</li>
-                    </ul>
-                </div>
+        for ($row = 1; $row <= 5; $row++) { ?>
+            <div class="chart-row">
+                <div class="chart-row-item"><?php echo "Activity " . $row; ?></div>
+                <ul class="chart-row-bars">
+                    <li class="chart-li-one">Name</li>
+                </ul>
+            </div>
         <?php } ?>
-        
     </div>
-
 </div>
 
 
