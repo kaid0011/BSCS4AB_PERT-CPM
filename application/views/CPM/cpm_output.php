@@ -1,21 +1,19 @@
    <!-- Body  -->
    <div class="firstpg">
        <div class="title">
-           <b> CPM Output</b>
+           <b> CRITICAL PATH METHOD</b>
        </div>
        <div class="paragone">
-           Lorem ipsum dolor sit amet, no clita veritus maiestatis vim, est illum consetetur no. Agam modus an vel. Nibh
-           feugiat pericula id eam. Sit aliquam platonem omittantur ut, eum meliore offendit at. Suas alienum at per, ad sit
-           exerci vocent docendi, te sea summo feugait. At vim cibo accumsan mnesarchum.
-           <br><br>
-           Usu nominavi atomorum maluisset ne. Sed ex pertinacia repudiandae, ferri lorem aeque et per. Duo exerci munere an,
-           vix malorum diceret fabulas an, nam ei mutat phaedrum. Sed ea timeam suscipiantur, ad eos partem audiam
-           adversarium, dicam appetere necessitatibus sed ut.
+        CPM calculates the earliest and latest start and finish times for each activity, 
+      allowing project managers to determine which activities can be delayed without 
+      affecting the project's overall duration.
+        <<br><br>
+      This table shows the project time completion based on the data provided using the CPM Method:
        </div>
    </div>
    <div class="grid-container">
-       <div class="grid-item">
-           <table class="responsive-table highlight centered">
+      <div class="container" style="overflow-x:auto;">
+      <table class="table">
                <thead>
                    <tr>
                        <th>Activity</th>
@@ -80,10 +78,10 @@
        }
 
        .paragone {
-           font-size: 24px;
-           font-style: normal;
-           text-align: justify;
-           margin: 2rem 5rem;
+        font-size: 20px;
+        font-style: normal;
+        text-align: center;
+        margin: 2rem 30rem;
        }
 
        .calculate {
@@ -99,10 +97,6 @@
            max-width: 100%;
            margin-left: auto;
            margin-right: auto;
-           text-align: center;
-       }
-
-       .export {
            text-align: center;
        }
 
@@ -125,20 +119,33 @@
        }
 
        /* TABLE */
-       .responsive-table {
-           margin-top: 3rem;
-           margin-bottom: 2rem;
-           margin-left: auto;
-           margin-right: auto;
-           align-items: center;
-       }
+       table
+        {
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            display: table;
+            border-collapse: collapse;
+            align-items: justify;
+            width: 100%;
+            border-spacing: 0;
+        }
 
-       tbody,
-       thead,
-       tr,
-       td,
-       .responsive-table,
-       table {}
+        table, th, td
+        {
+            border: none;
+            border-collapse: collapse;
+            border-style: ridge;
+            text-align: center;
+        }
+
+        td, th
+        {
+            padding: 15px 5px;
+            display: table-cell;
+            text-align: center;
+            vertical-align: middle;
+            border-radius: 0;
+        }
 
        /* RESPONSIVE */
        @media screen {

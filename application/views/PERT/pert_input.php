@@ -1,22 +1,28 @@
 <div class="firstpg">
     <div class="title">
-        <b> PERT Input </b>
+        <b> Project Evaluation Review Technique (PERT) </b>
     </div>
     <div class="paragone">
-        Lorem ipsum dolor sit amet, no clita veritus maiestatis vim, est illum consetetur no. Agam modus an vel. Nibh
-        feugiat pericula id eam. Sit aliquam platonem omittantur ut, eum meliore offendit at. Suas alienum at per, ad sit
-        exerci vocent docendi, te sea summo feugait. At vim cibo accumsan mnesarchum.
-        <br><br>
-        Usu nominavi atomorum maluisset ne. Sed ex pertinacia repudiandae, ferri lorem aeque et per. Duo exerci munere an,
-        vix malorum diceret fabulas an, nam ei mutat phaedrum. Sed ea timeam suscipiantur, ad eos partem audiam
-        adversarium, dicam appetere necessitatibus sed ut.
+        PERT calculates three time estimates for each activity: optimistic, pessimistic, and most likely. 
+      <br>These estimates are then used to calculate the expected time for each activity and the entire project.
+    </div>
+    <div class="instructions">
+      <p>INSTRUCTIONS:</p>
+    <dl>
+      <li> DESCRIPTION - Enter the name or description of the activity.</li>
+      <li> OPTIMISTIC - Enter the measure of estimated optimistic time.</li>
+      <li> PESSIMISTIC - Enter the measure of estimated pessimistic time.</li>
+      <li> MOST LIKELY - Enter the measure of estimated most likely time.</li>
+      <li> PRE-REQUISITES - Enter the <b>activity number</b> of the required activity.</li>
+    </dl>
     </div>
 </div>
-<div class="container">
-    <table class="responsive-table highlight centered">
+<br>
+<div class="container" style="overflow-x:auto;">
+      <table class="table">
         <thead>
             <tr>
-                <th>Activity</th>
+                <th>Activity <span class="tooltiptext">&#9432;</span></th>
                 <th>Description</th>
                 <th>Optimistic</th>
                 <th>Most Likely</th>
@@ -68,10 +74,29 @@
 
 .paragone
 {
-    font-size: 24px;
+    font-size: 20px;
+    font-style: normal;
+    text-align: center;
+    margin: 2rem 10rem;
+}
+
+.instructions
+{
     font-style: normal;
     text-align: justify;
-    margin: 2rem 5rem;
+    margin-left: 25rem;
+    margin-right: 25rem;
+}
+
+.instructions p
+{
+    font-size: 20px;
+}
+
+dl
+{
+    padding-right: 20rem;
+    padding-bottom: 5rem;
 }
 
 .calculate
@@ -112,18 +137,32 @@
 }
 
 /* TABLE */
-.responsive-table
+table
 {
-  margin-top: 3rem;
-  margin-bottom: 2rem;
-  margin-left: auto;
-  margin-right: auto;
-  align-items: center;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    display: table;
+    border-collapse: collapse;
+    align-items: justify;
+    width: 100%;
+    border-spacing: 0;
 }
 
-tbody, thead, tr, td, .responsive-table, table
+table, th, td
 {
-    
+    border: none;
+    border-collapse: collapse;
+    border-style: ridge;
+    text-align: center;
+}
+
+td, th
+{
+    padding: 15px 5px;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 0;
 }
 
 /* RESPONSIVE */

@@ -1,20 +1,17 @@
 <div class="firstpg">
     <div class="title">
-        <b> PERT Output</b>
+        <b> Project Evaluation Review Technique (PERT)</b>
     </div>
     <div class="paragone">
-        Lorem ipsum dolor sit amet, no clita veritus maiestatis vim, est illum consetetur no. Agam modus an vel. Nibh
-        feugiat pericula id eam. Sit aliquam platonem omittantur ut, eum meliore offendit at. Suas alienum at per, ad sit
-        exerci vocent docendi, te sea summo feugait. At vim cibo accumsan mnesarchum.
-        <br><br>
-        Usu nominavi atomorum maluisset ne. Sed ex pertinacia repudiandae, ferri lorem aeque et per. Duo exerci munere an,
-        vix malorum diceret fabulas an, nam ei mutat phaedrum. Sed ea timeam suscipiantur, ad eos partem audiam
-        adversarium, dicam appetere necessitatibus sed ut.
+    PERT uses a probabilistic approach to determine the project's critical path and the probability of 
+      completing the project within a specific timeframe.
+      <br><br>
+      This table shows the project time completion based on the data provided using the PERT Method:
     </div>
 </div>
 <div class="grid-container">
-    <div class="grid-item">
-        <table class="responsive-table highlight centered">
+      <div class="container" style="overflow-x:auto;">
+      <table class="table">
             <thead>
                 <tr>
                     <th>Activity</th>
@@ -108,10 +105,14 @@
         <input type="text" name="p_indiv" id="p_indiv" readonly>
         </tbody>
         </table>
+        <div class="calculate">
+        <!-- <a class="btn" href="CPMOutput.html">Calculate</a> -->
+        <button class="btn">Calculate</button>
     </div>
-    <div class="grid-item">
+    </div>
+    <!-- <div class="grid-item">
 
-    </div>
+    </div> -->
 </div>
 
 <style>
@@ -122,10 +123,10 @@
     }
 
     .paragone {
-        font-size: 24px;
+        font-size: 20px;
         font-style: normal;
-        text-align: justify;
-        margin: 2rem 5rem;
+        text-align: center;
+        margin: 2rem 10rem;
     }
 
     .calculate {
@@ -135,18 +136,23 @@
         margin-bottom: 2rem;
     }
 
-    .grid-container {
+    .grid-container
+    {
         display: grid;
-        width: 90rem;
+        max-width: 100%;
+        text-align: center;
+        margin-top: -30px;
+    }
+
+    .container
+    {
+        width: 99rem;
         max-width: 100%;
         margin-left: auto;
         margin-right: auto;
         text-align: center;
     }
 
-    .export {
-        text-align: right;
-    }
 
     .btn {
         text-decoration: none;
@@ -167,21 +173,32 @@
     }
 
     /* TABLE */
-    .responsive-table {
-        margin-top: 3rem;
-        margin-bottom: 2rem;
-        margin-left: auto;
-        margin-right: auto;
-        align-items: center;
+    table
+    {
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        display: table;
+        border-collapse: collapse;
+        align-items: justify;
+        width: 100%;
+        border-spacing: 0;
     }
 
-    tbody,
-    thead,
-    tr,
-    td,
-    .responsive-table,
-    table {
-        border: 2px solid black;
+    table, th, td
+    {
+        border: none;
+        border-collapse: collapse;
+        border-style: ridge;
+        text-align: center;
+    }
+
+    td, th
+    {
+        padding: 15px 5px;
+        display: table-cell;
+        text-align: center;
+        vertical-align: middle;
+        border-radius: 0;
     }
 
     /* RESPONSIVE */

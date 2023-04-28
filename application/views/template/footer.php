@@ -2,7 +2,7 @@
 <footer>
     <div class="footer">
         <ul>
-            <li style="padding: 10px;">Privacy Policy</li>
+            <li style="padding: 10px;"><a href="/PrivacyPolicy.html">Privacy Policy</a></li>
             <li style="padding: 10px;">Cookie Policy</li>
             <li style="padding: 10px;">Terms & Conditions</li>
             <li style="padding: 10px;float: right;">Copyright © 2023 WAPS</li>
@@ -94,6 +94,15 @@
         display: inline-block;
     }
 
+    #logo
+    {
+        width: auto;
+        position: absolute;
+        top: auto;
+        left: 5rem;
+        bottom: 3px;
+    }
+
     .dropdown-content {
         display: none;
         position: absolute;
@@ -137,6 +146,12 @@
         width: 100%;
         margin: 2rem 0rem 0rem;
         background-color: #EEEEEE;
+    }
+
+    footer li a
+    {
+        text-decoration: none;
+        display: inline;
     }
 
 
