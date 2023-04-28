@@ -7,8 +7,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="/headfoot.css">
   <link rel="stylesheet" href="/PERT/PERTInput.css">
-  <!-- Materialize CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@materializecss/materialize@1.2.2/dist/css/materialize.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <title>PERT Input</title>
 </head>
@@ -54,11 +52,11 @@
     </div>
   </div>
     <br>
-    <div class="container">
-      <table class="responsive-table highlight centered">
+    <div class="container" style="overflow-x:auto;">
+      <table class="table">
         <thead>
           <tr>
-            <th>Activity</th>
+            <th>Activity <span class="tooltiptext">&#9432;</span></th>
             <th>Description</th>
             <th>Optimistic</th>
             <th>Most Likely</th>

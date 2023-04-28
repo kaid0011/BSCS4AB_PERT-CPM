@@ -18,8 +18,8 @@
     </dl>
     </div>
 </div>
-<div class="container">
-    <table class="responsive-table highlight centered">
+<div class="container" style="overflow-x:auto;">
+      <table class="table">
         <thead>
             <tr>
                 <th>Activity</th>
@@ -137,20 +137,33 @@
     }
 
     /* TABLE */
-    .responsive-table {
-        margin-top: 3rem;
-        margin-bottom: 2rem;
-        margin-left: auto;
-        margin-right: auto;
-        align-items: center;
+    table
+    {
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        display: table;
+        border-collapse: collapse;
+        align-items: justify;
+        width: 100%;
+        border-spacing: 0;
     }
 
-    /* tbody,
-    thead,
-    tr,
-    td,
-    .responsive-table,
-    table {} */
+    table, th, td
+    {
+        border: none;
+        border-collapse: collapse;
+        border-style: ridge;
+        text-align: center;
+    }
+
+    td, th
+    {
+        padding: 15px 5px;
+        display: table-cell;
+        text-align: center;
+        vertical-align: middle;
+        border-radius: 0;
+    }
 
     /* RESPONSIVE */
     @media screen {
