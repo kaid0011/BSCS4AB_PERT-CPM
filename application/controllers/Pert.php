@@ -48,6 +48,7 @@ class Pert extends CI_Controller
             $data[$i]['lf'] = 0;
             $data[$i]['slack'] = 0;
             $data[$i]['isCritical'] = "No";
+            $data[$i]['pqty'] = $proj_len;
         }
         $this->time($data);
     }

@@ -43,6 +43,7 @@ class Cpm extends CI_Controller
             $data[$i]['lf'] = 0;    // Latest Finish
             $data[$i]['slack'] = 0; // slack
             $data[$i]['isCritical'] = "No"; // Critical task or not
+            $data[$i]['pqty'] = $proj_len;
         }
         $this->forward_pass($data); // proceed to forward pass
     }
