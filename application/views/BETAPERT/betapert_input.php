@@ -113,7 +113,8 @@
     }
 
     .trials {
-        margin: .3rem 15rem;
+        margin: auto;
+        min-width: 15rem;
         max-width: 15rem;
         background-color: #eeee;
         padding: 1rem;
