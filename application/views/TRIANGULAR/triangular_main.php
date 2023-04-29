@@ -109,10 +109,10 @@
 
     }
 
-    @media screen {
+     @media screen {
         .form {
             background-color: #f0f0f0;
-            margin: 3rem 10rem 2rem;
+            margin: 0rem 0rem 2rem;
             border-radius: 1.2rem;
             padding: 0.25rem;
         }

@@ -204,14 +204,22 @@
         align-items: center;
     }
 
-    tbody,
-    thead,
-    tr,
-    td,
-    .responsive-table,
-    table {
-        border: 2px solid rgb(119, 115, 115);
-    }
+    table,
+       th,
+       td {
+           border: none;
+           border-collapse: collapse;
+           border-style: ridge;
+           text-align: center;
+       }
+
+       td,
+       th {
+           padding: 15px 5px;
+           display: table-cell;
+           text-align: center;
+           vertical-align: middle;
+       }
 /* Cards */
     .container {
                 justify-content: space-evenly;

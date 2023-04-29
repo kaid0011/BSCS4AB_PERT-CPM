@@ -12,19 +12,12 @@
       calculators to perform simulations that take into account the uncertainty and 
       variability of task durations.
     </div>
-    <form action="<?php echo base_url('betapert/calculate') ?>" method="post">
-        <input type="number" name="proj_len" value="<?php echo $proj_len; ?>" hidden>
-        <input type="text" name="choice" value="<?php echo 'cpm'; ?>" hidden>
-        <input type="text" name="unit" value="<?php echo $unit; ?>" hidden>
-        <div class="trials">
-            Number of Trials:
-            <input type="number" name="N" min="1" max="10000" placeholder="Max. 1000" required>
-        </div>
+    
 </div>
 <div class="container" style="overflow-x:auto;">
     <table class="responsive-table highlight centered">
         <tr>
-            <td><b>Activity</b></td>
+            <td><b>Activity</b><i class="fa fa-info-circle" aria-hidden="true"></i></td>
             <td><b>Description</b></td>
             <td><b>Optimistic</b></td>
             <td><b>Most Likely</b></td>
@@ -54,10 +47,24 @@
         ?>
     </table>
 </div>
+<br>
+<form action="<?php echo base_url('betapert/calculate') ?>" method="post">
+        <input type="number" name="proj_len" value="<?php echo $proj_len; ?>" hidden>
+        <input type="text" name="choice" value="<?php echo 'cpm'; ?>" hidden>
+        <input type="text" name="unit" value="<?php echo $unit; ?>" hidden>
+        <div class="trials">
+            Number of Trials: <br><br>
+            <input type="number" name="N" min="1" max="10000" placeholder="Max. 1000" required>
+        </div>
+        <br>
 <div class="calculate">
     <button class="btn">Calculate</button>
 </div>
 </form>
+
+
+
+
 <style>
     .title {
         font-size: 2rem;
@@ -106,8 +113,9 @@
     }
 
     .trials {
-        margin: .3rem 15rem;
-        max-width: fit-content;
+        margin: auto;
+        min-width: 15rem;
+        max-width: 15rem;
         background-color: #eeee;
         padding: 1rem;
         border-radius: 10px;
@@ -123,11 +131,35 @@
         align-items: center;
 
     }
-
-    /* tbody, thead, tr, td, .responsive-table, table
-{
     
-} */
+    table, th, td
+    {
+        border: none;
+        border-collapse: collapse;
+        border-style: none;
+        text-align: center;
+        background-color: #eeee;
+        /* padding: 5px; */
+    }
+    
+    td,th
+    {
+        padding: 8px 5px;
+        display: table-cell;
+        text-align: center;
+        vertical-align: middle;
+        border-radius: 0;
+    }
+
+   
+    /* Input Boxes Style */
+    /* input[type=text], input[type=number] 
+    {
+        padding:3px;
+        margin:2px 0;
+        width: 80%;
+    } */
+    
 
     /* RESPONSIVE */
     @media screen {
@@ -137,5 +169,15 @@
             border-radius: 1.2rem;
             padding: 0.25rem;
         }
+        /* .responsive-table 
+        {
+        margin-top: 3rem;
+        margin-bottom: 2rem;
+        margin-left: 4rem;
+        margin-right: 4rem;
+        align-items: center;
+
+        } */
+       
     }
 </style>
