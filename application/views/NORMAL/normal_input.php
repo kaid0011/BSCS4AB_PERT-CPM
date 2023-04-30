@@ -3,17 +3,17 @@
         <b> NORMAL DISTRIBUTION </b>
     </div>
     <div class="paragone">
-        In normal distribution, the probability of an 
-        event occurring is evenly distributed around the mean, and the probability 
-        decreases as the distance from the mean increases. The normal distribution 
-        is often used in scheduler calculators to represent task durations that are 
+        In normal distribution, the probability of an
+        event occurring is evenly distributed around the mean, and the probability
+        decreases as the distance from the mean increases. The normal distribution
+        is often used in scheduler calculators to represent task durations that are
         evenly distributed around an average value.
         <br><br>
         <!-- Usu nominavi atomorum maluisset ne. Sed ex pertinacia repudiandae, ferri lorem aeque et per. Duo exerci munere an,
         vix malorum diceret fabulas an, nam ei mutat phaedrum. Sed ea timeam suscipiantur, ad eos partem audiam
         adversarium, dicam appetere necessitatibus sed ut. -->
     </div>
-    
+
 </div>
 <div class="container" style="overflow-x:auto;">
     <table class="responsive-table highlight centered">
@@ -25,39 +25,39 @@
             <td><b>Pessimistic</b></td>
             <td><b>Pre-Requisites</b></td>
         </tr>
-        <?php
-        for ($i = 1; $i <= $proj_len; $i++) {
-        ?>
-            <tr>
-                <td><input type="text" name="<?php echo $i; ?>" value="<?php echo $i; ?>" readonly></td>
-                <td><input type="text" name="task_desc_<?php echo $i; ?>" required></td>
-                <td><input type="number" name="task_opt_<?php echo $i; ?>" step="any" min="1" max="20"  required></td>
-                <td><input type="number" name="task_ml_<?php echo $i; ?>" step="any" min="1" max="20" required></td>
-                <td><input type="number" name="task_pes_<?php echo $i; ?>" step="any" min="1" max="20" required></td>
-                <td><?php
-                    if ($i == 1) {
-                    ?>
-                        <input type="text" name="task_prereq_<?php echo $i; ?>" value="-" readonly>
-                    <?php
-                    } else { ?>
-                        <input type="text" name="task_prereq_<?php echo $i; ?>" required>
-                    <?php } ?>
-                </td>
-            </tr>
-        <?php }
-        ?>
+        <form action="<?php echo base_url('normal/calculate') ?>" method="post">
+            <?php
+            for ($i = 1; $i <= $proj_len; $i++) {
+            ?>
+                <tr>
+                    <td><input type="text" name="<?php echo $i; ?>" value="<?php echo $i; ?>" readonly></td>
+                    <td><input type="text" name="task_desc_<?php echo $i; ?>" required></td>
+                    <td><input type="number" name="task_opt_<?php echo $i; ?>" step="any" min="1" max="20" required></td>
+                    <td><input type="number" name="task_ml_<?php echo $i; ?>" step="any" min="1" max="20" required></td>
+                    <td><input type="number" name="task_pes_<?php echo $i; ?>" step="any" min="1" max="20" required></td>
+                    <td><?php
+                        if ($i == 1) {
+                        ?>
+                            <input type="text" name="task_prereq_<?php echo $i; ?>" value="-" readonly>
+                        <?php
+                        } else { ?>
+                            <input type="text" name="task_prereq_<?php echo $i; ?>" required>
+                        <?php } ?>
+                    </td>
+                </tr>
+            <?php }
+            ?>
     </table>
 </div>
 <br>
-<form action="<?php echo base_url('normal/calculate') ?>" method="post">
-        <input type="number" name="proj_len" value="<?php echo $proj_len; ?>" hidden>
-        <input type="text" name="choice" value="<?php echo 'cpm'; ?>" hidden>
-        <input type="text" name="unit" value="<?php echo $unit; ?>" hidden>
-        <div class="trials">
-            Number of Trials: <br><br>
-            <input type="number" name="N" min="1" max="10000" placeholder="Max. 1000" required>
-        </div>
-        <br>
+<input type="number" name="proj_len" value="<?php echo $proj_len; ?>" hidden>
+<input type="text" name="choice" value="<?php echo 'cpm'; ?>" hidden>
+<input type="text" name="unit" value="<?php echo $unit; ?>" hidden>
+<div class="trials">
+    Number of Trials: <br><br>
+    <input type="number" name="N" min="1" max="10000" placeholder="Max. 1000" required>
+</div>
+<br>
 <div class="calculate">
     <button class="btn">Calculate</button>
 </div>
@@ -109,7 +109,7 @@
         border-color: #544141;
     }
 
-    
+
     .trials {
         margin: auto;
         min-width: 15rem;
@@ -130,8 +130,9 @@
 
     }
 
-    table, th, td
-    {
+    table,
+    th,
+    td {
         border: none;
         border-collapse: collapse;
         border-style: none;
@@ -139,9 +140,9 @@
         background-color: #eeee;
         /* padding: 5px; */
     }
-    
-    td,th
-    {
+
+    td,
+    th {
         padding: 8px 5px;
         display: table-cell;
         text-align: center;
