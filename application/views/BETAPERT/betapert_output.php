@@ -66,8 +66,25 @@
         </table>
     </div>
     <!-- <div class="grid-item">
-
     </div> -->
+    <!-- Final Results Display -->
+    <div class="container">
+            <div class="box">
+                <h3>Critical Path</h3>
+                <p>
+                    # -> # -> # -> #
+                </p>
+            </div>
+
+            <div class="box">
+                <h3>Project Completion Time</h3>
+                <p>
+                    456 Days
+                </p>
+                
+            </div>
+        </div>
+
     <div class="export">
         <!-- Export Simulation Values Excel File -->
         <form action="<?php echo base_url('export') ?>" method="post">
@@ -89,6 +106,41 @@
         </form>
     </div>
 </div>
+
+<div class="container" style="max-width: 100%; margin: 0 auto; padding: 50px;">
+       <div class="chart" style="display: grid; border: 2px solid #000; position: relative; overflow: hidden;">
+
+           <div class="chart-row chart-period">
+               <div class="chart-row-item"></div>
+               <!-- loop according to project completion time -->
+               <?php
+                for ($col = 1; $col <= $finish_time; $col++) { ?>
+                   <span><?php echo $col; ?></span>
+               <?php } ?>
+           </div>
+
+           <div class="chart-row chart-lines">
+               <!-- loop according to project completion time -->
+               <?php
+               //$finish_time += 1;
+                for ($col = 1; $col <= $finish_time; $col++) { ?>
+                   <span></span>
+               <?php } ?>
+           </div>
+
+           <?php
+            $qty -= 1;
+            foreach ($project as $task) { ?>
+               <div class="chart-row">
+                   <div class="chart-row-item"><?php echo "Activity " . $task['id']; ?></div>
+                   <ul class="chart-row-bars">
+                       <li class="" style="grid-column: <?php echo $task['es']+1; ?>/<?php echo $task['lf']+1; ?>; background-color: #588BAE;"><?php echo $task['desc']; ?></li>
+                   </ul>
+               </div>
+           <?php } ?>
+       </div>
+   </div>
+
 <style>
     .title {
         font-size: 2rem;
@@ -150,15 +202,61 @@
         align-items: center;
     }
 
-    tbody,
-    thead,
-    tr,
-    td,
-    .responsive-table,
-    table {
-        border: 2px solid rgb(119, 115, 115);
-    }
+    table,
+       th,
+       td {
+           border: none;
+           border-collapse: collapse;
+           border-style: ridge;
+           text-align: center;
+       }
 
+       td,
+       th {
+           padding: 15px 5px;
+           display: table-cell;
+           text-align: center;
+           vertical-align: middle;
+       }
+
+    /* Cards */
+    .container {
+                justify-content: space-evenly;
+                display: flex;
+                width: auto;
+                height: auto;
+                margin-bottom: 3rem;
+            }
+
+            .box {
+                width: 30%;
+                height: auto;
+                padding: 3px 2px 25px 2px;
+                border: 1px solid #ccc;
+                margin: 5vh;
+                background: white;
+                border-radius: 10px;
+                transition: 0.9;
+            }
+
+            .box:hover {
+                box-shadow: 0 0 11px rgba(33, 33, 33, 0.5);
+                cursor: pointer;
+            }
+
+            h3
+             {
+                font-size: 20px;
+                padding: 5px 5px;
+                text-align: center;
+                color: rgb(104, 92, 92);
+            }
+
+            p{
+                font-size: 18px;
+                padding: 5px;
+                text-align: center;
+            }
     /* RESPONSIVE */
     @media screen {
         .form {
@@ -167,5 +265,77 @@
             border-radius: 1.2rem;
             padding: 0.25rem;
         }
+    }
+
+    .chart {
+           display: grid;
+           border: 2px solid #000;
+           position: relative;
+           overflow: hidden;
+       }
+
+       .chart-row {
+           display: grid;
+           grid-template-columns: 80px 1fr;
+           background-color: #DCDCDC;
+       }
+
+       .chart-row:nth-child(odd) {
+           background-color: #C0C0C0;
+       }
+
+       .chart-period {
+           color: #fff;
+           background-color: #708090 !important;
+           border-bottom: 2px solid #000;
+           grid-template-columns: 50px repeat(12, 1fr);
+       }
+
+       .chart-lines {
+           position: absolute;
+           height: 100%;
+           width: 100%;
+           background-color: transparent;
+           grid-template-columns: 80px repeat(12, 1fr);
+       }
+
+       .chart-period>span {
+           text-align: center;
+           font-size: 13px;
+           align-self: center;
+           font-weight: bold;
+           padding: 15px 0;
+       }
+
+       .chart-lines>span {
+           display: block;
+           border-right: 1px solid rgba(0, 0, 0, 0.3);
+       }
+
+       .chart-row-item {
+           background-color: #808080;
+           border: 1px solid #000;
+           border-top: 0;
+           border-left: 0;
+           padding: 20px 0;
+           font-size: 15px;
+           font-weight: bold;
+           text-align: center;
+           width: 80px;
+       }
+
+       .chart-row-bars {
+           list-style: none;
+           display: grid;
+           padding: 15px 0;
+           margin: 0;
+           grid-template-columns: repeat(12, 1fr);
+           grid-gap: 10px 0;
+           border-bottom: 1px solid #000;
+       }
+
+       ul .chart-li-one {
+        grid-column: 1/2;
+        background-color: #588BAE;
     }
 </style>

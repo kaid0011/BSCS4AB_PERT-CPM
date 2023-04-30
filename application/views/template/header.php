@@ -16,7 +16,7 @@
     <header>
         <!-- Navigation Bar -->
         <div class="navi">
-            <a href="<?= base_url() ?>" style="align-self:left;"><img src="assets\images\logo.svg" height="40px" width="40px"></a>
+            <a href="<?= base_url() ?>" <img id="logo" src ="/logo.svg" height="50px" width="50px"></a>
             <ul>
                 <li><a href="<?=base_url('pert')?>">PERT</a></li>
                 <li><a href="<?= base_url('cpm') ?>">CPM</a></li>

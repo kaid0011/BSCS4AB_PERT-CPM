@@ -1,20 +1,17 @@
 <div class="firstpg">
     <div class="title">
-        <b> PERT Output</b>
+        <b> Project Evaluation Review Technique (PERT)</b>
     </div>
     <div class="paragone">
-        Lorem ipsum dolor sit amet, no clita veritus maiestatis vim, est illum consetetur no. Agam modus an vel. Nibh
-        feugiat pericula id eam. Sit aliquam platonem omittantur ut, eum meliore offendit at. Suas alienum at per, ad sit
-        exerci vocent docendi, te sea summo feugait. At vim cibo accumsan mnesarchum.
-        <br><br>
-        Usu nominavi atomorum maluisset ne. Sed ex pertinacia repudiandae, ferri lorem aeque et per. Duo exerci munere an,
-        vix malorum diceret fabulas an, nam ei mutat phaedrum. Sed ea timeam suscipiantur, ad eos partem audiam
-        adversarium, dicam appetere necessitatibus sed ut.
+    PERT uses a probabilistic approach to determine the project's critical path and the probability of 
+      completing the project within a specific timeframe.
+      <br><br>
+      This table shows the project time completion based on the data provided using the PERT Method:
     </div>
 </div>
 <div class="grid-container">
-    <div class="grid-item">
-        <table class="responsive-table highlight centered">
+      <div class="container" style="overflow-x:auto;">
+      <table class="table">
             <thead>
                 <tr>
                     <th>Activity</th>
@@ -48,11 +45,6 @@
                             <?php echo round($task['time'], 2) . " " . $task['unit']; ?>
                             <input type="number" name="m" id="m_<?php echo $task['id']; ?>" value="<?php echo round($task['time'], 2); ?>" hidden>
                         </td>
-                        <td>
-                            <?php echo round($task['sd'], 2); ?>
-                            <input type="number" name="s" id="s_<?php echo $task['id']; ?>" value="<?php echo round($task['sd'], 2); ?>" hidden>
-                        </td>
-                        <td><?php echo round($task['v'], 2); ?></td>
                         <td><?php
                             $pre = implode(",", $task['prereq']);
                             if ($pre == '-1') {
@@ -60,6 +52,11 @@
                             }
                             echo $pre;
                             ?></td>
+                        <td>
+                            <?php echo round($task['sd'], 2); ?>
+                            <input type="number" name="s" id="s_<?php echo $task['id']; ?>" value="<?php echo round($task['sd'], 2); ?>" hidden>
+                        </td>
+                        <td><?php echo round($task['v'], 2); ?></td>
                         <td><?php echo round($task['es'], 2); ?></td>
                         <td><?php echo round($task['ef'], 2); ?></td>
                         <td><?php echo round($task['ls'], 2); ?></td>
@@ -108,11 +105,49 @@
         <input type="text" name="p_indiv" id="p_indiv" readonly>
         </tbody>
         </table>
+        <div class="calculate">
+        <!-- <a class="btn" href="CPMOutput.html">Calculate</a> -->
+        <button class="btn">Calculate</button>
     </div>
-    <div class="grid-item">
+    </div>
+    <!-- <div class="grid-item">
 
-    </div>
+    </div> -->
 </div>
+
+<div class="container" style="max-width: 100%; margin: 0 auto; padding: 50px;">
+       <div class="chart" style="display: grid; border: 2px solid #000; position: relative; overflow: hidden;">
+
+           <div class="chart-row chart-period">
+               <div class="chart-row-item"></div>
+               <!-- loop according to project completion time -->
+               <?php
+                for ($col = 1; $col <= $finish_time; $col++) { ?>
+                   <span><?php echo $col; ?></span>
+               <?php } ?>
+           </div>
+
+           <div class="chart-row chart-lines">
+               <!-- loop according to project completion time -->
+               <?php
+               //$finish_time += 1;
+                for ($col = 1; $col <= $finish_time; $col++) { ?>
+                   <span></span>
+               <?php } ?>
+           </div>
+
+           <?php
+            $qty -= 1;
+            foreach ($project as $task) { ?>
+               <div class="chart-row">
+                   <div class="chart-row-item"><?php echo "Activity " . $task['id']; ?></div>
+                   <ul class="chart-row-bars">
+                       <li class="" style="grid-column: <?php echo $task['es']+1; ?>/<?php echo $task['lf']+1; ?>; background-color: #588BAE;"><?php echo $task['desc']; ?></li>
+                   </ul>
+               </div>
+           <?php } ?>
+       </div>
+   </div>
 
 <style>
     .title {
@@ -122,10 +157,10 @@
     }
 
     .paragone {
-        font-size: 24px;
+        font-size: 20px;
         font-style: normal;
-        text-align: justify;
-        margin: 2rem 5rem;
+        text-align: center;
+        margin: 2rem 10rem;
     }
 
     .calculate {
@@ -135,18 +170,23 @@
         margin-bottom: 2rem;
     }
 
-    .grid-container {
+    .grid-container
+    {
         display: grid;
-        width: 90rem;
+        max-width: 100%;
+        text-align: center;
+        margin-top: -30px;
+    }
+
+    .container
+    {
+        width: 99rem;
         max-width: 100%;
         margin-left: auto;
         margin-right: auto;
         text-align: center;
     }
 
-    .export {
-        text-align: right;
-    }
 
     .btn {
         text-decoration: none;
@@ -167,21 +207,32 @@
     }
 
     /* TABLE */
-    .responsive-table {
-        margin-top: 3rem;
-        margin-bottom: 2rem;
-        margin-left: auto;
-        margin-right: auto;
-        align-items: center;
+    table
+    {
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        display: table;
+        border-collapse: collapse;
+        align-items: justify;
+        width: 100%;
+        border-spacing: 0;
     }
 
-    tbody,
-    thead,
-    tr,
-    td,
-    .responsive-table,
-    table {
-        border: 2px solid black;
+    table, th, td
+    {
+        border: none;
+        border-collapse: collapse;
+        border-style: ridge;
+        text-align: center;
+    }
+
+    td, th
+    {
+        padding: 15px 5px;
+        display: table-cell;
+        text-align: center;
+        vertical-align: middle;
+        border-radius: 0;
     }
 
     /* RESPONSIVE */
@@ -192,6 +243,78 @@
             border-radius: 1.2rem;
             padding: 0.25rem;
         }
+    }
+
+    .chart {
+           display: grid;
+           border: 2px solid #000;
+           position: relative;
+           overflow: hidden;
+       }
+
+       .chart-row {
+           display: grid;
+           grid-template-columns: 80px 1fr;
+           background-color: #DCDCDC;
+       }
+
+       .chart-row:nth-child(odd) {
+           background-color: #C0C0C0;
+       }
+
+       .chart-period {
+           color: #fff;
+           background-color: #708090 !important;
+           border-bottom: 2px solid #000;
+           grid-template-columns: 50px repeat(12, 1fr);
+       }
+
+       .chart-lines {
+           position: absolute;
+           height: 100%;
+           width: 100%;
+           background-color: transparent;
+           grid-template-columns: 80px repeat(12, 1fr);
+       }
+
+       .chart-period>span {
+           text-align: center;
+           font-size: 13px;
+           align-self: center;
+           font-weight: bold;
+           padding: 15px 0;
+       }
+
+       .chart-lines>span {
+           display: block;
+           border-right: 1px solid rgba(0, 0, 0, 0.3);
+       }
+
+       .chart-row-item {
+           background-color: #808080;
+           border: 1px solid #000;
+           border-top: 0;
+           border-left: 0;
+           padding: 20px 0;
+           font-size: 15px;
+           font-weight: bold;
+           text-align: center;
+           width: 80px;
+       }
+
+       .chart-row-bars {
+           list-style: none;
+           display: grid;
+           padding: 15px 0;
+           margin: 0;
+           grid-template-columns: repeat(12, 1fr);
+           grid-gap: 10px 0;
+           border-bottom: 1px solid #000;
+       }
+
+       ul .chart-li-one {
+        grid-column: 1/2;
+        background-color: #588BAE;
     }
 </style>
 

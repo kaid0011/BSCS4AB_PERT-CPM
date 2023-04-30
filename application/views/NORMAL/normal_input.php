@@ -3,22 +3,17 @@
         <b> NORMAL DISTRIBUTION </b>
     </div>
     <div class="paragone">
-        Lorem ipsum dolor sit amet, no clita veritus maiestatis vim, est illum consetetur no. Agam modus an vel. Nibh
-        feugiat pericula id eam. Sit aliquam platonem omittantur ut, eum meliore offendit at. Suas alienum at per, ad sit
-        exerci vocent docendi, te sea summo feugait. At vim cibo accumsan mnesarchum.
+        In normal distribution, the probability of an 
+        event occurring is evenly distributed around the mean, and the probability 
+        decreases as the distance from the mean increases. The normal distribution 
+        is often used in scheduler calculators to represent task durations that are 
+        evenly distributed around an average value.
         <br><br>
-        Usu nominavi atomorum maluisset ne. Sed ex pertinacia repudiandae, ferri lorem aeque et per. Duo exerci munere an,
+        <!-- Usu nominavi atomorum maluisset ne. Sed ex pertinacia repudiandae, ferri lorem aeque et per. Duo exerci munere an,
         vix malorum diceret fabulas an, nam ei mutat phaedrum. Sed ea timeam suscipiantur, ad eos partem audiam
-        adversarium, dicam appetere necessitatibus sed ut.
+        adversarium, dicam appetere necessitatibus sed ut. -->
     </div>
-    <form action="<?php echo base_url('normal/calculate') ?>" method="post">
-        <input type="number" name="proj_len" value="<?php echo $proj_len; ?>" hidden>
-        <input type="text" name="choice" value="<?php echo 'cpm'; ?>" hidden>
-        <input type="text" name="unit" value="<?php echo $unit; ?>" hidden>
-        <div class="trials">
-            Number of Trials:
-            <input type="number" name="N" min="1" max="10000" placeholder="Max. 1000" required>
-        </div>
+    
 </div>
 <div class="container" style="overflow-x:auto;">
     <table class="responsive-table highlight centered">
@@ -53,6 +48,16 @@
         ?>
     </table>
 </div>
+<br>
+<form action="<?php echo base_url('normal/calculate') ?>" method="post">
+        <input type="number" name="proj_len" value="<?php echo $proj_len; ?>" hidden>
+        <input type="text" name="choice" value="<?php echo 'cpm'; ?>" hidden>
+        <input type="text" name="unit" value="<?php echo $unit; ?>" hidden>
+        <div class="trials">
+            Number of Trials: <br><br>
+            <input type="number" name="N" min="1" max="10000" placeholder="Max. 1000" required>
+        </div>
+        <br>
 <div class="calculate">
     <button class="btn">Calculate</button>
 </div>
@@ -104,9 +109,11 @@
         border-color: #544141;
     }
 
+    
     .trials {
-        margin: .3rem 15rem;
-        max-width: fit-content;
+        margin: auto;
+        min-width: 15rem;
+        max-width: 15rem;
         background-color: #eeee;
         padding: 1rem;
         border-radius: 10px;
@@ -123,10 +130,24 @@
 
     }
 
-    /* tbody, thead, tr, td, .responsive-table, table
-{
+    table, th, td
+    {
+        border: none;
+        border-collapse: collapse;
+        border-style: none;
+        text-align: center;
+        background-color: #eeee;
+        /* padding: 5px; */
+    }
     
-} */
+    td,th
+    {
+        padding: 8px 5px;
+        display: table-cell;
+        text-align: center;
+        vertical-align: middle;
+        border-radius: 0;
+    }
 
     /* RESPONSIVE */
     @media screen {

@@ -1,15 +1,14 @@
 <div class="firstpg">
     <div class="title">
-        <b> CPM </b>
+        <b> CRITICAL PATH METHOD </b>
     </div>
     <div class="paragone">
-        Lorem ipsum dolor sit amet, no clita veritus maiestatis vim, est illum consetetur no. Agam modus an vel. Nibh
-        feugiat pericula id eam. Sit aliquam platonem omittantur ut, eum meliore offendit at. Suas alienum at per, ad sit
-        exerci vocent docendi, te sea summo feugait. At vim cibo accumsan mnesarchum.
+        CPM is a deterministic approach to project management. 
+        <br>
+        It focuses on identifying the critical path of a project, which is the 
+        sequence of activities that determine the project's total duration. 
         <br><br>
-        Usu nominavi atomorum maluisset ne. Sed ex pertinacia repudiandae, ferri lorem aeque et per. Duo exerci munere an,
-        vix malorum diceret fabulas an, nam ei mutat phaedrum. Sed ea timeam suscipiantur, ad eos partem audiam
-        adversarium, dicam appetere necessitatibus sed ut.
+        Enter the number of tasks to start:
     </div>
 
     <center>
@@ -50,10 +49,10 @@
 
 
     .paragone {
-        font-size: 24px;
+        font-size: 20px;
         font-style: normal;
-        text-align: justify;
-        margin: 2rem 5rem;
+        text-align: center;
+        margin: 2rem 10rem;
     }
 
     .generate {
