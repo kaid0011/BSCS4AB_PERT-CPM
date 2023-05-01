@@ -58,6 +58,24 @@
     </div>
 </div>
 
+<!-- CARDS -->
+<div class="containerbox">
+        <div class="boxx">
+            <h3>Critical Path</h3>
+        </div>
+
+        <div class="boxx">
+            <h3>Project Finish Time</h3>
+        </div>
+</div>
+
+<!-- BUTTON -->
+<div class="calculate">
+        <!-- <a class="btn" href="CPMOutput.html">Calculate</a> -->
+        <button class="btn">Export to CSV</button>
+</div>
+
+<!-- EXPLANATION -->
 <div class="paragone">
     Lorem ipsum dolor sit amet, no clita veritus maiestatis vim, est illum consetetur no. Agam modus an vel. Nibh
     feugiat pericula id eam. Sit aliquam platonem omittantur ut, eum meliore offendit at. Suas alienum at per, ad sit
@@ -67,8 +85,10 @@
     vix malorum diceret fabulas an, nam ei mutat phaedrum. Sed ea timeam suscipiantur, ad eos partem audiam
     adversarium, dicam appetere necessitatibus sed ut.
 </div>
-<div class="grid-container-gantt">
-    <div style="overflow-x: auto;">
+
+<!-- CHART -->
+<div class="container" style="max-width: 100%; margin: 0 auto; padding: 50px;">
+       <div class="chart" style="display: grid; border: 2px solid #000; position: relative; overflow: hidden;">
         <table class="gantt-chart">
             <tr>
                 <th style="border-bottom-style: ridge; border-right-style: ridge;"></th>
@@ -225,6 +245,43 @@
     background: #00B7D4;
     border: 0px;
     border-radius: 10px;
+    }
+
+    /* Cards */
+    .containerbox {
+        justify-content: space-evenly;
+        display: flex;
+        width: auto;
+        height: auto;
+    }
+
+    .boxx {
+        width: 30%;
+        height: auto;
+        padding: 3px 2px 25px 2px;
+        border: 1px solid #ccc;
+        margin: 5vh;
+        background: white;
+        border-radius: 10px;
+        transition: 0.9;
+    }
+
+    .boxx:hover {
+        box-shadow: 0 0 11px rgba(33, 33, 33, 0.5);
+        cursor: pointer;
+    }
+
+    h3 {
+        font-size: 20px;
+        padding: 5px 5px;
+        text-align: center;
+        color: rgb(104, 92, 92);
+    }
+
+    p {
+        font-size: 18px;
+        padding: 5px;
+        text-align: center;
     }
 
     /* RESPONSIVE */

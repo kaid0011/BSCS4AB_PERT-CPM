@@ -92,7 +92,7 @@
         <input type="number" name="s" id="s" value="<?php echo round($proj_sd, 2); ?>" hidden>
         <button id="compute" class="compute">Calculate</button>
         <br><label for="p">Probability of completion: </label>
-        <input type="text" name="p" id="p" readonly>
+        <input type="textp" name="p" id="p" readonly>
 
         <!-- Probability of Individual Task Completion Completion by Given Date -->
         <h3>Compute Individual Task Completion Probability</h3>
@@ -102,7 +102,7 @@
         <input type="number" name="x_indiv" id="x_indiv">
         <button id="compute_indiv" class="compute_indiv">Calculate</button>
         <br><label for="p">Probability of completion: </label>
-        <input type="text" name="p_indiv" id="p_indiv" readonly>
+        <input type="textp" name="p_indiv" id="p_indiv" readonly>
         </tbody>
         </table>
         <div class="calculate">
@@ -115,6 +115,61 @@
     </div> -->
 </div>
 
+<!-- CARDS 1 -->
+<div class="containerbox">
+        <div class="boxx">
+            <h3>Critical Path</h3>
+            <h3>Project Finish Time</h3>
+        </div>
+
+        <div class="boxx">
+            <h3>Project Variance</h3>
+            <h3>Project Standard Deviation</h3>
+        </div>
+</div>
+
+<!-- BUTTON -->
+<div class="calculate">
+        <!-- <a class="btn" href="CPMOutput.html">Calculate</a> -->
+        <button class="btn">Export to CSV</button>
+</div>
+
+<!-- EXPLANATION -->
+<div class="paragone">
+    Lorem ipsum dolor sit amet, no clita veritus maiestatis vim, est illum consetetur no. Agam modus an vel. Nibh
+    feugiat pericula id eam. Sit aliquam platonem omittantur ut, eum meliore offendit at. Suas alienum at per, ad sit
+    exerci vocent docendi, te sea summo feugait. At vim cibo accumsan mnesarchum.
+    <br><br>
+    Usu nominavi atomorum maluisset ne. Sed ex pertinacia repudiandae, ferri lorem aeque et per. Duo exerci munere an,
+    vix malorum diceret fabulas an, nam ei mutat phaedrum. Sed ea timeam suscipiantur, ad eos partem audiam
+    adversarium, dicam appetere necessitatibus sed ut.
+</div>
+
+<!-- CARDS 2 -->
+<div class="containerbox2">
+        <div class="boxx2">
+            <h3 id="two">Expected Project Duration</h3>
+            <!-- BUTTON -->
+            <div class="calculate">
+                    <!-- <a class="btn" href="CPMOutput.html">Calculate</a> -->
+                    <button class="btn">Calculate</button>
+            </div>
+            <h3 id="two">Probability of Completion</h3>
+        </div>
+
+        <div class="boxx2">
+            <h3 id="two">Task ID: </h3>
+            <h3 id="two">Expected Project Duration: </h3>
+            <!-- BUTTON -->
+            <div class="calculate">
+                    <!-- <a class="btn" href="CPMOutput.html">Calculate</a> -->
+                    <button class="btn">Calculate</button>
+            </div>
+            <h3 id="two">Probability of Completion</h3>
+        </div>
+</div>
+
+<!-- CHART -->
 <div class="container" style="max-width: 100%; margin: 0 auto; padding: 50px;">
        <div class="chart" style="display: grid; border: 2px solid #000; position: relative; overflow: hidden;">
 
@@ -207,32 +262,133 @@
     }
 
     /* TABLE */
-    table
-    {
-        margin-top: 2rem;
-        margin-bottom: 1rem;
-        display: table;
-        border-collapse: collapse;
-        align-items: justify;
-        width: 100%;
+    table {
+        margin-top: 3rem;
+        margin-bottom: 2rem;
+        margin-left: auto;
+        margin-right: auto;
+        align-items: center;
         border-spacing: 0;
+        padding: 2vh 3vh;
     }
 
-    table, th, td
+    table,
+    th,
+    td 
     {
         border: none;
         border-collapse: collapse;
-        border-style: ridge;
+        border-style: none;
         text-align: center;
+        background-color: transparent;
+        /* padding: 5px; */
     }
 
-    td, th
+    td,
+    th 
     {
-        padding: 15px 5px;
+        padding: 8px 5px;
         display: table-cell;
         text-align: center;
         vertical-align: middle;
         border-radius: 0;
+    }
+
+    textarea
+    {
+        background-color: transparent;
+        border: 2px solid;
+        border-radius: 10px;
+        padding: 3px;
+        resize: none;
+        margin: 5px;
+    }
+
+    input[type=text1]
+    {
+        border-style: none;
+        text-align: center;
+    }
+
+    input[type=textp]
+    {
+        border-style: none;
+        text-align: center;
+    }
+
+    input
+    {
+        background-color: transparent;
+        border-radius: 10px;
+        padding: 5px;
+    }
+
+    /* Cards */
+    .containerbox {
+        justify-content: space-evenly;
+        display: flex;
+        width: auto;
+        height: auto;
+    }
+
+    .boxx {
+        width: 30%;
+        height: auto;
+        padding: 3px 2px 25px 2px;
+        border: 1px solid #ccc;
+        margin: 5vh;
+        background: white;
+        border-radius: 10px;
+        transition: 0.9;
+    }
+
+    .boxx:hover {
+        box-shadow: 0 0 11px rgba(33, 33, 33, 0.5);
+        cursor: pointer;
+    }
+
+    .containerbox2 {
+        justify-content: space-evenly;
+        display: flex;
+        width: auto;
+        height: auto;
+    }
+
+    .boxx2 {
+        width: 30%;
+        height: auto;
+        padding: 3px 2px 25px 2px;
+        border: 1px solid #ccc;
+        margin: 5vh;
+        background: white;
+        border-radius: 10px;
+        transition: 0.9;
+    }
+
+    .boxx2:hover {
+        box-shadow: 0 0 11px rgba(33, 33, 33, 0.5);
+        cursor: pointer;
+    }
+
+    #two
+    {
+        font-size: 20px;
+        padding: 5px 5px;
+        text-align: left;
+        color: rgb(104, 92, 92);
+    }
+
+    h3 {
+        font-size: 20px;
+        padding: 5px 5px;
+        text-align: center;
+        color: rgb(104, 92, 92);
+    }
+
+    p {
+        font-size: 18px;
+        padding: 5px;
+        text-align: center;
     }
 
     /* RESPONSIVE */
