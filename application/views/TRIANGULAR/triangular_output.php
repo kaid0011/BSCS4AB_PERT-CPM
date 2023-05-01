@@ -14,22 +14,22 @@
 </div>
 <div class="grid-container">
     <div class="grid-item">
-        <table class="responsive-table highlight centered">
+        <table class="output">
             <thead>
-                <tr>
-                    <th>Activity</th>
-                    <th>Description</th>
-                    <th>Optimistic</th>
-                    <th>Most Likely</th>
-                    <th>Pessimistic</th>
-                    <th>Estimated Duration</th>
-                    <th>Pre-Requisites</th>
-                    <th>ES</th>
-                    <th>EF</th>
-                    <th>LS</th>
-                    <th>LF</th>
-                    <th>Slack</th>
-                    <th>Critical</th>
+            <tr>
+                <th>Activity</th>
+                <th title ="Activity Description">Description <span class="tooltiptext">&#9432;</span></th>
+                <th title ="Shortest Estimated Activity Duration">Optimistic <span class="tooltiptext">&#9432;</span></th>
+                <th title ="Reasonable Estimated Activity Duration">Most Likely <span class="tooltiptext">&#9432;</span></th>
+                <th title ="Maximum Estimated Activity Duration">Pessimistic <span class="tooltiptext">&#9432;</span></th>
+                <th title ="Estimated Activity Completion based on OT, MLT, and PT">Estimated Duration <span class="tooltiptext">&#9432;</span></th>
+                <th title ="Activity Number that needs to be completed first.">Pre-Requisites <span class="tooltiptext">&#9432;</span></th>
+                <th title ="Activity's Earliest Start Time">ES <span class="tooltiptext">&#9432;</span></th>
+                <th title ="Activity's Earliest Finish Time">EF <span class="tooltiptext">&#9432;</span></th>
+                <th title ="Activity's Latest Start Time">LS <span class="tooltiptext">&#9432;</span></th>
+                <th title ="Activity's Latest Finish Time">LF <span class="tooltiptext">&#9432;</span></th>
+                <th title ="Activity's Available Slack Time">Slack <span class="tooltiptext">&#9432;</span></th>
+                <th title ="If the Activity is Critical">Critical <span class="tooltiptext">&#9432;</span></th>
                 </tr>
             </thead>
             <tbody>
@@ -78,7 +78,7 @@
                     if ($cp['id'] == $max) {
                         echo $cp['id'];
                     } else {
-                        echo $cp['id'] . "-";
+                        echo $cp['id'] . " → ";
                     }
                 }
                 ?>
@@ -111,11 +111,13 @@
                 <input type="hidden" name="sv_<?php echo $id; ?>" value="<?php echo $sv; ?>">
             <?php } ?>
             <!-- <input type="submit" value="Export" name="export"> -->
-            <button class="btn">Export to CSV</button>
+            <center><button class="btn">Export to CSV</button></center>
         </form>
     </div>
 </div>
-
+<div class="ganttchartname">
+        <b> Project Gantt Chart</b>
+    </div>
 <div class="container" style="max-width: 100%; margin: 0 auto; padding: 50px;">
     <div class="chart" style="display: grid; border: 2px solid #000; position: relative; overflow: hidden;">
 
@@ -149,7 +151,15 @@
         <?php } ?>
     </div>
 </div>
-
+<div class="paragone">
+        Lorem ipsum dolor sit amet, no clita veritus maiestatis vim, est illum consetetur no. Agam modus an vel. Nibh
+        feugiat pericula id eam. Sit aliquam platonem omittantur ut, eum meliore offendit at. Suas alienum at per, ad sit
+        exerci vocent docendi, te sea summo feugait. At vim cibo accumsan mnesarchum.
+        <br><br>
+        Usu nominavi atomorum maluisset ne. Sed ex pertinacia repudiandae, ferri lorem aeque et per. Duo exerci munere an,
+        vix malorum diceret fabulas an, nam ei mutat phaedrum. Sed ea timeam suscipiantur, ad eos partem audiam
+        adversarium, dicam appetere necessitatibus sed ut.
+    </div>
 <style>
     .title {
         font-size: 2rem;
@@ -157,11 +167,19 @@
         margin: 1rem;
     }
 
+    .ganttchartname
+    {
+        font-size: 2rem;
+        text-align: center;
+        margin: .1rem 2rem .1rem 2rem;
+    }
+        
+    
     .paragone {
         font-size: 24px;
         font-style: normal;
         text-align: justify;
-        margin: 2rem 5rem;
+        margin: 1.5rem 5rem;
     }
 
     .calculate {
@@ -194,6 +212,7 @@
         display: inline-block;
         padding: 10px 20px;
         border-color: #544141;
+        margin-bottom: 2rem;
     }
 
     .btn:hover {
@@ -203,29 +222,46 @@
     }
 
     /* TABLE */
-    .responsive-table {
+    table {
+        padding: 1rem;
         margin-top: 3rem;
         margin-bottom: 2rem;
         margin-left: auto;
         margin-right: auto;
         align-items: center;
-    }
-
-    table,
-    th,
-    td {
+        border-spacing: 0;
         border: none;
         border-collapse: collapse;
-        border-style: ridge;
+        border-style: none;
         text-align: center;
+        background-color: #eeee;
+        
     }
 
     td,
-    th {
-        padding: 15px 5px;
+    th 
+    {
+        border: none;
+        border-collapse: collapse;
+        border-style: none;
+        text-align: center;
+        padding: .5rem .8rem;
         display: table-cell;
         text-align: center;
         vertical-align: middle;
+        border-radius: 0;
+        background-color: transparent;
+    }
+    tr 
+    {
+     border-bottom: 1px solid #ddd;
+    }
+    td{
+        background-color: #eeee;
+    }
+
+    th{
+        background-color: #d9c7c7;
     }
 
     /* Cards */
@@ -234,7 +270,7 @@
         display: flex;
         width: auto;
         height: auto;
-        margin-bottom: 3rem;
+        margin-bottom: 1.4rem;
     }
 
     .box {

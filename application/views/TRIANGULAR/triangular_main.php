@@ -3,20 +3,20 @@
         <b> TRIANGULAR DISTRIBUTION </b>
     </div>
     <div class="paragone">
-        Lorem ipsum dolor sit amet, no clita veritus maiestatis vim, est illum consetetur no. Agam modus an vel. Nibh
-        feugiat pericula id eam. Sit aliquam platonem omittantur ut, eum meliore offendit at. Suas alienum at per, ad sit
-        exerci vocent docendi, te sea summo feugait. At vim cibo accumsan mnesarchum.
+    Triangular distribution: In a triangular distribution, the probability of an
+        event occurring is highest at the most likely value, and decreases as the
+        values move away from the most likely value. 
         <br><br>
-        Usu nominavi atomorum maluisset ne. Sed ex pertinacia repudiandae, ferri lorem aeque et per. Duo exerci munere an,
-        vix malorum diceret fabulas an, nam ei mutat phaedrum. Sed ea timeam suscipiantur, ad eos partem audiam
-        adversarium, dicam appetere necessitatibus sed ut.
+        Triangular distributions are
+        often used in scheduler calculators to represent task durations that have a
+        range of possible values, but are most likely to fall within a specific range.
     </div>
 </div>
 <center>
     <div class="form">
         <form action="<?= base_url('triangular/proj_details') ?>" method="post">
             <div class="form-group">
-                <label for="InputTask">Number of Tasks:</label>
+                <label for="InputTask">Number of Activities:</label>
                 <input type="number" name="proj_len" class="form-control" id="InputTask" aria-describedby="input" placeholder="Max. 20." required>
             </div>
             <div class="form-group">
