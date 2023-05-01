@@ -37,7 +37,7 @@
                 for ($i = 1; $i <= $proj_len; $i++) {
                 ?>
                     <tr>
-                        <td><input type="text" name="<?php echo $i; ?>" value="<?php echo $i; ?>" readonly></td>
+                        <td><input type="text1" name="<?php echo $i; ?>" value="<?php echo $i; ?>" readonly></td>
                         <td><input type="text" name="task_desc_<?php echo $i; ?>" required></td>
                         <td><input type="number" name="task_time_<?php echo $i; ?>" min="1" max="20" step="any" required></td>
                         <td><?php
@@ -163,6 +163,12 @@
         text-align: center;
         vertical-align: middle;
         border-radius: 0;
+    }
+
+    input[type=text1]
+    {
+        border-style: none;
+        text-align: center;
     }
 
     /* RESPONSIVE */

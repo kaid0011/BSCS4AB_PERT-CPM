@@ -6,7 +6,7 @@
         PERT calculates three time estimates for each activity: optimistic, pessimistic, and most likely. 
       <br>These estimates are then used to calculate the expected time for each activity and the entire project.
     </div>
-    <div class="instructions">
+    <div class="instructions" style="overflow-x:auto;"> 
       <p>INSTRUCTIONS:</p>
     <dl>
       <li> DESCRIPTION - Enter the name or description of the activity.</li>
@@ -22,12 +22,12 @@
       <table class="table">
         <thead>
             <tr>
-                <th>Activity <span class="tooltiptext">&#9432;</span></th>
-                <th>Description</th>
-                <th>Optimistic</th>
-                <th>Most Likely</th>
-                <th>Pessimistic</th>
-                <th>Pre-Requisites</th>
+            <th>Activity</th>
+                <th title ="Activity Description">Description <span class="tooltiptext">&#9432;</span></th>
+                <th title ="Shortest Estimated Activity Duration">Optimistic <span class="tooltiptext">&#9432;</span></th>
+                <th title ="Reasonable Estimated Activity Duration">Most Likely <span class="tooltiptext">&#9432;</span></th>
+                <th title ="Maximum Estimated Activity Duration">Pessimistic <span class="tooltiptext">&#9432;</span></th>
+                <th title ="Activity Number that needs to be completed first.">Pre-Requisites <span class="tooltiptext">&#9432;</span></th>
             </tr>
         </thead>
         <tbody>
@@ -39,8 +39,9 @@
                 for ($i = 1; $i <= $proj_len; $i++) {
                 ?>
                     <tr>
-                        <<td><input type="text" name="<?php echo $i; ?>" value="<?php echo $i; ?>" readonly></td>
-                        <td><input type="text" name="task_desc_<?php echo $i; ?>" required></td>
+                        <td><input type="text1" name="<?php echo $i; ?>" value="<?php echo $i; ?>" readonly></td>
+                        <!--<td><input type="text" name="task_desc_<?php echo $i; ?>" required></td>-->
+                        <td><textarea  name = "task_desc_<?php echo $i; ?>" required></textarea></td>
                         <td><input type="number" name="task_opt_<?php echo $i; ?>" step="any" min="1" max="20" required></td>
                         <td><input type="number" name="task_ml_<?php echo $i; ?>" step="any" min="1" max="20" required></td>
                         <td><input type="number" name="task_pes_<?php echo $i; ?>" step="any" min="1" max="20" required></td>
@@ -137,33 +138,60 @@ dl
 }
 
 /* TABLE */
-table
-{
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-    display: table;
-    border-collapse: collapse;
-    align-items: justify;
-    width: 100%;
-    border-spacing: 0;
-}
+    table {
+        margin-top: 3rem;
+        margin-bottom: 2rem;
+        margin-left: auto;
+        margin-right: auto;
+        align-items: center;
+        border-spacing: 0;
+        padding: 2vh 3vh;
+    }
 
-table, th, td
-{
-    border: none;
-    border-collapse: collapse;
-    border-style: ridge;
-    text-align: center;
-}
+    table,
+    th,
+    td 
+    {
+        border: none;
+        border-collapse: collapse;
+        border-style: none;
+        text-align: center;
+        background-color: transparent;
+        /* padding: 5px; */
+    }
 
-td, th
-{
-    padding: 15px 5px;
-    display: table-cell;
-    text-align: center;
-    vertical-align: middle;
-    border-radius: 0;
-}
+    td,
+    th 
+    {
+        padding: 8px 5px;
+        display: table-cell;
+        text-align: center;
+        vertical-align: middle;
+        border-radius: 0;
+    }
+
+    textarea
+    {
+        background-color: transparent;
+        border: 2px solid;
+        border-radius: 10px;
+        padding: 3px;
+        resize: none;
+        margin: 5px;
+    }
+
+    input[type=text1]
+    {
+        border-style: none;
+        text-align: center;
+    }
+
+    input
+    {
+        background-color: transparent;
+        border-radius: 10px;
+        padding: 5px;
+    }
 
 /* RESPONSIVE */
 @media screen {
