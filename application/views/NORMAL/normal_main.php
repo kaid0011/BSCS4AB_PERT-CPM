@@ -17,7 +17,7 @@
         <form action="<?= base_url('normal/proj_details') ?>" method="post">
             <div class="form-group">
                 <label for="InputTask">Number of Activities:</label>
-                <input type="number" name="proj_len" class="form-control" id="InputTask" min="1" max="20" aria-describedby="input" placeholder="Max. 20." required>
+                <input type="number" name="proj_len" class="form-control" id="InputTask" min="1" max="20" oninput="validity.valid||(value='');" aria-describedby="input" placeholder="Max. 20." required>
             </div>
             <div class="form-group">
                 <label for="InputTime">Unit of Time:</label>

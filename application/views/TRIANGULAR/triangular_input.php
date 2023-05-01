@@ -34,16 +34,17 @@
                     <td><input type="text1" name="<?php echo $i; ?>" value="<?php echo $i; ?>" readonly></td>
                     <!-- <td><input type="text" name="task_desc_<?php echo $i; ?>" required></td> -->
                     <td><textarea  name = "task_desc_<?php echo $i; ?>" required></textarea></td>
-                    <td><input type="number" name="task_opt_<?php echo $i; ?>" step="any" min="1" max="20" required></td>
-                    <td><input type="number" name="task_ml_<?php echo $i; ?>" step="any" min="1" max="20" required></td>
-                    <td><input type="number" name="task_pes_<?php echo $i; ?>" step="any" min="1" max="20" required></td>
+                    <td><input type="number" name="task_opt_<?php echo $i; ?>" step="any" min="1" max="20" oninput="validity.valid||(value='');" required></td>
+                    <td><input type="number" name="task_ml_<?php echo $i; ?>" step="any" min="1" max="20" oninput="validity.valid||(value='');" required></td>
+                    <td><input type="number" name="task_pes_<?php echo $i; ?>" step="any" min="1" max="20" oninput="validity.valid||(value='');" required></td>
                     <td><?php
                         if ($i == 1) {
                         ?>
                             <input type="text" name="task_prereq_<?php echo $i; ?>" value="-" readonly>
                         <?php
                         } else { ?>
-                            <input type="text" name="task_prereq_<?php echo $i; ?>" required>
+                            <input type="text" name="task_prereq_<?php echo $i; ?>" pattern="[1-<?php echo $i-1; ?>](,[1-<?php echo $i-1; ?>])*|^[\-]" 
+                            oninvalid="this.setCustomValidity('bawal yan haha XD')" onchange="this.setCustomValidity('')" required>
                         <?php } ?>
                     </td>
                 </tr>
@@ -57,7 +58,7 @@
 <input type="text" name="unit" value="<?php echo $unit; ?>" hidden>
 <div class="trials">
     Number of Trials: <br><br>
-    <input type="numbers" name="N" min="1" max="10000" placeholder="Max. 1000" required>
+    <input type="numbers" name="N" min="1" max="1000" oninput="validity.valid||(value='');" placeholder="Max. 1000" required>
 </div>
 <br>
 <div class="calculate">
