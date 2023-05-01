@@ -30,9 +30,7 @@
         padding-top: 60px;
         padding-bottom: 40px;
         border: 0;
-        height: 100%;
-
-
+        height: 100vh;
     }
 
 
@@ -130,18 +128,12 @@
     }
 
     /* Footer */
-    footer {
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        height: auto;
-        width: 100%;
-    }
 
-    .footer {
-        width: 100%;
+    footer {
+        margin-top: auto;
         position: fixed;
         padding: 1px 0;
+        height: 40px;
         bottom: 0;
         width: 100%;
         margin: 2rem 0rem 0rem;
