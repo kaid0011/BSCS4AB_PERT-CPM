@@ -13,7 +13,7 @@
             <form action="<?=base_url('pert/proj_details')?>" method="post">
                 <div class="form-group">
                     <label for="InputTask">Number of Tasks:</label>
-                    <input type="number" name ="proj_len" class="form-control" id="InputTask" aria-describedby="input" placeholder="Max. 20." required>
+                    <input type="number" name ="proj_len" class="form-control" id="InputTask" aria-describedby="input" placeholder="Max. 20." min="1" max="20" oninput="validity.valid||(value='');" required>
                 </div>
                 <div class="form-group">
                     <label for="InputTime">Unit of Time:</label>
