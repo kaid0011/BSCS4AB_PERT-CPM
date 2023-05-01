@@ -1,14 +1,32 @@
     <!-- Body  -->
 
     <body>
-        <div class="firstpg">
-            <div class="title">
-                <b> STANDARD </b>
+    <div class="firstpg">
+        <div class="title">
+                <b> WAPS with Simulation </b>
+                <h3><i>Web-based Automated PERT-CPM Scheduler with Simulations</i></h3>
             </div>
             <div class="paragone">
-            <p class="paragone"><b>PERT (Project Evaluation and Review Technique)</b> and <b>CPM (Critical Path Method)</b> are two
-            project management techniques used to plan, schedule, and control projects. They are used to determine the minimum time 
-            required to complete a project and identify the critical activities that can cause delays in the project timeline.
+            <p class="paragone">WAPS offers a user-friendly interface that allows you to manage your project activities, durations, and dependencies with ease. By utilizing the power of <b>PERT (Program Evaluation and Review Technique) and CPM (Critical Path Method) algorithms</b>, WAPS helps you plan and schedule your project efficiently.
+            <br> <br>
+            We are proud to offer a special feature that is not found in other web applications: the ability to schedule your project using <b>Normal, Triangular, and BETA-PERT Distributions</b>. These distributions are integrated with <b>Monte Carlo Simulations</b> that can create trials <b>up to 1000 times</b>, giving you an accurate estimate of your project completion time and potential risks. You can also download the result of the trials in CSV file.
+            <br><br>
+            With WAPS, you can enter all the necessary details about your project, including the activities required to complete the project, its description, the time required to complete each activity, and the dependencies between the activities. Based on this information, our algorithms calculate the critical path and provide you with an accurate estimate of the project's completion time. You can then use our scheduling feature to create a realistic timeline with a Gantt Chart and estimate the probability of completing the project on time.
+            <br><br>
+            WAPS is suitable for project managers, team leaders, or team members who need to manage their project activities and schedules. With our easy-to-use interface, you can plan ahead, track progress, and make adjustments as needed.
+            <br><br>
+            We have 5 different types of scheduling you can pick from based on your preference.
+
+            </p>
+            </div>
+        </div>
+        <div class="firstpg">
+            <div class="title">
+                <b> WITHOUT SIMULATION </b>
+            </div>
+            <div class="paragone">
+            <p class="paragone">
+                Our scheduling calculators without simulations are fantastic tools that simplifies project management. It comes equipped with two powerful algorithms - <B>PERT and CPM</B> - that enable you to plan and schedule your project with ease. You only need to provide details about your project, and the calculator does the rest. It's simple to use and has a user-friendly interface, making it easy to track progress, identify issues, and make any necessary changes.
             </p>
             </div>
         </div>
@@ -43,13 +61,11 @@
 
         <div class="secondparag">
             <div class="title">
-                <b> SIMULATIONS </b>
+                <b> WITH SIMULATION </b>
             </div>
             <div class="">
-            <p class="secondpara">A PERT-created estimation has only 50 percent reliability. By using these different probability distributions in a scheduler calculator, project managers can perform simulations to model the potential impact of different scenarios and uncertainties 
-            on the project timeline. This allows project managers to make more informed decisions about how to allocate resources and manage risks to ensure the project is completed on time and within budget.
-            <br><br>
-            Normal, triangular, and BETA-PERT simulations are types of probability distributions that can be used in a scheduler calculator to perform simulations and generate project schedules.
+            <p class="secondpara">Our calculators, now with the added benefit of simulation, are a game-changer for project management. These calculators use advanced computations based on <b>Normal, Triangular, and BETA-PERT Distributions</b>, which give you a more precise estimate of your project completion time and potential risks. Monte Carlo Simulation technology enables you to generate <b>up to 1000 trials</b>, providing greater accuracy and confidence in your project plan. This powerful tool can help you stay on track and achieve your goals more effectively. 
+
             </p>
             </div>
         </div>
@@ -95,21 +111,22 @@
                 font-size: 2rem;
                 text-align: center;
                 margin: 1rem;
+                color: #544141;
             }
 
             .paragone {
                 font-size: 20px;
                 font-style: normal;
-                color: black;
+                color: #544141;
                 text-align: justify;
-                margin: 2rem 6rem;
+                margin: 2rem 4rem;
             }
 
             .secondpara
             {
                 font-size: 20px;
                 font-style: normal;
-                color: black;
+                color: #544141;
                 text-align: justify;
                 margin: 2rem 10rem;
             }
