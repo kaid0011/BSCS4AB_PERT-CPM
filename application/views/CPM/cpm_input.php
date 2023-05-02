@@ -62,7 +62,8 @@
 </form>
 
 <style>
-    .title {
+    .title 
+    {
         font-size: 2rem;
         text-align: center;
         margin: 1rem;
@@ -70,10 +71,10 @@
 
     .paragone 
     {
-        font-size: 20px;
+        font-size: 24px;
     font-style: normal;
-    text-align: center;
-    margin: 2rem 30rem;
+    text-align: justify;
+    margin: 2rem 5rem;
     }
 
     .instructions p
@@ -137,36 +138,47 @@
     }
 
     /* TABLE */
-    table {
+    table 
+    {
+        table-layout: AUTO;
+        padding: 1rem;
         margin-top: 3rem;
         margin-bottom: 2rem;
         margin-left: auto;
         margin-right: auto;
         align-items: center;
         border-spacing: 0;
-        padding: 2vh 3vh;
-    }
-
-    table,
-    th,
-    td 
-    {
         border: none;
         border-collapse: collapse;
         border-style: none;
-        text-align: center;
-        background-color: transparent;
-        /* padding: 5px; */
+        text-align: center;    
+    }   
+    
+    tr 
+    {
+     border-bottom: 1px solid #ddd;
+    }
+    td{
+        background-color: #eeee;
+    }
+
+    th{
+        background-color: #d9c7c7;
     }
 
     td,
     th 
     {
-        padding: 8px 5px;
+        border: none;
+        border-collapse: collapse;
+        border-style: none;
+        text-align: center;
+        padding: .5rem .8rem;
         display: table-cell;
         text-align: center;
         vertical-align: middle;
         border-radius: 0;
+        width:auto;
     }
 
     textarea
@@ -176,7 +188,7 @@
         border-radius: 10px;
         padding: 3px;
         resize: none;
-        margin: 5px;
+        margin: 3px;
     }
 
     input[type=text1]
@@ -190,6 +202,12 @@
         background-color: transparent;
         border-radius: 10px;
         padding: 5px;
+    }
+
+    input[type=numbers]
+    {
+        width:14rem;
+        padding:.5rem;
     }
 
     /* RESPONSIVE */
