@@ -46,10 +46,10 @@
 
 
     .paragone {
-        font-size: 20px;
+        font-size: 24px;
         font-style: normal;
-        text-align: center;
-        margin: 2rem 10rem;
+        text-align: justify;
+        margin: 2rem 5rem;
     }
 
     .generate {

@@ -7,7 +7,7 @@
         CPM calculates the earliest and latest start and finish times for each activity,
         allowing project managers to determine which activities can be delayed without
         affecting the project's overall duration.
-        <<br><br>
+        <br><br>
             This table shows the project time completion based on the data provided using the CPM Method:
     </div>
 </div>
@@ -132,10 +132,10 @@
     }
 
     .paragone {
-        font-size: 20px;
+        font-size: 24px;
         font-style: normal;
-        text-align: center;
-        margin: 2rem 30rem;
+        text-align: justify;
+        margin: 2rem 5rem;
     }
 
     .calculate {
@@ -147,7 +147,7 @@
 
     .grid-container {
         display: grid;
-        width: 80rem;
+        width: 90rem;
         max-width: 100%;
         margin-left: auto;
         margin-right: auto;
@@ -182,29 +182,32 @@
 
     /* TABLE */
     table.results {
-        margin-top: 2rem;
-        margin-bottom: 1rem;
-        display: table;
-        border-collapse: collapse;
-        align-items: justify;
-        width: 100%;
+        padding: 1rem;
+        margin-top: 3rem;
+        margin-bottom: 2rem;
+        margin-left: auto;
+        margin-right: auto;
+        align-items: center;
         border-spacing: 0;
         border: none;
         border-collapse: collapse;
+        border-style: none;
         text-align: center;
-        border-style: ridge;
+        background-color: #eeee;
     }
 
     table.results th,
     table.results td {
         border: none;
         border-collapse: collapse;
+        border-style: none;
         text-align: center;
-        padding: 15px 5px;
+        padding: .5rem .8rem;
         display: table-cell;
+        text-align: center;
         vertical-align: middle;
         border-radius: 0;
-        border-style: ridge;
+        background-color: transparent;
     }
 
     table.gantt-chart {
@@ -220,6 +223,18 @@
         text-align: center;
         border-style: ridge;
         table-layout: fixed;
+    }
+
+    table.results tr 
+    {
+     border-bottom: 1px solid #ddd;
+    }
+    table.results td{
+        background-color: #eeee;
+    }
+
+    table.results th{
+        background-color: #d9c7c7;
     }
 
     table.gantt-chart th,

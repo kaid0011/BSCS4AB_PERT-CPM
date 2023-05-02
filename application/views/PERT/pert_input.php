@@ -68,107 +68,117 @@
 
 <style>
     .title
-{
-    font-size: 2rem;
-    text-align: center;
-    margin: 1rem;
-}
+    {
+        font-size: 2rem;
+        text-align: center;
+        margin: 1rem;
+    }
 
-.paragone
-{
-    font-size: 20px;
-    font-style: normal;
-    text-align: center;
-    margin: 2rem 10rem;
-}
+    .paragone
+    {
+        font-size: 24px;
+        font-style: normal;
+        text-align: justify;
+        margin: 2rem 5rem;
+    }
 
-.instructions
-{
-    font-style: normal;
-    text-align: justify;
-    margin-left: 25rem;
-    margin-right: 25rem;
-}
+    .instructions
+    {
+        font-style: normal;
+        text-align: justify;
+        margin-left: 25rem;
+        margin-right: 25rem;
+    }
 
-.instructions p
-{
-    font-size: 20px;
-}
+    .instructions p
+    {
+        font-size: 20px;
+    }
 
-dl
-{
-    padding-right: 20rem;
-    padding-bottom: 5rem;
-}
+    dl
+    {
+        padding-right: 20rem;
+        padding-bottom: 5rem;
+    }
 
-.calculate
-{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 2rem;
-}
+    .calculate
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 2rem;
+    }
 
-.container
-{
-    width: 99rem;
-    max-width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-}
+    .container
+    {
+        width: 99rem;
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
 
-.btn
-{
-    text-decoration: none;
-    text-align: center;
-    font-size: 1.2rem;
-    color: #eeee; 
-    background-color: #B19090;
-    border-radius: 40px;
-    display: inline-block;
-    padding: 10px 20px;
-    border-color: #544141;
-}
+    .btn
+    {
+        text-decoration: none;
+        text-align: center;
+        font-size: 1.2rem;
+        color: #eeee; 
+        background-color: #B19090;
+        border-radius: 40px;
+        display: inline-block;
+        padding: 10px 20px;
+        border-color: #544141;
+    }
 
-.btn:hover
-{
-    background-color: #eeee;
-    color:#B19090;
-    
-}
+    .btn:hover
+    {
+        background-color: #eeee;
+        color:#B19090;
+        
+    }
 
 /* TABLE */
     table {
+        table-layout: AUTO;
+        padding: 1rem;
         margin-top: 3rem;
         margin-bottom: 2rem;
         margin-left: auto;
         margin-right: auto;
         align-items: center;
         border-spacing: 0;
-        padding: 2vh 3vh;
-    }
-
-    table,
-    th,
-    td 
-    {
         border: none;
         border-collapse: collapse;
         border-style: none;
-        text-align: center;
-        background-color: transparent;
-        /* padding: 5px; */
+        text-align: center;   
+    }
+
+    tr 
+    {
+     border-bottom: 1px solid #ddd;
+    }
+    td{
+        background-color: #eeee;
+    }
+
+    th{
+        background-color: #d9c7c7;
     }
 
     td,
     th 
     {
-        padding: 8px 5px;
+        border: none;
+        border-collapse: collapse;
+        border-style: none;
+        text-align: center;
+        padding: .5rem .8rem;
         display: table-cell;
         text-align: center;
         vertical-align: middle;
         border-radius: 0;
+        width:auto;
     }
 
     textarea
@@ -178,7 +188,7 @@ dl
         border-radius: 10px;
         padding: 3px;
         resize: none;
-        margin: 5px;
+        margin: 3px;
     }
 
     input[type=text1]
