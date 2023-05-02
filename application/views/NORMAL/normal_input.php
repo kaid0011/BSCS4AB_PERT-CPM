@@ -17,7 +17,7 @@
       <table class="table">
         <thead>
             <tr>
-                <th style="background-color:#d9c7c7;">Activity</th>
+                <th>Activity</th>
                 <th title ="Activity Description">Description <span class="tooltiptext">&#9432;</span></th>
                 <th title ="Shortest Estimated Activity Duration">Optimistic <span class="tooltiptext">&#9432;</span></th>
                 <th title ="Reasonable Estimated Activity Duration">Most Likely <span class="tooltiptext">&#9432;</span></th>
@@ -66,6 +66,8 @@
     <button class="btn">Calculate</button>
 </div>
 </form>
+<br><br>
+
 <style>
     .title {
         font-size: 2rem;
@@ -99,6 +101,8 @@
         margin-left: auto;
         margin-right: auto;
         text-align: center;
+        border-radius: 10px;
+        overflow-x:auto;
     }
 
     .btn {
@@ -113,36 +117,18 @@
         border-color: #544141;
     }
 
-    input
-    {
-        background-color: transparent;
-        border-radius: 10px;
-        padding: 5px;
-    }
-
-    textarea
-    {
-        background-color: transparent;
-        border: 2px solid;
-        border-radius: 10px;
-        padding: 3px;
-        resize: none;
-        margin: 3px;
-    }
-
     .trials {
         margin: auto;
         min-width: 15rem;
         max-width: 15rem;
-        background-color: #eeee;
+        background-color: #D7D0D0;
         padding: 1rem;
         border-radius: 10px;
     }
-
+   
     /* TABLE */
 
     table {
-        table-layout: AUTO;
         padding: 1rem;
         margin-top: 3rem;
         margin-bottom: 2rem;
@@ -151,22 +137,13 @@
         align-items: center;
         border-spacing: 0;
         border: none;
+        overflow: hidden;
+        border-radius: .8em;
         border-collapse: collapse;
         border-style: none;
-        text-align: center;    
+        text-align: center;
+        background-color: #f0f0f0;
         
-    }   
-    
-    tr 
-    {
-     border-bottom: 1px solid #ddd;
-    }
-    td{
-        background-color: #eeee;
-    }
-
-    th{
-        background-color: #d9c7c7;
     }
 
     td,
@@ -181,7 +158,20 @@
         text-align: center;
         vertical-align: middle;
         border-radius: 0;
-        width:auto;
+        background-color: transparent;
+    }
+    tr 
+    {
+        border-bottom: 1px solid #ddd;
+    }
+    td{
+        background-color: #f0f0f0;
+    }
+
+    th{
+        background-color: #D7D0D0;
+        padding: 15px;
+        
     }
 
     input[type=text1]
@@ -189,6 +179,7 @@
         border-style: none;
         text-align: center;
         font-size: 2.5vh;
+        background-color: transparent;
     }
    
     input[type=numbers]
@@ -196,6 +187,33 @@
         width:14rem;
         padding:.5rem;
     }
+    input
+    {
+        /* background-color: transparent; */
+        border-radius: 5px;
+        border: .5px solid;
+        padding: 5px;
+    }
+
+    textarea
+    {
+        /* background-color: transparent; */
+        border: .5px solid;
+        border-radius: 5px;
+        /* padding: 3px; */
+        resize: none;
+        /* margin: 3px; */
+    }
+
+    /* Input Boxes Style */
+    /* input[type=text], input[type=number] 
+    {
+        padding:3px;
+        margin:2px 0;
+        width: 80%;
+    } */
+
+
     /* RESPONSIVE */
     @media screen {
         .form {
@@ -204,5 +222,25 @@
             border-radius: 1.2rem;
             padding: 0.25rem;
         }
+
+    @media only screen and (max-width: 1500px) and (min-width: 300px)
+    {
+        .table
+        {
+            margin-left: 3vh;
+            margin-right: 5vh;
+        }
+    }
+    
+        /* .responsive-table 
+        {
+        margin-top: 3rem;
+        margin-bottom: 2rem;
+        margin-left: 4rem;
+        margin-right: 4rem;
+        align-items: center;
+
+        } */
+
     }
 </style>

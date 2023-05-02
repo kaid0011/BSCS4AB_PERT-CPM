@@ -6,7 +6,7 @@
         PERT calculates three time estimates for each activity: optimistic, pessimistic, and most likely. 
       <br>These estimates are then used to calculate the expected time for each activity and the entire project.
     </div>
-    <div class="instructions" style="overflow-x:auto;"> 
+    <!-- <div class="instructions" style="overflow-x:auto;"> 
       <p>INSTRUCTIONS:</p>
     <dl>
       <li> DESCRIPTION - Enter the name or description of the activity.</li>
@@ -15,7 +15,7 @@
       <li> MOST LIKELY - Enter the measure of estimated most likely time.</li>
       <li> PRE-REQUISITES - Enter the <b>activity number</b> of the required activity.</li>
     </dl>
-    </div>
+    </div> -->
 </div>
 <br>
 <div class="container" style="overflow-x:auto;">
@@ -67,15 +67,13 @@
 </div>
 
 <style>
-    .title
-    {
+    .title {
         font-size: 2rem;
         text-align: center;
         margin: 1rem;
     }
 
-    .paragone
-    {
+    .paragone {
         font-size: 24px;
         font-style: normal;
         text-align: justify;
@@ -140,7 +138,6 @@
 
 /* TABLE */
     table {
-        table-layout: AUTO;
         padding: 1rem;
         margin-top: 3rem;
         margin-bottom: 2rem;
@@ -149,21 +146,13 @@
         align-items: center;
         border-spacing: 0;
         border: none;
+        overflow: hidden;
+        border-radius: .8em;
         border-collapse: collapse;
         border-style: none;
-        text-align: center;   
-    }
-
-    tr 
-    {
-     border-bottom: 1px solid #ddd;
-    }
-    td{
-        background-color: #eeee;
-    }
-
-    th{
-        background-color: #d9c7c7;
+        text-align: center;
+        background-color: #f0f0f0;
+        
     }
 
     td,
@@ -178,32 +167,52 @@
         text-align: center;
         vertical-align: middle;
         border-radius: 0;
-        width:auto;
+        background-color: transparent;
+    }
+    tr 
+    {
+        border-bottom: 1px solid #ddd;
+    }
+    td{
+        background-color: #f0f0f0;
     }
 
-    textarea
-    {
-        background-color: transparent;
-        border: 2px solid;
-        border-radius: 10px;
-        padding: 3px;
-        resize: none;
-        margin: 3px;
+    th{
+        background-color: #D7D0D0;
+        padding: 15px;
+        
     }
 
     input[type=text1]
     {
         border-style: none;
         text-align: center;
+        font-size: 2.5vh;
+        background-color: transparent;
     }
-
+   
+    input[type=numbers]
+    {
+        width:14rem;
+        padding:.5rem;
+    }
     input
     {
-        background-color: transparent;
-        border-radius: 10px;
+        /* background-color: transparent; */
+        border-radius: 5px;
+        border: .5px solid;
         padding: 5px;
     }
 
+    textarea
+    {
+        /* background-color: transparent; */
+        border: .5px solid;
+        border-radius: 5px;
+        /* padding: 3px; */
+        resize: none;
+        /* margin: 3px; */
+    }
 /* RESPONSIVE */
 @media screen {
     .form
@@ -214,4 +223,12 @@
     padding: 0.25rem;
     }
 }
+@media only screen and (max-width: 1500px) and (min-width: 300px)
+    {
+        .table
+        {
+            margin-left: 3vh;
+            margin-right: 5vh;
+        }
+    }
 </style>

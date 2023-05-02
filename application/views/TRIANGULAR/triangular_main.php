@@ -39,6 +39,7 @@
     <button class="btn">Generate Table</button>
 </div>
 </form>
+<br> <br>
 
 <style>
     .title {
