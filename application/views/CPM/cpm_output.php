@@ -62,10 +62,25 @@
 <div class="containerbox">
         <div class="boxx">
             <h3>Critical Path</h3>
+            <p>
+                <?php
+                $max = max(array_column($cp, 'id'));
+                foreach ($cp as $cp) {
+                    if ($cp['id'] == $max) {
+                        echo $cp['id'];
+                    } else {
+                        echo $cp['id'] . " → ";
+                    }
+                }
+                ?>
+            </p>
         </div>
 
         <div class="boxx">
             <h3>Project Finish Time</h3>
+            <p>
+                <?php echo $finish_time; ?>
+            </p>
         </div>
 </div>
 
