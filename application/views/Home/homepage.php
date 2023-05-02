@@ -115,7 +115,7 @@
             }
 
             .paragone {
-                font-size: 20px;
+                font-size: normal;
                 font-style: normal;
                 color: #544141;
                 text-align: justify;
@@ -133,7 +133,7 @@
 
             /* Cards */
             .container {
-                justify-content: space-evenly;
+                justify-content: center;
                 display: flex;
                 width: auto;
                 height: auto;
@@ -145,7 +145,7 @@
                 height: auto;
                 padding: 3px 2px 25px 2px;
                 border: 1px solid #ccc;
-                margin: 5vh;
+                margin: 1vh;
                 background: white;
                 border-radius: 10px;
                 transition: 0.9;
@@ -157,7 +157,7 @@
             }
 
             .container1 {
-                justify-content: space-evenly;
+                justify-content: center;
                 display: flex;
                 width: auto;
                 height: auto;
@@ -169,7 +169,7 @@
                 height: auto;
                 padding: 3px 2px 25px 2px;
                 border: 1px solid #ccc;
-                margin: 5vh;
+                margin: 1vh;
                 background: white;
                 border-radius: 10px;
                 transition: 0.9;

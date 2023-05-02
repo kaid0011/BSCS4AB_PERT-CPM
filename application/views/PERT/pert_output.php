@@ -138,12 +138,6 @@
         </div>
 </div>
 
-<!-- BUTTON -->
-<div class="calculate">
-        <!-- <a class="btn" href="CPMOutput.html">Calculate</a> -->
-        <button class="btn">Export to CSV</button>
-</div>
-
 <!-- EXPLANATION -->
 <div class="paragone">
     Lorem ipsum dolor sit amet, no clita veritus maiestatis vim, est illum consetetur no. Agam modus an vel. Nibh
