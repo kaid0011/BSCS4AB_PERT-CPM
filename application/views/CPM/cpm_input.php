@@ -53,7 +53,7 @@
                 <?php }
                 ?>
         </tbody>
-    </table>
+        </table>
     <div class="calculate">
         <!-- <a class="btn" href="CPMOutput.html">Calculate</a> -->
         <button class="btn">Calculate</button>
@@ -151,7 +151,7 @@
         border: none;
         border-collapse: collapse;
         border-style: none;
-        text-align: center;    
+        text-align: center;
     }   
     
     tr 
@@ -159,7 +159,7 @@
      border-bottom: 1px solid #ddd;
     }
     td{
-        background-color: #eeee;
+        background-color: #f0f0f0;
     }
 
     th{
@@ -173,7 +173,7 @@
         border-collapse: collapse;
         border-style: none;
         text-align: center;
-        padding: .5rem .8rem;
+        padding: 1rem 1rem;
         display: table-cell;
         text-align: center;
         vertical-align: middle;
@@ -183,7 +183,7 @@
 
     textarea
     {
-        background-color: transparent;
+        background-color: #f0f0f0;
         border: 2px solid;
         border-radius: 10px;
         padding: 3px;
@@ -193,20 +193,22 @@
 
     input[type=text1]
     {
+        background-color: transparent;
         border-style: none;
         text-align: center;
     }
 
     input
     {
-        background-color: transparent;
+        background-color: white;
         border-radius: 10px;
         padding: 5px;
     }
 
     input[type=numbers]
     {
-        width:14rem;
+        background-color: white;
+        width: 14rem;
         padding:.5rem;
     }
 
