@@ -6,6 +6,7 @@ version: '3.8'
 
 services:
   # builds the project - copies entire root directory
+  # when this is on a server everywhere with "localhost" in php config should be "app"
   app:
     build: .
     container_name: app
