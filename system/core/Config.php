@@ -105,7 +105,7 @@ class CI_Config {
 			}
 			else
 			{
-				$base_url = 'http://app/';
+				$base_url = 'http://http://18.130.33.73/';
 			}
 
 			$this->set_item('base_url', $base_url);
