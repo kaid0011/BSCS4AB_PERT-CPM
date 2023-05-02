@@ -154,6 +154,7 @@
         text-align: center;
     }
 
+    /* Gantt Container */
     .grid-container-gantt {
         display: grid;
         width: 85%;
@@ -248,7 +249,8 @@
         vertical-align: middle;
     }
 
-    .waiting {
+    .waiting 
+    {
     height:30px;
     position:relative;
     background: none;
@@ -257,7 +259,7 @@
     .progress {
     height:30px;
     position:relative;
-    background: #00B7D4;
+    background: #B19090;
     border: 0px;
     border-radius: 10px;
     }

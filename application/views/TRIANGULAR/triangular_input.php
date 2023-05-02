@@ -33,7 +33,7 @@
                 <tr>
                     <td><input type="text1" name="<?php echo $i; ?>" value="<?php echo $i; ?>" readonly></td>
                     <!-- <td><input type="text" name="task_desc_<?php echo $i; ?>" required></td> -->
-                    <td><textarea  name = "task_desc_<?php echo $i; ?>" required></textarea></td>
+                    <td><textarea  name = "task_desc_<?php echo $i; ?>" ></textarea></td>
                     <td><input type="number" name="task_opt_<?php echo $i; ?>" step="any" min="1" max="20" oninput="validity.valid||(value='');" required></td>
                     <td><input type="number" name="task_ml_<?php echo $i; ?>" step="any" min="1" max="20" oninput="validity.valid||(value='');" required></td>
                     <td><input type="number" name="task_pes_<?php echo $i; ?>" step="any" min="1" max="20" oninput="validity.valid||(value='');" required></td>
@@ -56,6 +56,7 @@
 <input type="number" name="proj_len" value="<?php echo $proj_len; ?>" hidden>
 <input type="text" name="choice" value="<?php echo 'cpm'; ?>" hidden>
 <input type="text" name="unit" value="<?php echo $unit; ?>" hidden>
+<br><br>
 <div class="trials">
     Number of Trials: <br><br>
     <input type="numbers" name="N" min="1" max="1000" oninput="validity.valid||(value='');" placeholder="Max. 1000" required>
@@ -65,6 +66,8 @@
     <button class="btn">Calculate</button>
 </div>
 </form>
+<br><br>
+
 <style>
     .title {
         font-size: 2rem;
@@ -98,6 +101,8 @@
         margin-left: auto;
         margin-right: auto;
         text-align: center;
+        border-radius: 10px;
+        overflow-x:auto;
     }
 
     .btn {
@@ -116,26 +121,39 @@
         margin: auto;
         min-width: 15rem;
         max-width: 15rem;
-        background-color: #eeee;
+        background-color: #D7D0D0;
         padding: 1rem;
         border-radius: 10px;
     }
-
+    input[type=text1]
+    {
+        border-style: none;
+        text-align: center;
+        font-size: 2.5vh;
+        background-color: transparent;
+    }
+   
+    input[type=numbers]
+    {
+        width:14rem;
+        padding:.5rem;
+    }
     input
     {
-        background-color: transparent;
-        border-radius: 10px;
+        /* background-color: transparent; */
+        border-radius: 5px;
+        border: .5px solid;
         padding: 5px;
     }
 
     textarea
     {
-        background-color: transparent;
-        border: 2px solid;
-        border-radius: 10px;
-        padding: 3px;
+        /* background-color: transparent; */
+        border: .5px solid;
+        border-radius: 5px;
+        /* padding: 3px; */
         resize: none;
-        margin: 3px;
+        /* margin: 3px; */
     }
     /* TABLE */
 
@@ -148,10 +166,12 @@
         align-items: center;
         border-spacing: 0;
         border: none;
+        overflow: hidden;
+        border-radius: .8em;
         border-collapse: collapse;
         border-style: none;
         text-align: center;
-        background-color: #eeee;
+        background-color: #f0f0f0;
         
     }
 
@@ -171,28 +191,27 @@
     }
     tr 
     {
-     border-bottom: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
     }
     td{
-        background-color: #eeee;
+        background-color: #f0f0f0;
     }
 
     th{
-        background-color: #d9c7c7;
+        background-color: #D7D0D0;
+        padding: 15px;
+        
     }
+
     
-    input[type=text1]
+
+    /* Input Boxes Style */
+    /* input[type=text], input[type=number] 
     {
-        border-style: none;
-        text-align: center;
-        font-size: 2.5vh;
-    }
-   
-    input[type=numbers]
-    {
-        width:14rem;
-        padding:.5rem;
-    }
+        padding:3px;
+        margin:2px 0;
+        width: 80%;
+    } */
 
 
     /* RESPONSIVE */
@@ -203,5 +222,25 @@
             border-radius: 1.2rem;
             padding: 0.25rem;
         }
+
+    @media only screen and (max-width: 1500px) and (min-width: 300px)
+    {
+        .table
+        {
+            margin-left: 3vh;
+            margin-right: 5vh;
+        }
+    }
+    
+        /* .responsive-table 
+        {
+        margin-top: 3rem;
+        margin-bottom: 2rem;
+        margin-left: 4rem;
+        margin-right: 4rem;
+        align-items: center;
+
+        } */
+
     }
 </style>
