@@ -1,0 +1,45 @@
+# to run this in docker - please install docker
+# https://docs.docker.com/engine/install/
+# then run "docker-compose up or docker compose up"
+
+version: '3.8'
+
+services:
+  # builds the project - copies entire root directory
+  app:
+    build: .
+    container_name: app
+    restart: always
+    ports:
+      - 80:80
+    depends_on:
+      - db
+
+  # built in mysql database
+  db:
+    image: mysql:5.7
+    container_name: db
+    restart: always
+    environment:
+      MYSQL_DATABASE: BSCS4AB_PERT-CPM
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: password
+    volumes:
+      - db_data:/var/lib/mysql
+
+  # phpmyadmin to view/edit database via ui interface
+  # will be available on localhost:8080
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    restart: always
+    ports:
+      - 8080:80
+    environment:
+      PMA_HOST: BSCS4AB_PERT-CPM
+    depends_on:
+      - db
+
+volumes:
+  db_data:
