@@ -22,7 +22,7 @@
                     <th title ="Estimated Activity Completion based on OT, MLT, and PT">Estimated Duration <span class="tooltiptext">&#9432;</span></th>
                     <th title ="Activity Number that needs to be completed first.">Pre-Requisites <span class="tooltiptext">&#9432;</span></th>
                     <th title ="The calculated Standard Deviation of Each Activity">Standard Deviation <span class="tooltiptext">&#9432;</span></th>
-                    <th title ="The calculated Variance of Each Activity">Variance</th>
+                    <th title ="The calculated Variance of Each Activity">Variance <span class="tooltiptext">&#9432;</span></th>
                     <th title ="Activity's Earliest Start Time">ES <span class="tooltiptext">&#9432;</span></th>
                     <th title ="Activity's Earliest Finish Time">EF <span class="tooltiptext">&#9432;</span></th>
                     <th title ="Activity's Latest Start Time">LS <span class="tooltiptext">&#9432;</span></th>
@@ -140,19 +140,31 @@
 
 <!-- BUTTON -->
 <div class="calculate">
-        <!-- <a class="btn" href="CPMOutput.html">Calculate</a> -->
-        <button class="btn">Export to CSV</button>
+        <a class="btn" href="CPMOutput.html">Calculate</a>
+        <button class="btn">Export Output</button>
+</div>
+
+ <div class="ganttchartname">
+        <b> Completion Probability Calculator</b>
 </div>
 
 <!-- EXPLANATION -->
 <div class="paragone">
-    Lorem ipsum dolor sit amet, no clita veritus maiestatis vim, est illum consetetur no. Agam modus an vel. Nibh
-    feugiat pericula id eam. Sit aliquam platonem omittantur ut, eum meliore offendit at. Suas alienum at per, ad sit
-    exerci vocent docendi, te sea summo feugait. At vim cibo accumsan mnesarchum.
+Our PERT Calculator also enables users to determine the probability of an expected duration
     <br><br>
-    Usu nominavi atomorum maluisset ne. Sed ex pertinacia repudiandae, ferri lorem aeque et per. Duo exerci munere an,
-    vix malorum diceret fabulas an, nam ei mutat phaedrum. Sed ea timeam suscipiantur, ad eos partem audiam
-    adversarium, dicam appetere necessitatibus sed ut.
+    <b>Project Completion Probability</b>: Calculate the probability of an expected project completion time for the whole project <br>
+    <br>
+       <b> How To?</b><br>
+       • Enter your expected project duration. <br>
+       • Click 'Calculate' and wait for the probability to show.
+       <br><br>
+    <b>Activity Completion Probability</b>: Calculate the probability of an expected duration of a specific activity     <br>
+    <br>
+       <b> How To?</b><br>
+       • Enter the Activity Number of the duration you want to compute.<br>
+       • Enter your expected activity duration.<br>
+       • Click 'Calculate' and wait for the probability to show.<br>
+
 </div>
 
 <!-- CARDS 2 -->
@@ -189,9 +201,12 @@
             </center>
         </div>
 </div>
-
+<br>
+<div class="ganttchartname">
+        <b> Project Gantt Chart</b>
+</div>
 <!-- CHART -->
-<div class="ganttcontainer" style="max-width: 100%; margin: 0 auto; padding: 50px;">
+<div class="ganttcontainer" style="max-width: 100%; margin: 0 auto; padding: 30px;">
        <div class="chart" style="display: grid; position: relative; overflow: hidden; overflow-x:auto">
         <table class="gantt-chart">
             <tr>
@@ -244,7 +259,7 @@
         font-size: 24px;
         font-style: normal;
         text-align: justify;
-        margin: 2rem 5rem;
+        margin: 2rem 3rem;
     }
 
     .calculate {
@@ -335,11 +350,12 @@
         align-items: center;
         border-spacing: 0;
         border: none;
+        overflow: hidden;
+        border-radius: .8em;
         border-collapse: collapse;
         border-style: none;
         text-align: center;
-        background-color: #eeee;
-        
+        background-color: #f0f0f0;
     }
 
     td,
@@ -360,14 +376,15 @@
     {
      border-bottom: 1px solid #ddd;
     }
+
     td{
         background-color: #eeee;
     }
 
     th{
-        background-color: #d9c7c7;
+        background-color: #D7D0D0;
+        padding: 15px;
     }
-
     textarea
     {
         background-color: transparent;
@@ -439,7 +456,7 @@
     .boxx2 {
         width: 30%;
         height: auto;
-        padding: 1.5rem;
+        padding: 30px 2px 15px 2px;
         border: 1px solid #ccc;
         margin: 5vh;
         background: white;
@@ -538,7 +555,7 @@
    
     @media only screen and (max-width: 1500px) and (min-width: 300px)
     {
-        .grid-item
+        .grid-container
         {
             margin-left: 5vh;
             margin-right: 5vh;

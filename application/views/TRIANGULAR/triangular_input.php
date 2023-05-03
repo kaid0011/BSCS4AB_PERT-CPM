@@ -67,7 +67,46 @@
 </div>
 </form>
 <br><br>
-
+<div class="box">
+	<a class="button" href="#popup1"><i class="fa fa-question-circle" aria-hidden="true"></i></a>
+    </div>
+    <br>
+    <div id="popup1" class="overlay">
+        <div class="popup">
+            <h2>Must Know!</h2>
+            <a class="close" href="#">&times;</a>
+            <div class="content">
+                    <b>• Activity</b>
+                   <br>
+                    The activity column is auto iterated from 1 by the system and cannot be changed.<br>
+                    <b>• Description</b>
+                   <br>
+                    Description of each activity with a maximum of 50 characters. <br>
+                    <i>This is an optional input</i><br>
+                    <b>• Optimistic</b><br>
+                    The minimum amount of time required to finish a task, assuming that the progress is faster than
+                    the typical expectations.
+                    Optimistic duration must be a positive integer. Decimals are accepted.<br>
+                    <b>• Most Likely</b><br>
+                    The expected duration for completing a task, assuming that progress is in accordance with 
+                    standard expectations. Most Likely duration must be a positive integer. Decimals are accepted. <br>
+                    <b>• Pessimistic</b><br>
+                    The maximum amount of time required to complete a task, assuming everything that could 
+                    possibly go wrong, actually goes wrong. <br>
+                    Pessimistic duration must be a positive integer. Decimals are accepted.<br>
+                   <b> • Pre-requisites </b><br>
+                    The activity/s that must be completed before the current activity starts. 
+                    The first activity's pre-requisite is automatically set to '-' that means none.
+                    Pre-requisites of each activity must be existing activity numbers separated by commas without 
+                    spaces. If there are no pre-requisites, enter '-'<br>
+                    <b> • Number of Trials </b><br>
+                    The number of trials you want the simulation to perform.
+                    The simulation used is Monte Carlo Simulation. <br>
+                    Number of Trials must be a positive integer between 1 to 1000.
+                    <br>
+            </div>
+        </div>
+    </div>
 <style>
     .title {
         font-size: 2rem;
@@ -79,7 +118,7 @@
         font-size: 24px;
         font-style: normal;
         text-align: justify;
-        margin: 2rem 5rem;
+        margin: 2rem 3rem;
     }
 
     .calculate {
@@ -212,8 +251,95 @@
         margin:2px 0;
         width: 80%;
     } */
+      /* POPUP */
+      .box {
+         position: fixed;
+            bottom: 0px;
+            right: 0px; 
+            width: 90%;
+            margin-right:1em; 
+            padding: 3em;
+            /* background-clip: padding-box;  */
+            text-align: right;
+            justify-content: right;
+            display: flex;
+            }
 
+            .button {
+            font-size: 3em;
+            padding: 10px;
+            color: #D7D0D0;
+            cursor: pointer;
+            transition: all 0.3s ease-out;
+            }
 
+            .button:hover {
+                color: #B19090;
+            }
+
+            .overlay {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            transition: opacity 200ms;
+            visibility: hidden;
+            opacity: 0;
+            }
+            .overlay:target {
+            visibility: visible;
+            opacity: 1;
+            }
+
+            .popup {
+            margin: 70px auto;
+            padding: 20px;
+            background: #f0f0f0;
+            border-radius: 5px;
+            width: 30%;
+            position: relative;
+            transition: all 5s ease-in-out;
+            }
+
+            .popup h2 {
+            margin-top: 0;
+            color: #333;
+            font-family: Tahoma, Arial, sans-serif;
+            }
+            .popup .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            transition: all 200ms;
+            font-size: 30px;
+            font-weight: bold;
+            text-decoration: none;
+            color: #333;
+            }
+            .popup .close:hover {
+            color: #06D85F;
+            }
+            .popup .content {
+            max-height: 30%;
+            overflow: auto;
+            }
+
+    @media screen and (max-width: 300px){
+        .box{
+            
+            width: 70%;
+            height: auto;
+            position:relative;
+           
+
+        }
+        .popup{
+            width: 70%;
+        }
+    }
+   
     /* RESPONSIVE */
     @media screen {
         .form {
@@ -231,6 +357,8 @@
             margin-right: 5vh;
         }
     }
+
+    }
     
         /* .responsive-table 
         {
@@ -242,5 +370,5 @@
 
         } */
 
-    }
+    
 </style>

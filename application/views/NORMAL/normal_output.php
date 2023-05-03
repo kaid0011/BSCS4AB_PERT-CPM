@@ -118,7 +118,7 @@
     </div>
 
 <!-- EXPLANATION -->
-<div class="paragone">
+<!-- <div class="paragone">
     Lorem ipsum dolor sit amet, no clita veritus maiestatis vim, est illum consetetur no. Agam modus an vel. Nibh
     feugiat pericula id eam. Sit aliquam platonem omittantur ut, eum meliore offendit at. Suas alienum at per, ad sit
     exerci vocent docendi, te sea summo feugait. At vim cibo accumsan mnesarchum.
@@ -126,7 +126,7 @@
     Usu nominavi atomorum maluisset ne. Sed ex pertinacia repudiandae, ferri lorem aeque et per. Duo exerci munere an,
     vix malorum diceret fabulas an, nam ei mutat phaedrum. Sed ea timeam suscipiantur, ad eos partem audiam
     adversarium, dicam appetere necessitatibus sed ut.
-</div>
+</div> -->
 
 <!-- CHART -->
 <div class="ganttcontainer" style="max-width: 100%; margin: 0 auto; padding: 50px;">
@@ -181,7 +181,7 @@
         font-size: 24px;
         font-style: normal;
         text-align: justify;
-        margin: 2rem 5rem;
+        margin: 2rem 3rem;
     }
 
     .calculate {
@@ -385,7 +385,7 @@
         .container
         {
             display: block;
-            margin: 3vh;
+            margin: 2.5vh;
         }
 
         .box

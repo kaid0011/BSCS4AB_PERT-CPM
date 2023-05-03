@@ -14,7 +14,7 @@
     </div>
 
 </div>
-<div class="container" style="overflow-x:auto;">
+<div class="container" >
 <table class="table">
         <thead>
             <tr>
@@ -34,7 +34,7 @@
                 <tr>
                     <td><input type="text1" name="<?php echo $i; ?>" value="<?php echo $i; ?>" readonly></td>
                     <!-- <td><input type="text" name="task_desc_<?php echo $i; ?>" required></td> -->
-                    <td><textarea  name = "task_desc_<?php echo $i; ?>" required></textarea></td>
+                    <td><textarea name = "task_desc_<?php echo $i; ?>" ></textarea></td>
                     <td><input type="number" name="task_opt_<?php echo $i; ?>" step="any"  min="1" max="20" oninput="validity.valid||(value='');" required></td>
                     <td><input type="number" name="task_ml_<?php echo $i; ?>" step="any" min="1" max="20" oninput="validity.valid||(value='');" required></td>
                     <td><input type="number" name="task_pes_<?php echo $i; ?>" step="any"  min="1" max="20" oninput="validity.valid||(value='');" required></td>
@@ -65,11 +65,50 @@
 <br>
 <div class="calculate">
     <button class="btn">Calculate</button>
+
 </div>
 </form>
 
-
-
+<div class="box">
+	<a class="button" href="#popup1"><i class="fa fa-question-circle" aria-hidden="true"></i></a>
+    </div>
+    <br>
+    <div id="popup1" class="overlay">
+        <div class="popup">
+            <h2>Must Know!</h2>
+            <a class="close" href="#">&times;</a>
+            <div class="content">
+                    <b>• Activity</b>
+                   <br>
+                    The activity column is auto iterated from 1 by the system and cannot be changed.<br>
+                    <b>• Description</b>
+                   <br>
+                    Description of each activity with a maximum of 50 characters. <br>
+                    <i>This is an optional input</i><br>
+                    <b>• Optimistic</b><br>
+                    The minimum amount of time required to finish a task, assuming that the progress is faster than
+                    the typical expectations.
+                    Optimistic duration must be a positive integer. Decimals are accepted.<br>
+                    <b>• Most Likely</b><br>
+                    The expected duration for completing a task, assuming that progress is in accordance with 
+                    standard expectations. Most Likely duration must be a positive integer. Decimals are accepted. <br>
+                    <b>• Pessimistic</b><br>
+                    The maximum amount of time required to complete a task, assuming everything that could 
+                    possibly go wrong, actually goes wrong. <br>
+                    Pessimistic duration must be a positive integer. Decimals are accepted.<br>
+                   <b> • Pre-requisites </b><br>
+                    The activity/s that must be completed before the current activity starts. 
+                    The first activity's pre-requisite is automatically set to '-' that means none.
+                    Pre-requisites of each activity must be existing activity numbers separated by commas without 
+                    spaces. If there are no pre-requisites, enter '-'<br>
+                    <b> • Number of Trials </b><br>
+                    The number of trials you want the simulation to perform.
+                    The simulation used is Monte Carlo Simulation. <br>
+                    Number of Trials must be a positive integer between 1 to 1000.
+                    <br>
+            </div>
+        </div>
+    </div>
 
 <style>
     .title {
@@ -82,7 +121,7 @@
         font-size: 24px;
         font-style: normal;
         text-align: justify;
-        margin: 2rem 5rem;
+        margin: 2rem 3rem;
     }
 
     .calculate {
@@ -104,6 +143,8 @@
         margin-left: auto;
         margin-right: auto;
         text-align: center;
+        border-radius: 10px;
+        overflow-x:auto;
     }
 
     .btn {
@@ -122,26 +163,39 @@
         margin: auto;
         min-width: 15rem;
         max-width: 15rem;
-        background-color: #eeee;
+        background-color: #D7D0D0;
         padding: 1rem;
         border-radius: 10px;
     }
-
+    input[type=text1]
+    {
+        border-style: none;
+        text-align: center;
+        font-size: 2.5vh;
+        background-color: transparent;
+    }
+   
+    input[type=numbers]
+    {
+        width:14rem;
+        padding:.5rem;
+    }
     input
     {
-        background-color: transparent;
-        border-radius: 10px;
+        /* background-color: transparent; */
+        border-radius: 5px;
+        border: .5px solid;
         padding: 5px;
     }
 
     textarea
     {
-        background-color: transparent;
-        border: 2px solid;
-        border-radius: 10px;
-        padding: 3px;
+        /* background-color: transparent; */
+        border: .5px solid;
+        border-radius: 5px;
+        /* padding: 3px; */
         resize: none;
-        margin: 3px;
+        /* margin: 3px; */
     }
     /* TABLE */
 
@@ -154,10 +208,12 @@
         align-items: center;
         border-spacing: 0;
         border: none;
+        overflow: hidden;
+        border-radius: .8em;
         border-collapse: collapse;
         border-style: none;
         text-align: center;
-        background-color: #eeee;
+        background-color: #f0f0f0;
         
     }
 
@@ -177,28 +233,19 @@
     }
     tr 
     {
-     border-bottom: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
     }
     td{
-        background-color: #eeee;
+        background-color: #f0f0f0;
     }
 
     th{
-        background-color: #d9c7c7;
+        background-color: #D7D0D0;
+        padding: 15px;
+        
     }
 
-    input[type=text1]
-    {
-        border-style: none;
-        text-align: center;
-        font-size: 2.5vh;
-    }
-   
-    input[type=numbers]
-    {
-        width:14rem;
-        padding:.5rem;
-    }
+    
 
     /* Input Boxes Style */
     /* input[type=text], input[type=number] 
@@ -208,6 +255,89 @@
         width: 80%;
     } */
 
+     /* POPUP */
+     .box {
+            position: fixed;
+            bottom: 0px;
+            right: 0px; 
+            width: 90%;
+            margin-right:1em; 
+            padding: 3em;
+            /* background-clip: padding-box;  */
+            text-align: right;
+            justify-content: right;
+            display: flex;
+            }
+
+            .button {
+            font-size: 3em;
+            padding: 10px;
+            color: #D7D0D0;
+            cursor: pointer;
+            transition: all 0.3s ease-out;
+            }
+
+            .button:hover {
+                color: #B19090;
+            }
+
+            .overlay {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            transition: opacity 200ms;
+            visibility: hidden;
+            opacity: 0;
+            }
+            .overlay:target {
+            visibility: visible;
+            opacity: 1;
+            }
+
+            .popup {
+            margin: 70px auto;
+            padding: 20px;
+            background: #f0f0f0;
+            border-radius: 5px;
+            width: 30%;
+            position: relative;
+            transition: all 5s ease-in-out;
+            }
+
+            .popup h2 {
+            margin-top: 0;
+            color: #333;
+            font-family: Tahoma, Arial, sans-serif;
+            }
+            .popup .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            transition: all 200ms;
+            font-size: 30px;
+            font-weight: bold;
+            text-decoration: none;
+            color: #333;
+            }
+            .popup .close:hover {
+            color: #06D85F;
+            }
+            .popup .content {
+            max-height: 30%;
+            overflow: auto;
+            }
+
+    @media screen and (max-width: 700px){
+    .box{
+        width: 70%;
+    }
+    .popup{
+        width: 70%;
+    }
+    }
 
     /* RESPONSIVE */
     @media screen {
@@ -218,6 +348,15 @@
             padding: 0.25rem;
         }
 
+    @media only screen and (max-width: 600px) and (min-width: 400px)
+    {
+        .table
+        {
+            margin-left: 3vh;
+            margin-right: 5vh;
+        }
+    }
+    
         /* .responsive-table 
         {
         margin-top: 3rem;

@@ -16,16 +16,16 @@
         <table class="results">
             <thead>
                 <tr>
-                    <th>Activity</th>
-                    <th>Description</th>
-                    <th>Duration</th>
-                    <th>Pre-Requisites</th>
-                    <th>ES</th>
-                    <th>EF</th>
-                    <th>LS</th>
-                    <th>LF</th>
-                    <th>Slack</th>
-                    <th>Critical</th>
+                <th>Activity</th>
+                    <th title ="Activity Description">Description <span class="tooltiptext">&#9432;</span></th>
+                    <th title ="Estimated Activity Duration">Duration <span class="tooltiptext">&#9432;</span></th>
+                    <th title ="Activity Number that needs to be completed first.">Pre-Requisites <span class="tooltiptext">&#9432;</span></th>
+                    <th title ="Activity's Earliest Start Time">ES <span class="tooltiptext">&#9432;</span></th>
+                    <th title ="Activity's Earliest Finish Time">EF <span class="tooltiptext">&#9432;</span></th>
+                    <th title ="Activity's Latest Start Time">LS <span class="tooltiptext">&#9432;</span></th>
+                    <th title ="Activity's Latest Finish Time">LF <span class="tooltiptext">&#9432;</span></th>
+                    <th title ="Activity's Available Slack Time">Slack <span class="tooltiptext">&#9432;</span></th>
+                    <th title ="If the Activity is Critical">Critical <span class="tooltiptext">&#9432;</span></th>
                 </tr>
             </thead>
             <tbody>
@@ -62,10 +62,25 @@
 <div class="containerbox">
         <div class="boxx">
             <h3>Critical Path</h3>
+            <p>
+                <?php
+                $max = max(array_column($cp, 'id'));
+                foreach ($cp as $cp) {
+                    if ($cp['id'] == $max) {
+                        echo $cp['id'];
+                    } else {
+                        echo $cp['id'] . " → ";
+                    }
+                }
+                ?>
+            </p>
         </div>
 
         <div class="boxx">
             <h3>Project Finish Time</h3>
+            <p>
+                <?php echo $finish_time; ?>
+            </p>
         </div>
 </div>
 
@@ -85,10 +100,12 @@
     vix malorum diceret fabulas an, nam ei mutat phaedrum. Sed ea timeam suscipiantur, ad eos partem audiam
     adversarium, dicam appetere necessitatibus sed ut.
 </div>
-
+<div class="ganttchartname">
+        <b> Project Gantt Chart</b>
+</div>
 <!-- CHART -->
 <div class="container" style="max-width: 100%; margin: 0 auto; padding: 50px;">
-       <div class="chart" style="display: grid; border: 2px solid #000; position: relative; overflow: hidden;">
+       <div class="chart" style="display: grid; position: relative; overflow: hidden;">
         <table class="gantt-chart">
             <tr>
                 <th style="border-bottom-style: ridge; border-right-style: ridge;"></th>
@@ -137,6 +154,12 @@
         text-align: justify;
         margin: 2rem 5rem;
     }
+    .ganttchartname
+    {
+        font-size: 2rem;
+        text-align: center;
+        margin: .1rem 2rem .1rem 2rem;
+    }
 
     .calculate {
         display: flex;
@@ -182,7 +205,8 @@
     }
 
     /* TABLE */
-    table.results {
+    /* TABLE */
+    table {
         padding: 1rem;
         margin-top: 3rem;
         margin-bottom: 2rem;
@@ -191,14 +215,17 @@
         align-items: center;
         border-spacing: 0;
         border: none;
+        overflow: hidden;
+        border-radius: .8em;
         border-collapse: collapse;
         border-style: none;
         text-align: center;
-        background-color: #eeee;
+        background-color: #f0f0f0;
     }
 
-    table.results th,
-    table.results td {
+    td,
+    th 
+    {
         border: none;
         border-collapse: collapse;
         border-style: none;
@@ -210,8 +237,66 @@
         border-radius: 0;
         background-color: transparent;
     }
+    tr 
+    {
+     border-bottom: 1px solid #ddd;
+    }
 
-    table.gantt-chart {
+    td{
+        background-color: #eeee;
+    }
+
+    th{
+        background-color: #D7D0D0;
+        padding: 15px;
+    }
+    textarea
+    {
+        background-color: transparent;
+        border: 2px solid;
+        border-radius: 10px;
+        padding: 3px;
+        resize: none;
+        margin: 5px;
+    }
+
+    input[type=text1]
+    {
+        border-style: none;
+        text-align: center;
+    }
+    input[type=number]
+    {
+        border-style: none;
+        text-align: center;
+        border: 1px solid;
+        border-radius: 5px;
+    }
+
+    input[type=textp]
+    {
+        border-style: none;
+        text-align: center;
+        font-size: 20px;
+    }
+
+    input
+    {
+        background-color: transparent;
+        border-radius: 10px;
+        padding: 5px;
+    }
+
+    .ganttcontainer {
+            display: grid;
+            width: 85%;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            overflow-x: auto;
+        }
+    
+   table.gantt-chart {
         margin-top: 2rem;
         margin-bottom: 1rem;
         display: table;
@@ -223,19 +308,8 @@
         border-collapse: collapse;
         text-align: center;
         border-style: ridge;
-        table-layout: fixed;
-    }
-
-    table.results tr 
-    {
-     border-bottom: 1px solid #ddd;
-    }
-    table.results td{
-        background-color: #eeee;
-    }
-
-    table.results th{
-        background-color: #d9c7c7;
+        table-layout: auto;
+        /* background-color: #eeee; */
     }
 
     table.gantt-chart th,
@@ -247,6 +321,7 @@
         padding: 12px 5px;
         display: table-cell;
         vertical-align: middle;
+        background-color: #eeee;
     }
 
     .waiting 
@@ -264,6 +339,7 @@
     border-radius: 10px;
     }
 
+    /* Cards */
     /* Cards */
     .containerbox {
         justify-content: space-evenly;
@@ -310,4 +386,26 @@
             padding: 0.25rem;
         }
     }
+
+   
+    @media only screen and (max-width: 1500px) and (min-width: 300px)
+    {
+        .grid-container
+        {
+            margin-left: 5vh;
+            margin-right: 5vh;
+        }
+
+        .containerbox
+        {
+            display: block;
+            margin: 3vh;
+        }
+
+        .boxx
+        {
+            width: 90%;
+        }
+    }
+    
 </style>
