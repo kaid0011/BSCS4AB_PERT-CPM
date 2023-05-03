@@ -29,12 +29,6 @@ Pre-requisites:
 
 ====================================================================================
 
-GitHub link for cloning: 
-HTTPS: https://github.com/allanaromero/BSCS4AB_PERT-CPM.git
-SSH: git@github.com:allanaromero/BSCS4AB_PERT-CPM.git
-
-====================================================================================
-
 How to use WAPS:
 1) Pick an algorithm
 2) Enter how many activities your project has and what Unit of Time you prefer. Then, click Generate Table.
