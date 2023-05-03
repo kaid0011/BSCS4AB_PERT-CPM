@@ -3,65 +3,71 @@
         <b> NORMAL DISTRIBUTION </b>
     </div>
     <div class="paragone">
-        In normal distribution, the probability of an 
-        event occurring is evenly distributed around the mean, and the probability 
-        decreases as the distance from the mean increases. The normal distribution 
-        is often used in scheduler calculators to represent task durations that are 
-        evenly distributed around an average value.
+        In normal distribution, the probability of an
+        event occurring is evenly distributed around the mean, and the probability
+        decreases as the distance from the mean increases. 
         <br><br>
-        <!-- Usu nominavi atomorum maluisset ne. Sed ex pertinacia repudiandae, ferri lorem aeque et per. Duo exerci munere an,
-        vix malorum diceret fabulas an, nam ei mutat phaedrum. Sed ea timeam suscipiantur, ad eos partem audiam
-        adversarium, dicam appetere necessitatibus sed ut. -->
+        The normal distribution
+        is often used in scheduler calculators to represent task durations that are
+        evenly distributed around an average value.
     </div>
-    
+
 </div>
 <div class="container" style="overflow-x:auto;">
-    <table class="responsive-table highlight centered">
-        <tr>
-            <td><b>Activity</b></td>
-            <td><b>Description</b></td>
-            <td><b>Optimistic</b></td>
-            <td><b>Most Likely</b></td>
-            <td><b>Pessimistic</b></td>
-            <td><b>Pre-Requisites</b></td>
-        </tr>
-        <?php
-        for ($i = 1; $i <= $proj_len; $i++) {
-        ?>
+      <table class="table">
+        <thead>
             <tr>
-                <td><input type="text" name="<?php echo $i; ?>" value="<?php echo $i; ?>" readonly></td>
-                <td><input type="text" name="task_desc_<?php echo $i; ?>" required></td>
-                <td><input type="number" name="task_opt_<?php echo $i; ?>" step="any" min="1" max="20"  required></td>
-                <td><input type="number" name="task_ml_<?php echo $i; ?>" step="any" min="1" max="20" required></td>
-                <td><input type="number" name="task_pes_<?php echo $i; ?>" step="any" min="1" max="20" required></td>
-                <td><?php
-                    if ($i == 1) {
-                    ?>
-                        <input type="text" name="task_prereq_<?php echo $i; ?>" value="-" readonly>
-                    <?php
-                    } else { ?>
-                        <input type="text" name="task_prereq_<?php echo $i; ?>" required>
-                    <?php } ?>
-                </td>
+                <th>Activity</th>
+                <th title ="Activity Description">Description <span class="tooltiptext">&#9432;</span></th>
+                <th title ="Shortest Estimated Activity Duration">Optimistic <span class="tooltiptext">&#9432;</span></th>
+                <th title ="Reasonable Estimated Activity Duration">Most Likely <span class="tooltiptext">&#9432;</span></th>
+                <th title ="Maximum Estimated Activity Duration">Pessimistic <span class="tooltiptext">&#9432;</span></th>
+                <th title ="Activity Number that needs to be completed first.">Pre-Requisites <span class="tooltiptext">&#9432;</span></th>
             </tr>
-        <?php }
-        ?>
+        </thead>
+        <tbody>
+        <form action="<?php echo base_url('normal/calculate') ?>" method="post">
+            <?php
+            for ($i = 1; $i <= $proj_len; $i++) {
+            ?>
+                <tr>
+                    <td><input type="text1" name="<?php echo $i; ?>" value="<?php echo $i; ?>" readonly></td>
+                    <!-- <td><input type="text" name="task_desc_<?php echo $i; ?>" required></td> -->
+                    <td><textarea  name = "task_desc_<?php echo $i; ?>"></textarea></td>
+                    <td><input type="number"  name="task_opt_<?php echo $i; ?>" step="any" min="1" max="20" oninput="validity.valid||(value='');" required></td>
+                    <td><input type="number" name="task_ml_<?php echo $i; ?>" step="any" min="1" max="20" oninput="validity.valid||(value='');" required></td>
+                    <td><input type="number" name="task_pes_<?php echo $i; ?>" step="any" min="1" max="20" oninput="validity.valid||(value='');" required></td>
+                    <td><?php
+                        if ($i == 1) {
+                        ?>
+                            <input type="text" name="task_prereq_<?php echo $i; ?>" value="-" readonly>
+                        <?php
+                        } else { ?>
+                            <input type="text" name="task_prereq_<?php echo $i; ?>" pattern="[1-<?php echo $i-1; ?>](,[1-<?php echo $i-1; ?>])*|^[\-]" 
+                            oninvalid="this.setCustomValidity('bawal yan haha XD')" onchange="this.setCustomValidity('')" required>
+                        <?php } ?>
+                    </td>
+                </tr>
+            <?php }
+            ?>
+            </tbody>
     </table>
 </div>
 <br>
-<form action="<?php echo base_url('normal/calculate') ?>" method="post">
-        <input type="number" name="proj_len" value="<?php echo $proj_len; ?>" hidden>
-        <input type="text" name="choice" value="<?php echo 'cpm'; ?>" hidden>
-        <input type="text" name="unit" value="<?php echo $unit; ?>" hidden>
-        <div class="trials">
-            Number of Trials: <br><br>
-            <input type="number" name="N" min="1" max="10000" placeholder="Max. 1000" required>
-        </div>
-        <br>
+<input type="number" name="proj_len" value="<?php echo $proj_len; ?>" hidden>
+<input type="text" name="choice" value="<?php echo 'cpm'; ?>" hidden>
+<input type="text" name="unit" value="<?php echo $unit; ?>" hidden>
+<div class="trials">
+    Number of Trials: <br><br>
+    <input type="numbers" name="N" min="1" max="1000" oninput="validity.valid||(value='');" placeholder="Max. 1000" required>
+</div>
+<br>
 <div class="calculate">
     <button class="btn">Calculate</button>
 </div>
 </form>
+<br><br>
+
 <style>
     .title {
         font-size: 2rem;
@@ -95,6 +101,8 @@
         margin-left: auto;
         margin-right: auto;
         text-align: center;
+        border-radius: 10px;
+        overflow-x:auto;
     }
 
     .btn {
@@ -109,45 +117,102 @@
         border-color: #544141;
     }
 
-    
     .trials {
         margin: auto;
         min-width: 15rem;
         max-width: 15rem;
-        background-color: #eeee;
+        background-color: #D7D0D0;
         padding: 1rem;
         border-radius: 10px;
     }
-
+   
     /* TABLE */
 
-    .responsive-table {
+    table {
+        padding: 1rem;
         margin-top: 3rem;
         margin-bottom: 2rem;
         margin-left: auto;
         margin-right: auto;
         align-items: center;
-
+        border-spacing: 0;
+        border: none;
+        overflow: hidden;
+        border-radius: .8em;
+        border-collapse: collapse;
+        border-style: none;
+        text-align: center;
+        background-color: #f0f0f0;
+        
     }
 
-    table, th, td
+    td,
+    th 
     {
         border: none;
         border-collapse: collapse;
         border-style: none;
         text-align: center;
-        background-color: #eeee;
-        /* padding: 5px; */
-    }
-    
-    td,th
-    {
-        padding: 8px 5px;
+        padding: .5rem .8rem;
         display: table-cell;
         text-align: center;
         vertical-align: middle;
         border-radius: 0;
+        background-color: transparent;
     }
+    tr 
+    {
+        border-bottom: 1px solid #ddd;
+    }
+    td{
+        background-color: #f0f0f0;
+    }
+
+    th{
+        background-color: #D7D0D0;
+        padding: 15px;
+        
+    }
+
+    input[type=text1]
+    {
+        border-style: none;
+        text-align: center;
+        font-size: 2.5vh;
+        background-color: transparent;
+    }
+   
+    input[type=numbers]
+    {
+        width:14rem;
+        padding:.5rem;
+    }
+    input
+    {
+        /* background-color: transparent; */
+        border-radius: 5px;
+        border: .5px solid;
+        padding: 5px;
+    }
+
+    textarea
+    {
+        /* background-color: transparent; */
+        border: .5px solid;
+        border-radius: 5px;
+        /* padding: 3px; */
+        resize: none;
+        /* margin: 3px; */
+    }
+
+    /* Input Boxes Style */
+    /* input[type=text], input[type=number] 
+    {
+        padding:3px;
+        margin:2px 0;
+        width: 80%;
+    } */
+
 
     /* RESPONSIVE */
     @media screen {
@@ -157,5 +222,25 @@
             border-radius: 1.2rem;
             padding: 0.25rem;
         }
+
+    @media only screen and (max-width: 1500px) and (min-width: 300px)
+    {
+        .table
+        {
+            margin-left: 3vh;
+            margin-right: 5vh;
+        }
+    }
+    
+        /* .responsive-table 
+        {
+        margin-top: 3rem;
+        margin-bottom: 2rem;
+        margin-left: 4rem;
+        margin-right: 4rem;
+        align-items: center;
+
+        } */
+
     }
 </style>
