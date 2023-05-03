@@ -63,8 +63,8 @@
             </tbody>
         </table>
     </div>
-    <!-- <div class="grid-item">
-    </div> -->
+    <!-- <div class="grid-item"> -->
+    </div>
     <!-- Final Results Display -->
     <div class="container">
         <div class="box">
@@ -115,13 +115,13 @@
 </div>
 <div class="ganttchartname">
         <b> Project Gantt Chart</b>
-    </div>
-<div class="container" style="max-width: 100%; margin: 0 auto; padding: 50px;">
+</div>
+<!-- <div class="container" style="max-width: 100%; margin: 0 auto; padding: 50px;">
     <div class="chart" style="display: grid; border: 2px solid #000; position: relative; overflow: hidden;">
 
         <div class="chart-row chart-period">
             <div class="chart-row-item"></div>
-            <!-- loop according to project completion time -->
+            loop according to project completion time 
             <?php
             for ($col = 1; $col <= $finish_time; $col++) { ?>
                 <span><?php echo $col; ?></span>
@@ -129,7 +129,7 @@
         </div>
 
         <div class="chart-row chart-lines">
-            <!-- loop according to project completion time -->
+            loop according to project completion time 
             <?php
             //$finish_time += 1;
             for ($col = 1; $col <= $finish_time; $col++) { ?>
@@ -148,7 +148,7 @@
             </div>
         <?php } ?>
     </div>
-</div>
+</div> -->
 
 <style>
     .title {
@@ -183,6 +183,8 @@
         margin-left: auto;
         margin-right: auto;
         text-align: center;
+        border-radius: 10px;
+        overflow-x: auto;
     }
 
     .export {
@@ -218,11 +220,12 @@
         align-items: center;
         border-spacing: 0;
         border: none;
+        overflow: hidden;
+        border-radius: .8em;
         border-collapse: collapse;
         border-style: none;
         text-align: center;
-        background-color: #eeee;
-        
+        background-color: #f0f0f0;
     }
 
     td,
@@ -248,7 +251,8 @@
     }
 
     th{
-        background-color: #d9c7c7;
+        background-color: #D7D0D0;
+        padding: 15px;
     }
 
     /* Cards */
@@ -289,15 +293,7 @@
         text-align: center;
     }
 
-    /* RESPONSIVE */
-    @media screen {
-        .form {
-            background-color: #f0f0f0;
-            margin: 3rem 10rem 2rem;
-            border-radius: 1.2rem;
-            padding: 0.25rem;
-        }
-    }
+    
 
     .chart {
         display: grid;
@@ -369,5 +365,35 @@
     ul .chart-li-one {
         grid-column: 1/2;
         background-color: #588BAE;
+    }
+
+    /* RESPONSIVE */
+    @media screen {
+        .form {
+            background-color: #f0f0f0;
+            margin: 3rem 10rem 2rem;
+            border-radius: 1.2rem;
+            padding: 0.25rem;
+        }
+    }
+
+    @media only screen and (max-width: 1500px) and (min-width: 300px)
+    {
+        .grid-item
+        {
+            margin-left: 5vh;
+            margin-right: 5vh;
+        }
+
+        .container
+        {
+            display: block;
+            margin: 3vh;
+        }
+
+        .box
+        {
+            width: 90%;
+        }
     }
 </style>

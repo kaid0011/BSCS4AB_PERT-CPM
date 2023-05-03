@@ -37,16 +37,17 @@
                 for ($i = 1; $i <= $proj_len; $i++) {
                 ?>
                     <tr>
-                        <td><input type="text" name="<?php echo $i; ?>" value="<?php echo $i; ?>" readonly></td>
-                        <td><input type="text" name="task_desc_<?php echo $i; ?>" required></td>
-                        <td><input type="number" name="task_time_<?php echo $i; ?>" min="1" max="20" step="any" required></td>
+                        <td><input type="text1" name="<?php echo $i; ?>" value="<?php echo $i; ?>" readonly></td>
+                        <td><input type="text" name="task_desc_<?php echo $i; ?>"></td>
+                        <td><input type="number" name="task_time_<?php echo $i; ?>" min="1" max="20" step="any" oninput="validity.valid||(value='');" required></td>
                         <td><?php
                             if ($i == 1) {
                             ?>
                                 <input type="text" name="task_prereq_<?php echo $i; ?>" value="-" readonly>
                             <?php
                             } else { ?>
-                                <input type="text" name="task_prereq_<?php echo $i; ?>" required>
+                                <input type="text" name="task_prereq_<?php echo $i; ?>" pattern="[1-<?php echo $i-1; ?>](,[1-<?php echo $i-1; ?>])*|^[\-]" 
+                                oninvalid="this.setCustomValidity('bawal yan haha XD')" onchange="this.setCustomValidity('')" required>
                             <?php } ?>
                         </td>
                     </tr>
@@ -62,7 +63,8 @@
 </form>
 
 <style>
-    .title {
+    .title 
+    {
         font-size: 2rem;
         text-align: center;
         margin: 1rem;
@@ -70,10 +72,10 @@
 
     .paragone 
     {
-        font-size: 20px;
+        font-size: 24px;
     font-style: normal;
-    text-align: center;
-    margin: 2rem 30rem;
+    text-align: justify;
+    margin: 2rem 5rem;
     }
 
     .instructions p
@@ -137,32 +139,76 @@
     }
 
     /* TABLE */
-    table
+    table 
     {
-        margin-top: 2rem;
-        margin-bottom: 1rem;
-        display: table;
-        border-collapse: collapse;
-        align-items: justify;
-        width: 100%;
+        table-layout: AUTO;
+        padding: 1rem;
+        margin-top: 3rem;
+        margin-bottom: 2rem;
+        margin-left: auto;
+        margin-right: auto;
+        align-items: center;
         border-spacing: 0;
+        border: none;
+        border-collapse: collapse;
+        border-style: none;
+        text-align: center;    
+    }   
+    
+    tr 
+    {
+     border-bottom: 1px solid #ddd;
+    }
+    td{
+        background-color: #eeee;
     }
 
-    table, th, td
+    th{
+        background-color: #d9c7c7;
+    }
+
+    td,
+    th 
     {
         border: none;
         border-collapse: collapse;
-        border-style: ridge;
+        border-style: none;
         text-align: center;
-    }
-
-    td, th
-    {
-        padding: 15px 5px;
+        padding: .5rem .8rem;
         display: table-cell;
         text-align: center;
         vertical-align: middle;
         border-radius: 0;
+        width:auto;
+    }
+
+    textarea
+    {
+        background-color: transparent;
+        border: 2px solid;
+        border-radius: 10px;
+        padding: 3px;
+        resize: none;
+        margin: 3px;
+    }
+
+    input[type=text1]
+    {
+        border-style: none;
+        text-align: center;
+    }
+
+    input
+    {
+        background-color: transparent;
+        border-radius: 10px;
+        padding: 5px;
+    }
+
+    input[type=numbers]
+    {
+        width:14rem;
+        padding:.5rem;
     }
 
     /* RESPONSIVE */
