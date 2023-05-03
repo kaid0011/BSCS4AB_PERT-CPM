@@ -6,7 +6,7 @@
         PERT calculates three time estimates for each activity: optimistic, pessimistic, and most likely. 
       <br>These estimates are then used to calculate the expected time for each activity and the entire project.
     </div>
-    <div class="instructions">
+    <!-- <div class="instructions" style="overflow-x:auto;"> 
       <p>INSTRUCTIONS:</p>
     <dl>
       <li> DESCRIPTION - Enter the name or description of the activity.</li>
@@ -15,19 +15,19 @@
       <li> MOST LIKELY - Enter the measure of estimated most likely time.</li>
       <li> PRE-REQUISITES - Enter the <b>activity number</b> of the required activity.</li>
     </dl>
-    </div>
+    </div> -->
 </div>
 <br>
 <div class="container" style="overflow-x:auto;">
       <table class="table">
         <thead>
             <tr>
-                <th>Activity <span class="tooltiptext">&#9432;</span></th>
-                <th>Description</th>
-                <th>Optimistic</th>
-                <th>Most Likely</th>
-                <th>Pessimistic</th>
-                <th>Pre-Requisites</th>
+            <th>Activity</th>
+                <th title ="Activity Description">Description <span class="tooltiptext">&#9432;</span></th>
+                <th title ="Shortest Estimated Activity Duration">Optimistic <span class="tooltiptext">&#9432;</span></th>
+                <th title ="Reasonable Estimated Activity Duration">Most Likely <span class="tooltiptext">&#9432;</span></th>
+                <th title ="Maximum Estimated Activity Duration">Pessimistic <span class="tooltiptext">&#9432;</span></th>
+                <th title ="Activity Number that needs to be completed first.">Pre-Requisites <span class="tooltiptext">&#9432;</span></th>
             </tr>
         </thead>
         <tbody>
@@ -39,18 +39,20 @@
                 for ($i = 1; $i <= $proj_len; $i++) {
                 ?>
                     <tr>
-                        <<td><input type="text" name="<?php echo $i; ?>" value="<?php echo $i; ?>" readonly></td>
-                        <td><input type="text" name="task_desc_<?php echo $i; ?>" required></td>
-                        <td><input type="number" name="task_opt_<?php echo $i; ?>" step="any" min="1" max="20" required></td>
-                        <td><input type="number" name="task_ml_<?php echo $i; ?>" step="any" min="1" max="20" required></td>
-                        <td><input type="number" name="task_pes_<?php echo $i; ?>" step="any" min="1" max="20" required></td>
+                        <td><input type="text1" name="<?php echo $i; ?>" value="<?php echo $i; ?>" readonly></td>
+                        <!--<td><input type="text" name="task_desc_<?php echo $i; ?>" required></td>-->
+                        <td><textarea  name = "task_desc_<?php echo $i; ?>"></textarea></td>
+                        <td><input type="number" name="task_opt_<?php echo $i; ?>" step="any"  min="1" max="20" oninput="validity.valid||(value='');" required></td>
+                        <td><input type="number" name="task_ml_<?php echo $i; ?>" step="any"  min="1" max="20" oninput="validity.valid||(value='');" required></td>
+                        <td><input type="number" name="task_pes_<?php echo $i; ?>" step="any"  min="1" max="20" oninput="validity.valid||(value='');" required></td>
                         <td><?php
                             if ($i == 1) {
                             ?>
                                 <input type="text" name="task_prereq_<?php echo $i; ?>" value="-" readonly>
                             <?php
                             } else { ?>
-                                <input type="text" name="task_prereq_<?php echo $i; ?>" required>
+                                <input type="text" name="task_prereq_<?php echo $i; ?>" pattern="[1-<?php echo $i-1; ?>](,[1-<?php echo $i-1; ?>])*|^[\-]" 
+                                oninvalid="this.setCustomValidity('bawal yan haha XD')" onchange="this.setCustomValidity('')" required>
                             <?php } ?>
                         </td>
                     </tr>
@@ -65,106 +67,152 @@
 </div>
 
 <style>
-    .title
-{
-    font-size: 2rem;
-    text-align: center;
-    margin: 1rem;
-}
+    .title {
+        font-size: 2rem;
+        text-align: center;
+        margin: 1rem;
+    }
 
-.paragone
-{
-    font-size: 20px;
-    font-style: normal;
-    text-align: center;
-    margin: 2rem 10rem;
-}
+    .paragone {
+        font-size: 24px;
+        font-style: normal;
+        text-align: justify;
+        margin: 2rem 5rem;
+    }
 
-.instructions
-{
-    font-style: normal;
-    text-align: justify;
-    margin-left: 25rem;
-    margin-right: 25rem;
-}
+    .instructions
+    {
+        font-style: normal;
+        text-align: justify;
+        margin-left: 25rem;
+        margin-right: 25rem;
+    }
 
-.instructions p
-{
-    font-size: 20px;
-}
+    .instructions p
+    {
+        font-size: 20px;
+    }
 
-dl
-{
-    padding-right: 20rem;
-    padding-bottom: 5rem;
-}
+    dl
+    {
+        padding-right: 20rem;
+        padding-bottom: 5rem;
+    }
 
-.calculate
-{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 2rem;
-}
+    .calculate
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 2rem;
+    }
 
-.container
-{
-    width: 99rem;
-    max-width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-}
+    .container
+    {
+        width: 99rem;
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
 
-.btn
-{
-    text-decoration: none;
-    text-align: center;
-    font-size: 1.2rem;
-    color: #eeee; 
-    background-color: #B19090;
-    border-radius: 40px;
-    display: inline-block;
-    padding: 10px 20px;
-    border-color: #544141;
-}
+    .btn
+    {
+        text-decoration: none;
+        text-align: center;
+        font-size: 1.2rem;
+        color: #eeee; 
+        background-color: #B19090;
+        border-radius: 40px;
+        display: inline-block;
+        padding: 10px 20px;
+        border-color: #544141;
+    }
 
-.btn:hover
-{
-    background-color: #eeee;
-    color:#B19090;
-    
-}
+    .btn:hover
+    {
+        background-color: #eeee;
+        color:#B19090;
+        
+    }
 
 /* TABLE */
-table
-{
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-    display: table;
-    border-collapse: collapse;
-    align-items: justify;
-    width: 100%;
-    border-spacing: 0;
-}
+    table {
+        padding: 1rem;
+        margin-top: 3rem;
+        margin-bottom: 2rem;
+        margin-left: auto;
+        margin-right: auto;
+        align-items: center;
+        border-spacing: 0;
+        border: none;
+        overflow: hidden;
+        border-radius: .8em;
+        border-collapse: collapse;
+        border-style: none;
+        text-align: center;
+        background-color: #f0f0f0;
+        
+    }
 
-table, th, td
-{
-    border: none;
-    border-collapse: collapse;
-    border-style: ridge;
-    text-align: center;
-}
+    td,
+    th 
+    {
+        border: none;
+        border-collapse: collapse;
+        border-style: none;
+        text-align: center;
+        padding: .5rem .8rem;
+        display: table-cell;
+        text-align: center;
+        vertical-align: middle;
+        border-radius: 0;
+        background-color: transparent;
+    }
+    tr 
+    {
+        border-bottom: 1px solid #ddd;
+    }
+    td{
+        background-color: #f0f0f0;
+    }
 
-td, th
-{
-    padding: 15px 5px;
-    display: table-cell;
-    text-align: center;
-    vertical-align: middle;
-    border-radius: 0;
-}
+    th{
+        background-color: #D7D0D0;
+        padding: 15px;
+        
+    }
 
+    input[type=text1]
+    {
+        border-style: none;
+        text-align: center;
+        font-size: 2.5vh;
+        background-color: transparent;
+    }
+   
+    input[type=numbers]
+    {
+        width:14rem;
+        padding:.5rem;
+    }
+    input
+    {
+        /* background-color: transparent; */
+        border-radius: 5px;
+        border: .5px solid;
+        padding: 5px;
+    }
+
+    textarea
+    {
+        /* background-color: transparent; */
+        border: .5px solid;
+        border-radius: 5px;
+        /* padding: 3px; */
+        resize: none;
+        /* margin: 3px; */
+    }
 /* RESPONSIVE */
 @media screen {
     .form
@@ -175,4 +223,12 @@ td, th
     padding: 0.25rem;
     }
 }
+@media only screen and (max-width: 1500px) and (min-width: 300px)
+    {
+        .table
+        {
+            margin-left: 3vh;
+            margin-right: 5vh;
+        }
+    }
 </style>
