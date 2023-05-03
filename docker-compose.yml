@@ -29,6 +29,17 @@ services:
     volumes:
       - db_data:/var/lib/mysql
 
+  caddy:
+    image: caddy:2-alpine
+    container_name: caddy
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - caddy_data:/data
+      - caddy_config:/config
+    ports:
+      - 80:80
+      - 443:443
+
   # phpmyadmin to view/edit database via ui interface
   # will be available on localhost:8080
   phpmyadmin:
