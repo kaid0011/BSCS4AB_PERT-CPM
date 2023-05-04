@@ -185,7 +185,7 @@
         font-size: 24px;
         font-style: normal;
         text-align: justify;
-        margin: 2rem 5rem;
+        margin: 2rem 3rem;
     }
 
     .calculate {
@@ -385,7 +385,7 @@
         .container
         {
             display: block;
-            margin: 3vh;
+            margin: 2.5vh;
         }
 
         .box

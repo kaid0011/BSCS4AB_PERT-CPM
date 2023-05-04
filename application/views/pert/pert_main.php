@@ -5,14 +5,19 @@
     <div class="paragone">
     In PERT, the focus is on identifying the probability of completing the project within a given timeframe.
       <br><br>
-      Enter the number of tasks to start:
+     <div class="howto">
+       <b> How To?</b><br>
+       • Enter the Number of Activities of your project.  <br>
+       • Choose your desired Unit of Time: Days, Weeks, or Months.<br>
+       • Click 'Generate Table' to generate a table to input your project details.<br>
+     </div>
     </div>
 
     <center>
         <div class="form">
             <form action="<?=base_url('pert/proj_details')?>" method="post">
                 <div class="form-group">
-                    <label for="InputTask">Number of Tasks:</label>
+                    <label for="InputTask">Number of Activities:</label>
                     <input type="number" name ="proj_len" class="form-control" id="InputTask" aria-describedby="input" placeholder="Max. 20." min="1" max="20" oninput="validity.valid||(value='');" required>
                 </div>
                 <div class="form-group">
@@ -44,12 +49,15 @@
         margin: 1rem;
     }
 
-
+    .howto
+    {
+        font-size: 22px;
+    }
     .paragone {
         font-size: 24px;
         font-style: normal;
         text-align: justify;
-        margin: 2rem 5rem;
+        margin: 2rem 3rem;
     }
 
     .generate {
@@ -104,11 +112,10 @@
         color: #B19090;
 
     }
-
     @media screen {
         .form {
             background-color: #f0f0f0;
-            margin: 3rem 10rem 2rem;
+            margin: 0rem 0rem 2rem;
             border-radius: 1.2rem;
             padding: 0.25rem;
         }

@@ -16,16 +16,16 @@
         <table class="results">
             <thead>
                 <tr>
-                    <th>Activity</th>
-                    <th>Description</th>
-                    <th>Duration</th>
-                    <th>Pre-Requisites</th>
-                    <th>ES</th>
-                    <th>EF</th>
-                    <th>LS</th>
-                    <th>LF</th>
-                    <th>Slack</th>
-                    <th>Critical</th>
+                <th>Activity</th>
+                    <th title ="Activity Description">Description <span class="tooltiptext">&#9432;</span></th>
+                    <th title ="Estimated Activity Duration">Duration <span class="tooltiptext">&#9432;</span></th>
+                    <th title ="Activity Number that needs to be completed first.">Pre-Requisites <span class="tooltiptext">&#9432;</span></th>
+                    <th title ="Activity's Earliest Start Time">ES <span class="tooltiptext">&#9432;</span></th>
+                    <th title ="Activity's Earliest Finish Time">EF <span class="tooltiptext">&#9432;</span></th>
+                    <th title ="Activity's Latest Start Time">LS <span class="tooltiptext">&#9432;</span></th>
+                    <th title ="Activity's Latest Finish Time">LF <span class="tooltiptext">&#9432;</span></th>
+                    <th title ="Activity's Available Slack Time">Slack <span class="tooltiptext">&#9432;</span></th>
+                    <th title ="If the Activity is Critical">Critical <span class="tooltiptext">&#9432;</span></th>
                 </tr>
             </thead>
             <tbody>
@@ -161,6 +161,12 @@
         text-align: justify;
         margin: 2rem 5rem;
     }
+    .ganttchartname
+    {
+        font-size: 2rem;
+        text-align: center;
+        margin: .1rem 2rem .1rem 2rem;
+    }
 
     .calculate {
         display: flex;
@@ -206,15 +212,17 @@
         align-items: center;
         border-spacing: 0;
         border: none;
+        overflow: hidden;
+        border-radius: .8em;
         border-collapse: collapse;
         border-style: none;
         text-align: center;
-        background-color: #eeee;
-
+        background-color: #f0f0f0;
     }
 
     td,
-    th {
+    th 
+    {
         border: none;
         border-collapse: collapse;
         border-style: none;
@@ -226,20 +234,21 @@
         border-radius: 0;
         background-color: transparent;
     }
-
-    tr {
-        border-bottom: 1px solid #ddd;
+    tr 
+    {
+     border-bottom: 1px solid #ddd;
     }
 
-    td {
+    td{
         background-color: #eeee;
     }
 
-    th {
-        background-color: #d9c7c7;
+    th{
+        background-color: #D7D0D0;
+        padding: 15px;
     }
-
-    textarea {
+    textarea
+    {
         background-color: transparent;
         border: 2px solid;
         border-radius: 10px;
@@ -294,7 +303,7 @@
         border-collapse: collapse;
         text-align: center;
         border-style: ridge;
-        table-layout: fixed;
+        table-layout: auto;
     }
 
     table.gantt-chart th,
@@ -306,6 +315,7 @@
         padding: 12px 5px;
         display: table-cell;
         vertical-align: middle;
+        background-color: #eeee;
     }
 
     .waiting 
@@ -369,4 +379,26 @@
             padding: 0.25rem;
         }
     }
+
+   
+    @media only screen and (max-width: 1500px) and (min-width: 300px)
+    {
+        .grid-container
+        {
+            margin-left: 5vh;
+            margin-right: 5vh;
+        }
+
+        .containerbox
+        {
+            display: block;
+            margin: 3vh;
+        }
+
+        .boxx
+        {
+            width: 90%;
+        }
+    }
+    
 </style>

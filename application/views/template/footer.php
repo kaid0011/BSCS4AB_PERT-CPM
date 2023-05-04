@@ -5,7 +5,7 @@
             <li style="padding: 10px;"><a href="/PrivacyPolicy.html">Privacy Policy</a></li>
             <li style="padding: 10px;">Cookie Policy</li>
             <li style="padding: 10px;">Terms & Conditions</li>
-            <li style="padding: 10px;float: right;">Copyright © 2023 WAPS</li>
+            <li id ="copy" style="padding: 10px;float: right;">Copyright © 2023 WAPS</li>
         </ul>
     </div>
 </footer>
@@ -130,9 +130,13 @@
     /* Footer */
 
     footer {
-        padding: 1px 0;
-        height: 40px;
+        margin-top: auto;
+        /* position: fixed; */
+        /* padding: 1px 0; */
+        height: auto;
+        bottom: 0;
         width: 100%;
+        /* margin: 1rem; */
         background-color: #EEEEEE;
     }
 
@@ -164,4 +168,25 @@
     ::-webkit-scrollbar-thumb:hover {
         background: #776161;
     }
+
+    @media only screen and (max-width: 1500px) and (min-width: 300px)
+    {
+        .footer
+        {
+            margin-top: auto;
+            padding: 1px 0;
+            height: auto;
+            bottom: 0;
+            width: 100%;
+            margin: 2rem 0rem 0rem;
+            background-color: #EEEEEE;
+        }
+        footer li a
+        {
+            text-decoration: none;
+            display:contents;
+            text-align: center;
+        }
+    }
+
 </style>

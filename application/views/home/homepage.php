@@ -105,7 +105,7 @@
                 </center>
             </div>
         </div>
-
+<br>
         <style>
             .title {
                 font-size: 2rem;
@@ -128,7 +128,7 @@
                 font-style: normal;
                 color: #544141;
                 text-align: justify;
-                margin: 2rem 10rem;
+                margin: 2rem 2rem;
             }
 
             /* Cards */
@@ -209,6 +209,22 @@
                     width: 100%;
                     margin-bottom: 4%;
                 }
+            }
+            @media only screen and (max-width: 1500px) and (min-width: 300px)
+            {
+                .paragone
+                {
+                    margin: 1rem;
+                }
+                .secondpara
+                {
+                    font-size: 20px;
+                    font-style: normal;
+                    color: #544141;
+                    text-align: justify;
+                    margin: 1rem;
+                }
+
             }
 
             /* .without
