@@ -8,14 +8,19 @@
         It focuses on identifying the critical path of a project, which is the 
         sequence of activities that determine the project's total duration. 
         <br><br>
-        Enter the number of tasks to start:
+        <div class="howto">
+       <b> How To?</b><br>
+       • Enter the Number of Activities of your project.  <br>
+       • Choose your desired Unit of Time: Days, Weeks, or Months.<br>
+       • Click 'Generate Table' to generate a table to input your project details.<br>
+     </div>
     </div>
-
+<br>
     <center>
         <div class="form">
             <form action="<?= base_url('cpm/proj_details') ?>" method="post">
                 <div class="form-group">
-                    <label for="InputTask">Number of Tasks:</label>
+                    <label for="InputTask">Number of Activities:</label>
                     <input type="number" name="proj_len" class="form-control" id="InputTask" aria-describedby="input" placeholder="Max. 20." min="1" max="20" oninput="validity.valid||(value='');" required>
                 </div>
                 <div class="form-group">
@@ -47,7 +52,10 @@
         margin: 1rem;
     }
 
-
+    .howto
+    {
+        font-size: 22px;
+    }
     .paragone {
         font-size: 24px;
         font-style: normal;
@@ -83,8 +91,7 @@
 
     }
 
-    input,
-    select {
+    input, select {
         width: 100%;
         padding: 12px 20px;
         margin: 8px 0;
@@ -108,11 +115,10 @@
         color: #B19090;
 
     }
-
     @media screen {
         .form {
             background-color: #f0f0f0;
-            margin: 3rem 10rem 2rem;
+            margin: 0rem 0rem 2rem;
             border-radius: 1.2rem;
             padding: 0.25rem;
         }

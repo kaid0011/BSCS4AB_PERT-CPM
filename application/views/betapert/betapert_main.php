@@ -11,6 +11,14 @@
         most likely, and maximum duration for a task. It is often used in scheduler
         calculators to perform simulations that take into account the uncertainty and
         variability of task durations.
+        <br> <br>
+        <div class = "howto">
+            <b>How To?</b> <br>
+            • Enter the Number of Activities of your project<br>
+            • Choose your desired Unit of Time: Days, Weeks, or Months<br>
+            • Click 'Generate Table' to generate a table to input your project details<br><br>
+        </div>
+
     </div>
 
 </div>
@@ -41,7 +49,7 @@
     <button class="btn">Generate Table</button>
 </div>
 </form>
-
+<br><br>
 <style>
     .title {
         font-size: 2rem;
@@ -49,7 +57,10 @@
         margin: 1rem;
     }
 
-
+    .howto
+    {
+        font-size: 22px;
+    }
     .paragone {
         font-size: 24px;
         font-style: normal;

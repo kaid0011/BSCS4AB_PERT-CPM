@@ -15,6 +15,22 @@
             <thead>
                 <tr>
                     <th>Activity</th>
+<<<<<<< HEAD:application/views/PERT/pert_output.php
+                    <th title ="Activity Description">Description <span class="tooltiptext">&#9432;</span></th>
+                    <th title ="Shortest Estimated Activity Duration">Optimistic <span class="tooltiptext">&#9432;</span></th>
+                    <th title ="Reasonable Estimated Activity Duration">Most Likely <span class="tooltiptext">&#9432;</span></th>
+                    <th title ="Maximum Estimated Activity Duration">Pessimistic <span class="tooltiptext">&#9432;</span></th>
+                    <th title ="Estimated Activity Completion based on OT, MLT, and PT">Estimated Duration <span class="tooltiptext">&#9432;</span></th>
+                    <th title ="Activity Number that needs to be completed first.">Pre-Requisites <span class="tooltiptext">&#9432;</span></th>
+                    <th title ="The calculated Standard Deviation of Each Activity">Standard Deviation <span class="tooltiptext">&#9432;</span></th>
+                    <th title ="The calculated Variance of Each Activity">Variance <span class="tooltiptext">&#9432;</span></th>
+                    <th title ="Activity's Earliest Start Time">ES <span class="tooltiptext">&#9432;</span></th>
+                    <th title ="Activity's Earliest Finish Time">EF <span class="tooltiptext">&#9432;</span></th>
+                    <th title ="Activity's Latest Start Time">LS <span class="tooltiptext">&#9432;</span></th>
+                    <th title ="Activity's Latest Finish Time">LF <span class="tooltiptext">&#9432;</span></th>
+                    <th title ="Activity's Available Slack Time">Slack <span class="tooltiptext">&#9432;</span></th>
+                    <th title ="If the Activity is Critical">Critical <span class="tooltiptext">&#9432;</span></th>
+=======
                     <th title="Activity Description">Description <span class="tooltiptext">&#9432;</span></th>
                     <th title="Shortest Estimated Activity Duration">Optimistic <span class="tooltiptext">&#9432;</span></th>
                     <th title="Reasonable Estimated Activity Duration">Most Likely <span class="tooltiptext">&#9432;</span></th>
@@ -29,6 +45,7 @@
                     <th title="Activity's Latest Finish Time">LF <span class="tooltiptext">&#9432;</span></th>
                     <th title="Activity's Available Slack Time">Slack <span class="tooltiptext">&#9432;</span></th>
                     <th title="If the Activity is Critical">Critical <span class="tooltiptext">&#9432;</span></th>
+>>>>>>> 4d3eb49ca26553212cfa900a9fbf76405be20dac:application/views/pert/pert_output.php
                 </tr>
             </thead>
             <tbody>
@@ -141,19 +158,36 @@
 
 <!-- BUTTON -->
 <div class="calculate">
+<<<<<<< HEAD:application/views/PERT/pert_output.php
+        <a class="btn" href="CPMOutput.html">Calculate</a>
+        <button class="btn">Export Output</button>
+</div>
+
+ <div class="ganttchartname">
+        <b> Completion Probability Calculator</b>
+=======
     <!-- <a class="btn" href="CPMOutput.html">Calculate</a> -->
     <button class="btn">Export to CSV</button>
+>>>>>>> 4d3eb49ca26553212cfa900a9fbf76405be20dac:application/views/pert/pert_output.php
 </div>
 
 <!-- EXPLANATION -->
 <div class="paragone">
-    Lorem ipsum dolor sit amet, no clita veritus maiestatis vim, est illum consetetur no. Agam modus an vel. Nibh
-    feugiat pericula id eam. Sit aliquam platonem omittantur ut, eum meliore offendit at. Suas alienum at per, ad sit
-    exerci vocent docendi, te sea summo feugait. At vim cibo accumsan mnesarchum.
+Our PERT Calculator also enables users to determine the probability of an expected duration
     <br><br>
-    Usu nominavi atomorum maluisset ne. Sed ex pertinacia repudiandae, ferri lorem aeque et per. Duo exerci munere an,
-    vix malorum diceret fabulas an, nam ei mutat phaedrum. Sed ea timeam suscipiantur, ad eos partem audiam
-    adversarium, dicam appetere necessitatibus sed ut.
+    <b>Project Completion Probability</b>: Calculate the probability of an expected project completion time for the whole project <br>
+    <br>
+       <b> How To?</b><br>
+       • Enter your expected project duration. <br>
+       • Click 'Calculate' and wait for the probability to show.
+       <br><br>
+    <b>Activity Completion Probability</b>: Calculate the probability of an expected duration of a specific activity     <br>
+    <br>
+       <b> How To?</b><br>
+       • Enter the Activity Number of the duration you want to compute.<br>
+       • Enter your expected activity duration.<br>
+       • Click 'Calculate' and wait for the probability to show.<br>
+
 </div>
 
 <!-- CARDS 2 -->
@@ -190,10 +224,20 @@
         </center>
     </div>
 </div>
+<<<<<<< HEAD:application/views/PERT/pert_output.php
+<br>
+<div class="ganttchartname">
+        <b> Project Gantt Chart</b>
+</div>
+<!-- CHART -->
+<div class="ganttcontainer" style="max-width: 100%; margin: 0 auto; padding: 30px;">
+       <div class="chart" style="display: grid; position: relative; overflow: hidden; overflow-x:auto">
+=======
 
 <!-- GANTT CHART -->
 <div class="grid-container-gantt">
     <div style="overflow-x: auto;">
+>>>>>>> 4d3eb49ca26553212cfa900a9fbf76405be20dac:application/views/pert/pert_output.php
         <table class="gantt-chart">
             <thead>
             <tr>
@@ -249,7 +293,7 @@
         font-size: 24px;
         font-style: normal;
         text-align: justify;
-        margin: 2rem 5rem;
+        margin: 2rem 3rem;
     }
 
     .calculate {
@@ -342,11 +386,17 @@
         align-items: center;
         border-spacing: 0;
         border: none;
+        overflow: hidden;
+        border-radius: .8em;
         border-collapse: collapse;
         border-style: none;
         text-align: center;
+<<<<<<< HEAD:application/views/PERT/pert_output.php
+        background-color: #f0f0f0;
+=======
         background-color: #eeee;
 
+>>>>>>> 4d3eb49ca26553212cfa900a9fbf76405be20dac:application/views/pert/pert_output.php
     }
 
     td,
@@ -367,6 +417,18 @@
         border-bottom: 1px solid #ddd;
     }
 
+<<<<<<< HEAD:application/views/PERT/pert_output.php
+    td{
+        background-color: #eeee;
+    }
+
+    th{
+        background-color: #D7D0D0;
+        padding: 15px;
+    }
+    textarea
+    {
+=======
     td {
         background-color: #eeee;
     }
@@ -376,6 +438,7 @@
     }
 
     textarea {
+>>>>>>> 4d3eb49ca26553212cfa900a9fbf76405be20dac:application/views/pert/pert_output.php
         background-color: transparent;
         border: 2px solid;
         border-radius: 10px;
@@ -442,7 +505,7 @@
     .boxx2 {
         width: 30%;
         height: auto;
-        padding: 1.5rem;
+        padding: 30px 2px 15px 2px;
         border: 1px solid #ccc;
         margin: 5vh;
         background: white;
@@ -534,9 +597,17 @@
         }
     }
 
+<<<<<<< HEAD:application/views/PERT/pert_output.php
+   
+    @media only screen and (max-width: 1500px) and (min-width: 300px)
+    {
+        .grid-container
+        {
+=======
 
     @media only screen and (max-width: 1500px) and (min-width: 300px) {
         .grid-item {
+>>>>>>> 4d3eb49ca26553212cfa900a9fbf76405be20dac:application/views/pert/pert_output.php
             margin-left: 5vh;
             margin-right: 5vh;
         }

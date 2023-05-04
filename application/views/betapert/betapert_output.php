@@ -63,8 +63,8 @@
             </tbody>
         </table>
     </div>
-    <!-- <div class="grid-item">
-    </div> -->
+    <!-- <div class="grid-item"> -->
+    </div>
     <!-- Final Results Display -->
     <div class="container">
         <div class="box">
@@ -199,6 +199,8 @@
         margin-left: auto;
         margin-right: auto;
         text-align: center;
+        border-radius: 10px;
+        
     }
 
     .export {
@@ -234,11 +236,12 @@
         align-items: center;
         border-spacing: 0;
         border: none;
+        overflow: hidden;
+        border-radius: .8em;
         border-collapse: collapse;
         border-style: none;
         text-align: center;
-        background-color: #eeee;
-        
+        background-color: #f0f0f0;
     }
 
     td,
@@ -259,12 +262,14 @@
     {
      border-bottom: 1px solid #ddd;
     }
+
     td{
         background-color: #eeee;
     }
 
     th{
-        background-color: #d9c7c7;
+        background-color: #D7D0D0;
+        padding: 15px;
     }
 
     /* Cards */
@@ -326,7 +331,7 @@
         border-collapse: collapse;
         text-align: center;
         border-style: ridge;
-        table-layout: fixed;
+        table-layout: auto;
     }
 
     table.gantt-chart th,
@@ -364,4 +369,23 @@
         }
     }
 
+    @media only screen and (max-width: 1500px) and (min-width: 300px)
+    {
+        .grid-item
+        {
+            margin-left: 5vh;
+            margin-right: 5vh;
+        }
+
+        .container
+        {
+            display: block;
+            margin: 3vh;
+        }
+
+        .box
+        {
+            width: 90%;
+        }
+    }
 </style>

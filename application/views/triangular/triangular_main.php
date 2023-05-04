@@ -42,7 +42,7 @@
 <br> <br>
 
 <style>
-    .title {
+     .title {
         font-size: 2rem;
         text-align: center;
         margin: 1rem;
@@ -53,7 +53,7 @@
         font-size: 24px;
         font-style: normal;
         text-align: justify;
-        margin: 2rem 5rem;
+        margin: 2rem 3rem;
     }
 
     .generate {
@@ -110,7 +110,7 @@
 
     }
 
-     @media screen {
+    @media screen {
         .form {
             background-color: #f0f0f0;
             margin: 0rem 0rem 2rem;
