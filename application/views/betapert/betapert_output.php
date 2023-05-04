@@ -116,40 +116,56 @@
 <div class="ganttchartname">
         <b> Project Gantt Chart</b>
     </div>
-<div class="container" style="max-width: 100%; margin: 0 auto; padding: 50px;">
-    <div class="chart" style="display: grid; border: 2px solid #000; position: relative; overflow: hidden;">
-
-        <div class="chart-row chart-period">
-            <div class="chart-row-item"></div>
-            <!-- loop according to project completion time -->
-            <?php
-            for ($col = 1; $col <= $finish_time; $col++) { ?>
-                <span><?php echo $col; ?></span>
-            <?php } ?>
-        </div>
-
-        <div class="chart-row chart-lines">
-            <!-- loop according to project completion time -->
-            <?php
-            //$finish_time += 1;
-            for ($col = 1; $col <= $finish_time; $col++) { ?>
-                <span></span>
-            <?php } ?>
-        </div>
-
-        <?php
-        $qty -= 1;
-        foreach ($project as $task) { ?>
-            <div class="chart-row">
-                <div class="chart-row-item"><?php echo "Activity " . $task['id']; ?></div>
-                <ul class="chart-row-bars">
-                    <li class="" style="grid-column: <?php echo $task['es'] + 1; ?>/<?php echo $task['lf'] + 1; ?>; background-color: #588BAE;"><?php echo $task['desc']; ?></li>
-                </ul>
-            </div>
-        <?php } ?>
-    </div>
+<!-- EXPLANATION -->
+<div class="paragone">
+    Lorem ipsum dolor sit amet, no clita veritus maiestatis vim, est illum consetetur no. Agam modus an vel. Nibh
+    feugiat pericula id eam. Sit aliquam platonem omittantur ut, eum meliore offendit at. Suas alienum at per, ad sit
+    exerci vocent docendi, te sea summo feugait. At vim cibo accumsan mnesarchum.
+    <br><br>
+    Usu nominavi atomorum maluisset ne. Sed ex pertinacia repudiandae, ferri lorem aeque et per. Duo exerci munere an,
+    vix malorum diceret fabulas an, nam ei mutat phaedrum. Sed ea timeam suscipiantur, ad eos partem audiam
+    adversarium, dicam appetere necessitatibus sed ut.
 </div>
 
+<!-- GANTT CHART -->
+<div class="grid-container-gantt">
+    <div style="overflow-x: auto;">
+        <table class="gantt-chart">
+            <thead>
+            <tr>
+                <th style="border-bottom-style: ridge; border-right-style: ridge;"></th>
+                <?php
+                for ($col = 1; $col <= $finish_time + 1; $col++) {
+                    if ($col == ceil($finish_time)) { ?>
+                        <th style="border-bottom-style: ridge;"></th>
+                    <?php } else { ?>
+                        <th style="border-bottom-style: ridge; text-align: right;"><?php echo "$col"; ?></th>
+                <?php }
+                } ?>
+            </tr>
+            </thead>
+            <tbody>
+            <?php
+            foreach ($project as $task) { ?>
+                <tr>
+                    <td style="border-bottom-style: ridge; border-right-style: ridge;"><strong><?php echo "Activity " . $task['id']; ?></strong></td>
+                    <td style="border-bottom-style: ridge;" colspan="<?php echo ceil($finish_time); ?>">
+                        <?php
+                        $waiting = ($task['es'] / $finish_time) * 100;
+                        $progress = (($task['lf'] - $task['es']) / $finish_time) * 100;
+                        $total_time = $finish_time / ceil($finish_time) * 100;
+                        ?>
+                        <div style="background-color:#B19090; width: <?php echo $total_time; ?>%">
+                            <div class="waiting" style="position: relative; float: left; display: inline-block; width: <?php echo $waiting ?>%"></div>
+                            <div class="progress" style="position: relative; float: left; display: inline-block; width: <?php echo $progress ?>%"></div>
+                        </div>
+                    </td>
+                </tr>
+            <?php } ?>
+            </tbody>
+        </table>
+    </div>
+</div>
 <style>
     .title {
         font-size: 2rem;
@@ -289,6 +305,55 @@
         text-align: center;
     }
 
+    /* GANTT CHART */
+    .grid-container-gantt {
+        display: grid;
+        width: 85%;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+
+    table.gantt-chart {
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        display: table;
+        border-collapse: collapse;
+        align-items: justify;
+        width: 100%;
+        border-spacing: 0;
+        border: none;
+        border-collapse: collapse;
+        text-align: center;
+        border-style: ridge;
+        table-layout: fixed;
+    }
+
+    table.gantt-chart th,
+    table.gantt-chart td {
+        white-space: nowrap;
+        border: none;
+        border-collapse: collapse;
+        text-align: center;
+        padding: 12px 5px;
+        display: table-cell;
+        vertical-align: middle;
+    }
+
+    .waiting {
+        height: 30px;
+        position: relative;
+        background: none;
+    }
+
+    .progress {
+        height: 30px;
+        position: relative;
+        background: #B19090;
+        border: 0px;
+        border-radius: 10px;
+    }
+
     /* RESPONSIVE */
     @media screen {
         .form {
@@ -299,75 +364,4 @@
         }
     }
 
-    .chart {
-        display: grid;
-        border: 2px solid #000;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .chart-row {
-        display: grid;
-        grid-template-columns: 80px 1fr;
-        background-color: #DCDCDC;
-    }
-
-    .chart-row:nth-child(odd) {
-        background-color: #C0C0C0;
-    }
-
-    .chart-period {
-        color: #fff;
-        background-color: #708090 !important;
-        border-bottom: 2px solid #000;
-        grid-template-columns: 50px repeat(12, 1fr);
-    }
-
-    .chart-lines {
-        position: absolute;
-        height: 100%;
-        width: 100%;
-        background-color: transparent;
-        grid-template-columns: 80px repeat(12, 1fr);
-    }
-
-    .chart-period>span {
-        text-align: center;
-        font-size: 13px;
-        align-self: center;
-        font-weight: bold;
-        padding: 15px 0;
-    }
-
-    .chart-lines>span {
-        display: block;
-        border-right: 1px solid rgba(0, 0, 0, 0.3);
-    }
-
-    .chart-row-item {
-        background-color: #808080;
-        border: 1px solid #000;
-        border-top: 0;
-        border-left: 0;
-        padding: 20px 0;
-        font-size: 15px;
-        font-weight: bold;
-        text-align: center;
-        width: 80px;
-    }
-
-    .chart-row-bars {
-        list-style: none;
-        display: grid;
-        padding: 15px 0;
-        margin: 0;
-        grid-template-columns: repeat(12, 1fr);
-        grid-gap: 10px 0;
-        border-bottom: 1px solid #000;
-    }
-
-    ul .chart-li-one {
-        grid-column: 1/2;
-        background-color: #588BAE;
-    }
 </style>

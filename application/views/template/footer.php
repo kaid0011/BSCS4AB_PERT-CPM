@@ -130,13 +130,9 @@
     /* Footer */
 
     footer {
-        margin-top: auto;
-        position: fixed;
         padding: 1px 0;
         height: 40px;
-        bottom: 0;
         width: 100%;
-        margin: 2rem 0rem 0rem;
         background-color: #EEEEEE;
     }
 
