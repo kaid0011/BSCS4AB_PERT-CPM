@@ -84,13 +84,11 @@ function myFunction() {
       background-color: #D9D9D9;
       margin: 0 auto;
         display: flex;
-        flex-direction: row;
         align-items: center;
-        justify-content: space-around;
+       
     }
     
     .topnav a{
-      float: left;
       display: block;
       text-align: center;
       padding: 14px 15px;
@@ -112,55 +110,6 @@ function myFunction() {
       color: black;
     }
     
-    li {
-        float: left;
-    }
-
-
-    li a,
-    .dropbtn {
-        display: inline-block;
-        color: rgb(75, 61, 38);
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-    }
-
-    li a:hover,
-    .dropdown:hover .dropbtn {
-        background-color: #B19090;
-        
-    }
-
-    li .dropdown {
-        display: inline-block;
-    }
-    .dropdown-content {
-        display: none;
-        position: absolute;
-        background-color: #f9f9f9;
-        min-width: 160px;
-        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-        z-index: 1;
-        font-size: 1rem;
-    }
-
-    .dropdown-content a {
-        color: black;
-        padding: 12px 16px;
-        text-decoration: none;
-        display: block;
-        text-align: left;
-    }
-
-    .dropdown-content a:hover {
-        background-color: #f1f1f1;
-    }
-
-    .dropdown:hover .dropdown-content {
-        display: block;
-    }
-    
     @media only screen and (max-width: 1000px) and (min-width: 300px) 
     {
       .topnav a
@@ -176,6 +125,10 @@ function myFunction() {
     
     @media only screen and (min-width: 300px) 
     {
+        .topnav.responsive 
+    {
+        position: relative;
+    }
       .topnav.responsive .icon {
         position: absolute;
         right: 0;
@@ -196,6 +149,10 @@ function myFunction() {
 
     @media only screen and (max-width: 1000px) 
     {
+        .topnav.responsive 
+    {
+        position: relative;
+    }
       .topnav.responsive .icon {
         position: absolute;
         right: 0;
@@ -218,62 +175,18 @@ function myFunction() {
     }
     }
 
-    li a,
-    .dropbtn {
-        display: inline-block;
-        color: rgb(75, 61, 38);
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-    }
-
-    li a:hover,
-    .dropdown:hover .dropbtn {
-        background-color: #B19090;
-        
-    }
-
-    li .dropdown {
-        display: inline-block;
-    }
-    .dropdown-content {
-        display: none;
-        position: absolute;
-        background-color: #f9f9f9;
-        min-width: 160px;
-        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-        z-index: 1;
-        font-size: 1rem;
-    }
-
-    .dropdown-content a {
-        color: black;
-        padding: 12px 16px;
-        text-decoration: none;
-        display: block;
-        text-align: left;
-    }
-
-    .dropdown-content a:hover {
-        background-color: #f1f1f1;
-    }
-
-    .dropdown:hover .dropdown-content {
-        display: block;
-    }
-
-
     ul {
         list-style-type: none;
         margin: 0;
         padding: 0;
         overflow: hidden;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     li {
         float: left;
     }
-
 
     li a,
     .dropbtn {
@@ -301,7 +214,7 @@ function myFunction() {
 
     .dropdown-content {
         display: none;
-        position: absolute;
+        position: fixed;
         background-color: #f9f9f9;
         min-width: 160px;
         box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
