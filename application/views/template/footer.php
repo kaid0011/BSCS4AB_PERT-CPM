@@ -9,8 +9,6 @@
         </ul>
     </div>
 </footer>
-
-<script type="text/javascript" src="js/materialize.min.js"></script>
 </body>
 
 </html>
@@ -21,15 +19,15 @@
         scroll-behavior: smooth;
         -ms-overflow-style: none;
         /* IE and Edge */
-
     }
 
     body {
         margin: 0;
         padding: 0;
-        padding-top: 60px;
-        padding-bottom: 40px;
         border: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
     }
 
 
@@ -45,7 +43,7 @@
     header {
         top: 0;
         width: 100%;
-        position: fixed;
+        position: sticky;
         margin-left: auto;
         margin-right: auto;
     }
@@ -84,7 +82,7 @@
     li a:hover,
     .dropdown:hover .dropbtn {
         background-color: #B19090;
-        ;
+        
     }
 
     li.dropdown {
@@ -127,15 +125,14 @@
     }
 
     /* Footer */
+
     footer {
-        margin-top: auto;
-        position: fixed;
         padding: 1px 0;
         height: 40px;
-        bottom: 0;
         width: 100%;
-        margin: 2rem 0rem 0rem;
         background-color: #EEEEEE;
+        position: absolute bottom;
+        margin-top: auto;
     }
 
     footer li a
