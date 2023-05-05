@@ -15,7 +15,6 @@
             <thead>
                 <tr>
                     <th>Activity</th>
-<<<<<<< HEAD:application/views/PERT/pert_output.php
                     <th title ="Activity Description">Description <span class="tooltiptext">&#9432;</span></th>
                     <th title ="Shortest Estimated Activity Duration">Optimistic <span class="tooltiptext">&#9432;</span></th>
                     <th title ="Reasonable Estimated Activity Duration">Most Likely <span class="tooltiptext">&#9432;</span></th>
@@ -30,22 +29,6 @@
                     <th title ="Activity's Latest Finish Time">LF <span class="tooltiptext">&#9432;</span></th>
                     <th title ="Activity's Available Slack Time">Slack <span class="tooltiptext">&#9432;</span></th>
                     <th title ="If the Activity is Critical">Critical <span class="tooltiptext">&#9432;</span></th>
-=======
-                    <th title="Activity Description">Description <span class="tooltiptext">&#9432;</span></th>
-                    <th title="Shortest Estimated Activity Duration">Optimistic <span class="tooltiptext">&#9432;</span></th>
-                    <th title="Reasonable Estimated Activity Duration">Most Likely <span class="tooltiptext">&#9432;</span></th>
-                    <th title="Maximum Estimated Activity Duration">Pessimistic <span class="tooltiptext">&#9432;</span></th>
-                    <th title="Estimated Activity Completion based on OT, MLT, and PT">Estimated Duration <span class="tooltiptext">&#9432;</span></th>
-                    <th title="Activity Number that needs to be completed first.">Pre-Requisites <span class="tooltiptext">&#9432;</span></th>
-                    <th title="The calculated Standard Deviation of Each Activity">Standard Deviation <span class="tooltiptext">&#9432;</span></th>
-                    <th title="The calculated Variance of Each Activity">Variance</th>
-                    <th title="Activity's Earliest Start Time">ES <span class="tooltiptext">&#9432;</span></th>
-                    <th title="Activity's Earliest Finish Time">EF <span class="tooltiptext">&#9432;</span></th>
-                    <th title="Activity's Latest Start Time">LS <span class="tooltiptext">&#9432;</span></th>
-                    <th title="Activity's Latest Finish Time">LF <span class="tooltiptext">&#9432;</span></th>
-                    <th title="Activity's Available Slack Time">Slack <span class="tooltiptext">&#9432;</span></th>
-                    <th title="If the Activity is Critical">Critical <span class="tooltiptext">&#9432;</span></th>
->>>>>>> 4d3eb49ca26553212cfa900a9fbf76405be20dac:application/views/pert/pert_output.php
                 </tr>
             </thead>
             <tbody>
@@ -158,17 +141,12 @@
 
 <!-- BUTTON -->
 <div class="calculate">
-<<<<<<< HEAD:application/views/PERT/pert_output.php
         <a class="btn" href="CPMOutput.html">Calculate</a>
         <button class="btn">Export Output</button>
 </div>
 
  <div class="ganttchartname">
         <b> Completion Probability Calculator</b>
-=======
-    <!-- <a class="btn" href="CPMOutput.html">Calculate</a> -->
-    <button class="btn">Export to CSV</button>
->>>>>>> 4d3eb49ca26553212cfa900a9fbf76405be20dac:application/views/pert/pert_output.php
 </div>
 
 <!-- EXPLANATION -->
@@ -224,20 +202,10 @@ Our PERT Calculator also enables users to determine the probability of an expect
         </center>
     </div>
 </div>
-<<<<<<< HEAD:application/views/PERT/pert_output.php
-<br>
-<div class="ganttchartname">
-        <b> Project Gantt Chart</b>
-</div>
-<!-- CHART -->
-<div class="ganttcontainer" style="max-width: 100%; margin: 0 auto; padding: 30px;">
-       <div class="chart" style="display: grid; position: relative; overflow: hidden; overflow-x:auto">
-=======
 
 <!-- GANTT CHART -->
 <div class="grid-container-gantt">
     <div style="overflow-x: auto;">
->>>>>>> 4d3eb49ca26553212cfa900a9fbf76405be20dac:application/views/pert/pert_output.php
         <table class="gantt-chart">
             <thead>
             <tr>
@@ -391,12 +359,7 @@ Our PERT Calculator also enables users to determine the probability of an expect
         border-collapse: collapse;
         border-style: none;
         text-align: center;
-<<<<<<< HEAD:application/views/PERT/pert_output.php
         background-color: #f0f0f0;
-=======
-        background-color: #eeee;
-
->>>>>>> 4d3eb49ca26553212cfa900a9fbf76405be20dac:application/views/pert/pert_output.php
     }
 
     td,
@@ -417,7 +380,6 @@ Our PERT Calculator also enables users to determine the probability of an expect
         border-bottom: 1px solid #ddd;
     }
 
-<<<<<<< HEAD:application/views/PERT/pert_output.php
     td{
         background-color: #eeee;
     }
@@ -428,17 +390,6 @@ Our PERT Calculator also enables users to determine the probability of an expect
     }
     textarea
     {
-=======
-    td {
-        background-color: #eeee;
-    }
-
-    th {
-        background-color: #d9c7c7;
-    }
-
-    textarea {
->>>>>>> 4d3eb49ca26553212cfa900a9fbf76405be20dac:application/views/pert/pert_output.php
         background-color: transparent;
         border: 2px solid;
         border-radius: 10px;
@@ -597,17 +548,11 @@ Our PERT Calculator also enables users to determine the probability of an expect
         }
     }
 
-<<<<<<< HEAD:application/views/PERT/pert_output.php
    
     @media only screen and (max-width: 1500px) and (min-width: 300px)
     {
         .grid-container
         {
-=======
-
-    @media only screen and (max-width: 1500px) and (min-width: 300px) {
-        .grid-item {
->>>>>>> 4d3eb49ca26553212cfa900a9fbf76405be20dac:application/views/pert/pert_output.php
             margin-left: 5vh;
             margin-right: 5vh;
         }
