@@ -63,8 +63,8 @@
             </tbody>
         </table>
     </div>
-    <!-- <div class="grid-item">
-    </div> -->
+    <!-- <div class="grid-item"> -->
+    </div>
     <!-- Final Results Display -->
     <div class="container">
         <div class="box">
@@ -115,7 +115,8 @@
 </div>
 <div class="ganttchartname">
         <b> Project Gantt Chart</b>
-    </div>
+</div>
+
 <!-- EXPLANATION -->
 <div class="paragone">
     Lorem ipsum dolor sit amet, no clita veritus maiestatis vim, est illum consetetur no. Agam modus an vel. Nibh
@@ -127,241 +128,40 @@
     adversarium, dicam appetere necessitatibus sed ut.
 </div>
 
-<!-- GANTT CHART -->
-<div class="grid-container-gantt">
-    <div style="overflow-x: auto;">
+<!-- CHART -->
+<div class="ganttcontainer" style="max-width: 100%; margin: 0 auto; padding: 50px;">
+       <div class="chart" style="display: grid; position: relative; overflow: hidden; overflow-x:auto">
         <table class="gantt-chart">
-            <thead>
             <tr>
                 <th style="border-bottom-style: ridge; border-right-style: ridge;"></th>
                 <?php
-                for ($col = 1; $col <= $finish_time + 1; $col++) {
-                    if ($col == ceil($finish_time)) { ?>
-                        <th style="border-bottom-style: ridge;"></th>
-                    <?php } else { ?>
-                        <th style="border-bottom-style: ridge; text-align: right;"><?php echo "$col"; ?></th>
-                <?php }
-                } ?>
+                    for ($col = 1; $col <= $finish_time+1; $col++) { 
+                        if ($col == ceil($finish_time)) { ?>
+                            <th style="border-bottom-style: ridge;"></th>
+                        <?php } 
+                        else { ?>
+                            <th style="border-bottom-style: ridge; text-align: right;"><?php echo "$col"; ?></th>
+                        <?php } 
+                    } ?>
             </tr>
-            </thead>
-            <tbody>
             <?php
-            foreach ($project as $task) { ?>
+                foreach ($project as $task) { ?>
                 <tr>
-                    <td style="border-bottom-style: ridge; border-right-style: ridge;"><strong><?php echo "Activity " . $task['id']; ?></strong></td>
-                    <td style="border-bottom-style: ridge;" colspan="<?php echo ceil($finish_time); ?>">
-                        <?php
-                        $waiting = ($task['es'] / $finish_time) * 100;
-                        $progress = (($task['lf'] - $task['es']) / $finish_time) * 100;
-                        $total_time = $finish_time / ceil($finish_time) * 100;
+                    <th style="border-bottom-style: ridge; border-right-style: ridge;"><?php echo "Activity " . $task['id']; ?></th>
+                    <th style="border-bottom-style: ridge;" colspan="<?php echo ceil($finish_time);?>">
+                        <?php 
+                                $waiting = ($task['es']/$finish_time)*100;
+                                $progress = (($task['lf']-$task['es'])/$finish_time)*100;
+                                $total_time = $finish_time/ceil($finish_time)*100;
                         ?>
-                        <div style="background-color:#B19090; width: <?php echo $total_time; ?>%">
-                            <div class="waiting" style="position: relative; float: left; display: inline-block; width: <?php echo $waiting ?>%"></div>
-                            <div class="progress" style="position: relative; float: left; display: inline-block; width: <?php echo $progress ?>%"></div>
+                        <div style="background-color:#B19090; width: <?php echo $total_time;?>%">
+                            <div class="waiting" style="position: relative; float: left; display: inline-block; width: <?php echo $waiting?>%"></div>
+                            <div class="progress" style="position: relative; float: left; display: inline-block; width: <?php echo $progress?>%"></div>
                         </div>
-                    </td>
+                    </th>
                 </tr>
             <?php } ?>
-            </tbody>
         </table>
     </div>
 </div>
-<style>
-    .title {
-        font-size: 2rem;
-        text-align: center;
-        margin: 1rem;
-    }
-    .ganttchartname
-    {
-        font-size: 2rem;
-        text-align: center;
-        margin: .1rem 2rem .1rem 2rem;
-    }
-    .paragone {
-        font-size: 24px;
-        font-style: normal;
-        text-align: justify;
-        margin: 2rem 5rem;
-    }
-
-    .calculate {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-bottom: 2rem;
-    }
-
-    .grid-container {
-        display: grid;
-        width: 90rem;
-        max-width: 100%;
-        margin-left: auto;
-        margin-right: auto;
-        text-align: center;
-    }
-
-    .export {
-        text-align: right;
-    }
-
-    .btn {
-        text-decoration: none;
-        text-align: right;
-        font-size: 1.2rem;
-        color: #eeee;
-        background-color: #B19090;
-        border-radius: 40px;
-        display: inline-block;
-        padding: 10px 20px;
-        border-color: #544141;
-        margin-bottom: 2rem;
-    }
-
-    .btn:hover {
-        background-color: #eeee;
-        color: #B19090;
-
-    }
-
-    /* TABLE */
-    table {
-        padding: 1rem;
-        margin-top: 3rem;
-        margin-bottom: 2rem;
-        margin-left: auto;
-        margin-right: auto;
-        align-items: center;
-        border-spacing: 0;
-        border: none;
-        border-collapse: collapse;
-        border-style: none;
-        text-align: center;
-        background-color: #eeee;
-        
-    }
-
-    td,
-    th 
-    {
-        border: none;
-        border-collapse: collapse;
-        border-style: none;
-        text-align: center;
-        padding: .5rem .8rem;
-        display: table-cell;
-        text-align: center;
-        vertical-align: middle;
-        border-radius: 0;
-        background-color: transparent;
-    }
-    tr 
-    {
-     border-bottom: 1px solid #ddd;
-    }
-    td{
-        background-color: #eeee;
-    }
-
-    th{
-        background-color: #d9c7c7;
-    }
-
-    /* Cards */
-    .container {
-        justify-content: space-evenly;
-        display: flex;
-        width: auto;
-        height: auto;
-        margin-bottom: 1.4rem;
-    }
-
-    .box {
-        width: 30%;
-        height: auto;
-        padding: 3px 2px 25px 2px;
-        border: 1px solid #ccc;
-        margin: 5vh;
-        background: white;
-        border-radius: 10px;
-        transition: 0.9;
-    }
-
-    .box:hover {
-        box-shadow: 0 0 11px rgba(33, 33, 33, 0.5);
-        cursor: pointer;
-    }
-
-    h3 {
-        font-size: 20px;
-        padding: 5px 5px;
-        text-align: center;
-        color: rgb(104, 92, 92);
-    }
-
-    p {
-        font-size: 18px;
-        padding: 5px;
-        text-align: center;
-    }
-
-    /* GANTT CHART */
-    .grid-container-gantt {
-        display: grid;
-        width: 85%;
-        margin-left: auto;
-        margin-right: auto;
-        text-align: center;
-    }
-
-    table.gantt-chart {
-        margin-top: 2rem;
-        margin-bottom: 1rem;
-        display: table;
-        border-collapse: collapse;
-        align-items: justify;
-        width: 100%;
-        border-spacing: 0;
-        border: none;
-        border-collapse: collapse;
-        text-align: center;
-        border-style: ridge;
-        table-layout: fixed;
-    }
-
-    table.gantt-chart th,
-    table.gantt-chart td {
-        white-space: nowrap;
-        border: none;
-        border-collapse: collapse;
-        text-align: center;
-        padding: 12px 5px;
-        display: table-cell;
-        vertical-align: middle;
-    }
-
-    .waiting {
-        height: 30px;
-        position: relative;
-        background: none;
-    }
-
-    .progress {
-        height: 30px;
-        position: relative;
-        background: #B19090;
-        border: 0px;
-        border-radius: 10px;
-    }
-
-    /* RESPONSIVE */
-    @media screen {
-        .form {
-            background-color: #f0f0f0;
-            margin: 3rem 10rem 2rem;
-            border-radius: 1.2rem;
-            padding: 0.25rem;
-        }
-    }
-
-</style>
+<br> <br>

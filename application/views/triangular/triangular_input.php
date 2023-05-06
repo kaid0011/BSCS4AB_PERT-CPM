@@ -67,180 +67,43 @@
 </div>
 </form>
 <br><br>
-
-<style>
-    .title {
-        font-size: 2rem;
-        text-align: center;
-        margin: 1rem;
-    }
-
-    .paragone {
-        font-size: 24px;
-        font-style: normal;
-        text-align: justify;
-        margin: 2rem 5rem;
-    }
-
-    .calculate {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-bottom: 2rem;
-    }
-
-    .btn:hover {
-        background-color: #eeee;
-        color: #B19090;
-
-    }
-
-    .container {
-        width: 99rem;
-        max-width: 100%;
-        margin-left: auto;
-        margin-right: auto;
-        text-align: center;
-        border-radius: 10px;
-        overflow-x:auto;
-    }
-
-    .btn {
-        text-decoration: none;
-        text-align: center;
-        font-size: 1.2rem;
-        color: #eeee;
-        background-color: #B19090;
-        border-radius: 40px;
-        display: inline-block;
-        padding: 10px 20px;
-        border-color: #544141;
-    }
-
-    .trials {
-        margin: auto;
-        min-width: 15rem;
-        max-width: 15rem;
-        background-color: #D7D0D0;
-        padding: 1rem;
-        border-radius: 10px;
-    }
-    input[type=text1]
-    {
-        border-style: none;
-        text-align: center;
-        font-size: 2.5vh;
-        background-color: transparent;
-    }
-   
-    input[type=numbers]
-    {
-        width:14rem;
-        padding:.5rem;
-    }
-    input
-    {
-        /* background-color: transparent; */
-        border-radius: 5px;
-        border: .5px solid;
-        padding: 5px;
-    }
-
-    textarea
-    {
-        /* background-color: transparent; */
-        border: .5px solid;
-        border-radius: 5px;
-        /* padding: 3px; */
-        resize: none;
-        /* margin: 3px; */
-    }
-    /* TABLE */
-
-    table {
-        padding: 1rem;
-        margin-top: 3rem;
-        margin-bottom: 2rem;
-        margin-left: auto;
-        margin-right: auto;
-        align-items: center;
-        border-spacing: 0;
-        border: none;
-        overflow: hidden;
-        border-radius: .8em;
-        border-collapse: collapse;
-        border-style: none;
-        text-align: center;
-        background-color: #f0f0f0;
-        
-    }
-
-    td,
-    th 
-    {
-        border: none;
-        border-collapse: collapse;
-        border-style: none;
-        text-align: center;
-        padding: .5rem .8rem;
-        display: table-cell;
-        text-align: center;
-        vertical-align: middle;
-        border-radius: 0;
-        background-color: transparent;
-    }
-    tr 
-    {
-        border-bottom: 1px solid #ddd;
-    }
-    td{
-        background-color: #f0f0f0;
-    }
-
-    th{
-        background-color: #D7D0D0;
-        padding: 15px;
-        
-    }
-
-    
-
-    /* Input Boxes Style */
-    /* input[type=text], input[type=number] 
-    {
-        padding:3px;
-        margin:2px 0;
-        width: 80%;
-    } */
-
-
-    /* RESPONSIVE */
-    @media screen {
-        .form {
-            background-color: #f0f0f0;
-            margin: 3rem 10rem 2rem;
-            border-radius: 1.2rem;
-            padding: 0.25rem;
-        }
-
-    @media only screen and (max-width: 1500px) and (min-width: 300px)
-    {
-        .table
-        {
-            margin-left: 3vh;
-            margin-right: 5vh;
-        }
-    }
-    
-        /* .responsive-table 
-        {
-        margin-top: 3rem;
-        margin-bottom: 2rem;
-        margin-left: 4rem;
-        margin-right: 4rem;
-        align-items: center;
-
-        } */
-
-    }
-</style>
+<div class="box">
+	<a class="button" href="#popup1"><i class="fa fa-question-circle" aria-hidden="true"></i></a>
+    </div>
+    <br>
+    <div id="popup1" class="overlay">
+        <div class="popup">
+            <h2>Must Know!</h2>
+            <a class="close" href="#">&times;</a>
+            <div class="content">
+                    <b>• Activity</b>
+                   <br>
+                    The activity column is auto iterated from 1 by the system and cannot be changed.<br>
+                    <b>• Description</b>
+                   <br>
+                    Description of each activity with a maximum of 50 characters. <br>
+                    <i>This is an optional input</i><br>
+                    <b>• Optimistic</b><br>
+                    The minimum amount of time required to finish a task, assuming that the progress is faster than
+                    the typical expectations.
+                    Optimistic duration must be a positive integer. Decimals are accepted.<br>
+                    <b>• Most Likely</b><br>
+                    The expected duration for completing a task, assuming that progress is in accordance with 
+                    standard expectations. Most Likely duration must be a positive integer. Decimals are accepted. <br>
+                    <b>• Pessimistic</b><br>
+                    The maximum amount of time required to complete a task, assuming everything that could 
+                    possibly go wrong, actually goes wrong. <br>
+                    Pessimistic duration must be a positive integer. Decimals are accepted.<br>
+                   <b> • Pre-requisites </b><br>
+                    The activity/s that must be completed before the current activity starts. 
+                    The first activity's pre-requisite is automatically set to '-' that means none.
+                    Pre-requisites of each activity must be existing activity numbers separated by commas without 
+                    spaces. If there are no pre-requisites, enter '-'<br>
+                    <b> • Number of Trials </b><br>
+                    The number of trials you want the simulation to perform.
+                    The simulation used is Monte Carlo Simulation. <br>
+                    Number of Trials must be a positive integer between 1 to 1000.
+                    <br>
+            </div>
+        </div>
+    </div>

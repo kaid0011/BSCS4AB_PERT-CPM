@@ -15,20 +15,21 @@
             <thead>
                 <tr>
                     <th>Activity</th>
-                    <th title="Activity Description">Description <span class="tooltiptext">&#9432;</span></th>
-                    <th title="Shortest Estimated Activity Duration">Optimistic <span class="tooltiptext">&#9432;</span></th>
-                    <th title="Reasonable Estimated Activity Duration">Most Likely <span class="tooltiptext">&#9432;</span></th>
-                    <th title="Maximum Estimated Activity Duration">Pessimistic <span class="tooltiptext">&#9432;</span></th>
-                    <th title="Estimated Activity Completion based on OT, MLT, and PT">Estimated Duration <span class="tooltiptext">&#9432;</span></th>
-                    <th title="Activity Number that needs to be completed first.">Pre-Requisites <span class="tooltiptext">&#9432;</span></th>
-                    <th title="The calculated Standard Deviation of Each Activity">Standard Deviation <span class="tooltiptext">&#9432;</span></th>
-                    <th title="The calculated Variance of Each Activity">Variance</th>
-                    <th title="Activity's Earliest Start Time">ES <span class="tooltiptext">&#9432;</span></th>
-                    <th title="Activity's Earliest Finish Time">EF <span class="tooltiptext">&#9432;</span></th>
-                    <th title="Activity's Latest Start Time">LS <span class="tooltiptext">&#9432;</span></th>
-                    <th title="Activity's Latest Finish Time">LF <span class="tooltiptext">&#9432;</span></th>
-                    <th title="Activity's Available Slack Time">Slack <span class="tooltiptext">&#9432;</span></th>
-                    <th title="If the Activity is Critical">Critical <span class="tooltiptext">&#9432;</span></th>
+                    <th title ="Activity Description">Description <span class="tooltiptext">&#9432;</span></th>
+                    <th title ="Shortest Estimated Activity Duration">Optimistic <span class="tooltiptext">&#9432;</span></th>
+                    <th title ="Reasonable Estimated Activity Duration">Most Likely <span class="tooltiptext">&#9432;</span></th>
+                    <th title ="Maximum Estimated Activity Duration">Pessimistic <span class="tooltiptext">&#9432;</span></th>
+                    <th title ="Estimated Activity Completion based on OT, MLT, and PT">Estimated Duration <span class="tooltiptext">&#9432;</span></th>
+                    <th title ="Activity Number that needs to be completed first.">Pre-Requisites <span class="tooltiptext">&#9432;</span></th>
+                    <th title ="The calculated Standard Deviation of Each Activity">Standard Deviation <span class="tooltiptext">&#9432;</span></th>
+                    <th title ="The calculated Variance of Each Activity">Variance <span class="tooltiptext">&#9432;</span></th>
+                    <th title ="Activity's Earliest Start Time">ES <span class="tooltiptext">&#9432;</span></th>
+                    <th title ="Activity's Earliest Finish Time">EF <span class="tooltiptext">&#9432;</span></th>
+                    <th title ="Activity's Latest Start Time">LS <span class="tooltiptext">&#9432;</span></th>
+                    <th title ="Activity's Latest Finish Time">LF <span class="tooltiptext">&#9432;</span></th>
+                    <th title ="Activity's Available Slack Time">Slack <span class="tooltiptext">&#9432;</span></th>
+                    <th title ="If the Activity is Critical">Critical <span class="tooltiptext">&#9432;</span></th>
+
                 </tr>
             </thead>
             <tbody>
@@ -78,7 +79,7 @@
     <h4>Project Variance: <?php echo round($proj_variance, 2); ?></h4>
     <h4>Project Standard Deviation: <?php echo round($proj_sd, 2); ?></h4>
 
-    <!-- Probability of Project Completion by Given Date 
+    Probability of Project Completion by Given Date 
     <h3>Compute Project Completion Probability</h3>
     <label for="pcg">Enter expected project duration: </label>
     <input type="number" name="x" id="x" required>
@@ -88,7 +89,7 @@
     <br><label for="p">Probability of completion: </label>
     <input type="textp" name="p" id="p" readonly>
 
-    <!-- Probability of Individual Task Completion Completion by Given Date
+    Probability of Individual Task Completion Completion by Given Date
     <h3>Compute Individual Task Completion Probability</h3>
     <label for="id">Enter Task ID: </label>
     <input type="number" name="tid" id="tid">
@@ -100,7 +101,7 @@
     </tbody>
     </table>
     <div class="calculate">
-    <!-- <a class="btn" href="CPMOutput.html">Calculate</a> 
+    <a class="btn" href="CPMOutput.html">Calculate</a> 
     <button class="btn">Calculate</button>
 </div> -->
 
@@ -140,20 +141,33 @@
 </div>
 
 <!-- BUTTON -->
-<div class="calculate">
-    <!-- <a class="btn" href="CPMOutput.html">Calculate</a> -->
-    <button class="btn">Export to CSV</button>
+<div class="export-results">
+    <button class="btn">Export Results</button>
+</div>
+
+ <div class="ganttchartname">
+        <b> Completion Probability Calculator</b>
+
+
 </div>
 
 <!-- EXPLANATION -->
 <div class="paragone">
-    Lorem ipsum dolor sit amet, no clita veritus maiestatis vim, est illum consetetur no. Agam modus an vel. Nibh
-    feugiat pericula id eam. Sit aliquam platonem omittantur ut, eum meliore offendit at. Suas alienum at per, ad sit
-    exerci vocent docendi, te sea summo feugait. At vim cibo accumsan mnesarchum.
+Our PERT Calculator also enables users to determine the probability of an expected duration
     <br><br>
-    Usu nominavi atomorum maluisset ne. Sed ex pertinacia repudiandae, ferri lorem aeque et per. Duo exerci munere an,
-    vix malorum diceret fabulas an, nam ei mutat phaedrum. Sed ea timeam suscipiantur, ad eos partem audiam
-    adversarium, dicam appetere necessitatibus sed ut.
+    <b>Project Completion Probability</b>: Calculate the probability of an expected project completion time for the whole project <br>
+    <br>
+       <b> How To?</b><br>
+       • Enter your expected project duration. <br>
+       • Click 'Calculate' and wait for the probability to show.
+       <br><br>
+    <b>Activity Completion Probability</b>: Calculate the probability of an expected duration of a specific activity     <br>
+    <br>
+       <b> How To?</b><br>
+       • Enter the Activity Number of the duration you want to compute.<br>
+       • Enter your expected activity duration.<br>
+       • Click 'Calculate' and wait for the probability to show.<br>
+
 </div>
 
 <!-- CARDS 2 -->
@@ -191,9 +205,19 @@
     </div>
 </div>
 
+<br>
+<div class="ganttchartname">
+        <b> Project Gantt Chart</b>
+</div>
+
+<!-- CHART -->
+<div class="ganttcontainer" style="max-width: 100%; margin: 0 auto; padding: 30px;">
+       <div class="chart" style="display: grid; position: relative; overflow: hidden; overflow-x:auto">
+
 <!-- GANTT CHART -->
 <div class="grid-container-gantt">
     <div style="overflow-x: auto;">
+
         <table class="gantt-chart">
             <thead>
             <tr>
@@ -231,328 +255,6 @@
     </div>
 </div>
 <br> <br>
-
-<style>
-    .title {
-        font-size: 2rem;
-        text-align: center;
-        margin: 1rem;
-    }
-
-    .ganttchartname {
-        font-size: 2rem;
-        text-align: center;
-        margin: .1rem 2rem .1rem 2rem;
-    }
-
-    .paragone {
-        font-size: 24px;
-        font-style: normal;
-        text-align: justify;
-        margin: 2rem 5rem;
-    }
-
-    .calculate {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-bottom: 2rem;
-    }
-
-    .grid-container {
-        display: grid;
-        width: 90rem;
-        max-width: 100%;
-        margin-left: auto;
-        margin-right: auto;
-        text-align: center;
-        border-radius: 10px;
-        overflow-x: auto;
-    }
-
-    .container {
-        width: 99rem;
-        max-width: 100%;
-        margin-left: auto;
-        margin-right: auto;
-        text-align: center;
-    }
-
-    .btn {
-        text-decoration: none;
-        text-align: right;
-        font-size: 1.2rem;
-        color: #eeee;
-        background-color: #B19090;
-        border-radius: 40px;
-        display: inline-block;
-        padding: 10px 20px;
-        border-color: #544141;
-    }
-
-    .btn:hover {
-        background-color: #eeee;
-        color: #B19090;
-
-    }
-
-    .compute {
-        text-decoration: none;
-        text-align: right;
-        font-size: 1rem;
-        color: #eeee;
-        background-color: #B19090;
-        border-radius: 10px;
-        display: inline-block;
-        padding: 10px 20px;
-        border: 1px solid;
-    }
-
-    .compute:hover {
-        background-color: #eeee;
-        color: #B19090;
-
-    }
-
-    .compute_indiv {
-        text-decoration: none;
-        text-align: right;
-        font-size: 1rem;
-        color: #eeee;
-        background-color: #B19090;
-        border-radius: 10px;
-        display: inline-block;
-        padding: 10px 20px;
-        border: 1px solid;
-    }
-
-    .compute_indiv:hover {
-        background-color: #eeee;
-        color: #B19090;
-
-    }
-
-    /* TABLE RESULTS*/
-    table {
-        padding: 1rem;
-        margin-top: 3rem;
-        margin-bottom: 2rem;
-        margin-left: auto;
-        margin-right: auto;
-        align-items: center;
-        border-spacing: 0;
-        border: none;
-        border-collapse: collapse;
-        border-style: none;
-        text-align: center;
-        background-color: #eeee;
-
-    }
-
-    td,
-    th {
-        border: none;
-        border-collapse: collapse;
-        border-style: none;
-        text-align: center;
-        padding: .5rem .8rem;
-        display: table-cell;
-        text-align: center;
-        vertical-align: middle;
-        border-radius: 0;
-        background-color: transparent;
-    }
-
-    tr {
-        border-bottom: 1px solid #ddd;
-    }
-
-    td {
-        background-color: #eeee;
-    }
-
-    th {
-        background-color: #d9c7c7;
-    }
-
-    textarea {
-        background-color: transparent;
-        border: 2px solid;
-        border-radius: 10px;
-        padding: 3px;
-        resize: none;
-        margin: 5px;
-    }
-
-    input[type=text1] {
-        border-style: none;
-        text-align: center;
-    }
-
-    input[type=number] {
-        border-style: none;
-        text-align: center;
-        border: 1px solid;
-        border-radius: 5px;
-    }
-
-    input[type=textp] {
-        border-style: none;
-        text-align: center;
-        font-size: 20px;
-    }
-
-    input {
-        background-color: transparent;
-        border-radius: 10px;
-        padding: 5px;
-    }
-
-    /* Cards */
-    .containerbox {
-        justify-content: space-evenly;
-        display: flex;
-        width: auto;
-        height: auto;
-    }
-
-    .boxx {
-        width: 30%;
-        height: auto;
-        padding: 3px 2px 25px 2px;
-        border: 1px solid #ccc;
-        margin: 5vh;
-        background: white;
-        border-radius: 10px;
-        transition: 0.9;
-    }
-
-    .boxx:hover {
-        box-shadow: 0 0 11px rgba(33, 33, 33, 0.5);
-        cursor: pointer;
-    }
-
-    .containerbox2 {
-        justify-content: space-evenly;
-        display: flex;
-        width: auto;
-        height: auto;
-    }
-
-    .boxx2 {
-        width: 30%;
-        height: auto;
-        padding: 1.5rem;
-        border: 1px solid #ccc;
-        margin: 5vh;
-        background: white;
-        border-radius: 10px;
-        transition: 0.9;
-    }
-
-    .boxx2:hover {
-        box-shadow: 0 0 11px rgba(33, 33, 33, 0.5);
-        cursor: pointer;
-    }
-
-    #two {
-        font-size: 20px;
-        padding: 5px 5px;
-        text-align: center;
-        color: rgb(104, 92, 92);
-    }
-
-    h3 {
-        font-size: 20px;
-        padding: 5px 5px;
-        text-align: center;
-        color: rgb(104, 92, 92);
-    }
-
-    p {
-        font-size: 18px;
-        padding: 5px;
-        text-align: center;
-    }
-
-    /* GANTT CHART */
-    .grid-container-gantt {
-        display: grid;
-        width: 85%;
-        margin-left: auto;
-        margin-right: auto;
-        text-align: center;
-    }
-
-    table.gantt-chart {
-        margin-top: 2rem;
-        margin-bottom: 1rem;
-        display: table;
-        border-collapse: collapse;
-        align-items: justify;
-        width: 100%;
-        border-spacing: 0;
-        border: none;
-        border-collapse: collapse;
-        text-align: center;
-        border-style: ridge;
-        table-layout: fixed;
-    }
-
-    table.gantt-chart th,
-    table.gantt-chart td {
-        white-space: nowrap;
-        border: none;
-        border-collapse: collapse;
-        text-align: center;
-        padding: 12px 5px;
-        display: table-cell;
-        vertical-align: middle;
-    }
-
-    .waiting {
-        height: 30px;
-        position: relative;
-        background: none;
-    }
-
-    .progress {
-        height: 30px;
-        position: relative;
-        background: #B19090;
-        border: 0px;
-        border-radius: 10px;
-    }
-
-    /* RESPONSIVE */
-    @media screen {
-        .form {
-            background-color: #f0f0f0;
-            margin: 3rem 10rem 2rem;
-            border-radius: 1.2rem;
-            padding: 0.25rem;
-        }
-    }
-
-
-    @media only screen and (max-width: 1500px) and (min-width: 300px) {
-        .grid-item {
-            margin-left: 5vh;
-            margin-right: 5vh;
-        }
-
-        .containerbox,
-        .containerbox2 {
-            display: block;
-            margin: 3vh;
-        }
-
-        .boxx,
-        .boxx2 {
-            width: 90%;
-        }
-    }
-</style>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <!-- AJAX for Project Completion Probability -->
