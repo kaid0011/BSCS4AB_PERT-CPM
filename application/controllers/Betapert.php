@@ -8,7 +8,9 @@ class Betapert extends CI_Controller
 
     public function index()
     {
-        $this->load->view('template/header');
+        $data['pagename'] = 'BETA-PERT Main';
+        $data['css'] = 'mainpage';
+        $this->load->view('template/header', $data);
         $this->load->view('betapert/betapert_main');
         $this->load->view('template/footer');        
     }
@@ -17,7 +19,9 @@ class Betapert extends CI_Controller
     {
         $data['proj_len'] = $this->input->post('proj_len');
         $data['unit'] = $this->input->post('unit');
-        $this->load->view('template/header');
+        $data['pagename'] = 'BETA-PERT Input';
+        $data['css'] = 'inputpage';
+        $this->load->view('template/header', $data);
         $this->load->view('betapert/betapert_input', $data);
         $this->load->view('template/footer');
     }
@@ -188,8 +192,9 @@ class Betapert extends CI_Controller
         }
         $data['project'] = $project;
         $data['cp'] = $cp;
-
-        $this->load->view('template/header');
+        $data['pagename'] = 'BETA-PERT Output';
+        $data['css'] = 'outputpage';
+        $this->load->view('template/header', $data);
         $this->load->view('betapert/betapert_output', $data);
         $this->load->view('template/footer');
     }
