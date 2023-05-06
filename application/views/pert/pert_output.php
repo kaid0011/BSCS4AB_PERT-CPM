@@ -107,7 +107,7 @@
 
 <!-- CARDS 1 -->
 <div class="containerbox">
-    <div class="boxx">
+    <div class="box1">
         <h3>Critical Path</h3>
         <p>
             <?php
@@ -128,7 +128,7 @@
         </p>
     </div>
 
-    <div class="boxx">
+    <div class="box1">
         <h3>Project Variance</h3>
         <p>
             <?php echo round($proj_variance, 2); ?>
@@ -142,7 +142,7 @@
 
 <!-- BUTTON -->
 <div class="export-results">
-    <button class="btn">Export Results</button>
+    <button class="expbtn">Export Results</button>
 </div>
 
  <div class="ganttchartname">
@@ -172,8 +172,8 @@ Our PERT Calculator also enables users to determine the probability of an expect
 
 <!-- CARDS 2 -->
 
-<div class="containerbox2">
-    <div class="boxx2">
+<div class="containerbox">
+    <div class="box2">
         <center>
             <b style="font-size:20px; color: rgb(104, 92, 92);"> Compute Project Completion Probability </b>
             <h3 id="two">Expected Project Duration</h3>
@@ -191,7 +191,7 @@ Our PERT Calculator also enables users to determine the probability of an expect
         </center>
     </div>
 
-    <div class="boxx2">
+    <div class="box2">
         <center>
             <b style="font-size:20px; color: rgb(104, 92, 92);"> Compute Individual Task Completion Probability </b>
             <h3 id="two">Activity ID: </h3>

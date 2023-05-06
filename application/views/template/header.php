@@ -13,8 +13,7 @@
     <link rel="stylesheet" type="text/css" href="<?=base_url()?>/assets/css/header.css">
     <link rel="stylesheet" type="text/css" href="<?=base_url()?>/assets/css/footer.css">
     <link rel="icon" type="image/png" href="<?=base_url()?>/assets/images/logo.svg"/>
-    <title><?php echo $pagename; ?></title>
-    
+    <title><?php echo $pagename; ?></title>  
     <!-- <link rel="stylesheet" type="text/css" href="<? echo base_url();?>assets/css/inputpage.css">
     <link rel="stylesheet" type="text/css" href="<? echo base_url();?>assets/css/outputage.css"> -->
 </head>
@@ -39,4 +38,3 @@
             </ul>
         </div>
     </header>
-    

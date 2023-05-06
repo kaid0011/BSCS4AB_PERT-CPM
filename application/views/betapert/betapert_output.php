@@ -3,13 +3,7 @@
         <b> BETA-PERT Distribution</b>
     </div>
     <div class="paragone">
-        Lorem ipsum dolor sit amet, no clita veritus maiestatis vim, est illum consetetur no. Agam modus an vel. Nibh
-        feugiat pericula id eam. Sit aliquam platonem omittantur ut, eum meliore offendit at. Suas alienum at per, ad sit
-        exerci vocent docendi, te sea summo feugait. At vim cibo accumsan mnesarchum.
-        <br><br>
-        Usu nominavi atomorum maluisset ne. Sed ex pertinacia repudiandae, ferri lorem aeque et per. Duo exerci munere an,
-        vix malorum diceret fabulas an, nam ei mutat phaedrum. Sed ea timeam suscipiantur, ad eos partem audiam
-        adversarium, dicam appetere necessitatibus sed ut.
+        The Beta distribution is a continuous type of probability distribution wherein it represents all the possible values of probability.
     </div>
 </div>
 <div class="grid-container">
@@ -66,8 +60,8 @@
     <!-- <div class="grid-item"> -->
     </div>
     <!-- Final Results Display -->
-    <div class="container">
-        <div class="box">
+    <div class="container-final">
+        <div class="resultsbox">
             <h3>Critical Path</h3>
             <p>
                 <?php
@@ -83,7 +77,7 @@
             </p>
         </div>
 
-        <div class="box">
+        <div class="resultsbox">
             <h3>Project Completion Time</h3>
             <p>
                 <?php echo $finish_time; ?>
@@ -109,25 +103,33 @@
                 <input type="hidden" name="sv_<?php echo $id; ?>" value="<?php echo $sv; ?>">
             <?php } ?>
             <!-- <input type="submit" value="Export" name="export"> -->
-            <center><button class="btn">Export to CSV</button></center>
+            <center><button class="expbtn">Export Results</button></center>
         </form>
     </div>
-</div>
+
+    <div class="export">
+        <!-- Export Simulation Values Excel File -->
+        <form action="<?php echo base_url('export') ?>" method="post">
+            <?php
+            foreach ($project as $sim) {
+                $id = $sim['id'];
+                $n = $sim['N'];
+            ?>
+                <input type="hidden" name="<?php echo $id; ?>" value="<?php echo $id; ?>">
+                <input type="hidden" name="N_<?php echo $id; ?>" value="<?php echo $n; ?>">
+                <input type="hidden" name="pqty_<?php echo $id; ?>" value="<?php echo $sim['pqty']; ?>">
+                <?php
+                $sv = implode(",", $sim['sim_val']);
+                ?>
+                <input type="hidden" name="sv_<?php echo $id; ?>" value="<?php echo $sv; ?>">
+            <?php } ?>
+            <!-- <input type="submit" value="Export" name="export"> -->
+            <center><button class="expbtn">Export Simulation Values</button></center>
+        </form>
+    </div>
 <div class="ganttchartname">
         <b> Project Gantt Chart</b>
 </div>
-
-<!-- EXPLANATION -->
-<div class="paragone">
-    Lorem ipsum dolor sit amet, no clita veritus maiestatis vim, est illum consetetur no. Agam modus an vel. Nibh
-    feugiat pericula id eam. Sit aliquam platonem omittantur ut, eum meliore offendit at. Suas alienum at per, ad sit
-    exerci vocent docendi, te sea summo feugait. At vim cibo accumsan mnesarchum.
-    <br><br>
-    Usu nominavi atomorum maluisset ne. Sed ex pertinacia repudiandae, ferri lorem aeque et per. Duo exerci munere an,
-    vix malorum diceret fabulas an, nam ei mutat phaedrum. Sed ea timeam suscipiantur, ad eos partem audiam
-    adversarium, dicam appetere necessitatibus sed ut.
-</div>
-
 <!-- CHART -->
 <div class="ganttcontainer" style="max-width: 100%; margin: 0 auto; padding: 50px;">
        <div class="chart" style="display: grid; position: relative; overflow: hidden; overflow-x:auto">

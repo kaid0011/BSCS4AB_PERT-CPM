@@ -3,18 +3,12 @@
         <b> Triangular Distribution</b>
     </div>
     <div class="paragone">
-        Lorem ipsum dolor sit amet, no clita veritus maiestatis vim, est illum consetetur no. Agam modus an vel. Nibh
-        feugiat pericula id eam. Sit aliquam platonem omittantur ut, eum meliore offendit at. Suas alienum at per, ad sit
-        exerci vocent docendi, te sea summo feugait. At vim cibo accumsan mnesarchum.
-        <br><br>
-        Usu nominavi atomorum maluisset ne. Sed ex pertinacia repudiandae, ferri lorem aeque et per. Duo exerci munere an,
-        vix malorum diceret fabulas an, nam ei mutat phaedrum. Sed ea timeam suscipiantur, ad eos partem audiam
-        adversarium, dicam appetere necessitatibus sed ut.
+    Triangular distribution can be defined as a continuous probability distribution with a probability density function shaped like a triangle. It is incorporated by three values namely: a minimum value, a most likely value, and a maximum value. It has been the best method for probability distribution in order to quantify the risks in projects. 
     </div>
 </div>
 <div class="grid-container">
     <div class="grid-item">
-        <table class="output">
+        <table class="results">
             <thead>
             <tr>
                 <th>Activity</th>
@@ -111,23 +105,33 @@
                 <input type="hidden" name="sv_<?php echo $id; ?>" value="<?php echo $sv; ?>">
             <?php } ?>
             <!-- <input type="submit" value="Export" name="export"> -->
-            <center><button class="btn">Export to CSV</button></center>
+            <center><button class="expbtn">Export Results</button></center>
         </form>
     </div>
-</div>
+
+    <div class="export">
+        <!-- Export Simulation Values Excel File -->
+        <form action="<?php echo base_url('export') ?>" method="post">
+            <?php
+            foreach ($project as $sim) {
+                $id = $sim['id'];
+                $n = $sim['N'];
+            ?>
+                <input type="hidden" name="<?php echo $id; ?>" value="<?php echo $id; ?>">
+                <input type="hidden" name="N_<?php echo $id; ?>" value="<?php echo $n; ?>">
+                <input type="hidden" name="pqty_<?php echo $id; ?>" value="<?php echo $sim['pqty']; ?>">
+                <?php
+                $sv = implode(",", $sim['sim_val']);
+                ?>
+                <input type="hidden" name="sv_<?php echo $id; ?>" value="<?php echo $sv; ?>">
+            <?php } ?>
+            <!-- <input type="submit" value="Export" name="export"> -->
+            <center><button class="expsimbtn">Export Simulation Values</button></center>
+        </form>
+    </div>
 <div class="ganttchartname">
         <b> Project Gantt Chart</b>
     </div>
-<!-- EXPLANATION -->
-<div class="paragone">
-    Lorem ipsum dolor sit amet, no clita veritus maiestatis vim, est illum consetetur no. Agam modus an vel. Nibh
-    feugiat pericula id eam. Sit aliquam platonem omittantur ut, eum meliore offendit at. Suas alienum at per, ad sit
-    exerci vocent docendi, te sea summo feugait. At vim cibo accumsan mnesarchum.
-    <br><br>
-    Usu nominavi atomorum maluisset ne. Sed ex pertinacia repudiandae, ferri lorem aeque et per. Duo exerci munere an,
-    vix malorum diceret fabulas an, nam ei mutat phaedrum. Sed ea timeam suscipiantur, ad eos partem audiam
-    adversarium, dicam appetere necessitatibus sed ut.
-</div>
 
 <!-- GANTT CHART -->
 <<!-- CHART -->

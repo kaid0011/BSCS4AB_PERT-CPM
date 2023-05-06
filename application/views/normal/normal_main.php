@@ -5,11 +5,16 @@
     <div class="paragone">
         In normal distribution, the probability of an
         event occurring is evenly distributed around the mean, and the probability
-        decreases as the distance from the mean increases. 
-        <br><br>
-        The normal distribution
+        decreases as the distance from the mean increases. The normal distribution
         is often used in scheduler calculators to represent task durations that are
         evenly distributed around an average value.
+        <br><br>
+        <div class = "howto">
+            <b>How To?</b> <br>
+            • Enter the Number of Activities of your project<br>
+            • Choose your desired Unit of Time: Days, Weeks, or Months<br>
+            • Click 'Generate Table' to generate a table to input your project details<br><br>
+        </div>
     </div>
 </div>
 <center>
