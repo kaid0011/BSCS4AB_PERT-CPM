@@ -9,7 +9,7 @@ class Home extends CI_Controller
     public function index()
     {
         $data['pagename'] = 'WAPS - Home';
-        $data['css'] = '';
+        $data['css'] = 'homepage';
         $this->load->view('template/header', $data);
         $this->load->view('home/homepage');
         $this->load->view('template/footer');
