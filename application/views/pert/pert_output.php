@@ -202,6 +202,7 @@ Our PERT Calculator also enables users to determine the probability of an expect
         </center>
     </div>
 </div>
+
 <br>
 <div class="ganttchartname">
         <b> Project Gantt Chart</b>
