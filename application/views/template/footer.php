@@ -9,69 +9,158 @@
         </ul>
     </div>
 </footer>
+<script>
+function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+</script>
 
-<script type="text/javascript" src="js/materialize.min.js"></script>
 </body>
-
 </html>
-<style>
-    html {
-        font-family: sans-serif;
-        background-color: #FFFFFF;
-        scroll-behavior: smooth;
-        -ms-overflow-style: none;
-        /* IE and Edge */
 
+
+<style>
+    /* THEME */
+    html {
+    font-family: sans-serif;
+    background-color: #FFFFFF;
+    scroll-behavior: smooth;
+    -ms-overflow-style: none;
+    /* IE and Edge */
     }
 
     body {
-        margin: 0;
-        padding: 0;
-        padding-top: 60px;
-        padding-bottom: 40px;
-        border: 0;
-        height: 100vh;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
     }
 
-
-    /* .containers
-{
-    min-height: 100vh;
-    height: auto !important;
-    height: 100%;
-    margin: 0 auto;
-} */
-
-    /* Navigation */
+    /* Navigation - WITH BURGER */
     header {
         top: 0;
         width: 100%;
-        position: fixed;
+        position: sticky;
         margin-left: auto;
         margin-right: auto;
     }
 
-    .navi {
-        background-color: #D9D9D9;
-        margin: 0 auto;
+    .topnav {
+      overflow: hidden;
+      background-color: #D9D9D9;
         display: flex;
         align-items: center;
-        justify-content: center;
-        font-size: 20px;
+       
+    }
+    
+    .topnav a{
+      display: block;
+      text-align: center;
+      text-decoration: none;
+      font-size: 20px;
     }
 
+    .topnav a #logo{
+      float: left;
+      display: block;
+      text-align: center;
+      text-decoration: none;
+      font-size: 20px;
+    }
+    
+    .topnav .icon {
+      display: none;
+      color: black;
+    }
 
+    .icon
+    {
+        position: relative;
+        right: 80px;
+    }
+    
+    /* RESPONSIVE - BURGER */
+    @media screen and (max-width: 1000px) and (min-width: 300px) 
+    {
+      .topnav a
+      {
+        display: none;
+      }
+
+      #logo
+      {
+        display: flex;
+      }
+
+      .topnav a.icon 
+      {
+        float: right;
+        display: block;
+        position: relative;
+        right: 80px;
+      }
+    }
+    
+    @media screen and (min-width: 300px) 
+    {
+      .topnav.responsive{
+        position: relative;
+      }
+
+      .topnav.responsive .icon {
+        right: 0;
+        top: 0;
+        position: relative;
+        right: 80px;
+      }
+      
+      .topnav.responsive a {
+        float: none;
+        display: block;
+        text-align: center;
+      }
+    }
+
+    @media screen and (max-width: 1000px) 
+    {
+        .topnav.responsive {
+        position: relative;
+      }
+
+      .topnav.responsive .icon {
+        right: 0;
+        top: 0;
+        position: relative;
+        right: 80px;
+      }
+
+      .topnav.responsive a {
+        float: none;
+        display: block;
+        text-align: center;
+      }
+    }
+
+    /* NAVIGATION - DESIGN */
     ul {
         list-style-type: none;
         margin: 0;
         padding: 0;
         overflow: hidden;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     li {
         float: left;
     }
-
 
     li a,
     .dropbtn {
@@ -88,22 +177,20 @@
         
     }
 
-    li.dropdown {
+    li .dropdown {
         display: inline-block;
     }
 
     #logo
     {
         width: auto;
-        position: absolute;
-        top: auto;
-        left: 5rem;
-        bottom: 3px;
+        position: relative;
+        left: 60px;
     }
 
     .dropdown-content {
         display: none;
-        position: absolute;
+        position: fixed;
         background-color: #f9f9f9;
         min-width: 160px;
         box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
@@ -127,13 +214,14 @@
         display: block;
     }
 
-    /* Footer */
-
+    /* FOOTER */
     footer {
         padding: 1px 0;
         height: 40px;
         width: 100%;
         background-color: #EEEEEE;
+        position: absolute bottom;
+        margin-top: auto;
     }
 
     footer li a
@@ -142,9 +230,8 @@
         display: inline;
     }
 
-
     /* EXTRAS */
-    ::-webkit-scrollbar {
+        ::-webkit-scrollbar {
         width: 10px;
     }
 
@@ -164,4 +251,4 @@
     ::-webkit-scrollbar-thumb:hover {
         background: #776161;
     }
-</style>
+    </style>
