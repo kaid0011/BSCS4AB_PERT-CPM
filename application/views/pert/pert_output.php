@@ -141,17 +141,13 @@
 </div>
 
 <!-- BUTTON -->
-<div class="calculate">
-
-        <a class="btn" href="CPMOutput.html">Calculate</a>
-        <button class="btn">Export Output</button>
+<div class="export-results">
+    <button class="btn">Export Results</button>
 </div>
 
  <div class="ganttchartname">
         <b> Completion Probability Calculator</b>
 
-    <!-- <a class="btn" href="CPMOutput.html">Calculate</a> -->
-    <button class="btn">Export to CSV</button>
 
 </div>
 
@@ -280,7 +276,7 @@ Our PERT Calculator also enables users to determine the probability of an expect
         margin: 2rem 3rem;
     }
 
-    .calculate {
+    .export-results {
         display: flex;
         justify-content: center;
         align-items: center;
