@@ -73,12 +73,13 @@
         </tbody>
     </table>
 </div>
+</form>
+
 <br><br>
 <div class="calculate">
-        <!-- <a class="btn" href="PERTOutput.html">Calculate</a> -->
-        <button class="btn">Calculate</button>
-        
-    </div> 
+        <button class="btn">Calculate</button>                            
+</div> 
+
     <div class="box">
 	<a class="button" href="#popup1"><i class="fa fa-question-circle" aria-hidden="true"></i></a>
     </div>

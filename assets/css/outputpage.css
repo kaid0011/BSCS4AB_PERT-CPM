@@ -142,7 +142,7 @@ th {
     padding: 15px;
 }
 
-textarea {
+/* textarea {
     background-color: transparent;
     border: 2px solid;
     border-radius: 10px;
@@ -173,9 +173,9 @@ input {
     background-color: transparent;
     border-radius: 10px;
     padding: 5px;
-}
+} */
 
-/* Cards */
+/* Cards for PERT*/
 .containerbox {
     justify-content: space-evenly;
     display: flex;

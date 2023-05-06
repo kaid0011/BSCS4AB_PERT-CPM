@@ -1,6 +1,6 @@
 <div class="firstpg">
     <div class="title">
-        <b> NORMAL DISTRIBUTION </b>
+        <b> Normal Distribution </b>
     </div>
     <div class="paragone">
         In normal distribution, the probability of an

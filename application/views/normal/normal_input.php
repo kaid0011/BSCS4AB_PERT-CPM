@@ -1,6 +1,6 @@
 <div class="firstpg">
     <div class="title">
-        <b> NORMAL DISTRIBUTION </b>
+        <b> Normal Distribution </b>
     </div>
     <div class="paragone">
         In normal distribution, the probability of an
@@ -32,8 +32,7 @@
             ?>
                 <tr>
                     <td><input type="text1" name="<?php echo $i; ?>" value="<?php echo $i; ?>" readonly></td>
-                    <!-- <td><input type="text" name="task_desc_<?php echo $i; ?>" required></td> -->
-                    <td><textarea  name = "task_desc_<?php echo $i; ?>"></textarea></td>
+                    <td><input type="text" name="task_desc_<?php echo $i; ?>" ></td>
                     <td><input type="number"  name="task_opt_<?php echo $i; ?>" step="any" min="1" max="20" oninput="validity.valid||(value='');" required></td>
                     <td><input type="number" name="task_ml_<?php echo $i; ?>" step="any" min="1" max="20" oninput="validity.valid||(value='');" required></td>
                     <td><input type="number" name="task_pes_<?php echo $i; ?>" step="any" min="1" max="20" oninput="validity.valid||(value='');" required></td>
@@ -44,7 +43,7 @@
                         <?php
                         } else { ?>
                             <input type="text" name="task_prereq_<?php echo $i; ?>" pattern="[1-<?php echo $i-1; ?>](,[1-<?php echo $i-1; ?>])*|^[\-]" 
-                            oninvalid="this.setCustomValidity('bawal yan haha XD')" onchange="this.setCustomValidity('')" required>
+                            oninvalid="this.setCustomValidity('Enter Valid Activity ID')" onchange="this.setCustomValidity('')" required>
                         <?php } ?>
                     </td>
                 </tr>
@@ -66,7 +65,22 @@
     <button class="btn">Calculate</button>
 </div>
 </form>
+<!-- Collapsible Step by Step -->
+
+<section class="collapsible">
+  <input type="checkbox" name="collapse" id="handle1" checked="checked">
+  <h2 class="handle">
+    <label for="handle1">26A. Trappist Single</label>
+  </h2>
+  <div class="content">
+    <p><strong>Overall Impression:</strong> A pale, bitter, highly attenuated and well carbonated Trappist ale, showing a fruity-spicy Trappist yeast character, a spicy-floral hop profile, and a soft, supportive grainy-sweet malt palate.</p>
+    <p><strong>History:</strong> While Trappist breweries have a tradition of brewing a lower-strength beer as a monk’s daily ration, the bitter, pale beer this style describes is a relatively modern invention reflecting current tastes. Westvleteren first brewed theirs in 1999, but replaced older lower-gravity products.</p>
+  </div>
+</section>
+
 <br><br>
+
+<!-- POPUP for MUST KNOW -->
 <div class="box">
 	<a class="button" href="#popup1"><i class="fa fa-question-circle" aria-hidden="true"></i></a>
     </div>
@@ -107,3 +121,4 @@
             </div>
         </div>
     </div>
+
