@@ -240,7 +240,7 @@
     }
 
     th{
-        background-color: #d9c7c7;
+        background-color: #D7D0D0;
         padding: 15px;
         
     }
