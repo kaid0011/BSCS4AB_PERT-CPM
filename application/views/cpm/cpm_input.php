@@ -46,7 +46,7 @@ information for your project: <i> Activity, Description, Three Durations, Pre-Re
                 ?>
                     <tr>
                         <td><input type="text1" name="<?php echo $i; ?>" value="<?php echo $i; ?>" readonly></td>
-                        <td><textarea type="text" name="task_desc_<?php echo $i; ?>" ></textarea></td>
+                        <td><input type="text" name="task_desc_<?php echo $i; ?>"></td>
                         <td><input type="number" name="task_time_<?php echo $i; ?>" min="1" max="20" step="any" oninput="validity.valid||(value='');" required></td>
                         <td><?php
                             if ($i == 1) {

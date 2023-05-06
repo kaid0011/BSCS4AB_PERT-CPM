@@ -333,7 +333,6 @@
         text-align: center;
         border-style: ridge;
         table-layout: auto;
-        /* background-color: #eeee; */
     }
 
     table.gantt-chart th,
