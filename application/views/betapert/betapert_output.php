@@ -115,7 +115,8 @@
 </div>
 <div class="ganttchartname">
         <b> Project Gantt Chart</b>
-    </div>
+</div>
+
 <!-- EXPLANATION -->
 <div class="paragone">
     Lorem ipsum dolor sit amet, no clita veritus maiestatis vim, est illum consetetur no. Agam modus an vel. Nibh
@@ -127,45 +128,43 @@
     adversarium, dicam appetere necessitatibus sed ut.
 </div>
 
-<!-- GANTT CHART -->
-<div class="grid-container-gantt">
-    <div style="overflow-x: auto;">
+<!-- CHART -->
+<div class="ganttcontainer" style="max-width: 100%; margin: 0 auto; padding: 50px;">
+       <div class="chart" style="display: grid; position: relative; overflow: hidden; overflow-x:auto">
         <table class="gantt-chart">
-            <thead>
             <tr>
                 <th style="border-bottom-style: ridge; border-right-style: ridge;"></th>
                 <?php
-                for ($col = 1; $col <= $finish_time + 1; $col++) {
-                    if ($col == ceil($finish_time)) { ?>
-                        <th style="border-bottom-style: ridge;"></th>
-                    <?php } else { ?>
-                        <th style="border-bottom-style: ridge; text-align: right;"><?php echo "$col"; ?></th>
-                <?php }
-                } ?>
+                    for ($col = 1; $col <= $finish_time+1; $col++) { 
+                        if ($col == ceil($finish_time)) { ?>
+                            <th style="border-bottom-style: ridge;"></th>
+                        <?php } 
+                        else { ?>
+                            <th style="border-bottom-style: ridge; text-align: right;"><?php echo "$col"; ?></th>
+                        <?php } 
+                    } ?>
             </tr>
-            </thead>
-            <tbody>
             <?php
-            foreach ($project as $task) { ?>
+                foreach ($project as $task) { ?>
                 <tr>
-                    <td style="border-bottom-style: ridge; border-right-style: ridge;"><strong><?php echo "Activity " . $task['id']; ?></strong></td>
-                    <td style="border-bottom-style: ridge;" colspan="<?php echo ceil($finish_time); ?>">
-                        <?php
-                        $waiting = ($task['es'] / $finish_time) * 100;
-                        $progress = (($task['lf'] - $task['es']) / $finish_time) * 100;
-                        $total_time = $finish_time / ceil($finish_time) * 100;
+                    <th style="border-bottom-style: ridge; border-right-style: ridge;"><?php echo "Activity " . $task['id']; ?></th>
+                    <th style="border-bottom-style: ridge;" colspan="<?php echo ceil($finish_time);?>">
+                        <?php 
+                                $waiting = ($task['es']/$finish_time)*100;
+                                $progress = (($task['lf']-$task['es'])/$finish_time)*100;
+                                $total_time = $finish_time/ceil($finish_time)*100;
                         ?>
-                        <div style="background-color:#B19090; width: <?php echo $total_time; ?>%">
-                            <div class="waiting" style="position: relative; float: left; display: inline-block; width: <?php echo $waiting ?>%"></div>
-                            <div class="progress" style="position: relative; float: left; display: inline-block; width: <?php echo $progress ?>%"></div>
+                        <div style="background-color:#B19090; width: <?php echo $total_time;?>%">
+                            <div class="waiting" style="position: relative; float: left; display: inline-block; width: <?php echo $waiting?>%"></div>
+                            <div class="progress" style="position: relative; float: left; display: inline-block; width: <?php echo $progress?>%"></div>
                         </div>
-                    </td>
+                    </th>
                 </tr>
             <?php } ?>
-            </tbody>
         </table>
     </div>
 </div>
+<br> <br>
 <style>
     .title {
         font-size: 2rem;
@@ -310,16 +309,18 @@
         text-align: center;
     }
 
-    /* GANTT CHART */
-    .grid-container-gantt {
-        display: grid;
-        width: 85%;
-        margin-left: auto;
-        margin-right: auto;
-        text-align: center;
-    }
-
-    table.gantt-chart {
+    
+    /* Gantt Chart CSS */
+    .ganttcontainer {
+            display: grid;
+            width: 85%;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            overflow-x: auto;
+        }
+    
+   table.gantt-chart {
         margin-top: 2rem;
         margin-bottom: 1rem;
         display: table;
@@ -343,22 +344,25 @@
         padding: 12px 5px;
         display: table-cell;
         vertical-align: middle;
+        background-color: #eeee;
     }
 
-    .waiting {
-        height: 30px;
-        position: relative;
-        background: none;
+    .waiting 
+    {
+    height:30px;
+    position:relative;
+    background: none;
     }
 
     .progress {
-        height: 30px;
-        position: relative;
-        background: #B19090;
-        border: 0px;
-        border-radius: 10px;
+    height:30px;
+    position:relative;
+    background: #B19090;
+    border: 0px;
+    border-radius: 10px;
     }
 
+    
     /* RESPONSIVE */
     @media screen {
         .form {

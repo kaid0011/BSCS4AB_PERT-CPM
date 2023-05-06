@@ -100,10 +100,12 @@
     vix malorum diceret fabulas an, nam ei mutat phaedrum. Sed ea timeam suscipiantur, ad eos partem audiam
     adversarium, dicam appetere necessitatibus sed ut.
 </div>
-
-<!-- GANTT CHART -->
-<div class="grid-container-gantt">
-    <div style="overflow-x: auto;">
+<div class="ganttchartname">
+        <b> Project Gantt Chart</b>
+</div>
+<!-- CHART -->
+<div class="container" style="max-width: 100%; margin: 0 auto; padding: 50px;">
+       <div class="chart" style="display: grid; position: relative; overflow: hidden;">
         <table class="gantt-chart">
             <thead>
             <tr>
@@ -257,41 +259,43 @@
         margin: 5px;
     }
 
-    input[type=text1] {
+    input[type=text1]
+    {
         border-style: none;
         text-align: center;
     }
-
-    input[type=number] {
+    input[type=number]
+    {
         border-style: none;
         text-align: center;
         border: 1px solid;
         border-radius: 5px;
     }
 
-    input[type=textp] {
+    input[type=textp]
+    {
         border-style: none;
         text-align: center;
         font-size: 20px;
     }
 
-    input {
+    input
+    {
         background-color: transparent;
         border-radius: 10px;
         padding: 5px;
     }
 
-    /* GANTT CHART */
-    .grid-container-gantt {
-        display: grid;
-        width: 85%;
-        margin-left: auto;
-        margin-right: auto;
-        text-align: center;
-    }
-
-
-    table.gantt-chart {
+    .ganttcontainer {
+            display: grid;
+            width: 85%;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            overflow-x: auto;
+        }
+    
+   table.gantt-chart {
         margin-top: 2rem;
         margin-bottom: 1rem;
         display: table;

@@ -29,6 +29,7 @@
                     <th title ="Activity's Latest Finish Time">LF <span class="tooltiptext">&#9432;</span></th>
                     <th title ="Activity's Available Slack Time">Slack <span class="tooltiptext">&#9432;</span></th>
                     <th title ="If the Activity is Critical">Critical <span class="tooltiptext">&#9432;</span></th>
+
                 </tr>
             </thead>
             <tbody>
@@ -78,7 +79,7 @@
     <h4>Project Variance: <?php echo round($proj_variance, 2); ?></h4>
     <h4>Project Standard Deviation: <?php echo round($proj_sd, 2); ?></h4>
 
-    <!-- Probability of Project Completion by Given Date 
+    Probability of Project Completion by Given Date 
     <h3>Compute Project Completion Probability</h3>
     <label for="pcg">Enter expected project duration: </label>
     <input type="number" name="x" id="x" required>
@@ -88,7 +89,7 @@
     <br><label for="p">Probability of completion: </label>
     <input type="textp" name="p" id="p" readonly>
 
-    <!-- Probability of Individual Task Completion Completion by Given Date
+    Probability of Individual Task Completion Completion by Given Date
     <h3>Compute Individual Task Completion Probability</h3>
     <label for="id">Enter Task ID: </label>
     <input type="number" name="tid" id="tid">
@@ -100,7 +101,7 @@
     </tbody>
     </table>
     <div class="calculate">
-    <!-- <a class="btn" href="CPMOutput.html">Calculate</a> 
+    <a class="btn" href="CPMOutput.html">Calculate</a> 
     <button class="btn">Calculate</button>
 </div> -->
 
@@ -141,12 +142,17 @@
 
 <!-- BUTTON -->
 <div class="calculate">
+
         <a class="btn" href="CPMOutput.html">Calculate</a>
         <button class="btn">Export Output</button>
 </div>
 
  <div class="ganttchartname">
         <b> Completion Probability Calculator</b>
+
+    <!-- <a class="btn" href="CPMOutput.html">Calculate</a> -->
+    <button class="btn">Export to CSV</button>
+
 </div>
 
 <!-- EXPLANATION -->
@@ -208,9 +214,14 @@ Our PERT Calculator also enables users to determine the probability of an expect
         <b> Project Gantt Chart</b>
 </div>
 
+<!-- CHART -->
+<div class="ganttcontainer" style="max-width: 100%; margin: 0 auto; padding: 30px;">
+       <div class="chart" style="display: grid; position: relative; overflow: hidden; overflow-x:auto">
+
 <!-- GANTT CHART -->
 <div class="grid-container-gantt">
     <div style="overflow-x: auto;">
+
         <table class="gantt-chart">
             <thead>
             <tr>
@@ -394,7 +405,16 @@ Our PERT Calculator also enables users to determine the probability of an expect
         padding: 15px;
     }
     textarea
-    {
+    
+    td {
+        background-color: #eeee;
+    }
+
+    th {
+        background-color: #d9c7c7;
+    }
+
+    textarea {
         background-color: transparent;
         border: 2px solid;
         border-radius: 10px;
