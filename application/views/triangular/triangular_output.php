@@ -195,6 +195,7 @@
         margin-bottom: 2rem;
     }
 
+
     .grid-container {
         display: grid;
         width: 90rem;
@@ -261,6 +262,7 @@
         border-radius: 0;
         background-color: transparent;
     }
+
     tr 
     {
      border-bottom: 1px solid #ddd;

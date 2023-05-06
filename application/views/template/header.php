@@ -9,11 +9,16 @@
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@materializecss/materialize@1.2.2/dist/css/materialize.min.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- <link type="text/css" rel="stylesheet" href="css/materialize.min.css"/> -->
-    <title>WAPS With Simulation</title>
+    <link rel="icon" type="image/png" href="/assets/images/logo.svg"/>
+    <title><?php echo $pagename; ?></title>
+    <link rel="stylesheet" type="text/css" href="<? echo base_url();?>assets/css/mainpage.css">
+    <link rel="stylesheet" type="text/css" href="<? echo base_url();?>assets/css/inputpage.css">
+    <link rel="stylesheet" type="text/css" href="<? echo base_url();?>assets/css/outputage.css">
 </head>
 
 <body>
     <header>
+        
         <!-- Navigation Bar -->
         <div class="navi">
             <a href="<?= base_url() ?>"><img id="logo" src="<?=base_url()?>/assets/images/logo.svg" height="50px" width="50px"></a>
