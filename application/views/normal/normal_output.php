@@ -1,6 +1,6 @@
 <div class="firstpg">
     <div class="title">
-        <b> Triangular Distribution</b>
+        <b> Normal Distribution</b>
     </div>
     <div class="paragone">
         Lorem ipsum dolor sit amet, no clita veritus maiestatis vim, est illum consetetur no. Agam modus an vel. Nibh
@@ -14,9 +14,9 @@
 </div>
 <div class="grid-container">
     <div class="grid-item">
-        <table class="output">
+        <table class="table">
             <thead>
-            <tr>
+                <tr>
                 <th>Activity</th>
                 <th title ="Activity Description">Description <span class="tooltiptext">&#9432;</span></th>
                 <th title ="Shortest Estimated Activity Duration">Optimistic <span class="tooltiptext">&#9432;</span></th>
@@ -63,9 +63,8 @@
             </tbody>
         </table>
     </div>
-    <!-- <div class="grid-item"> -->
-
-    </div>
+    <!-- <div class="grid-item">-->
+</div>
 
     <!-- Final Results Display -->
     <div class="container">
@@ -93,7 +92,6 @@
 
         </div>
     </div>
-
     <div class="export">
         <!-- Export Simulation Values Excel File -->
         <form action="<?php echo base_url('export') ?>" method="post">
@@ -118,8 +116,9 @@
 <div class="ganttchartname">
         <b> Project Gantt Chart</b>
     </div>
+
 <!-- EXPLANATION -->
-<div class="paragone">
+<!-- <div class="paragone">
     Lorem ipsum dolor sit amet, no clita veritus maiestatis vim, est illum consetetur no. Agam modus an vel. Nibh
     feugiat pericula id eam. Sit aliquam platonem omittantur ut, eum meliore offendit at. Suas alienum at per, ad sit
     exerci vocent docendi, te sea summo feugait. At vim cibo accumsan mnesarchum.
@@ -127,41 +126,44 @@
     Usu nominavi atomorum maluisset ne. Sed ex pertinacia repudiandae, ferri lorem aeque et per. Duo exerci munere an,
     vix malorum diceret fabulas an, nam ei mutat phaedrum. Sed ea timeam suscipiantur, ad eos partem audiam
     adversarium, dicam appetere necessitatibus sed ut.
-</div>
+</div> -->
 
-<!-- CHART -->
-<div class="ganttcontainer" style="max-width: 100%; margin: 0 auto; padding: 50px;">
-       <div class="chart" style="display: grid; position: relative; overflow: hidden; overflow-x:auto">
+<!-- GANTT CHART -->
+<div class="grid-container-gantt">
+    <div style="overflow-x: auto;">
         <table class="gantt-chart">
+            <thead>
             <tr>
                 <th style="border-bottom-style: ridge; border-right-style: ridge;"></th>
                 <?php
-                    for ($col = 1; $col <= $finish_time+1; $col++) { 
-                        if ($col == ceil($finish_time)) { ?>
-                            <th style="border-bottom-style: ridge;"></th>
-                        <?php } 
-                        else { ?>
-                            <th style="border-bottom-style: ridge; text-align: right;"><?php echo "$col"; ?></th>
-                        <?php } 
-                    } ?>
+                for ($col = 1; $col <= $finish_time + 1; $col++) {
+                    if ($col == ceil($finish_time)) { ?>
+                        <th style="border-bottom-style: ridge;"></th>
+                    <?php } else { ?>
+                        <th style="border-bottom-style: ridge; text-align: right;"><?php echo "$col"; ?></th>
+                <?php }
+                } ?>
             </tr>
+            </thead>
+            <tbody>
             <?php
-                foreach ($project as $task) { ?>
+            foreach ($project as $task) { ?>
                 <tr>
-                    <th style="border-bottom-style: ridge; border-right-style: ridge;"><?php echo "Activity " . $task['id']; ?></th>
-                    <th style="border-bottom-style: ridge;" colspan="<?php echo ceil($finish_time);?>">
-                        <?php 
-                                $waiting = ($task['es']/$finish_time)*100;
-                                $progress = (($task['lf']-$task['es'])/$finish_time)*100;
-                                $total_time = $finish_time/ceil($finish_time)*100;
+                    <td style="border-bottom-style: ridge; border-right-style: ridge;"><strong><?php echo "Activity " . $task['id']; ?></strong></td>
+                    <td style="border-bottom-style: ridge;" colspan="<?php echo ceil($finish_time); ?>">
+                        <?php
+                        $waiting = ($task['es'] / $finish_time) * 100;
+                        $progress = (($task['lf'] - $task['es']) / $finish_time) * 100;
+                        $total_time = $finish_time / ceil($finish_time) * 100;
                         ?>
-                        <div style="background-color:#B19090; width: <?php echo $total_time;?>%">
-                            <div class="waiting" style="position: relative; float: left; display: inline-block; width: <?php echo $waiting?>%"></div>
-                            <div class="progress" style="position: relative; float: left; display: inline-block; width: <?php echo $progress?>%"></div>
+                        <div style="background-color:#B19090; width: <?php echo $total_time; ?>%">
+                            <div class="waiting" style="position: relative; float: left; display: inline-block; width: <?php echo $waiting ?>%"></div>
+                            <div class="progress" style="position: relative; float: left; display: inline-block; width: <?php echo $progress ?>%"></div>
                         </div>
-                    </th>
+                    </td>
                 </tr>
             <?php } ?>
+            </tbody>
         </table>
     </div>
 </div>
@@ -311,17 +313,16 @@
     }
 
     
-    /* Gantt Chart CSS */
-    .ganttcontainer {
-            display: grid;
-            width: 85%;
-            margin-left: auto;
-            margin-right: auto;
-            text-align: center;
-            overflow-x: auto;
-        }
-    
-   table.gantt-chart {
+    /* GANTT CHART */
+    .grid-container-gantt {
+        display: grid;
+        width: 85%;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+
+    table.gantt-chart {
         margin-top: 2rem;
         margin-bottom: 1rem;
         display: table;
@@ -333,8 +334,7 @@
         border-collapse: collapse;
         text-align: center;
         border-style: ridge;
-        table-layout: auto;
-        /* background-color: #eeee; */
+        table-layout: fixed;
     }
 
     table.gantt-chart th,
@@ -346,24 +346,21 @@
         padding: 12px 5px;
         display: table-cell;
         vertical-align: middle;
-        background-color: #eeee;
     }
 
-    .waiting 
-    {
-    height:30px;
-    position:relative;
-    background: none;
+    .waiting {
+        height: 30px;
+        position: relative;
+        background: none;
     }
 
     .progress {
-    height:30px;
-    position:relative;
-    background: #B19090;
-    border: 0px;
-    border-radius: 10px;
+        height: 30px;
+        position: relative;
+        background: #B19090;
+        border: 0px;
+        border-radius: 10px;
     }
-
     
     /* RESPONSIVE */
     @media screen {

@@ -3,18 +3,19 @@
         <b> Project Evaluation Review Technique (PERT)</b>
     </div>
     <div class="paragone">
-    PERT uses a probabilistic approach to determine the project's critical path and the probability of 
-      completing the project within a specific timeframe.
-      <br><br>
-      This table shows the project time completion based on the data provided using the PERT Method:
+        PERT uses a probabilistic approach to determine the project's critical path and the probability of
+        completing the project within a specific timeframe.
+        <br><br>
+        This table shows the project time completion based on the data provided using the PERT Method:
     </div>
 </div>
 <div class="grid-container">
-      <div class="container" style="overflow-x:auto;">
-      <table class="table">
+    <div class="container" style="overflow-x:auto;">
+        <table class="results">
             <thead>
                 <tr>
                     <th>Activity</th>
+<<<<<<< HEAD:application/views/PERT/pert_output.php
                     <th title ="Activity Description">Description <span class="tooltiptext">&#9432;</span></th>
                     <th title ="Shortest Estimated Activity Duration">Optimistic <span class="tooltiptext">&#9432;</span></th>
                     <th title ="Reasonable Estimated Activity Duration">Most Likely <span class="tooltiptext">&#9432;</span></th>
@@ -29,6 +30,22 @@
                     <th title ="Activity's Latest Finish Time">LF <span class="tooltiptext">&#9432;</span></th>
                     <th title ="Activity's Available Slack Time">Slack <span class="tooltiptext">&#9432;</span></th>
                     <th title ="If the Activity is Critical">Critical <span class="tooltiptext">&#9432;</span></th>
+=======
+                    <th title="Activity Description">Description <span class="tooltiptext">&#9432;</span></th>
+                    <th title="Shortest Estimated Activity Duration">Optimistic <span class="tooltiptext">&#9432;</span></th>
+                    <th title="Reasonable Estimated Activity Duration">Most Likely <span class="tooltiptext">&#9432;</span></th>
+                    <th title="Maximum Estimated Activity Duration">Pessimistic <span class="tooltiptext">&#9432;</span></th>
+                    <th title="Estimated Activity Completion based on OT, MLT, and PT">Estimated Duration <span class="tooltiptext">&#9432;</span></th>
+                    <th title="Activity Number that needs to be completed first.">Pre-Requisites <span class="tooltiptext">&#9432;</span></th>
+                    <th title="The calculated Standard Deviation of Each Activity">Standard Deviation <span class="tooltiptext">&#9432;</span></th>
+                    <th title="The calculated Variance of Each Activity">Variance</th>
+                    <th title="Activity's Earliest Start Time">ES <span class="tooltiptext">&#9432;</span></th>
+                    <th title="Activity's Earliest Finish Time">EF <span class="tooltiptext">&#9432;</span></th>
+                    <th title="Activity's Latest Start Time">LS <span class="tooltiptext">&#9432;</span></th>
+                    <th title="Activity's Latest Finish Time">LF <span class="tooltiptext">&#9432;</span></th>
+                    <th title="Activity's Available Slack Time">Slack <span class="tooltiptext">&#9432;</span></th>
+                    <th title="If the Activity is Critical">Critical <span class="tooltiptext">&#9432;</span></th>
+>>>>>>> 4d3eb49ca26553212cfa900a9fbf76405be20dac:application/views/pert/pert_output.php
                 </tr>
             </thead>
             <tbody>
@@ -67,85 +84,91 @@
                 <?php
                 }
                 ?>
+            </tbody>
         </table>
-        
+
     </div>
-    </div>
-    <!-- <div class="grid-item"> -->
+</div>
+<!-- <div class="grid-item"> -->
 
-    <!-- <h4>Project Completion Time: <?php echo $finish_time; ?></h4>
-        <h4>Project Variance: <?php echo round($proj_variance, 2); ?></h4>
-        <h4>Project Standard Deviation: <?php echo round($proj_sd, 2); ?></h4>
+<!-- <h4>Project Completion Time: <?php echo $finish_time; ?></h4>
+    <h4>Project Variance: <?php echo round($proj_variance, 2); ?></h4>
+    <h4>Project Standard Deviation: <?php echo round($proj_sd, 2); ?></h4>
 
-        <!-- Probability of Project Completion by Given Date 
-        <h3>Compute Project Completion Probability</h3>
-        <label for="pcg">Enter expected project duration: </label>
-        <input type="number" name="x" id="x" required>
-        <input type="number" name="m" id="m" value="<?php echo round($finish_time, 2); ?>" hidden>
-        <input type="number" name="s" id="s" value="<?php echo round($proj_sd, 2); ?>" hidden>
-        <button id="compute" class="compute">Calculate</button>
-        <br><label for="p">Probability of completion: </label>
-        <input type="textp" name="p" id="p" readonly>
+    <!-- Probability of Project Completion by Given Date 
+    <h3>Compute Project Completion Probability</h3>
+    <label for="pcg">Enter expected project duration: </label>
+    <input type="number" name="x" id="x" required>
+    <input type="number" name="m" id="m" value="<?php echo round($finish_time, 2); ?>" hidden>
+    <input type="number" name="s" id="s" value="<?php echo round($proj_sd, 2); ?>" hidden>
+    <button id="compute" class="compute">Calculate</button>
+    <br><label for="p">Probability of completion: </label>
+    <input type="textp" name="p" id="p" readonly>
 
-        <!-- Probability of Individual Task Completion Completion by Given Date
-        <h3>Compute Individual Task Completion Probability</h3>
-        <label for="id">Enter Task ID: </label>
-        <input type="number" name="tid" id="tid">
-        <label for="x_indiv">Enter expected task duration: </label>
-        <input type="number" name="x_indiv" id="x_indiv">
-        <button id="compute_indiv" class="compute_indiv">Calculate</button>
-        <br><label for="p">Probability of completion: </label>
-        <input type="textp" name="p_indiv" id="p_indiv" readonly>
-        </tbody>
-        </table>
-        <div class="calculate">
-        <!-- <a class="btn" href="CPMOutput.html">Calculate</a> 
-        <button class="btn">Calculate</button>
+    <!-- Probability of Individual Task Completion Completion by Given Date
+    <h3>Compute Individual Task Completion Probability</h3>
+    <label for="id">Enter Task ID: </label>
+    <input type="number" name="tid" id="tid">
+    <label for="x_indiv">Enter expected task duration: </label>
+    <input type="number" name="x_indiv" id="x_indiv">
+    <button id="compute_indiv" class="compute_indiv">Calculate</button>
+    <br><label for="p">Probability of completion: </label>
+    <input type="textp" name="p_indiv" id="p_indiv" readonly>
+    </tbody>
+    </table>
+    <div class="calculate">
+    <!-- <a class="btn" href="CPMOutput.html">Calculate</a> 
+    <button class="btn">Calculate</button>
 </div> -->
 
 <!-- CARDS 1 -->
 <div class="containerbox">
-        <div class="boxx">
-            <h3>Critical Path</h3>
-            <p>
-                <?php
-                $max = max(array_column($cp, 'id'));
-                foreach ($cp as $cp) {
-                    if ($cp['id'] == $max) {
-                        echo $cp['id'];
-                    } else {
-                        echo $cp['id'] . " → ";
-                    }
+    <div class="boxx">
+        <h3>Critical Path</h3>
+        <p>
+            <?php
+            $max = max(array_column($cp, 'id'));
+            foreach ($cp as $cp) {
+                if ($cp['id'] == $max) {
+                    echo $cp['id'];
+                } else {
+                    echo $cp['id'] . " → ";
                 }
-                ?>
-            </p>
+            }
+            ?>
+        </p>
 
-            <h3>Project Completion Time</h3>
-            <p>
-                <?php echo $finish_time; ?>
-            </p>
-        </div>
+        <h3>Project Completion Time</h3>
+        <p>
+            <?php echo $finish_time; ?>
+        </p>
+    </div>
 
-        <div class="boxx">
-            <h3>Project Variance</h3>
-            <p>
+    <div class="boxx">
+        <h3>Project Variance</h3>
+        <p>
             <?php echo round($proj_variance, 2); ?>
-            </p>
-            <h3>Project Standard Deviation</h3>
-            <p>
+        </p>
+        <h3>Project Standard Deviation</h3>
+        <p>
             <?php echo round($proj_sd, 2); ?>
-            </p>
-        </div>
+        </p>
+    </div>
 </div>
 
 <!-- BUTTON -->
 <div class="calculate">
+<<<<<<< HEAD:application/views/PERT/pert_output.php
         <a class="btn" href="CPMOutput.html">Calculate</a>
         <button class="btn">Export Output</button>
 </div>
 
  <div class="ganttchartname">
         <b> Completion Probability Calculator</b>
+=======
+    <!-- <a class="btn" href="CPMOutput.html">Calculate</a> -->
+    <button class="btn">Export to CSV</button>
+>>>>>>> 4d3eb49ca26553212cfa900a9fbf76405be20dac:application/views/pert/pert_output.php
 </div>
 
 <!-- EXPLANATION -->
@@ -170,8 +193,8 @@ Our PERT Calculator also enables users to determine the probability of an expect
 <!-- CARDS 2 -->
 
 <div class="containerbox2">
-        <div class="boxx2">
-            <center>
+    <div class="boxx2">
+        <center>
             <b style="font-size:20px; color: rgb(104, 92, 92);"> Compute Project Completion Probability </b>
             <h3 id="two">Expected Project Duration</h3>
             <!-- <label for="pcg">Enter expected project duration: </label><br><br> -->
@@ -180,17 +203,17 @@ Our PERT Calculator also enables users to determine the probability of an expect
             <input type="number" name="s" id="s" value="<?php echo round($proj_sd, 2); ?>" hidden>
             <br><br>
             <button id="compute" class="compute">Calculate</button>
-           
+
             <!-- <label for="p">Probability of completion: </label>
-            <input type="textp" name="p" id="p" readonly> -->
+        <input type="textp" name="p" id="p" readonly> -->
             <h3 id="two">Probability of Completion</h3>
             <input type="textp" name="p" id="p" readonly>
-            </center>
-        </div>
+        </center>
+    </div>
 
-        <div class="boxx2">
-            <center>
-            <b style="font-size:20px; color: rgb(104, 92, 92);"> Compute Individual Task Completion Probability </b>       
+    <div class="boxx2">
+        <center>
+            <b style="font-size:20px; color: rgb(104, 92, 92);"> Compute Individual Task Completion Probability </b>
             <h3 id="two">Activity ID: </h3>
             <input type="number" name="tid" id="tid">
             <h3 id="two">Expected Project Duration: </h3>
@@ -198,9 +221,10 @@ Our PERT Calculator also enables users to determine the probability of an expect
             <button id="compute_indiv" class="compute_indiv">Calculate</button>
             <h3 id="two">Probability of Completion</h3>
             <input type="textp" name="p_indiv" id="p_indiv" readonly>
-            </center>
-        </div>
+        </center>
+    </div>
 </div>
+<<<<<<< HEAD:application/views/PERT/pert_output.php
 <br>
 <div class="ganttchartname">
         <b> Project Gantt Chart</b>
@@ -208,53 +232,63 @@ Our PERT Calculator also enables users to determine the probability of an expect
 <!-- CHART -->
 <div class="ganttcontainer" style="max-width: 100%; margin: 0 auto; padding: 30px;">
        <div class="chart" style="display: grid; position: relative; overflow: hidden; overflow-x:auto">
+=======
+
+<!-- GANTT CHART -->
+<div class="grid-container-gantt">
+    <div style="overflow-x: auto;">
+>>>>>>> 4d3eb49ca26553212cfa900a9fbf76405be20dac:application/views/pert/pert_output.php
         <table class="gantt-chart">
+            <thead>
             <tr>
                 <th style="border-bottom-style: ridge; border-right-style: ridge;"></th>
                 <?php
-                    for ($col = 1; $col <= $finish_time+1; $col++) { 
-                        if ($col == ceil($finish_time)) { ?>
-                            <th style="border-bottom-style: ridge;"></th>
-                        <?php } 
-                        else { ?>
-                            <th style="border-bottom-style: ridge; text-align: right;"><?php echo "$col"; ?></th>
-                        <?php } 
-                    } ?>
+                for ($col = 1; $col <= $finish_time + 1; $col++) {
+                    if ($col == ceil($finish_time)) { ?>
+                        <th style="border-bottom-style: ridge;"></th>
+                    <?php } else { ?>
+                        <th style="border-bottom-style: ridge; text-align: right;"><?php echo "$col"; ?></th>
+                <?php }
+                } ?>
             </tr>
+            </thead>
+            <tbody>
             <?php
-                foreach ($project as $task) { ?>
+            foreach ($project as $task) { ?>
                 <tr>
-                    <th style="border-bottom-style: ridge; border-right-style: ridge;"><?php echo "Activity " . $task['id']; ?></th>
-                    <th style="border-bottom-style: ridge;" colspan="<?php echo ceil($finish_time);?>">
-                        <?php 
-                                $waiting = ($task['es']/$finish_time)*100;
-                                $progress = (($task['lf']-$task['es'])/$finish_time)*100;
-                                $total_time = $finish_time/ceil($finish_time)*100;
+                    <td style="border-bottom-style: ridge; border-right-style: ridge;"><strong><?php echo "Activity " . $task['id']; ?></strong></td>
+                    <td style="border-bottom-style: ridge;" colspan="<?php echo ceil($finish_time); ?>">
+                        <?php
+                        $waiting = ($task['es'] / $finish_time) * 100;
+                        $progress = (($task['lf'] - $task['es']) / $finish_time) * 100;
+                        $total_time = $finish_time / ceil($finish_time) * 100;
                         ?>
-                        <div style="background-color:#B19090; width: <?php echo $total_time;?>%">
-                            <div class="waiting" style="position: relative; float: left; display: inline-block; width: <?php echo $waiting?>%"></div>
-                            <div class="progress" style="position: relative; float: left; display: inline-block; width: <?php echo $progress?>%"></div>
+                        <div style="background-color:#B19090; width: <?php echo $total_time; ?>%">
+                            <div class="waiting" style="position: relative; float: left; display: inline-block; width: <?php echo $waiting ?>%"></div>
+                            <div class="progress" style="position: relative; float: left; display: inline-block; width: <?php echo $progress ?>%"></div>
                         </div>
-                    </th>
+                    </td>
                 </tr>
             <?php } ?>
+            </tbody>
         </table>
     </div>
 </div>
 <br> <br>
 
 <style>
-     .title {
+    .title {
         font-size: 2rem;
         text-align: center;
         margin: 1rem;
     }
-    .ganttchartname
-    {
+
+    .ganttchartname {
         font-size: 2rem;
         text-align: center;
         margin: .1rem 2rem .1rem 2rem;
     }
+
     .paragone {
         font-size: 24px;
         font-style: normal;
@@ -279,8 +313,8 @@ Our PERT Calculator also enables users to determine the probability of an expect
         border-radius: 10px;
         overflow-x: auto;
     }
-    .container
-    {
+
+    .container {
         width: 99rem;
         max-width: 100%;
         margin-left: auto;
@@ -323,6 +357,7 @@ Our PERT Calculator also enables users to determine the probability of an expect
         color: #B19090;
 
     }
+
     .compute_indiv {
         text-decoration: none;
         text-align: right;
@@ -340,7 +375,8 @@ Our PERT Calculator also enables users to determine the probability of an expect
         color: #B19090;
 
     }
-    /* TABLE */
+
+    /* TABLE RESULTS*/
     table {
         padding: 1rem;
         margin-top: 3rem;
@@ -355,12 +391,16 @@ Our PERT Calculator also enables users to determine the probability of an expect
         border-collapse: collapse;
         border-style: none;
         text-align: center;
+<<<<<<< HEAD:application/views/PERT/pert_output.php
         background-color: #f0f0f0;
+=======
+        background-color: #eeee;
+
+>>>>>>> 4d3eb49ca26553212cfa900a9fbf76405be20dac:application/views/pert/pert_output.php
     }
 
     td,
-    th 
-    {
+    th {
         border: none;
         border-collapse: collapse;
         border-style: none;
@@ -372,11 +412,12 @@ Our PERT Calculator also enables users to determine the probability of an expect
         border-radius: 0;
         background-color: transparent;
     }
-    tr 
-    {
-     border-bottom: 1px solid #ddd;
+
+    tr {
+        border-bottom: 1px solid #ddd;
     }
 
+<<<<<<< HEAD:application/views/PERT/pert_output.php
     td{
         background-color: #eeee;
     }
@@ -387,6 +428,17 @@ Our PERT Calculator also enables users to determine the probability of an expect
     }
     textarea
     {
+=======
+    td {
+        background-color: #eeee;
+    }
+
+    th {
+        background-color: #d9c7c7;
+    }
+
+    textarea {
+>>>>>>> 4d3eb49ca26553212cfa900a9fbf76405be20dac:application/views/pert/pert_output.php
         background-color: transparent;
         border: 2px solid;
         border-radius: 10px;
@@ -395,28 +447,25 @@ Our PERT Calculator also enables users to determine the probability of an expect
         margin: 5px;
     }
 
-    input[type=text1]
-    {
+    input[type=text1] {
         border-style: none;
         text-align: center;
     }
-    input[type=number]
-    {
+
+    input[type=number] {
         border-style: none;
         text-align: center;
         border: 1px solid;
         border-radius: 5px;
     }
 
-    input[type=textp]
-    {
+    input[type=textp] {
         border-style: none;
         text-align: center;
         font-size: 20px;
     }
 
-    input
-    {
+    input {
         background-color: transparent;
         border-radius: 10px;
         padding: 5px;
@@ -469,8 +518,7 @@ Our PERT Calculator also enables users to determine the probability of an expect
         cursor: pointer;
     }
 
-    #two
-    {
+    #two {
         font-size: 20px;
         padding: 5px 5px;
         text-align: center;
@@ -489,17 +537,17 @@ Our PERT Calculator also enables users to determine the probability of an expect
         padding: 5px;
         text-align: center;
     }
-    
-    .ganttcontainer {
-            display: grid;
-            width: 85%;
-            margin-left: auto;
-            margin-right: auto;
-            text-align: center;
-            overflow-x: auto;
-        }
-    
-   table.gantt-chart {
+
+    /* GANTT CHART */
+    .grid-container-gantt {
+        display: grid;
+        width: 85%;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+
+    table.gantt-chart {
         margin-top: 2rem;
         margin-bottom: 1rem;
         display: table;
@@ -511,8 +559,7 @@ Our PERT Calculator also enables users to determine the probability of an expect
         border-collapse: collapse;
         text-align: center;
         border-style: ridge;
-        table-layout: auto;
-        /* background-color: #eeee; */
+        table-layout: fixed;
     }
 
     table.gantt-chart th,
@@ -524,22 +571,20 @@ Our PERT Calculator also enables users to determine the probability of an expect
         padding: 12px 5px;
         display: table-cell;
         vertical-align: middle;
-        background-color: #eeee;
     }
 
-    .waiting 
-    {
-    height:30px;
-    position:relative;
-    background: none;
+    .waiting {
+        height: 30px;
+        position: relative;
+        background: none;
     }
 
     .progress {
-    height:30px;
-    position:relative;
-    background: #B19090;
-    border: 0px;
-    border-radius: 10px;
+        height: 30px;
+        position: relative;
+        background: #B19090;
+        border: 0px;
+        border-radius: 10px;
     }
 
     /* RESPONSIVE */
@@ -552,23 +597,29 @@ Our PERT Calculator also enables users to determine the probability of an expect
         }
     }
 
+<<<<<<< HEAD:application/views/PERT/pert_output.php
    
     @media only screen and (max-width: 1500px) and (min-width: 300px)
     {
         .grid-container
         {
+=======
+
+    @media only screen and (max-width: 1500px) and (min-width: 300px) {
+        .grid-item {
+>>>>>>> 4d3eb49ca26553212cfa900a9fbf76405be20dac:application/views/pert/pert_output.php
             margin-left: 5vh;
             margin-right: 5vh;
         }
 
-        .containerbox, .containerbox2
-        {
+        .containerbox,
+        .containerbox2 {
             display: block;
             margin: 3vh;
         }
 
-        .boxx, .boxx2
-        {
+        .boxx,
+        .boxx2 {
             width: 90%;
         }
     }

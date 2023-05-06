@@ -130,13 +130,14 @@
     /* Footer */
 
     footer {
+        padding: 1px 0;
+        height: 40px;
         margin-top: auto;
         /* position: fixed; */
         /* padding: 1px 0; */
         height: auto;
         bottom: 0;
         width: 100%;
-        /* margin: 1rem; */
         background-color: #EEEEEE;
     }
 
