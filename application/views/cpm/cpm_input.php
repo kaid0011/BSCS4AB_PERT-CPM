@@ -1,6 +1,6 @@
 <div class="firstpg">
     <div class="title">
-        <b> CRITICAL PATH METHOD </b>
+        <b> Critical Path Method (CPM) </b>
     </div>
     <div class="paragone">
     CPM calculates the earliest and latest start and finish times for each activity, 

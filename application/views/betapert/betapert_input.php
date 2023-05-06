@@ -45,7 +45,7 @@
                         <?php
                         } else { ?>
                             <input type="text" name="task_prereq_<?php echo $i; ?>" pattern="[1-<?php echo $i-1; ?>](,[1-<?php echo $i-1; ?>])*|^[\-]" 
-                            oninvalid="this.setCustomValidity('bawal yan haha XD')" onchange="this.setCustomValidity('')" required>
+                            oninvalid="this.setCustomValidity('')" onchange="this.setCustomValidity('')" required>
                         <?php } ?>
                     </td>
                 </tr>
@@ -240,7 +240,7 @@
     }
 
     th{
-        background-color: #D7D0D0;
+        background-color: #d9c7c7;
         padding: 15px;
         
     }

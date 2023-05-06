@@ -133,7 +133,7 @@
         padding: 1px 0;
         height: 40px;
         margin-top: auto;
-        /* position: fixed; */
+        position: fixed;
         /* padding: 1px 0; */
         height: auto;
         bottom: 0;

@@ -8,7 +8,8 @@ class Betapert extends CI_Controller
 
     public function index()
     {
-        $this->load->view('template/header');
+        $data['title'] = 'BETA - PERT';
+        $this->load->view('template/header', $data);
         $this->load->view('betapert/betapert_main');
         $this->load->view('template/footer');        
     }
