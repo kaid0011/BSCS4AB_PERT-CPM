@@ -79,7 +79,7 @@
     <h4>Project Variance: <?php echo round($proj_variance, 2); ?></h4>
     <h4>Project Standard Deviation: <?php echo round($proj_sd, 2); ?></h4>
 
-    <!-- Probability of Project Completion by Given Date 
+    Probability of Project Completion by Given Date 
     <h3>Compute Project Completion Probability</h3>
     <label for="pcg">Enter expected project duration: </label>
     <input type="number" name="x" id="x" required>
@@ -89,7 +89,7 @@
     <br><label for="p">Probability of completion: </label>
     <input type="textp" name="p" id="p" readonly>
 
-    <!-- Probability of Individual Task Completion Completion by Given Date
+    Probability of Individual Task Completion Completion by Given Date
     <h3>Compute Individual Task Completion Probability</h3>
     <label for="id">Enter Task ID: </label>
     <input type="number" name="tid" id="tid">
@@ -101,7 +101,7 @@
     </tbody>
     </table>
     <div class="calculate">
-    <!-- <a class="btn" href="CPMOutput.html">Calculate</a> 
+    <a class="btn" href="CPMOutput.html">Calculate</a> 
     <button class="btn">Calculate</button>
 </div> -->
 
@@ -142,23 +142,17 @@
 
 <!-- BUTTON -->
 <div class="calculate">
-<<<<<<< HEAD
-<<<<<<< HEAD:application/views/PERT/pert_output.php
-=======
->>>>>>> 5de3cf6245247af1db60488c831b3afa8f937fd6
+
         <a class="btn" href="CPMOutput.html">Calculate</a>
         <button class="btn">Export Output</button>
 </div>
 
  <div class="ganttchartname">
         <b> Completion Probability Calculator</b>
-<<<<<<< HEAD
-=======
+
     <!-- <a class="btn" href="CPMOutput.html">Calculate</a> -->
     <button class="btn">Export to CSV</button>
->>>>>>> 4d3eb49ca26553212cfa900a9fbf76405be20dac:application/views/pert/pert_output.php
-=======
->>>>>>> 5de3cf6245247af1db60488c831b3afa8f937fd6
+
 </div>
 
 <!-- EXPLANATION -->
@@ -214,29 +208,20 @@ Our PERT Calculator also enables users to determine the probability of an expect
         </center>
     </div>
 </div>
-<<<<<<< HEAD
-<<<<<<< HEAD:application/views/PERT/pert_output.php
-=======
->>>>>>> 5de3cf6245247af1db60488c831b3afa8f937fd6
+
 <br>
 <div class="ganttchartname">
         <b> Project Gantt Chart</b>
 </div>
-<<<<<<< HEAD
+
 <!-- CHART -->
 <div class="ganttcontainer" style="max-width: 100%; margin: 0 auto; padding: 30px;">
        <div class="chart" style="display: grid; position: relative; overflow: hidden; overflow-x:auto">
-=======
-=======
->>>>>>> 5de3cf6245247af1db60488c831b3afa8f937fd6
 
 <!-- GANTT CHART -->
 <div class="grid-container-gantt">
     <div style="overflow-x: auto;">
-<<<<<<< HEAD
->>>>>>> 4d3eb49ca26553212cfa900a9fbf76405be20dac:application/views/pert/pert_output.php
-=======
->>>>>>> 5de3cf6245247af1db60488c831b3afa8f937fd6
+
         <table class="gantt-chart">
             <thead>
             <tr>
