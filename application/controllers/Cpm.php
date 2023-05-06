@@ -8,7 +8,9 @@ class Cpm extends CI_Controller
 
     public function index()
     {
-        $this->load->view('template/header');
+        $data['pagename'] = 'CPM Main';
+        $data['css'] = 'mainpage';
+        $this->load->view('template/header', $data);
         $this->load->view('cpm/cpm_main');
         $this->load->view('template/footer');        
     }
@@ -17,7 +19,9 @@ class Cpm extends CI_Controller
     {
         $data['proj_len'] = $this->input->post('proj_len');
         $data['unit'] = $this->input->post('unit');
-        $this->load->view('template/header');
+        $data['pagename'] = 'CPM Input';
+        $data['css'] = 'inputpage';
+        $this->load->view('template/header', $data);
         $this->load->view('cpm/cpm_input', $data);
         $this->load->view('template/footer');
     }
@@ -150,9 +154,10 @@ class Cpm extends CI_Controller
             }
         }
         $data['project'] = $project;
-        $data['cp'] = $cp;
-        
-        $this->load->view('template/header');
+        $data['cp'] = $cp;       
+        $data['pagename'] = 'CPM Output';
+        $data['css'] = 'outputpage';
+        $this->load->view('template/header', $data);
         $this->load->view('cpm/cpm_output', $data);
         $this->load->view('template/footer'); 
     }

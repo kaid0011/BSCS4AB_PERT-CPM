@@ -8,7 +8,10 @@ class Pert extends CI_Controller
 
     public function index()
     {
-        $this->load->view('template/header');
+        
+        $data['pagename'] = 'PERT Main';
+        $data['css'] = 'mainpage';
+        $this->load->view('template/header', $data);
         $this->load->view('pert/pert_main');
         $this->load->view('template/footer');        
     }
@@ -17,7 +20,9 @@ class Pert extends CI_Controller
     {
         $data['proj_len'] = $this->input->post('proj_len');
         $data['unit'] = $this->input->post('unit');
-        $this->load->view('template/header');
+        $data['pagename'] = 'PERT Input';
+        $data['css'] = 'inputpage';
+        $this->load->view('template/header', $data);
         $this->load->view('pert/pert_input', $data);
         $this->load->view('template/footer');
     }
@@ -173,8 +178,9 @@ class Pert extends CI_Controller
         $data['cp'] = $cp;
         $data['proj_variance'] = $proj_var;
         $data['proj_sd'] = sqrt($proj_var);     // project SD = square root of project variance
-
-        $this->load->view('template/header');
+        $data['pagename'] = 'PERT Output';
+        $data['css'] = 'outputpage';
+        $this->load->view('template/header', $data);
         $this->load->view('pert/pert_output', $data);
         $this->load->view('template/footer'); 
     }

@@ -9,7 +9,9 @@ class Triangular extends CI_Controller
 
     public function index()
     {
-        $this->load->view('template/header');
+        $data['pagename'] = 'TRIANGULAR Main';
+        $data['css'] = 'mainpage';
+        $this->load->view('template/header', $data);
         $this->load->view('triangular/triangular_main');
         $this->load->view('template/footer');        
     }
@@ -18,7 +20,9 @@ class Triangular extends CI_Controller
     {
         $data['proj_len'] = $this->input->post('proj_len');
         $data['unit'] = $this->input->post('unit');
-        $this->load->view('template/header');
+        $data['pagename'] = 'TRIANGULAR Input';
+        $data['css'] = 'inputpage';
+        $this->load->view('template/header', $data);
         $this->load->view('triangular/triangular_input', $data);
         $this->load->view('template/footer');
     }
@@ -187,8 +191,9 @@ class Triangular extends CI_Controller
         }
         $data['project'] = $project;
         $data['cp'] = $cp;
-
-        $this->load->view('template/header');
+        $data['pagename'] = 'TRIANGULAR Output';
+        $data['css'] = 'outputpage';
+        $this->load->view('template/header', $data);
         $this->load->view('triangular/triangular_output', $data);
         $this->load->view('template/footer');
     }
