@@ -15,20 +15,20 @@
             <thead>
                 <tr>
                     <th>Activity</th>
-                    <th title ="Activity Description">Description <span class="tooltiptext">&#9432;</span></th>
-                    <th title ="Shortest Estimated Activity Duration">Optimistic <span class="tooltiptext">&#9432;</span></th>
-                    <th title ="Reasonable Estimated Activity Duration">Most Likely <span class="tooltiptext">&#9432;</span></th>
-                    <th title ="Maximum Estimated Activity Duration">Pessimistic <span class="tooltiptext">&#9432;</span></th>
-                    <th title ="Estimated Activity Completion based on OT, MLT, and PT">Estimated Duration <span class="tooltiptext">&#9432;</span></th>
-                    <th title ="Activity Number that needs to be completed first.">Pre-Requisites <span class="tooltiptext">&#9432;</span></th>
-                    <th title ="The calculated Standard Deviation of Each Activity">Standard Deviation <span class="tooltiptext">&#9432;</span></th>
-                    <th title ="The calculated Variance of Each Activity">Variance <span class="tooltiptext">&#9432;</span></th>
-                    <th title ="Activity's Earliest Start Time">ES <span class="tooltiptext">&#9432;</span></th>
-                    <th title ="Activity's Earliest Finish Time">EF <span class="tooltiptext">&#9432;</span></th>
-                    <th title ="Activity's Latest Start Time">LS <span class="tooltiptext">&#9432;</span></th>
-                    <th title ="Activity's Latest Finish Time">LF <span class="tooltiptext">&#9432;</span></th>
-                    <th title ="Activity's Available Slack Time">Slack <span class="tooltiptext">&#9432;</span></th>
-                    <th title ="If the Activity is Critical">Critical <span class="tooltiptext">&#9432;</span></th>
+                    <th title="Activity Description">Description <span class="tooltiptext">&#9432;</span></th>
+                    <th title="Shortest Estimated Activity Duration">Optimistic <span class="tooltiptext">&#9432;</span></th>
+                    <th title="Reasonable Estimated Activity Duration">Most Likely <span class="tooltiptext">&#9432;</span></th>
+                    <th title="Maximum Estimated Activity Duration">Pessimistic <span class="tooltiptext">&#9432;</span></th>
+                    <th title="Estimated Activity Completion based on OT, MLT, and PT">Estimated Duration <span class="tooltiptext">&#9432;</span></th>
+                    <th title="Activity Number that needs to be completed first.">Pre-Requisites <span class="tooltiptext">&#9432;</span></th>
+                    <th title="The calculated Standard Deviation of Each Activity">Standard Deviation <span class="tooltiptext">&#9432;</span></th>
+                    <th title="The calculated Variance of Each Activity">Variance <span class="tooltiptext">&#9432;</span></th>
+                    <th title="Activity's Earliest Start Time">ES <span class="tooltiptext">&#9432;</span></th>
+                    <th title="Activity's Earliest Finish Time">EF <span class="tooltiptext">&#9432;</span></th>
+                    <th title="Activity's Latest Start Time">LS <span class="tooltiptext">&#9432;</span></th>
+                    <th title="Activity's Latest Finish Time">LF <span class="tooltiptext">&#9432;</span></th>
+                    <th title="Activity's Available Slack Time">Slack <span class="tooltiptext">&#9432;</span></th>
+                    <th title="If the Activity is Critical">Critical <span class="tooltiptext">&#9432;</span></th>
 
                 </tr>
             </thead>
@@ -139,12 +139,38 @@
         </p>
     </div>
 </div>
-
-<!-- BUTTON -->
-<div class="export-results">
-    <button class="expbtn">Export Results</button>
+<div class="export">
+    <!-- Export Results Excel File -->
+    <form action="<?php echo base_url('export/results') ?>" method="post">
+        <?php
+        $len = count($project);
+        foreach ($project as $task) {
+        ?>
+            <input type="hidden" name="<?php echo $task['id']; ?>" value="<?php echo $task['id']; ?>">
+            <input type="hidden" name="desc_<?php echo $task['id']; ?>" value="<?php echo $task['desc']; ?>">
+            <input type="hidden" name="opt_<?php echo $task['id']; ?>" value="<?php echo $task['opt']; ?>">
+            <input type="hidden" name="ml_<?php echo $task['id']; ?>" value="<?php echo $task['ml']; ?>">
+            <input type="hidden" name="pes_<?php echo $task['id']; ?>" value="<?php echo $task['pes']; ?>">
+            <input type="hidden" name="time_<?php echo $task['id']; ?>" value="<?php echo $task['time']; ?>">
+            <?php
+            $pre = implode(",", $task['prereq']);
+            if ($pre == '-1') {
+                $pre = '-';
+            }
+            ?>
+            <input type="hidden" name="pre_<?php echo $task['id']; ?>" value="<?php echo $pre; ?>">
+            <input type="hidden" name="es_<?php echo $task['id']; ?>" value="<?php echo $task['es'];; ?>">
+            <input type="hidden" name="ef_<?php echo $task['id']; ?>" value="<?php echo $task['ef']; ?>">
+            <input type="hidden" name="ls_<?php echo $task['id']; ?>" value="<?php echo $task['ls']; ?>">
+            <input type="hidden" name="lf_<?php echo $task['id']; ?>" value="<?php echo $task['lf']; ?>">
+            <input type="hidden" name="slack_<?php echo $task['id']; ?>" value="<?php echo $task['slack']; ?>">
+            <input type="hidden" name="ic_<?php echo $task['id']; ?>" value="<?php echo $task['isCritical']; ?>">
+        <?php } ?>
+        <input type="hidden" name="len" value="<?php echo $len; ?>">
+        <center><button class="expbtn">Export Results</button></center>
+    </form>
 </div>
-    <section class="collapsible">
+<section class="collapsible">
     <input type="checkbox" name="collapse" id="handle1" checked="checked">
     <h2 class="handle">
         <label for="handle1">How BETA-PERT Distribution Works: (Step by Step)</label>
@@ -155,7 +181,7 @@
             <strong>Step 2:</strong>Determines the 3 durations: optimistic (a), most likely (m), and pessimistic (b), which are the estimated times provided by the user for each activity that are required to complete the activities.<br><br>
             <strong>Step 3:</strong> Identifies the pre-requisites of each activity, which must be completed before another activity starts.<br><br>
             <strong>Step 3:</strong> Calculates the duration (T) by getting the mean of the 3 durations.
-            <center><img align="center" src="//i.upmath.me/svg/%24%24T%3D%20%5Cmu%20%3D%20%20%7Ba%2B4m%2Bb%5Cover%206%7D"> </center> 
+            <center><img align="center" src="//i.upmath.me/svg/%24%24T%3D%20%5Cmu%20%3D%20%20%7Ba%2B4m%2Bb%5Cover%206%7D"> </center>
             <br><br>
             <strong>Step 4:</strong> Performs a Forward Pass. <br><br>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>a.</b> Forward Pass starts with the first activity, to determine the Early Start Time (ES) and Early Finish Time (EF) for each activity. <br>
@@ -165,7 +191,7 @@
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>d.</b> This process continues until the ES and EF have been calculated for all activities. <br>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>e.</b> Identifies the slack of each activity to know the critical path, which is the sequence of activities that has the longest duration and has slack equals to 0. <br><br>
             <strong>Step 5:</strong> Performs a Backward Pass. <br><br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>a.</b>  Backward Pass starts with the last activity, to determine the Latest Start Time (LS) and Latest Finish Time (LF) for each activity <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>a.</b> Backward Pass starts with the last activity, to determine the Latest Start Time (LS) and Latest Finish Time (LF) for each activity <br>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>b.</b> For each activity, WAPS calculates the LF by subtracting the duration of the following activity from its LS. If an activity has more than one successor, the successor to be added is the lowest one. If just starting with the Backward Pass, the duration should be subtracted to the Project Completion Time (PCT) <br>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>c.</b>Then, calculates the LS by subtracting the duration of the activity from its LF. This process continues until the LS and LF have been calculated for all activities in the network. <br> <br>
             <center><i>LS = LF - T</i></center><BR>
@@ -174,30 +200,30 @@
             <strong>Step 6:</strong> Uses the Earliest Start Time (ES) and Latest Finish Time (LF) of each activity to create a Gantt Chart. The darker colored bars represent the critical values which complete the Critical Path. <br><br>
         </p>
     </div>
-    </section>
+</section>
 
- <div class="ganttchartname">
-        <b> Completion Probability Calculator</b>
+<div class="ganttchartname">
+    <b> Completion Probability Calculator</b>
 
 
 </div>
 
 <!-- EXPLANATION -->
 <div class="paragone">
-Our PERT Calculator also enables users to determine the probability of an expected duration
+    Our PERT Calculator also enables users to determine the probability of an expected duration
     <br><br>
     <b>Project Completion Probability</b>: Calculate the probability of an expected project completion time for the whole project <br>
     <br>
-       <b> How To?</b><br>
-       • Enter your expected project duration. <br>
-       • Click 'Calculate' and wait for the probability to show.
-       <br><br>
-    <b>Activity Completion Probability</b>: Calculate the probability of an expected duration of a specific activity     <br>
+    <b> How To?</b><br>
+    • Enter your expected project duration. <br>
+    • Click 'Calculate' and wait for the probability to show.
+    <br><br>
+    <b>Activity Completion Probability</b>: Calculate the probability of an expected duration of a specific activity <br>
     <br>
-       <b> How To?</b><br>
-       • Enter the Activity Number of the duration you want to compute.<br>
-       • Enter your expected activity duration.<br>
-       • Click 'Calculate' and wait for the probability to show.<br>
+    <b> How To?</b><br>
+    • Enter the Activity Number of the duration you want to compute.<br>
+    • Enter your expected activity duration.<br>
+    • Click 'Calculate' and wait for the probability to show.<br>
 
 </div>
 
@@ -238,111 +264,111 @@ Our PERT Calculator also enables users to determine the probability of an expect
 
 <br>
 <div class="ganttchartname">
-        <b> Project Gantt Chart</b>
+    <b> Project Gantt Chart</b>
 </div>
 
 <!-- CHART -->
 <div class="ganttcontainer" style="max-width: 100%; margin: 0 auto; padding: 30px;">
-       <div class="chart" style="display: grid; position: relative; overflow: hidden; overflow-x:auto">
+    <div class="chart" style="display: grid; position: relative; overflow: hidden; overflow-x:auto">
 
-<!-- GANTT CHART -->
-<div class="grid-container-gantt">
-    <div style="overflow-x: auto;">
-        <table class="gantt-chart">
-            <thead>
-            <tr>
-                <th style="border-bottom-style: ridge; border-right-style: ridge;"></th>
-                <?php
-                for ($col = 1; $col <= $finish_time + 1; $col++) {
-                    if ($col == ceil($finish_time)) { ?>
-                        <th style="border-bottom-style: ridge;"></th>
-                    <?php } else { ?>
-                        <th style="border-bottom-style: ridge; text-align: right;"><?php echo "$col"; ?></th>
-                <?php }
-                } ?>
-            </tr>
-            </thead>
-            <tbody>
-            <?php
-            foreach ($project as $task) { ?>
-                <tr>
-                    <td style="border-bottom-style: ridge; border-right-style: ridge;"><strong><?php echo "Activity " . $task['id']; ?></strong></td>
-                    <td style="border-bottom-style: ridge;" colspan="<?php echo ceil($finish_time); ?>">
+        <!-- GANTT CHART -->
+        <div class="grid-container-gantt">
+            <div style="overflow-x: auto;">
+                <table class="gantt-chart">
+                    <thead>
+                        <tr>
+                            <th style="border-bottom-style: ridge; border-right-style: ridge;"></th>
+                            <?php
+                            for ($col = 1; $col <= $finish_time + 1; $col++) {
+                                if ($col == ceil($finish_time)) { ?>
+                                    <th style="border-bottom-style: ridge;"></th>
+                                <?php } else { ?>
+                                    <th style="border-bottom-style: ridge; text-align: right;"><?php echo "$col"; ?></th>
+                            <?php }
+                            } ?>
+                        </tr>
+                    </thead>
+                    <tbody>
                         <?php
-                        $waiting = ($task['es'] / $finish_time) * 100;
-                        $progress = (($task['lf'] - $task['es']) / $finish_time) * 100;
-                        $total_time = $finish_time / ceil($finish_time) * 100;
-                        ?>
-                        <div style="background-color:#B19090; width: <?php echo $total_time; ?>%">
-                            <div class="waiting" style="position: relative; float: left; display: inline-block; width: <?php echo $waiting ?>%"></div>
-                            <div class="progress" style="position: relative; float: left; display: inline-block; width: <?php echo $progress ?>%"></div>
-                        </div>
-                    </td>
-                </tr>
-            <?php } ?>
-            </tbody>
-        </table>
-    </div>
-</div>
-<br> <br>
+                        foreach ($project as $task) { ?>
+                            <tr>
+                                <td style="border-bottom-style: ridge; border-right-style: ridge;"><strong><?php echo "Activity " . $task['id']; ?></strong></td>
+                                <td style="border-bottom-style: ridge;" colspan="<?php echo ceil($finish_time); ?>">
+                                    <?php
+                                    $waiting = ($task['es'] / $finish_time) * 100;
+                                    $progress = (($task['lf'] - $task['es']) / $finish_time) * 100;
+                                    $total_time = $finish_time / ceil($finish_time) * 100;
+                                    ?>
+                                    <div style="background-color:#B19090; width: <?php echo $total_time; ?>%">
+                                        <div class="waiting" style="position: relative; float: left; display: inline-block; width: <?php echo $waiting ?>%"></div>
+                                        <div class="progress" style="position: relative; float: left; display: inline-block; width: <?php echo $progress ?>%"></div>
+                                    </div>
+                                </td>
+                            </tr>
+                        <?php } ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <br> <br>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<!-- AJAX for Project Completion Probability -->
-<script>
-    $(document).ready(function() {
-        $(".compute").click(function() {
-            var x = $("#x").val();
-            var m = $("#m").val();
-            var s = $("#s").val();
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <!-- AJAX for Project Completion Probability -->
+        <script>
+            $(document).ready(function() {
+                $(".compute").click(function() {
+                    var x = $("#x").val();
+                    var m = $("#m").val();
+                    var s = $("#s").val();
 
-            $.ajax({
-                url: "<?php echo base_url(); ?>Probability/compute",
-                type: "post",
-                dataType: "json",
-                data: {
-                    x: x,
-                    m: m,
-                    s: s
-                },
-                success: function(data) {
-                    if (data.response == "success") {
-                        // alert(data.p);
-                        $('#p').val(data.p);
-                    } else {
-                        alert("Calculate failed");
-                    }
-                }
+                    $.ajax({
+                        url: "<?php echo base_url(); ?>Probability/compute",
+                        type: "post",
+                        dataType: "json",
+                        data: {
+                            x: x,
+                            m: m,
+                            s: s
+                        },
+                        success: function(data) {
+                            if (data.response == "success") {
+                                // alert(data.p);
+                                $('#p').val(data.p);
+                            } else {
+                                alert("Calculate failed");
+                            }
+                        }
+                    });
+                });
             });
-        });
-    });
-</script>
-<!-- AJAX for Individual Task Completion Probability -->
-<script>
-    $(document).ready(function() {
-        $(".compute_indiv").click(function() {
-            var id = $("#tid").val();
-            var x = $("#x_indiv").val();
-            var m = $("#m_" + id).val();
-            var s = $("#s_" + id).val();
+        </script>
+        <!-- AJAX for Individual Task Completion Probability -->
+        <script>
+            $(document).ready(function() {
+                $(".compute_indiv").click(function() {
+                    var id = $("#tid").val();
+                    var x = $("#x_indiv").val();
+                    var m = $("#m_" + id).val();
+                    var s = $("#s_" + id).val();
 
-            $.ajax({
-                url: "<?php echo base_url(); ?>Probability/compute",
-                type: "post",
-                dataType: "json",
-                data: {
-                    x: x,
-                    m: m,
-                    s: s
-                },
-                success: function(data) {
-                    if (data.response == "success") {
-                        // alert(data.p);
-                        $('#p_indiv').val(data.p);
-                    } else {
-                        alert("Calculate failed");
-                    }
-                }
+                    $.ajax({
+                        url: "<?php echo base_url(); ?>Probability/compute",
+                        type: "post",
+                        dataType: "json",
+                        data: {
+                            x: x,
+                            m: m,
+                            s: s
+                        },
+                        success: function(data) {
+                            if (data.response == "success") {
+                                // alert(data.p);
+                                $('#p_indiv').val(data.p);
+                            } else {
+                                alert("Calculate failed");
+                            }
+                        }
+                    });
+                });
             });
-        });
-    });
-</script>
+        </script>
