@@ -7,7 +7,7 @@
 <body>
 <header>
 <div class="topnav" id="myTopnav">
-        <a href="<?= base_url() ?>" id="logo"><img id="logo" src="<?=base_url()?>/assets/images/logo.svg" height="50px" width="50px"></a>
+        <a href = "/indexx.html" id="logo"><img id="logo" src ="/frontend/logo.svg" height="50px" width="50px"></a>
     <ul>
     <li><a href="<?=base_url('pert')?>">PERT</a></li>
     <li><a href="<?= base_url('cpm') ?>">CPM</a></li>
