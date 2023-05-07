@@ -1,6 +1,6 @@
 <div class="firstpg">
     <div class="title">
-        <b> TRIANGULAR DISTRIBUTION </b>
+        <b> Triangular Distribution </b>
     </div>
     <div class="paragone">
     Triangular distribution: In a triangular distribution, the probability of an

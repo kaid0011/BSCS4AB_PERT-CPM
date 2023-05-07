@@ -8,7 +8,7 @@ class Normal extends CI_Controller
 
     public function index()
     {
-        $data['pagename'] = 'NORMAL Main';
+        $data['pagename'] = 'Normal Distribution';
         $data['css'] = 'mainpage';
         $this->load->view('template/header', $data);
         $this->load->view('normal/normal_main');
@@ -19,7 +19,7 @@ class Normal extends CI_Controller
     {
         $data['proj_len'] = $this->input->post('proj_len');
         $data['unit'] = $this->input->post('unit');
-        $data['pagename'] = 'NORMAL Input';
+        $data['pagename'] = 'Normal - Enter Project Details';
         $data['css'] = 'inputpage';
         $this->load->view('template/header', $data);
         $this->load->view('normal/normal_input', $data);
@@ -190,7 +190,7 @@ class Normal extends CI_Controller
         }
         $data['project'] = $project;
         $data['cp'] = $cp;
-        $data['pagename'] = 'NORMAL Output';
+        $data['pagename'] = 'Normal - Results';
         $data['css'] = 'outputpage';
         $this->load->view('template/header', $data);
         $this->load->view('normal/normal_output', $data);

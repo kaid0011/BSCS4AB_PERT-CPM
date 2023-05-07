@@ -8,7 +8,7 @@ class Cpm extends CI_Controller
 
     public function index()
     {
-        $data['pagename'] = 'CPM Main';
+        $data['pagename'] = 'Critical Path Method (CPM)';
         $data['css'] = 'mainpage';
         $this->load->view('template/header', $data);
         $this->load->view('cpm/cpm_main');
@@ -19,7 +19,7 @@ class Cpm extends CI_Controller
     {
         $data['proj_len'] = $this->input->post('proj_len');
         $data['unit'] = $this->input->post('unit');
-        $data['pagename'] = 'CPM Input';
+        $data['pagename'] = 'CPM - Enter Project Details';
         $data['css'] = 'inputpage';
         $this->load->view('template/header', $data);
         $this->load->view('cpm/cpm_input', $data);
@@ -155,7 +155,7 @@ class Cpm extends CI_Controller
         }
         $data['project'] = $project;
         $data['cp'] = $cp;       
-        $data['pagename'] = 'CPM Output';
+        $data['pagename'] = 'CPM - Results';
         $data['css'] = 'outputpage';
         $this->load->view('template/header', $data);
         $this->load->view('cpm/cpm_output', $data);

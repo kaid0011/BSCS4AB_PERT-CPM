@@ -3,7 +3,7 @@
         <b> Project Evaluation Review Technique (PERT) </b>
     </div>
     <div class="paragone">
-    In PERT, the focus is on identifying the probability of completing the project within a given timeframe.
+    PERT, short for Project Evaluation Review Technique, is a project management tool that assists in estimating the time needed to complete an activity or project. It facilitates effective scheduling and coordination of all project tasks and enables monitoring of the project's progress. PERT is particularly useful in identifying any delays or deviations from the plan.
       <br><br>
      <div class="howto">
        <b> How To?</b><br>

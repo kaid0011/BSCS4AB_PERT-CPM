@@ -3,18 +3,13 @@
         <b> Normal Distribution</b>
     </div>
     <div class="paragone">
-        Lorem ipsum dolor sit amet, no clita veritus maiestatis vim, est illum consetetur no. Agam modus an vel. Nibh
-        feugiat pericula id eam. Sit aliquam platonem omittantur ut, eum meliore offendit at. Suas alienum at per, ad sit
-        exerci vocent docendi, te sea summo feugait. At vim cibo accumsan mnesarchum.
-        <br><br>
-        Usu nominavi atomorum maluisset ne. Sed ex pertinacia repudiandae, ferri lorem aeque et per. Duo exerci munere an,
-        vix malorum diceret fabulas an, nam ei mutat phaedrum. Sed ea timeam suscipiantur, ad eos partem audiam
-        adversarium, dicam appetere necessitatibus sed ut.
+    Normal Distribution or Standard Normal Distribution is a probability function that describes how the values of a variable are distributed. This is considered to be the most important probability distribution in statistics due to the fact that a lot of continuous data in the aspects of nature and psychology display a bell-shaped curve in compilation and graphing. It accurately models natural events. In practice, the normal distribution is also used to model non-negative distributions
+        
     </div>
 </div>
 <div class="grid-container">
     <div class="grid-item">
-        <table class="table">
+        <table class="results">
             <thead>
                 <tr>
                 <th>Activity</th>
@@ -22,7 +17,7 @@
                 <th title ="Shortest Estimated Activity Duration">Optimistic <span class="tooltiptext">&#9432;</span></th>
                 <th title ="Reasonable Estimated Activity Duration">Most Likely <span class="tooltiptext">&#9432;</span></th>
                 <th title ="Maximum Estimated Activity Duration">Pessimistic <span class="tooltiptext">&#9432;</span></th>
-                <th title ="Estimated Activity Completion based on OT, MLT, and PT">Estimated Duration <span class="tooltiptext">&#9432;</span></th>
+                <th title ="Estimated Activity Completion based on OT, MLT, and PT">Estimated Duration <span class="tooltiptext">&#9432;</span><th>
                 <th title ="Activity Number that needs to be completed first.">Pre-Requisites <span class="tooltiptext">&#9432;</span></th>
                 <th title ="Activity's Earliest Start Time">ES <span class="tooltiptext">&#9432;</span></th>
                 <th title ="Activity's Earliest Finish Time">EF <span class="tooltiptext">&#9432;</span></th>
@@ -67,29 +62,34 @@
 </div>
 
     <!-- Final Results Display -->
-    <div class="container">
-        <div class="box">
+    <div class="container-final">
+        <div class="resultsbox">
+            <center>
             <h3>Critical Path</h3>
             <p>
                 <?php
                 $max = max(array_column($cp, 'id'));
                 foreach ($cp as $cp) {
                     if ($cp['id'] == $max) {
-                        echo $cp['id'];
+                        echo "Activity " . $cp['id'];
                     } else {
-                        echo $cp['id'] . " → ";
+                        echo  "Activity " . $cp['id'] . " → ";
                     }
                 }
                 ?>
             </p>
+            </center>
+
         </div>
 
-        <div class="box">
+        <div class="resultsbox">
+            <center>
             <h3>Project Completion Time</h3>
             <p>
                 <?php echo $finish_time; ?>
             </p>
 
+            </center>
         </div>
     </div>
     <div class="export">
@@ -109,62 +109,115 @@
                 <input type="hidden" name="sv_<?php echo $id; ?>" value="<?php echo $sv; ?>">
             <?php } ?>
             <!-- <input type="submit" value="Export" name="export"> -->
-            <center><button class="btn">Export to CSV</button></center>
+            <center><button class="expbtn">Export Results</button></center>
         </form>
     </div>
-</div>
+    <div class="export">
+        <!-- Export Simulation Values Excel File -->
+        <form action="<?php echo base_url('export') ?>" method="post">
+            <?php
+            foreach ($project as $sim) {
+                $id = $sim['id'];
+                $n = $sim['N'];
+            ?>
+                <input type="hidden" name="<?php echo $id; ?>" value="<?php echo $id; ?>">
+                <input type="hidden" name="N_<?php echo $id; ?>" value="<?php echo $n; ?>">
+                <input type="hidden" name="pqty_<?php echo $id; ?>" value="<?php echo $sim['pqty']; ?>">
+                <?php
+                $sv = implode(",", $sim['sim_val']);
+                ?>
+                <input type="hidden" name="sv_<?php echo $id; ?>" value="<?php echo $sv; ?>">
+            <?php } ?>
+            <!-- <input type="submit" value="Export" name="export"> -->
+            <center><button class="expbtn">Export Simulation Values</button></center>
+        </form>
+    </div>
+
+    <section class="collapsible">
+    <input type="checkbox" name="collapse" id="handle1" checked="checked">
+    <h2 class="handle">
+        <label for="handle1">How Normal Distribution Works: (Step by Step)</label>
+    </h2>
+    <div class="content">
+        <p>
+            <strong>Step 1:</strong> Identifies all the activities involved in the project and arranges them in a logical sequence using their Activity IDs. <br><br>
+            <strong>Step 2:</strong> Determines the 3 durations: optimistic (a), most likely (m), and pessimistic (b), which are the estimated times 
+                provided by the user for each activity that are required to complete the activities.<br><br>
+            <strong>Step 3:</strong> Calculates the mean (𝜇) of the 3 durations for each activity.
+            <center><img align="center" src="//i.upmath.me/svg/%5Cmu%20%3D%20%24%24a%2Bm%2Bb%5Cover%203"> </center> 
+            <br><br>
+            <strong>Step 4:</strong>   Calculates the variance (𝜎<sup>2</sup>) of the 3 durations for each activity.
+            <br><br>
+            <center><img align="center" src="//i.upmath.me/svg/%5Csigma%5E2%3D%20%24%24%20(a-%5Cmu)%5E2%20%2B%20(m-%20%5Cmu)%5E2%20%2B%20(b-%5Cmu)%5E2%20%5Cover3"> </center> <br>
+            <strong>Step 5:</strong> Calculates the standard deviation (𝜎) using the variance for each activity.
+            <br><br>
+            <center><img align="center" src="//i.upmath.me/svg/%5Csigma%3D%20%5Csqrt%7B%5Csigma%5E2%7D" alt="\sigma= \sqrt{\sigma^2}"> </center> <br>
+            <strong>Step 6:</strong> Computes the duration (T) by using the norm.ppf function from scipy.stats to get the normal distribution value 
+            (or the inverse of the cumulative distribution function) for which a given probability is the required value. <br><br><i>norm.ppf(q, loc=0, scale=1)</i> <br><br>
+            &nbsp;&nbsp;&nbsp;&nbsp; Where: <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 𝑞 = random() <br><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This is a function randomly selects a value which was set from 0.0 to 1.0. It serves as the cumulative probability at which to evaluate the percent point function. <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This value undergoes the Monte Carlo Simulation to achieve a more accurate result. The number of trials is based on the user's input. <br><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 𝑙𝑜𝑐 = 𝜇<br><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The calculated mean (𝜇) of the 3 durations for each activity. <br><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 𝑠𝑐𝑎𝑙𝑒 = 𝜎<br><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The calculated standard deviation (𝜎) of the 3 durations for each activity. <br><br>
+            <strong>Step 7:</strong> Identifies the pre-requisites of each activity, which must be completed before another activity starts. <br><br>
+            <strong>Step 8:</strong> Performs a Forward Pass. <br><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>a.</b> Forward Pass starts with the first activity, to determine the Early Start Time (ES) and Early Finish Time (EF) for each activity. <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>b.</b> For each activity, WAPS calculates the ES by adding the duration of the preceding activity to its ES. If an activity has more than one predecessor, the predecessor to be added is the highest one. For the first activity, the ES is equal to 0. <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>c.</b>Then, calculates the EF by adding the duration of the activity to its ES. <br>
+            <center><i>EF = ES + T</i></center><BR>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>d.</b> This process continues until the ES and EF have been calculated for all activities. <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>e.</b> Identifies the slack of each activity to know the critical path, which is the sequence of activities that has the longest duration and has slack equals to 0. <br><br>
+            <strong>Step 9:</strong> Performs a Backward Pass. <br><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>a.</b>  Backward Pass starts with the last activity, to determine the Latest Start Time (LS) and Latest Finish Time (LF) for each activity <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>b.</b> For each activity, WAPS calculates the LF by subtracting the duration of the following activity from its LS. If an activity has more than one successor, the successor to be added is the lowest one. If just starting with the Backward Pass, the duration should be subtracted to the Project Completion Time (PCT) <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>c.</b>Then, calculates the LS by subtracting the duration of the activity from its LF. This process continues until the LS and LF have been calculated for all activities in the network. <br> <br>
+            <center><i>LS = LF - T</i></center><BR>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>d.</b> TCalculates the slack (S) for each activity by subtracting the activity's EF from its LF or ES from its LS. If S isequal to zero, the activity is a critical value and completes the critical path. <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>e.</b> Uses the ES, EF, LS, LF, and S values to identify the project's Critical Path and determine the shortest possible time required to complete the project. <br><br>
+            <strong>Step 10:</strong> Uses the Earliest Start Time (ES) and Latest Finish Time (LF) of each activity to create a Gantt Chart. The darker colored bars represent the critical values which complete the Critical Path. <br><br>
+        </p>
+    </div>
+    </section>
 <div class="ganttchartname">
         <b> Project Gantt Chart</b>
     </div>
 
-<!-- EXPLANATION -->
-<!-- <div class="paragone">
-    Lorem ipsum dolor sit amet, no clita veritus maiestatis vim, est illum consetetur no. Agam modus an vel. Nibh
-    feugiat pericula id eam. Sit aliquam platonem omittantur ut, eum meliore offendit at. Suas alienum at per, ad sit
-    exerci vocent docendi, te sea summo feugait. At vim cibo accumsan mnesarchum.
-    <br><br>
-    Usu nominavi atomorum maluisset ne. Sed ex pertinacia repudiandae, ferri lorem aeque et per. Duo exerci munere an,
-    vix malorum diceret fabulas an, nam ei mutat phaedrum. Sed ea timeam suscipiantur, ad eos partem audiam
-    adversarium, dicam appetere necessitatibus sed ut.
-</div> -->
-
 <!-- GANTT CHART -->
-<div class="grid-container-gantt">
-    <div style="overflow-x: auto;">
+<div class="ganttcontainer" style="max-width: 100%; margin: 0 auto; padding: 50px;">
+       <div class="chart" style="display: grid; position: relative; overflow: hidden; overflow-x:auto">
         <table class="gantt-chart">
-            <thead>
             <tr>
                 <th style="border-bottom-style: ridge; border-right-style: ridge;"></th>
                 <?php
-                for ($col = 1; $col <= $finish_time + 1; $col++) {
-                    if ($col == ceil($finish_time)) { ?>
-                        <th style="border-bottom-style: ridge;"></th>
-                    <?php } else { ?>
-                        <th style="border-bottom-style: ridge; text-align: right;"><?php echo "$col"; ?></th>
-                <?php }
-                } ?>
+                    for ($col = 1; $col <= $finish_time+1; $col++) { 
+                        if ($col == ceil($finish_time)) { ?>
+                            <th style="border-bottom-style: ridge;"></th>
+                        <?php } 
+                        else { ?>
+                            <th style="border-bottom-style: ridge; text-align: right;"><?php echo "$col"; ?></th>
+                        <?php } 
+                    } ?>
             </tr>
-            </thead>
-            <tbody>
             <?php
-            foreach ($project as $task) { ?>
+                foreach ($project as $task) { ?>
                 <tr>
-                    <td style="border-bottom-style: ridge; border-right-style: ridge;"><strong><?php echo "Activity " . $task['id']; ?></strong></td>
-                    <td style="border-bottom-style: ridge;" colspan="<?php echo ceil($finish_time); ?>">
-                        <?php
-                        $waiting = ($task['es'] / $finish_time) * 100;
-                        $progress = (($task['lf'] - $task['es']) / $finish_time) * 100;
-                        $total_time = $finish_time / ceil($finish_time) * 100;
+                    <th style="border-bottom-style: ridge; border-right-style: ridge;"><?php echo "Activity " . $task['id']; ?></th>
+                    <th style="border-bottom-style: ridge;" colspan="<?php echo ceil($finish_time);?>">
+                        <?php 
+                                $waiting = ($task['es']/$finish_time)*100;
+                                $progress = (($task['lf']-$task['es'])/$finish_time)*100;
+                                $total_time = $finish_time/ceil($finish_time)*100;
                         ?>
-                        <div style="background-color:#B19090; width: <?php echo $total_time; ?>%">
-                            <div class="waiting" style="position: relative; float: left; display: inline-block; width: <?php echo $waiting ?>%"></div>
-                            <div class="progress" style="position: relative; float: left; display: inline-block; width: <?php echo $progress ?>%"></div>
+                        <div style="background-color:#B19090; width: <?php echo $total_time;?>%">
+                            <div class="waiting" style="position: relative; float: left; display: inline-block; width: <?php echo $waiting?>%"></div>
+                            <div class="progress" style="position: relative; float: left; display: inline-block; width: <?php echo $progress?>%"></div>
                         </div>
-                    </td>
+                    </th>
                 </tr>
             <?php } ?>
-            </tbody>
         </table>
     </div>
 </div>
-<br> <br>
