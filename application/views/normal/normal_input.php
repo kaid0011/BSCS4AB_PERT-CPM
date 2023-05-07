@@ -3,19 +3,15 @@
         <b> Normal Distribution </b>
     </div>
     <div class="paragone">
-        In normal distribution, the probability of an
-        event occurring is evenly distributed around the mean, and the probability
-        decreases as the distance from the mean increases. The normal distribution
-        is often used in scheduler calculators to represent task durations that are
-        evenly distributed around an average value.
+    Normal Distribution or Standard Normal Distribution is a probability function that describes how the values of a variable are distributed. This is considered to be the most important probability distribution in statistics due to the fact that a lot of continuous data in the aspects of nature and psychology display a bell-shaped curve in compilation and graphing. It accurately models natural events. In practice, the normal distribution is also used to model non-negative distributions.
         <br><br>
         <div class="howto">
             <b> How To?</b><br>
             • For each activity, enter the description, durations (optimistic, most likely, and pessimistic), and its
             pre-requisite/s. <br>
             • After completing the table, click 'Calculate' to schedule your project. A table will show the following
-            information for your project: <i> Activity, Description, Three Durations, Mean, Standard Deviation, Variance, Pre-Requisites, Earliest Start Time, Earliest Finish Time, Latest Start Time, Latest Finish Time, Slack, and Critical</i><br>
-            • After generating the results of your input, you will have a choice to download an Excel file containing all the simulation results by clicking on "Export Results" or "Export Simulation Values"<br>
+            information for your project: <i> Activity, Description, Three Durations, Mean, Standard Deviation, Variance, Pre-Requisites, Earliest Start Time, Earliest Finish Time, Latest Start Time, Latest Finish Time, Slack, and Critical.</i><br>
+            • After generating the results of your input, you will have a choice to download an Excel file containing all the simulation results by clicking on "Export Results" or "Export Simulation Values".<br>
         </div>
     </div>
 
@@ -72,56 +68,7 @@
     <button class="btn">Calculate</button>
 </div>
 </form>
-<!-- Collapsible Step by Step -->
 
-<section class="collapsible">
-  <input type="checkbox" name="collapse" id="handle1" checked="checked">
-  <h2 class="handle">
-    <label for="handle1">How Normal Distribution Works: (Step by Step)</label>
-  </h2>
-  <div class="content">
-    <p>
-        <strong>Step 1:</strong> Identifies all the activities involved in the project and arranges them in a logical sequence using their Activity IDs. <br><br>
-        <strong>Step 2:</strong> Determines the 3 durations: optimistic (a), most likely (m), and pessimistic (b), which are the estimated times 
-            provided by the user for each activity that are required to complete the activities.<br><br>
-        <strong>Step 3:</strong> Calculates the mean (𝜇) of the 3 durations for each activity.
-        <center><img align="center" src="//i.upmath.me/svg/%5Cmu%20%3D%20%24%24a%2Bm%2Bb%5Cover%203"> </center> 
-        <br><br>
-        <strong>Step 4:</strong>   Calculates the variance (𝜎<sup>2</sup>) of the 3 durations for each activity.
-        <br><br>
-        <center><img align="center" src="//i.upmath.me/svg/%5Csigma%5E2%3D%20%24%24%20(a-%5Cmu)%5E2%20%2B%20(m-%20%5Cmu)%5E2%20%2B%20(b-%5Cmu)%5E2%20%5Cover3"> </center> <br>
-        <strong>Step 5:</strong> Calculates the standard deviation (𝜎) using the variance for each activity.
-        <br><br>
-        <center><img align="center" src="//i.upmath.me/svg/%5Csigma%3D%20%5Csqrt%7B%5Csigma%5E2%7D" alt="\sigma= \sqrt{\sigma^2}"> </center> <br>
-        <strong>Step 6:</strong> Computes the duration (T) by using the norm.ppf function from scipy.stats to get the normal distribution value 
-        (or the inverse of the cumulative distribution function) for which a given probability is the required value. <br><br><i>norm.ppf(q, loc=0, scale=1)</i> <br><br>
-        &nbsp;&nbsp;&nbsp;&nbsp; Where: <br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 𝑞 = random() <br><br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This is a function randomly selects a value which was set from 0.0 to 1.0. It serves as the cumulative probability at which to evaluate the percent point function. <br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This value undergoes the Monte Carlo Simulation to achieve a more accurate result. The number of trials is based on the user's input. <br><br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 𝑙𝑜𝑐 = 𝜇<br><br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The calculated mean (𝜇) of the 3 durations for each activity. <br><br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 𝑠𝑐𝑎𝑙𝑒 = 𝜎<br><br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The calculated standard deviation (𝜎) of the 3 durations for each activity. <br><br>
-        <strong>Step 7:</strong> Identifies the pre-requisites of each activity, which must be completed before another activity starts. <br><br>
-        <strong>Step 8:</strong> Performs a Forward Pass. <br><br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>a.</b> Forward Pass starts with the first activity, to determine the Early Start Time (ES) and Early Finish Time (EF) for each activity. <br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>b.</b> For each activity, WAPS calculates the ES by adding the duration of the preceding activity to its ES. If an activity has more than one predecessor, the predecessor to be added is the highest one. For the first activity, the ES is equal to 0. <br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>c.</b>Then, calculates the EF by adding the duration of the activity to its ES. <br>
-        <center><i>EF = ES + T</i></center><BR>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>d.</b> This process continues until the ES and EF have been calculated for all activities. <br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>e.</b> Identifies the slack of each activity to know the critical path, which is the sequence of activities that has the longest duration and has slack equals to 0. <br><br>
-        <strong>Step 9:</strong> Performs a Backward Pass. <br><br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>a.</b>  Backward Pass starts with the last activity, to determine the Latest Start Time (LS) and Latest Finish Time (LF) for each activity <br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>b.</b> For each activity, WAPS calculates the LF by subtracting the duration of the following activity from its LS. If an activity has more than one successor, the successor to be added is the lowest one. If just starting with the Backward Pass, the duration should be subtracted to the Project Completion Time (PCT) <br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>c.</b>Then, calculates the LS by subtracting the duration of the activity from its LF. This process continues until the LS and LF have been calculated for all activities in the network. <br> <br>
-        <center><i>LS = LF - T</i></center><BR>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>d.</b> TCalculates the slack (S) for each activity by subtracting the activity's EF from its LF or ES from its LS. If S isequal to zero, the activity is a critical value and completes the critical path. <br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>e.</b> Uses the ES, EF, LS, LF, and S values to identify the project's Critical Path and determine the shortest possible time required to complete the project. <br><br>
-        <strong>Step 10:</strong> Uses the Earliest Start Time (ES) and Latest Finish Time (LF) of each activity to create a Gantt Chart. The darker colored bars represent the critical values which complete the Critical Path. <br><br>
-    </p>
-  </div>
-</section>
 
 <br><br>
 
@@ -166,4 +113,53 @@
             </div>
         </div>
     </div>
+<!-- Collapsible Step by Step -->
 
+<section class="collapsible">
+  <input type="checkbox" name="collapse" id="handle1" checked="checked">
+  <h2 class="handle">
+    <label for="handle1">How Normal Distribution Works: (Step by Step)</label>
+  </h2>
+  <div class="content">
+    <p>
+        <strong>Step 1:</strong> Identifies all the activities involved in the project and arranges them in a logical sequence using their Activity IDs. <br><br>
+        <strong>Step 2:</strong> Determines the 3 durations: optimistic (a), most likely (m), and pessimistic (b), which are the estimated times 
+            provided by the user for each activity that are required to complete the activities.<br><br>
+        <strong>Step 3:</strong> Calculates the mean (𝜇) of the 3 durations for each activity.
+        <center><img align="center" src="//i.upmath.me/svg/%5Cmu%20%3D%20%24%24a%2Bm%2Bb%5Cover%203"> </center> 
+        <br><br>
+        <strong>Step 4:</strong>   Calculates the variance (𝜎<sup>2</sup>) of the 3 durations for each activity.
+        <br><br>
+        <center><img align="center" src="//i.upmath.me/svg/%5Csigma%5E2%3D%20%24%24%20(a-%5Cmu)%5E2%20%2B%20(m-%20%5Cmu)%5E2%20%2B%20(b-%5Cmu)%5E2%20%5Cover3"> </center> <br>
+        <strong>Step 5:</strong> Calculates the standard deviation (𝜎) using the variance for each activity.
+        <br><br>
+        <center><img align="center" src="//i.upmath.me/svg/%5Csigma%3D%20%5Csqrt%7B%5Csigma%5E2%7D" alt="\sigma= \sqrt{\sigma^2}"> </center> <br>
+        <strong>Step 6:</strong> Computes the duration (T) by using the norm.ppf function from scipy.stats to get the normal distribution value 
+        (or the inverse of the cumulative distribution function) for which a given probability is the required value. <br><br><i>norm.ppf(q, loc=0, scale=1)</i> <br><br>
+        &nbsp;&nbsp;&nbsp;&nbsp; Where: <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 𝑞 = random() <br><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This is a function randomly selects a value which was set from 0.0 to 1.0. It serves as the cumulative probability at which to evaluate the percent point function. <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This value undergoes the Monte Carlo Simulation to achieve a more accurate result. The number of trials is based on the user's input. <br><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 𝑙𝑜𝑐 = 𝜇<br><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The calculated mean (𝜇) of the 3 durations for each activity. <br><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 𝑠𝑐𝑎𝑙𝑒 = 𝜎<br><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The calculated standard deviation (𝜎) of the 3 durations for each activity. <br><br>
+        <strong>Step 7:</strong> Identifies the pre-requisites of each activity, which must be completed before another activity starts. <br><br>
+        <strong>Step 8:</strong> Performs a Forward Pass. <br><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>a.</b> Forward Pass starts with the first activity, to determine the Early Start Time (ES) and Early Finish Time (EF) for each activity. <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>b.</b> For each activity, WAPS calculates the ES by adding the duration of the preceding activity to its ES. If an activity has more than one predecessor, the predecessor to be added is the highest one. For the first activity, the ES is equal to 0. <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>c.</b>Then, calculates the EF by adding the duration of the activity to its ES. <br>
+        <center><i>EF = ES + T</i></center><BR>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>d.</b> This process continues until the ES and EF have been calculated for all activities. <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>e.</b> Identifies the slack of each activity to know the critical path, which is the sequence of activities that has the longest duration and has slack equals to 0. <br><br>
+        <strong>Step 9:</strong> Performs a Backward Pass. <br><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>a.</b>  Backward Pass starts with the last activity, to determine the Latest Start Time (LS) and Latest Finish Time (LF) for each activity <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>b.</b> For each activity, WAPS calculates the LF by subtracting the duration of the following activity from its LS. If an activity has more than one successor, the successor to be added is the lowest one. If just starting with the Backward Pass, the duration should be subtracted to the Project Completion Time (PCT) <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>c.</b>Then, calculates the LS by subtracting the duration of the activity from its LF. This process continues until the LS and LF have been calculated for all activities in the network. <br> <br>
+        <center><i>LS = LF - T</i></center><BR>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>d.</b> Calculates the slack (S) for each activity by subtracting the activity's EF from its LF or ES from its LS. If S isequal to zero, the activity is a critical value and completes the critical path. <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>e.</b> Uses the ES, EF, LS, LF, and S values to identify the project's Critical Path and determine the shortest possible time required to complete the project. <br><br>
+        <strong>Step 10:</strong> Uses the Earliest Start Time (ES) and Latest Finish Time (LF) of each activity to create a Gantt Chart. The darker colored bars represent the critical values which complete the Critical Path. <br><br>
+    </p>
+  </div>
+</section>

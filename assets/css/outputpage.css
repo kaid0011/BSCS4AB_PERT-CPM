@@ -57,9 +57,9 @@
 }
 
 /* Export Button */
+
 .expbtn {
     text-decoration: none;
-    text-align: right;
     font-size: 1rem;
     color: #eeee;
     background-color: #B19090;
@@ -67,7 +67,7 @@
     border: none;
     display: inline-block;
     padding: 10px 20px;
-    margin-bottom: 3rem;
+    margin-bottom: 1.5rem;
 }
 
 .expbtn:hover {
@@ -75,6 +75,7 @@
     color: #B19090;
 
 }
+
 
 /* PERT Extra Compute */
 .compute {
@@ -116,7 +117,6 @@
 /* TABLE RESULTS*/
 table.results {
     font-size: 15px;
-
     margin-top: 3rem;
     margin-bottom: 2rem;
     margin-left: auto;
@@ -260,6 +260,7 @@ th{
     text-align: center;
 }
 
+  
 /* GANTT CHART */
 .ganttchartname {
     font-size: 2rem;
@@ -365,6 +366,85 @@ table.gantt-chart td {
     border-radius: 10px;
 }
 
+/* Collapsible*/
+.collapsible > input[type="checkbox"] {
+    position: relative;
+    left: -100vw;
+  }
+  
+  .collapsible .content {
+    overflow-y: hidden;
+    height: 0;
+    transition: height 0.3s ease;
+    text-align: justify;
+  }
+  
+  .collapsible > input[type="checkbox"]:checked ~ .content {
+    height: auto;
+    overflow: visible;
+  }
+  
+  .collapsible label {
+    display: block;
+  }
+
+  .collapsible {
+    margin-bottom: 1em;
+  }
+  
+
+  .collapsible > input[type="checkbox"]:checked ~ .content {
+    padding: 15px;
+    border: 1px solid #e8e8e8;
+    border-top: 0;
+  }
+  
+  .collapsible .handle {
+    margin: 0;
+    font-size: 1.125em;
+    line-height: 1.2em;
+  }
+  
+  .collapsible label {
+    color: #333;
+    cursor: pointer;
+    font-weight: normal;
+    padding: 15px;
+    background: #e8e8e8;
+  }
+  
+  .collapsible label:hover,
+  .collapsible label:focus {
+    background: #d8d8d8;
+  }
+  
+  .collapsible .handle label:before {
+    font-family: 'fontawesome';
+    content: "\f054";
+    display: inline-block;
+    margin-right: 10px;
+    font-size: .58em;
+    line-height: 1.556em;
+    vertical-align: middle;
+  }
+  
+  .collapsible > input[type="checkbox"]:checked ~ .handle label:before {
+    content: "\f078";
+  }
+
+  .collapsible {
+    max-width: 99%;
+    margin: 2em;
+  }
+  
+  .collapsible p:last-child {
+    margin-bottom: 0;
+  }
+
+  .collapsible.content
+  {
+    line-height: 1em;
+  }
 /* RESPONSIVE */
 @media screen {
     .form {

@@ -8,7 +8,7 @@
 </div>
 <div class="grid-container">
     <div class="grid-item">
-        <table class="table">
+        <table class="results">
             <thead>
             <tr>
                 <th>Activity</th>
@@ -127,6 +127,64 @@
             <center><button class="expbtn">Export Simulation Values</button></center>
         </form>
     </div>
+
+
+    <section class="collapsible">
+  <input type="checkbox" name="collapse" id="handle1" checked="checked">
+  <h2 class="handle">
+    <label for="handle1">How BETA-PERT Distribution Works: (Step by Step)</label>
+  </h2>
+  <div class="content">
+    <p>
+        <strong>Step 1:</strong> Identifies all the activities involved in the project and arranges them in a logical sequence using their Activity IDs <br><br>
+        <strong>Step 2:</strong> Determines the 3 durations: optimistic (a), most likely (m), and pessimistic (b), which are the estimated times 
+            provided by the user for each activity that are required to complete the activities.<br><br>
+        <strong>Step 3:</strong> Calculates the alpha value (𝛼) of the 3 durations for each activity.
+        <center><img align="center" src="//i.upmath.me/svg/a%20%3D%20%7B%204m%20%2B%20b%20-5a%5Cover%20b-a%7D"> </center> 
+        <br><br>
+        <strong>Step 4:</strong>   Calculates the beta value (𝛽) of the 3 durations for each activity..
+        <br><br>
+        <center><img align="center" src="//i.upmath.me/svg/%5Cbeta%20%3D%20%7B5b%20-a%20-%204m%5Cover%20b-a%7D"> </center> <br>
+        <strong>Step 5:</strong> Calculates the mean (𝜇) of the 3 durations for each activity.
+        <br><br>
+        <center><img align="center" src="//i.upmath.me/svg/%5Cmu%3D%20%7Ba%2B4m%2Bb%5Cover%206%7D"> </center> <br>
+        <strong>Step 6:</strong> Calculates the standard deviation (𝜎) using the variance for each activity.<br><br>
+        <center><img align="center" src="//i.upmath.me/svg/%5Csigma%3D%20%7Bb-a%5Cover%206%7D"> </center> <br>
+        <strong>Step 7:</strong> Computes the duration (T) by using the beta.ppf function from scipy.stats to get the percentile rank (or the 
+inverse of the cumulative distribution function) for a given beta distribution.<br><br><i>beta.ppf(q, a, b, loc=0, scale=1)</i>
+<br><br>
+        &nbsp;&nbsp;&nbsp;&nbsp; Where: <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 𝑞 = random() <br><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This is a function randomly selects a value which was set from 0.0 to 1.0. It serves as the cumulative probability at which to evaluate the percent point function. <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This value undergoes the Monte Carlo Simulation to achieve a more accurate result. The number of trials is based on the user's input. <br><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 𝑎 = 𝑎<br><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The calculated alpha value (𝛼) of the 3 durations for each activity. <br><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  𝑏 = 𝛽<br><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The calculated beta value (𝛽) of the 3 durations for each activity. <br><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 𝑙𝑜𝑐 = 𝜇<br><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The calculated mean (𝜇) of the 3 durations for each activity. <br><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 𝑠𝑐𝑎𝑙𝑒 = 𝜎<br><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The calculated standard deviation (𝜎) of the 3 durations for each activity. <br><br>
+        <strong>Step 8:</strong> Identifies the pre-requisites of each activity, which must be completed before another activity starts. <br><br>
+        <strong>Step 9:</strong> Performs a Forward Pass. <br><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>a.</b> Forward Pass starts with the first activity, to determine the Early Start Time (ES) and Early Finish Time (EF) for each activity. <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>b.</b> For each activity, WAPS calculates the ES by adding the duration of the preceding activity to its ES. If an activity has more than one predecessor, the predecessor to be added is the highest one. For the first activity, the ES is equal to 0. <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>c.</b>Then, calculates the EF by adding the duration of the activity to its ES. <br>
+        <center><i>EF = ES + T</i></center><BR>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>d.</b> This process continues until the ES and EF have been calculated for all activities. <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>e.</b> Identifies the slack of each activity to know the critical path, which is the sequence of activities that has the longest duration and has slack equals to 0. <br><br>
+        <strong>Step 9:</strong> Performs a Backward Pass. <br><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>a.</b>  Backward Pass starts with the last activity, to determine the Latest Start Time (LS) and Latest Finish Time (LF) for each activity <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>b.</b> For each activity, WAPS calculates the LF by subtracting the duration of the following activity from its LS. If an activity has more than one successor, the successor to be added is the lowest one. If just starting with the Backward Pass, the duration should be subtracted to the Project Completion Time (PCT) <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>c.</b>Then, calculates the LS by subtracting the duration of the activity from its LF. This process continues until the LS and LF have been calculated for all activities in the network. <br> <br>
+        <center><i>LS = LF - T</i></center><BR>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>d.</b> Calculates the slack (S) for each activity by subtracting the activity's EF from its LF or ES from its LS. If S isequal to zero, the activity is a critical value and completes the critical path. <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>e.</b> Uses the ES, EF, LS, LF, and S values to identify the project's Critical Path and determine the shortest possible time required to complete the project. <br><br>
+        <strong>Step 10:</strong> Uses the Earliest Start Time (ES) and Latest Finish Time (LF) of each activity to create a Gantt Chart. The darker colored bars represent the critical values which complete the Critical Path. <br><br>
+    </p>
+  </div>
+</section>
+
 <div class="ganttchartname">
         <b> Project Gantt Chart</b>
 </div>
