@@ -1,3 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<header>
+<div class="topnav" id="myTopnav">
+        <a href = "/indexx.html"><img id="logo" src ="/frontend/logo.svg" height="50px" width="50px"></a>
+    <ul>
+    <li><a href="<?=base_url('pert')?>">PERT</a></li>
+    <li><a href="<?= base_url('cpm') ?>">CPM</a></li>
+    <li class="dropdown">
+            <a href="javascript:void(0)" class="dropbtn">SIMULATIONS <i class="fa fa-caret-down"></i></a>
+            <div class="dropdown-content">
+                <a href="<?= base_url('normal') ?>">Normal Distribution</a>
+                <a href="<?= base_url('triangular') ?>">Triangular Distribution</a>
+                <a href="<?= base_url('betapert') ?>">BETA - PERT Distribution</a>
+            </div>
+        </li>
+    </ul>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i style="font-size:36px" class="fa">&#xf0c9;</i>
+    </a>
+</div>
+</header>
+
 <!-- Footer -->
 <footer>
     <div class="footer">
@@ -26,25 +54,17 @@ function myFunction() {
 
 <style>
     html {
-        font-family: sans-serif;
-        background-color: #FFFFFF;
-        scroll-behavior: smooth;
-        -ms-overflow-style: none;
-        /* IE and Edge */
+    font-family: sans-serif;
+    background-color: #FFFFFF;
+    scroll-behavior: smooth;
+    -ms-overflow-style: none;
+    /* IE and Edge */
     }
 
     body {
-        margin: 0;
-        padding: 0;
-        border: 0;
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-    }
-
-
-    /* .containers
-{
+    margin: 0;
+    padding: 0;
+    border: 0;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -63,8 +83,9 @@ function myFunction() {
       overflow: hidden;
       background-color: #D9D9D9;
       margin: 0 auto;
-      display: flex;
-      align-items: center;
+        display: flex;
+        align-items: center;
+       
     }
     
     .topnav a{
@@ -87,29 +108,12 @@ function myFunction() {
       color: black;
     }
     
-    @media screen and (max-width: 1000px) and (min-width: 300px) 
+    @media only screen and (max-width: 1000px) and (min-width: 300px) 
     {
-      .topnav
-      {
-        overflow: hidden;
-        background-color: #D9D9D9;
-        display: grid;
-        align-items: center;
-        justify-content: center;
-        align-content: center;
-        justify-items: center;
-      }
-
       .topnav a
       {
         display: none;
       }
-
-      #logo
-      {
-        display: flex;
-      }
-
       .topnav a.icon 
       {
         float: right;
@@ -117,7 +121,7 @@ function myFunction() {
       }
     }
     
-    @media screen and (min-width: 300px) 
+    @media only screen and (min-width: 300px) 
     {
         .topnav.responsive 
     {
@@ -138,18 +142,16 @@ function myFunction() {
         margin: 0;
         padding: 0;
         overflow: hidden;
-      }
-
+    }
     }
 
-    @media screen and (max-width: 1000px) 
+    @media only screen and (max-width: 1000px) 
     {
-      .topnav.responsive 
-      {
+        .topnav.responsive 
+    {
         position: relative;
-      }
-      .topnav.responsive .icon 
-      {
+    }
+      .topnav.responsive .icon {
         position: absolute;
         right: 0;
         top: 0;
@@ -164,37 +166,11 @@ function myFunction() {
         margin: 0;
         padding: 0;
         overflow: hidden;
-      }
-      li 
-      {
-          float: left;
-      }
+    }
 
-      .footer
-      {
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          right: 0;
-          background: #D9D9D9;
-          height: auto;
-          width: 100vw;
-          padding-bottom: 5px;
-      }
-
-      .footer ul
-      {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .footer ul li
-      {
-        line-height: 1rem;
-      }
+    li {
+        float: left;
+    }
     }
 
     ul {
@@ -272,7 +248,7 @@ function myFunction() {
     footer li a
     {
         text-decoration: none;
-        display: contents;
+        display: inline;
     }
 
         /* EXTRAS */
