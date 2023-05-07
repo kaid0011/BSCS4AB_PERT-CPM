@@ -4,14 +4,9 @@
     margin: 1rem;
 }
 
-.ganttchartname {
-    font-size: 2rem;
-    text-align: center;
-    margin: .1rem 2rem .1rem 2rem;
-}
 
 .paragone {
-    font-size: 24px;
+    font-size: 20px;
     font-style: normal;
     text-align: justify;
     margin: 2rem 3rem;
@@ -52,7 +47,7 @@
     border-radius: 40px;
     display: inline-block;
     padding: 10px 20px;
-    border-color: #544141;
+   
 }
 
 .btn:hover {
@@ -61,6 +56,28 @@
 
 }
 
+/* Export Button */
+
+.expbtn {
+    text-decoration: none;
+    font-size: 1rem;
+    color: #eeee;
+    background-color: #B19090;
+    border-radius: 40px;
+    border: none;
+    display: inline-block;
+    padding: 10px 20px;
+    margin-bottom: 1.5rem;
+}
+
+.expbtn:hover {
+    background-color: #eeee;
+    color: #B19090;
+
+}
+
+
+/* PERT Extra Compute */
 .compute {
     text-decoration: none;
     text-align: right;
@@ -99,7 +116,7 @@
 
 /* TABLE RESULTS*/
 table.results {
-    padding: 1rem;
+    font-size: 15px;
     margin-top: 3rem;
     margin-bottom: 2rem;
     margin-left: auto;
@@ -121,7 +138,7 @@ th {
     border-collapse: collapse;
     border-style: none;
     text-align: center;
-    padding: .5rem .8rem;
+    padding: 1rem;
     display: table-cell;
     text-align: center;
     vertical-align: middle;
@@ -129,53 +146,22 @@ th {
     background-color: transparent;
 }
 
-tr {
+tr 
+{
     border-bottom: 1px solid #ddd;
-}
-
-td {
-    background-color: #eeee;
-}
-
-th {
-    background-color: #d9c7c7;
     padding: 15px;
 }
-
-textarea {
-    background-color: transparent;
-    border: 2px solid;
-    border-radius: 10px;
-    padding: 3px;
-    resize: none;
-    margin: 5px;
+td{
+    background-color: #f0f0f0;
 }
 
-input[type=text1] {
-    border-style: none;
-    text-align: center;
+th{
+    background-color: #d9c7c7;
+    padding: 15px;
+    
 }
 
-input[type=number] {
-    border-style: none;
-    text-align: center;
-    border: 1px solid;
-    border-radius: 5px;
-}
-
-input[type=textp] {
-    border-style: none;
-    text-align: center;
-    font-size: 20px;
-}
-
-input {
-    background-color: transparent;
-    border-radius: 10px;
-    padding: 5px;
-}
-
-/* Cards */
+/* Cards for PERT*/
 .containerbox {
     justify-content: space-evenly;
     display: flex;
@@ -183,7 +169,7 @@ input {
     height: auto;
 }
 
-.boxx {
+.box1 {
     width: 30%;
     height: auto;
     padding: 3px 2px 25px 2px;
@@ -194,19 +180,13 @@ input {
     transition: 0.9;
 }
 
-.boxx:hover {
+.box1:hover {
     box-shadow: 0 0 11px rgba(33, 33, 33, 0.5);
     cursor: pointer;
 }
 
-.containerbox2 {
-    justify-content: space-evenly;
-    display: flex;
-    width: auto;
-    height: auto;
-}
 
-.boxx2 {
+.box2 {
     width: 30%;
     height: auto;
     padding: 30px 2px 15px 2px;
@@ -217,7 +197,7 @@ input {
     transition: 0.9;
 }
 
-.boxx2:hover {
+.box2:hover {
     box-shadow: 0 0 11px rgba(33, 33, 33, 0.5);
     cursor: pointer;
 }
@@ -229,21 +209,65 @@ input {
     color: rgb(104, 92, 92);
 }
 
-h3 {
+.containerbox.h3 {
     font-size: 20px;
     padding: 5px 5px;
     text-align: center;
     color: rgb(104, 92, 92);
 }
 
-p {
+.containerbox.p {
     font-size: 18px;
     padding: 5px;
     text-align: center;
 }
 
+/* Box For Other Results */
+.container-final {
+    justify-content: space-evenly;
+    display: flex;
+    width: auto;
+    height: auto;
+    margin-bottom: 1.4rem;
+}
+
+.resultsbox {
+    width: 30%;
+    height: auto;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    margin: 5vh 5vh 1vh 5vh;
+    background: white;
+    border-radius: 10px;
+    transition: 0.9;
+}
+
+.resultsbox:hover {
+    box-shadow: 0 0 11px rgba(33, 33, 33, 0.5);
+    cursor: pointer;
+}
+
+.resultsbox.h3 {
+    font-size: 20px;
+    padding: 5px 5px;
+    text-align: center;
+    color: rgb(104, 92, 92);
+}
+
+.resultsbox.p {
+    font-size: 18px;
+    padding: 5px;
+    text-align: center;
+}
+
+  
 /* GANTT CHART */
-.grid-container-gantt {
+.ganttchartname {
+    font-size: 2rem;
+    text-align: center;
+    margin: .1rem 2rem .1rem 2rem;
+}
+/* .grid-container-gantt {
     display: grid;
     width: 85%;
     margin-left: auto;
@@ -289,8 +313,138 @@ table.gantt-chart td {
     background: #B19090;
     border: 0px;
     border-radius: 10px;
+} */
+
+.ganttcontainer {
+    display: grid;
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    overflow-x: auto;
 }
 
+.gantt-chart {
+    border-radius: .8em;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    display: table;
+    border-collapse: collapse;
+    align-items: justify;
+    width: 100%;
+    border: none;
+    text-align: center;
+    table-layout: auto;
+    /* background-color: #eeee; */
+}
+
+table.gantt-chart th,
+table.gantt-chart td {
+    white-space: nowrap;
+    border: none;
+    border-collapse: collapse;
+    text-align: center;
+    padding: 12px 20px;
+    display: table-cell;
+    vertical-align: middle;
+    background-color: #eeee;
+   
+}
+
+.waiting 
+{
+    height:30px;
+    position:relative;
+    background: none;
+}
+
+.progress {
+    height:30px;
+    position:relative;
+    background: #B19090;
+    border: 0px;
+    border-radius: 10px;
+}
+
+/* Collapsible*/
+.collapsible > input[type="checkbox"] {
+    position: relative;
+    left: -100vw;
+  }
+  
+  .collapsible .content {
+    overflow-y: hidden;
+    height: 0;
+    transition: height 0.3s ease;
+    text-align: justify;
+  }
+  
+  .collapsible > input[type="checkbox"]:checked ~ .content {
+    height: auto;
+    overflow: visible;
+  }
+  
+  .collapsible label {
+    display: block;
+  }
+
+  .collapsible {
+    margin-bottom: 1em;
+  }
+  
+
+  .collapsible > input[type="checkbox"]:checked ~ .content {
+    padding: 15px;
+    border: 1px solid #e8e8e8;
+    border-top: 0;
+  }
+  
+  .collapsible .handle {
+    margin: 0;
+    font-size: 1.125em;
+    line-height: 1.2em;
+  }
+  
+  .collapsible label {
+    color: #333;
+    cursor: pointer;
+    font-weight: normal;
+    padding: 15px;
+    background: #e8e8e8;
+  }
+  
+  .collapsible label:hover,
+  .collapsible label:focus {
+    background: #d8d8d8;
+  }
+  
+  .collapsible .handle label:before {
+    font-family: 'fontawesome';
+    content: "\f054";
+    display: inline-block;
+    margin-right: 10px;
+    font-size: .58em;
+    line-height: 1.556em;
+    vertical-align: middle;
+  }
+  
+  .collapsible > input[type="checkbox"]:checked ~ .handle label:before {
+    content: "\f078";
+  }
+
+  .collapsible {
+    max-width: 99%;
+    margin: 2em;
+  }
+  
+  .collapsible p:last-child {
+    margin-bottom: 0;
+  }
+
+  .collapsible.content
+  {
+    line-height: 1em;
+  }
 /* RESPONSIVE */
 @media screen {
     .form {
@@ -310,14 +464,30 @@ table.gantt-chart td {
         margin-right: 5vh;
     }
 
-    .containerbox,
-    .containerbox2 {
+    .containerbox {
         display: block;
         margin: 3vh;
     }
 
-    .boxx,
-    .boxx2 {
+    .box1,
+    .box2 {
         width: 90%;
     }
+
+    .grid-item
+        {
+            margin-left: 5vh;
+            margin-right: 5vh;
+        }
+
+        .container-final
+        {
+            display: block;
+            margin: 3vh;
+        }
+
+        .resultsbox
+        {
+            width: 90%;
+        }
 }

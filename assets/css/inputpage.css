@@ -1,3 +1,4 @@
+/* Page Title */
 .title {
     font-size: 2rem;
     text-align: center;
@@ -5,35 +6,18 @@
 }
 
 .paragone {
-    font-size: 24px;
+    font-size: 20px;
     font-style: normal;
     text-align: justify;
     margin: 2rem 3rem;
 }
+
 .howto
 {
-    font-size: 22px;
+    font-size: 20x;
     
 }
-.instructions
-{
-    font-style: normal;
-    text-align: justify;
-    margin-left: 25rem;
-    margin-right: 25rem;
-}
-
-.instructions p
-{
-    font-size: 20px;
-}
-
-dl
-{
-    padding-right: 20rem;
-    padding-bottom: 5rem;
-}
-
+/* Calculate Button */
 .calculate
 {
     display: flex;
@@ -41,16 +25,6 @@ dl
     align-items: center;
     margin-bottom: 2rem;
 }
-
-.container
-{
-    width: 99rem;
-    max-width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-}
-
 .btn
 {
     text-decoration: none;
@@ -74,6 +48,14 @@ dl
 }
 
 /* TABLE */
+.container
+{
+    width: 99rem;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
 table {
     padding: 1rem;
     margin-top: 3rem;
@@ -141,14 +123,14 @@ input
     padding: 5px;
 }
 
-textarea
-{
-    /* background-color: transparent; */
-    border: .5px solid;
-    border-radius: 5px;
-    /* padding: 3px; */
-    resize: none;
-    /* margin: 3px; */
+/* Number of Trials - Simulations */
+.trials {
+    margin: auto;
+    min-width: 15rem;
+    max-width: 15rem;
+    background-color: #D7D0D0;
+    padding: 1rem;
+    border-radius: 10px;
 }
 /* POPUP */
 .box {
@@ -165,7 +147,7 @@ textarea
     
     }
 
-    .button {
+.button {
     font-size: 3em;
     padding: 10px;
     color: #D7D0D0;
@@ -173,11 +155,11 @@ textarea
     transition: all 0.3s ease-out;
     }
 
-    .button:hover {
+.button:hover {
         color: #B19090;
     }
 
-    .overlay {
+.overlay {
     position: fixed;
     top: 0;
     bottom: 0;
@@ -193,7 +175,7 @@ textarea
     opacity: 1;
     }
 
-    .popup {
+ .popup {
     margin: 70px auto;
     padding: 20px;
     background: #f0f0f0;
@@ -203,12 +185,12 @@ textarea
     transition: all 5s ease-in-out;
     }
 
-    .popup h2 {
+.popup h2 {
     margin-top: 0;
     color: #333;
     font-family: Tahoma, Arial, sans-serif;
     }
-    .popup .close {
+.popup .close {
     position: absolute;
     top: 20px;
     right: 30px;
@@ -217,33 +199,111 @@ textarea
     font-weight: bold;
     text-decoration: none;
     color: #333;
-    }
-    .popup .close:hover {
+}
+.popup .close:hover {
     color: #06D85F;
     }
     .popup .content {
     max-height: 30%;
     overflow: auto;
-    }
+}
+
+/* Collapsible*/
+.collapsible > input[type="checkbox"] {
+    position: relative;
+    left: -100vw;
+  }
+  
+  .collapsible .content {
+    overflow-y: hidden;
+    height: 0;
+    transition: height 0.3s ease;
+    text-align: justify;
+  }
+  
+  .collapsible > input[type="checkbox"]:checked ~ .content {
+    height: auto;
+    overflow: visible;
+  }
+  
+  .collapsible label {
+    display: block;
+  }
+
+  .collapsible {
+    margin-bottom: 1em;
+  }
+  
+
+  .collapsible > input[type="checkbox"]:checked ~ .content {
+    padding: 15px;
+    border: 1px solid #e8e8e8;
+    border-top: 0;
+  }
+  
+  .collapsible .handle {
+    margin: 0;
+    font-size: 1.125em;
+    line-height: 1.2em;
+  }
+  
+  .collapsible label {
+    color: #333;
+    cursor: pointer;
+    font-weight: normal;
+    padding: 15px;
+    background: #e8e8e8;
+  }
+  
+  .collapsible label:hover,
+  .collapsible label:focus {
+    background: #d8d8d8;
+  }
+  
+  .collapsible .handle label:before {
+    font-family: 'fontawesome';
+    content: "\f054";
+    display: inline-block;
+    margin-right: 10px;
+    font-size: .58em;
+    line-height: 1.556em;
+    vertical-align: middle;
+  }
+  
+  .collapsible > input[type="checkbox"]:checked ~ .handle label:before {
+    content: "\f078";
+  }
+
+  .collapsible {
+    max-width: 99%;
+    margin: 2em;
+
+  }
+  
+  .collapsible p:last-child {
+    margin-bottom: 0;
+    
+  }
 
 @media screen and (max-width: 700px){
 .box{
-width: 70%;
-}
+    width: 70%;
+    }
 .popup{
-width: 70%;
-}
+    width: 70%;
+    }
 }
 /* RESPONSIVE */
 @media screen {
-.form
-{
-background-color: #f0f0f0;
-margin: 3rem 10rem 2rem;
-border-radius: 1.2rem;
-padding: 0.25rem;
+    .form
+    {
+    background-color: #f0f0f0;
+    margin: 3rem 10rem 2rem;
+    border-radius: 1.2rem;
+    padding: 0.25rem;
+    }
 }
-}
+
 @media only screen and (max-width: 1500px) and (min-width: 300px)
 {
     .table
@@ -251,4 +311,5 @@ padding: 0.25rem;
         margin-left: 3vh;
         margin-right: 5vh;
     }
+    
 }
