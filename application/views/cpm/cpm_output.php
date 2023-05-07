@@ -87,6 +87,34 @@
            </center>
         </div>
 </div>
+<div class="export">
+    <!-- Export Results Excel File -->
+    <form action="<?php echo base_url('export/result') ?>" method="post">              
+        <?php
+        $len = count($project);
+        foreach ($project as $task) {
+        ?>            
+            <input type="hidden" name="<?php echo $task['id']; ?>" value="<?php echo $task['id']; ?>">
+            <input type="hidden" name="desc_<?php echo $task['id']; ?>" value="<?php echo $task['desc']; ?>">
+            <input type="hidden" name="time_<?php echo $task['id']; ?>" value="<?php echo $task['time']; ?>">
+            <?php
+            $pre = implode(",", $task['prereq']);
+            if ($pre == '-1') {
+                $pre = '-';
+            }
+            ?>
+            <input type="hidden" name="pre_<?php echo $task['id']; ?>" value="<?php echo $pre; ?>">
+            <input type="hidden" name="es_<?php echo $task['id']; ?>" value="<?php echo $task['es'];; ?>">
+            <input type="hidden" name="ef_<?php echo $task['id']; ?>" value="<?php echo $task['ef']; ?>">
+            <input type="hidden" name="ls_<?php echo $task['id']; ?>" value="<?php echo $task['ls']; ?>">
+            <input type="hidden" name="lf_<?php echo $task['id']; ?>" value="<?php echo $task['lf']; ?>">
+            <input type="hidden" name="slack_<?php echo $task['id']; ?>" value="<?php echo $task['slack']; ?>">
+            <input type="hidden" name="ic_<?php echo $task['id']; ?>" value="<?php echo $task['isCritical']; ?>">
+        <?php } ?>
+        <input type="hidden" name="len" value="<?php echo $len; ?>">
+        <center><button class="expbtn">Export Results</button></center>
+    </form>
+</div>
 <section class="collapsible">
     <input type="checkbox" name="collapse" id="handle1" checked="checked">
     <h2 class="handle">

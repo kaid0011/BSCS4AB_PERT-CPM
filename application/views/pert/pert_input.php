@@ -73,13 +73,13 @@
         </tbody>
     </table>
 </div>
-</form>
+
 
 <br><br>
 <div class="calculate">
         <button class="btn">Calculate</button>                            
 </div> 
-
+</form>
     <div class="box">
 	<a class="button" href="#popup1"><i class="fa fa-question-circle" aria-hidden="true"></i></a>
     </div>
