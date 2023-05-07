@@ -84,22 +84,6 @@
         </div>
 </div>
 
-<!-- BUTTON -->
-<div class="calculate">
-        <!-- <a class="btn" href="CPMOutput.html">Calculate</a> -->
-        <button class="btn">Export to CSV</button>
-</div>
-
-<!-- EXPLANATION -->
-<div class="paragone">
-    Lorem ipsum dolor sit amet, no clita veritus maiestatis vim, est illum consetetur no. Agam modus an vel. Nibh
-    feugiat pericula id eam. Sit aliquam platonem omittantur ut, eum meliore offendit at. Suas alienum at per, ad sit
-    exerci vocent docendi, te sea summo feugait. At vim cibo accumsan mnesarchum.
-    <br><br>
-    Usu nominavi atomorum maluisset ne. Sed ex pertinacia repudiandae, ferri lorem aeque et per. Duo exerci munere an,
-    vix malorum diceret fabulas an, nam ei mutat phaedrum. Sed ea timeam suscipiantur, ad eos partem audiam
-    adversarium, dicam appetere necessitatibus sed ut.
-</div>
 <div class="ganttchartname">
         <b> Project Gantt Chart</b>
 </div>
