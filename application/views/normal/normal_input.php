@@ -1,18 +1,33 @@
-<div class="firstpg">
+<div class="body-container">
+    <div class="firstpg">
     <div class="title">
-        <b> Normal Distribution </b>
+        <h1>Normal Distribution</h1>
     </div>
     <div class="paragone">
-    Normal Distribution or Standard Normal Distribution is a probability function that describes how the values of a variable are distributed. This is considered to be the most important probability distribution in statistics due to the fact that a lot of continuous data in the aspects of nature and psychology display a bell-shaped curve in compilation and graphing. It accurately models natural events. In practice, the normal distribution is also used to model non-negative distributions.
-        <br><br>
-        <div class="howto">
-            <b> How To?</b><br>
-            • For each activity, enter the description, durations (optimistic, most likely, and pessimistic), and its
-            pre-requisite/s. <br>
-            • After completing the table, click 'Calculate' to schedule your project. A table will show the following
-            information for your project: <i> Activity, Description, Three Durations, Mean, Standard Deviation, Variance, Pre-Requisites, Earliest Start Time, Earliest Finish Time, Latest Start Time, Latest Finish Time, Slack, and Critical.</i><br>
-            • After generating the results of your input, you will have a choice to download an Excel file containing all the simulation results by clicking on "Export Results" or "Export Simulation Values".<br>
-        </div>
+            <div class="description">
+    <p>Normal Distribution or Standard Normal Distribution is a probability function that describes how the values of a variable are distributed. This is considered to be the most important probability distribution in statistics due to the fact that a lot of continuous data in the aspects of nature and psychology display a bell-shaped curve in compilation and graphing. It accurately models natural events. In practice, the normal distribution is also used to model non-negative distributions.</p>
+            </div>
+            <div class="howto">
+            <h2>How To?</h2>
+            <ul>
+                    <li>
+                        <p>For each activity, enter the description, durations (optimistic, most likely, and pessimistic), and its
+                            pre-requisite/s.</p>
+                    </li>
+                    <li>
+                        <p>After completing the table, click 'Calculate' to schedule your project. A table will show the following
+                            information for your project: <i> Activity, Description, Three Durations, Mean, Standard Deviation, Variance, Pre-Requisites, Earliest Start Time, Earliest Finish Time, Latest Start Time, Latest Finish Time, Slack, and Critical</i>.</p>
+                    </li>
+                    <li>
+                        <p>Enter the Number of Trials you desire for the simulation to perform.</p>
+                    </li>
+                    <li>
+                        <p>After generating the results of your input, you will have a choice to calculate completion probability
+                            based on your expected duration. There are 2 types: Project Completion Probability and Activity
+                            Completion Probability.</p>
+                    </li>
+                </ul>
+            </div>
     </div>
 
 </div>
@@ -113,6 +128,75 @@
             </div>
         </div>
     </div>
+    <div class="mustknow">
+                <h2>Must Know!</h2>
+                <div class="mustknow-desc">
+                <h5>Activity</h5>
+                <ul>
+                    <li>
+                        <p>The activity column is auto iterated from 1 by the system and cannot be changed.</p>
+                    </li>
+                </ul>
+                <h5>Description</h5>
+                <ul>
+                    <li>
+                        <p>Description of each activity with a maximum of 50 characters.</p>
+                    </li>
+                    <li>
+                        <p>This is an optional input.</p>
+                    </li>
+                </ul>
+                <h5>Optimistic</h5>
+                <ul>
+                    <li>
+                        <p>The minimum amount of time required to finish a task, assuming that the progress is faster than the typical expectations.</p>
+                    </li>
+                    <li>
+                        <p>Optimistic duration must be a positive integer.</p>
+                    </li>
+                    <li>
+                        <p>Decimals are accepted.</p>
+                    </li>
+                </ul>
+                <h5>Most Likely</h5>
+                <ul>
+                <li>
+                        <p>The expected duration for completing a task, assuming that progress is in accordance with standard expectations.</p>
+                    </li>
+                    <li>
+                        <p>Most Likely duration must be a positive integer.</p>
+                    </li>
+                    <li>
+                        <p>Decimals are accepted.</p>
+                    </li>
+                </ul>
+                <h5>Pessimistic</h5>
+                <ul>
+                <li>
+                        <p>The maximum amount of time required to complete a task, assuming everything that could possibly go wrong, actually goes wrong.</p>
+                    </li>
+                    <li>
+                        <p>Pessimistic duration must be a positive integer.</p>
+                    </li>
+                    <li>
+                        <p>Decimals are accepted.</p>
+                    </li>
+                </ul>
+                <h5>Pre-requisites</h5>
+                <ul>
+                <li>
+                        <p>The activity/s that must be completed before the current activity starts. </p>
+                    </li>
+                    <li>
+                        <p>Pre-requisites of each activity must be existing activity numbers separated by commas without spaces.</p>
+                    </li>
+                    <li>
+                        <p>If there are no pre-requisites, enter '-'. The first activity's pre-requisite is automatically set to '-'.</p>
+                    </li>
+
+                </ul>
+                </div>
+            </div>
 <!-- Collapsible Step by Step -->
 
 <section class="collapsible">
@@ -163,3 +247,4 @@
     </p>
   </div>
 </section>
+</div>
