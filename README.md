@@ -33,4 +33,3 @@ How to use WAPS:
 1) Pick an algorithm
 2) Enter how many activities your project has and what Unit of Time you prefer. Then, click Generate Table.
 3) Enter the Description, Durations, and Pre-requisites (write - if none) of your activities. Then, click Calculate.
-***NOTE: Web app is still under going development.

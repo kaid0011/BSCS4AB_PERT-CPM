@@ -4,7 +4,6 @@ class Triangular extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        require 'application/vendor/autoload.php';
     }
 
     public function index()

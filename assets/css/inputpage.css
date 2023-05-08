@@ -1,5 +1,41 @@
+div.func {
+    padding-top: 1em;
+}
+
+div.func-desc, div.where {
+    padding-left: 2em;
+}
+
+div.where1 {
+    padding-left: 2em;
+    padding-top: 1em;
+}
+
+div.func-desc{
+    padding-top: 1em;
+}
+
+div.content center{
+    margin: 0;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+div.content img{
+    height: 4em;
+    width: auto;
+    padding: 1em 0;
+}
+
 div.howto h2, div.howto p {
     padding-bottom: 0;
+}
+div.content p {
+    padding: 0;
+    margin: 0;
+}
+div.content i{
+    font-weight: 600;
 }
 
 .howto{
@@ -287,7 +323,6 @@ input {
 .collapsible {
     max-width: 99%;
     margin: 2em;
-
 }
 
 img{

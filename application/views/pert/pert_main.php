@@ -39,13 +39,11 @@
                             <option value="Weeks">Weeks</option>
                             <option value="Months">Months</option>
                         </select>
-                        <!-- <input type="text" class="form-control" id="InputTime" placeholder="(e.g. Days, Weeks, Months)"> -->
                     </div>
                     <br>
             </div>
         </center>
     </div>
-
 
     <div class="generate">
         <button class="btn">Generate Table</button>
