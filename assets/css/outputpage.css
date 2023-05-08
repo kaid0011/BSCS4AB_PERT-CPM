@@ -47,7 +47,7 @@
     border-radius: 40px;
     display: inline-block;
     padding: 10px 20px;
-   
+
 }
 
 .btn:hover {
@@ -146,19 +146,19 @@ th {
     background-color: transparent;
 }
 
-tr 
-{
+tr {
     border-bottom: 1px solid #ddd;
     padding: 15px;
 }
-td{
+
+td {
     background-color: #f0f0f0;
 }
 
-th{
+th {
     background-color: #d9c7c7;
     padding: 15px;
-    
+
 }
 
 /* Cards for PERT*/
@@ -260,59 +260,60 @@ th{
     text-align: center;
 }
 
-  
+
 /* GANTT CHART */
 .ganttchartname {
     font-size: 2rem;
     text-align: center;
     margin: .1rem 2rem .1rem 2rem;
 }
+
 /* .grid-container-gantt {
-    display: grid;
-    width: 85%;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
+display: grid;
+width: 85%;
+margin-left: auto;
+margin-right: auto;
+text-align: center;
 }
 
 table.gantt-chart {
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-    display: table;
-    border-collapse: collapse;
-    align-items: justify;
-    width: 100%;
-    border-spacing: 0;
-    border: none;
-    border-collapse: collapse;
-    text-align: center;
-    border-style: ridge;
-    table-layout: fixed;
+margin-top: 2rem;
+margin-bottom: 1rem;
+display: table;
+border-collapse: collapse;
+align-items: justify;
+width: 100%;
+border-spacing: 0;
+border: none;
+border-collapse: collapse;
+text-align: center;
+border-style: ridge;
+table-layout: fixed;
 }
 
 table.gantt-chart th,
 table.gantt-chart td {
-    white-space: nowrap;
-    border: none;
-    border-collapse: collapse;
-    text-align: center;
-    padding: 12px 5px;
-    display: table-cell;
-    vertical-align: middle;
+white-space: nowrap;
+border: none;
+border-collapse: collapse;
+text-align: center;
+padding: 12px 5px;
+display: table-cell;
+vertical-align: middle;
 }
 
 .waiting {
-    height: 30px;
-    position: relative;
-    background: none;
+height: 30px;
+position: relative;
+background: none;
 }
 
 .progress {
-    height: 30px;
-    position: relative;
-    background: #B19090;
-    border: 0px;
-    border-radius: 10px;
+height: 30px;
+position: relative;
+background: #B19090;
+border: 0px;
+border-radius: 10px;
 } */
 
 .ganttcontainer {
@@ -348,77 +349,76 @@ table.gantt-chart td {
     display: table-cell;
     vertical-align: middle;
     background-color: #eeee;
-   
+
 }
 
-.waiting 
-{
-    height:30px;
-    position:relative;
+.waiting {
+    height: 30px;
+    position: relative;
     background: none;
 }
 
 .progress {
-    height:30px;
-    position:relative;
+    height: 30px;
+    position: relative;
     background: #B19090;
     border: 0px;
     border-radius: 10px;
 }
 
 /* Collapsible*/
-.collapsible > input[type="checkbox"] {
+.collapsible>input[type="checkbox"] {
     position: relative;
     left: -100vw;
-  }
-  
-  .collapsible .content {
+}
+
+.collapsible .content {
     overflow-y: hidden;
     height: 0;
     transition: height 0.3s ease;
     text-align: justify;
-  }
-  
-  .collapsible > input[type="checkbox"]:checked ~ .content {
+}
+
+.collapsible>input[type="checkbox"]:checked~.content {
     height: auto;
     overflow: visible;
-  }
-  
-  .collapsible label {
+}
+
+.collapsible label {
     display: block;
-  }
+}
 
-  .collapsible {
+.collapsible {
     margin-bottom: 1em;
-  }
-  
+}
 
-  .collapsible > input[type="checkbox"]:checked ~ .content {
+
+.collapsible>input[type="checkbox"]:checked~.content {
     padding: 15px;
     border: 1px solid #e8e8e8;
     border-top: 0;
-  }
-  
-  .collapsible .handle {
+}
+
+.collapsible .handle {
     margin: 0;
     font-size: 1.125em;
     line-height: 1.2em;
-  }
-  
-  .collapsible label {
+}
+
+.collapsible label {
     color: #333;
     cursor: pointer;
     font-weight: normal;
     padding: 15px;
     background: #e8e8e8;
-  }
-  
-  .collapsible label:hover,
-  .collapsible label:focus {
+}
+
+.collapsible label:hover,
+.collapsible label:focus {
     background: #d8d8d8;
-  }
-  
-  .collapsible .handle label:before {
+}
+
+.collapsible .handle label:before {
     font-family: 'fontawesome';
     content: "\f054";
     display: inline-block;
@@ -426,25 +426,25 @@ table.gantt-chart td {
     font-size: .58em;
     line-height: 1.556em;
     vertical-align: middle;
-  }
-  
-  .collapsible > input[type="checkbox"]:checked ~ .handle label:before {
-    content: "\f078";
-  }
+}
 
-  .collapsible {
+.collapsible>input[type="checkbox"]:checked~.handle label:before {
+    content: "\f078";
+}
+
+.collapsible {
     max-width: 99%;
     margin: 2em;
-  }
-  
-  .collapsible p:last-child {
-    margin-bottom: 0;
-  }
+}
 
-  .collapsible.content
-  {
+.collapsible p:last-child {
+    margin-bottom: 0;
+}
+
+.collapsible.content {
     line-height: 1em;
-  }
+}
+
 /* RESPONSIVE */
 @media screen {
     .form {
@@ -456,10 +456,8 @@ table.gantt-chart td {
 }
 
 
-@media only screen and (max-width: 1500px) and (min-width: 300px)
-{
-    .grid-container
-    {
+@media only screen and (max-width: 1500px) and (min-width: 300px) {
+    .grid-container {
         margin-left: 5vh;
         margin-right: 5vh;
     }
@@ -474,20 +472,17 @@ table.gantt-chart td {
         width: 90%;
     }
 
-    .grid-item
-        {
-            margin-left: 5vh;
-            margin-right: 5vh;
-        }
+    .grid-item {
+        margin-left: 5vh;
+        margin-right: 5vh;
+    }
 
-        .container-final
-        {
-            display: block;
-            margin: 3vh;
-        }
+    .container-final {
+        display: block;
+        margin: 3vh;
+    }
 
-        .resultsbox
-        {
-            width: 90%;
-        }
+    .resultsbox {
+        width: 90%;
+    }
 }

@@ -1,18 +1,16 @@
-.title {
-    font-size: 2rem;
-    text-align: center;
-    margin: 1rem;
+div.howto h2, div.howto p {
+    padding-bottom: 0;
 }
 
-.howto
-{
-    font-size: 20px;
+.howto{
+    padding-left: 2em;
 }
-.paragone {
-    font-size: 20px;
-    font-style: normal;
+.description{
+    text-align: center;
+}
+
+.paragone{
     text-align: justify;
-    margin: 2rem 3rem;
 }
 
 .generate {
@@ -27,8 +25,8 @@
 }
 
 center {
-    width: 75%;
-    margin-left: 12%;
+    width: 64%;
+    margin-left: 18%;
 }
 
 .form {
@@ -43,7 +41,8 @@ center {
 
 }
 
-input, select {
+input,
+select {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -67,6 +66,7 @@ input, select {
     color: #B19090;
 
 }
+
 @media screen {
     .form {
         background-color: #f0f0f0;

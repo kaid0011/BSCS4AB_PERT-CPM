@@ -1,36 +1,44 @@
-/* Page Title */
-.title {
-    font-size: 2rem;
+div.howto h2, div.howto p {
+    padding-bottom: 0;
+}
+
+.howto{
+    padding-left: 2em;
+}
+.mustknow{
+    padding-left: 2em;
+}
+.mustknow h2, .mustknow p{
+    padding-bottom: 0;
+}
+.mustknow-desc{
+    padding-left: 2.5em;
+}
+.mustknow-desc p{
+    margin-bottom: 0;
+    margin-top: 0; 
+}
+.description{
     text-align: center;
-    margin: 1rem;
 }
 
-.paragone {
-    font-size: 20px;
-    font-style: normal;
+.paragone{
     text-align: justify;
-    margin: 2rem 3rem;
 }
 
-.howto
-{
-    font-size: 20x;
-    
-}
 /* Calculate Button */
-.calculate
-{
+.calculate {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 2rem;
 }
-.btn
-{
+
+.btn {
     text-decoration: none;
     text-align: center;
     font-size: 1.2rem;
-    color: #eeee; 
+    color: #eeee;
     background-color: #B19090;
     border-radius: 40px;
     display: inline-block;
@@ -39,23 +47,22 @@
 
 }
 
-.btn:hover
-{
+.btn:hover {
     background-color: #eeee;
-    color:#B19090;
+    color: #B19090;
     cursor: pointer;
-    
+
 }
 
 /* TABLE */
-.container
-{
+.container {
     width: 99rem;
     max-width: 100%;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
 }
+
 table {
     padding: 1rem;
     margin-top: 3rem;
@@ -71,12 +78,11 @@ table {
     border-style: none;
     text-align: center;
     background-color: #f0f0f0;
-    
+
 }
 
 td,
-th 
-{
+th {
     border: none;
     border-collapse: collapse;
     border-style: none;
@@ -88,35 +94,34 @@ th
     border-radius: 0;
     background-color: transparent;
 }
-tr 
-{
+
+tr {
     border-bottom: 1px solid #ddd;
 }
-td{
+
+td {
     background-color: #f0f0f0;
 }
 
-th{
+th {
     background-color: #d9c7c7;
     padding: 15px;
-    
+
 }
 
-input[type=text1]
-{
+input[type=text1] {
     border-style: none;
     text-align: center;
     font-size: 2.5vh;
     background-color: transparent;
 }
 
-input[type=numbers]
-{
-    width:14rem;
-    padding:.5rem;
+input[type=numbers] {
+    width: 14rem;
+    padding: .5rem;
 }
-input
-{
+
+input {
     /* background-color: transparent; */
     border-radius: 5px;
     border: .5px solid;
@@ -132,20 +137,21 @@ input
     padding: 1rem;
     border-radius: 10px;
 }
+
 /* POPUP */
 .box {
-        position: fixed;
-        bottom: 0px;
-        right: 0px; 
-        width: 90%;
-        margin-right:1em; 
-        padding: 3em;
-        /* background-clip: padding-box;  */
-        text-align: right;
-        justify-content: right;
-        display: flex;
-    
-    }
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    width: 90%;
+    margin-right: 1em;
+    padding: 3em;
+    /* background-clip: padding-box;  */
+    text-align: right;
+    justify-content: right;
+    display: flex;
+
+}
 
 .button {
     font-size: 3em;
@@ -153,11 +159,11 @@ input
     color: #D7D0D0;
     cursor: pointer;
     transition: all 0.3s ease-out;
-    }
+}
 
 .button:hover {
-        color: #B19090;
-    }
+    color: #B19090;
+}
 
 .overlay {
     position: fixed;
@@ -169,13 +175,14 @@ input
     transition: opacity 200ms;
     visibility: hidden;
     opacity: 0;
-    }
-    .overlay:target {
+}
+
+.overlay:target {
     visibility: visible;
     opacity: 1;
-    }
+}
 
- .popup {
+.popup {
     margin: 70px auto;
     padding: 20px;
     background: #f0f0f0;
@@ -183,13 +190,14 @@ input
     width: 30%;
     position: relative;
     transition: all 5s ease-in-out;
-    }
+}
 
 .popup h2 {
     margin-top: 0;
     color: #333;
     font-family: Tahoma, Arial, sans-serif;
-    }
+}
+
 .popup .close {
     position: absolute;
     top: 20px;
@@ -200,67 +208,69 @@ input
     text-decoration: none;
     color: #333;
 }
+
 .popup .close:hover {
     color: #06D85F;
-    }
-    .popup .content {
+}
+
+.popup .content {
     max-height: 30%;
     overflow: auto;
 }
 
 /* Collapsible*/
-.collapsible > input[type="checkbox"] {
+.collapsible>input[type="checkbox"] {
     position: relative;
     left: -100vw;
-  }
-  
-  .collapsible .content {
+}
+
+.collapsible .content {
     overflow-y: hidden;
     height: 0;
     transition: height 0.3s ease;
     text-align: justify;
-  }
-  
-  .collapsible > input[type="checkbox"]:checked ~ .content {
+}
+
+.collapsible>input[type="checkbox"]:checked~.content {
     height: auto;
     overflow: visible;
-  }
-  
-  .collapsible label {
+}
+
+.collapsible label {
     display: block;
-  }
+}
 
-  .collapsible {
+.collapsible {
     margin-bottom: 1em;
-  }
-  
+}
 
-  .collapsible > input[type="checkbox"]:checked ~ .content {
+
+.collapsible>input[type="checkbox"]:checked~.content {
     padding: 15px;
     border: 1px solid #e8e8e8;
     border-top: 0;
-  }
-  
-  .collapsible .handle {
+}
+
+.collapsible .handle {
     margin: 0;
     font-size: 1.125em;
     line-height: 1.2em;
-  }
-  
-  .collapsible label {
+}
+
+.collapsible label {
     color: #333;
     cursor: pointer;
     font-weight: normal;
     padding: 15px;
     background: #e8e8e8;
-  }
-  
-  .collapsible label:hover,
-  .collapsible label:focus {
+}
+
+.collapsible label:hover,
+.collapsible label:focus {
     background: #d8d8d8;
-  }
-  
-  .collapsible .handle label:before {
+}
+
+.collapsible .handle label:before {
     font-family: 'fontawesome';
     content: "\f054";
     display: inline-block;
@@ -268,48 +278,54 @@ input
     font-size: .58em;
     line-height: 1.556em;
     vertical-align: middle;
-  }
-  
-  .collapsible > input[type="checkbox"]:checked ~ .handle label:before {
-    content: "\f078";
-  }
+}
 
-  .collapsible {
+.collapsible>input[type="checkbox"]:checked~.handle label:before {
+    content: "\f078";
+}
+
+.collapsible {
     max-width: 99%;
     margin: 2em;
 
-  }
-  
-  .collapsible p:last-child {
-    margin-bottom: 0;
-    
-  }
+}
 
-@media screen and (max-width: 700px){
-.box{
-    width: 70%;
+img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.collapsible p:last-child {
+    margin-bottom: 0;
+
+}
+
+@media screen and (max-width: 700px) {
+    .box {
+        width: 70%;
     }
-.popup{
-    width: 70%;
+
+    .popup {
+        width: 70%;
     }
 }
+
 /* RESPONSIVE */
 @media screen {
-    .form
-    {
-    background-color: #f0f0f0;
-    margin: 3rem 10rem 2rem;
-    border-radius: 1.2rem;
-    padding: 0.25rem;
+    .form {
+        background-color: #f0f0f0;
+        margin: 3rem 10rem 2rem;
+        border-radius: 1.2rem;
+        padding: 0.25rem;
     }
 }
 
-@media only screen and (max-width: 1500px) and (min-width: 300px)
-{
-    .table
-    {
+@media only screen and (max-width: 1500px) and (min-width: 300px) {
+    .table {
         margin-left: 3vh;
         margin-right: 5vh;
     }
-    
+
 }

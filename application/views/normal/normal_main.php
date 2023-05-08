@@ -1,22 +1,26 @@
-<div class="firstpg">
+<div class="body-container">
+    <div class="firstpg">
     <div class="title">
-        <b> Normal Distribution </b>
+        <h1>Normal Distribution</h1>
     </div>
     <div class="paragone">
-        In normal distribution, the probability of an
+            <div class="description">
+        <p>In normal distribution, the probability of an
         event occurring is evenly distributed around the mean, and the probability
         decreases as the distance from the mean increases. The normal distribution
         is often used in scheduler calculators to represent task durations that are
         evenly distributed around an average value.
-        <br><br>
+        </p></div>
         <div class = "howto">
-            <b>How To?</b> <br>
-            • Enter the Number of Activities of your project<br>
-            • Choose your desired Unit of Time: Days, Weeks, or Months<br>
-            • Click 'Generate Table' to generate a table to input your project details<br><br>
-        </div>
+            <h2>How To?</h2>
+            <ul>
+            <li><p>Enter the Number of Activities of your project.</p></li>
+            <li><p>Choose your desired Unit of Time: Days, Weeks, or Months.</p></li>
+            <li><p>Click 'Generate Table' to generate a table to input your project details</p></li>
+            </ul></div>
     </div>
 </div>
+<br>
 <center>
     <div class="form">
         <form action="<?= base_url('normal/proj_details') ?>" method="post">
@@ -45,3 +49,4 @@
 </div>
 </form>
 <br><br>
+</div>
