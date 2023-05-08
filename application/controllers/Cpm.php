@@ -1,7 +1,7 @@
 <?php
 class Cpm extends CI_Controller
 {
-    public function __contruct()
+    public function __constwwwwruct()
     {
         parent::__construct();
     }

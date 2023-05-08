@@ -1,27 +1,30 @@
-<div class="firstpg">
+<div class="body-container">
+    <div class="firstpg">
     <div class="title">
-        <b> BETA-PERT Distribution </b>
+        <h1>BETA-PERT Distribution</h1>
     </div>
     <div class="paragone">
-        The BETA-PERT distribution is a type of probability
+            <div class="description">
+        <p>The BETA-PERT distribution is a type of probability
         distribution that is used in PERT analysis. It combines aspects of both the
         normal and triangular distributions to model uncertainty in task durations.
-        <br><br>
+        <br>
         The BETA-PERT distribution is characterized by three parameters: the minimum,
         most likely, and maximum duration for a task. It is often used in scheduler
         calculators to perform simulations that take into account the uncertainty and
-        variability of task durations.
-        <br> <br>
+        variability of task durations.</p></div>
         <div class = "howto">
-            <b>How To?</b> <br>
-            • Enter the Number of Activities of your project<br>
-            • Choose your desired Unit of Time: Days, Weeks, or Months<br>
-            • Click 'Generate Table' to generate a table to input your project details<br><br>
-        </div>
+            <h2>How To?</h2>
+            <ul>
+                <li><p>Enter the Number of Activities of your project.</p></li>
+                <li><p>Choose your desired Unit of Time: Days, Weeks, or Months.</p></li>
+                <li><p>Click 'Generate Table' to generate a table to input your project details.</p></li>
+            </ul></div>
 
     </div>
 
 </div>
+<br>
 <center>
     <div class="form">
         <form action="<?= base_url('betapert/proj_details') ?>" method="post">
@@ -50,3 +53,4 @@
 </div>
 </form>
 <br><br>
+</div>
