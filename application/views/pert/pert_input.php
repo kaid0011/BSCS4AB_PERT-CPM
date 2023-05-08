@@ -45,11 +45,11 @@
         </thead>
         <tbody>
             <form action="<?php echo base_url('pert/calculate') ?>" method="post">
-                <input type="number" name="proj_len" value="<?php echo $proj_len; ?>" hidden>
+                <input type="number" name="proj_len" value="<?php echo $_SESSION['proj_len']; ?>" hidden>
                 <input type="text" name="choice" value="<?php echo 'pert'; ?>" hidden>
-                <input type="text" name="unit" value="<?php echo $unit; ?>" hidden>
+                <input type="text" name="unit" value="<?php echo $_SESSION['unit']; ?>" hidden>
                 <?php
-                for ($i = 1; $i <= $proj_len; $i++) {
+                for ($i = 1; $i <= $_SESSION['proj_len']; $i++) {
                 ?>
                     <tr>
                         <td><input type="text1" name="<?php echo $i; ?>" value="<?php echo $i; ?>" readonly></td>

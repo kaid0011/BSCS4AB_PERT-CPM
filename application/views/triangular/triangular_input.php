@@ -35,7 +35,7 @@
         <tbody>
         <form action="<?php echo base_url('triangular/calculate') ?>" method="post">
             <?php
-            for ($i = 1; $i <= $proj_len; $i++) {
+            for ($i = 1; $i <= $_SESSION['proj_len']; $i++) {
             ?>
                 <tr>
                     <td><input type="text1" name="<?php echo $i; ?>" value="<?php echo $i; ?>" readonly></td>
@@ -59,9 +59,9 @@
             </tbody>
     </table>
 </div>
-<input type="number" name="proj_len" value="<?php echo $proj_len; ?>" hidden>
+<input type="number" name="proj_len" value="<?php echo $_SESSION['proj_len']; ?>" hidden>
 <input type="text" name="choice" value="<?php echo 'cpm'; ?>" hidden>
-<input type="text" name="unit" value="<?php echo $unit; ?>" hidden>
+<input type="text" name="unit" value="<?php echo $_SESSION['unit']; ?>" hidden>
 <br><br>
 <div class="trials">
     Number of Trials: <br><br>

@@ -8,19 +8,18 @@ class Home extends CI_Controller
 
     public function index()
     {
-        $data['pagename'] = 'WAPS with Simulation';
-        $data['css'] = 'homepage';
-        $this->load->view('template/header', $data);
-        $this->load->view('home/homepage');
-        $this->load->view('template/footer');
+        $arr = array(
+            'pagename' => 'WAPS with Simulation',
+            'css' => 'homepage'
+        );
+        $this->session->set_userdata($arr);
+        redirect('Home/Home');
     }
 
-    // to be removed laturrr
-    public function choose()
+    public function Home()
     {
-        $data['choice'] = $this->input->post('choice');
-        $data['proj_len'] = $this->input->post('proj_len');
-        $data['unit'] = $this->input->post('unit');
-        $this->load->view('projectdetails', $data);
+        $this->load->view('template/header');
+        $this->load->view('home/homepage');
+        $this->load->view('template/footer');
     }
 }
