@@ -28,6 +28,7 @@
             </thead>
             <tbody>
                 <?php
+                $project = $_SESSION['project'];
                 foreach ($project as $task) {
                 ?>
                     <tr>
@@ -68,6 +69,7 @@
             <h3>Critical Path</h3>
             <p>
                 <?php
+                $cp = $_SESSION['cp'];
                 $max = max(array_column($cp, 'id'));
                 foreach ($cp as $cp) {
                     if ($cp['id'] == $max) {
@@ -85,7 +87,7 @@
         <center>
             <h3>Project Completion Time</h3>
             <p>
-                <?php echo $finish_time; ?>
+                <?php echo $_SESSION['finish_time']; ?>
             </p>
         </center>
 
@@ -203,8 +205,8 @@
                 <tr>
                     <th style="border-bottom-style: ridge; border-right-style: ridge;"></th>
                     <?php
-                    for ($col = 1; $col <= $finish_time + 1; $col++) {
-                        if ($col == ceil($finish_time)) { ?>
+                    for ($col = 1; $col <= $_SESSION['finish_time'] + 1; $col++) {
+                        if ($col == ceil($_SESSION['finish_time'])) { ?>
                             <th style="border-bottom-style: ridge;"></th>
                         <?php } else { ?>
                             <th style="border-bottom-style: ridge; text-align: right;"><?php echo "$col"; ?></th>
@@ -215,11 +217,11 @@
                 foreach ($project as $task) { ?>
                     <tr>
                         <th style="border-bottom-style: ridge; border-right-style: ridge;"><?php echo "Activity " . $task['id']; ?></th>
-                        <th style="border-bottom-style: ridge;" colspan="<?php echo ceil($finish_time); ?>">
+                        <th style="border-bottom-style: ridge;" colspan="<?php echo ceil($_SESSION['finish_time']); ?>">
                             <?php
-                            $waiting = ($task['es'] / $finish_time) * 100;
-                            $progress = (($task['lf'] - $task['es']) / $finish_time) * 100;
-                            $total_time = $finish_time / ceil($finish_time) * 100;
+                            $waiting = ($task['es'] / $_SESSION['finish_time']) * 100;
+                            $progress = (($task['lf'] - $task['es']) / $_SESSION['finish_time']) * 100;
+                            $total_time = $_SESSION['finish_time'] / ceil($_SESSION['finish_time']) * 100;
                             ?>
                             <div style="background-color:#B19090; width: <?php echo $total_time; ?>%">
                                 <div class="waiting" style="position: relative; float: left; display: inline-block; width: <?php echo $waiting ?>%"></div>

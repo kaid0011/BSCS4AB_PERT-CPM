@@ -33,56 +33,57 @@
                 </div>
             </div>
 
-        </div>
-        <div class="container">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Activity</th>
-                        <th title="Activity Description">Description <span class="tooltiptext">&#9432;</span></th>
-                        <th title="Shortest Estimated Activity Duration">Optimistic <span class="tooltiptext">&#9432;</span></th>
-                        <th title="Reasonable Estimated Activity Duration">Most Likely <span class="tooltiptext">&#9432;</span></th>
-                        <th title="Maximum Estimated Activity Duration">Pessimistic <span class="tooltiptext">&#9432;</span></th>
-                        <th title="Activity Number that needs to be completed first.">Pre-Requisites <span class="tooltiptext">&#9432;</span></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <form action="<?php echo base_url('betapert/calculate') ?>" method="post">
+</div>
+<div class="container" >
+<table class="table">
+        <thead>
+            <tr>
+                <th>Activity</th>
+                <th title ="Activity Description">Description <span class="tooltiptext">&#9432;</span></th>
+                <th title ="Shortest Estimated Activity Duration">Optimistic <span class="tooltiptext">&#9432;</span></th>
+                <th title ="Reasonable Estimated Activity Duration">Most Likely <span class="tooltiptext">&#9432;</span></th>
+                <th title ="Maximum Estimated Activity Duration">Pessimistic <span class="tooltiptext">&#9432;</span></th>
+                <th title ="Activity Number that needs to be completed first.">Pre-Requisites <span class="tooltiptext">&#9432;</span></th>
+            </tr>
+        </thead>
+        <tbody>
+        <form action="<?php echo base_url('betapert/calculate') ?>" method="post">
+            <?php
+            for ($i = 1; $i <= $_SESSION['proj_len']; $i++) {
+            ?>
+                <tr>
+                    <td><input type="text1" name="<?php echo $i; ?>" value="<?php echo $i; ?>" readonly></td>
+                    <td><input type="text" name="task_desc_<?php echo $i; ?>" ></td>
+                    <td><input type="number" name="task_opt_<?php echo $i; ?>" step="any"  min="1" max="20" oninput="validity.valid||(value='');" required></td>
+                    <td><input type="number" name="task_ml_<?php echo $i; ?>" step="any" min="1" max="20" oninput="validity.valid||(value='');" required></td>
+                    <td><input type="number" name="task_pes_<?php echo $i; ?>" step="any"  min="1" max="20" oninput="validity.valid||(value='');" required></td>
+                    <td><?php
+                        if ($i == 1) {
+                        ?>
+                            <input type="text" name="task_prereq_<?php echo $i; ?>" value="-" readonly>
                         <?php
-                        for ($i = 1; $i <= $proj_len; $i++) {
-                        ?>
-                            <tr>
-                                <td><input type="text1" name="<?php echo $i; ?>" value="<?php echo $i; ?>" readonly></td>
-                                <td><input type="text" name="task_desc_<?php echo $i; ?>"></td>
-                                <td><input type="number" name="task_opt_<?php echo $i; ?>" step="any" min="1" max="20" oninput="validity.valid||(value='');" required></td>
-                                <td><input type="number" name="task_ml_<?php echo $i; ?>" step="any" min="1" max="20" oninput="validity.valid||(value='');" required></td>
-                                <td><input type="number" name="task_pes_<?php echo $i; ?>" step="any" min="1" max="20" oninput="validity.valid||(value='');" required></td>
-                                <td><?php
-                                    if ($i == 1) {
-                                    ?>
-                                        <input type="text" name="task_prereq_<?php echo $i; ?>" value="-" readonly>
-                                    <?php
-                                    } else { ?>
-                                        <input type="text" name="task_prereq_<?php echo $i; ?>" pattern="[1-<?php echo $i - 1; ?>](,[1-<?php echo $i - 1; ?>])*|^[\-]" oninvalid="this.setCustomValidity('Enter Valid Activity ID')" onchange="this.setCustomValidity('')" required>
-                                    <?php } ?>
-                                </td>
-                            </tr>
-                        <?php }
-                        ?>
-                </tbody>
-            </table>
-        </div>
-        <br>
-        <input type="number" name="proj_len" value="<?php echo $proj_len; ?>" hidden>
-        <input type="text" name="choice" value="<?php echo 'cpm'; ?>" hidden>
-        <input type="text" name="unit" value="<?php echo $unit; ?>" hidden>
-        <div class="trials">
-            Number of Trials: <br><br>
-            <input type="numbers" name="N" min="1" max="1000" oninput="validity.valid||(value='');" placeholder="Max. 1000" required>
-        </div>
-        <br>
-        <div class="calculate">
-            <button class="btn">Calculate</button>
+                        } else { ?>
+                            <input type="text" name="task_prereq_<?php echo $i; ?>" pattern="[1-<?php echo $i-1; ?>](,[1-<?php echo $i-1; ?>])*|^[\-]" 
+                            oninvalid="this.setCustomValidity('Enter Valid Activity ID')" onchange="this.setCustomValidity('')" required>
+                        <?php } ?>
+                    </td>
+                </tr>
+            <?php }
+            ?>
+        </tbody>
+    </table>
+</div>
+<br>
+<input type="number" name="proj_len" value="<?php echo $_SESSION['proj_len']; ?>" hidden>
+<input type="text" name="choice" value="<?php echo 'cpm'; ?>" hidden>
+<input type="text" name="unit" value="<?php echo $_SESSION['unit']; ?>" hidden>
+<div class="trials">
+    Number of Trials: <br><br>
+    <input type="numbers" name="N" min="1" max="1000" oninput="validity.valid||(value='');" placeholder="Max. 1000" required>
+</div>
+<br>
+<div class="calculate">
+    <button class="btn">Calculate</button>
 
         </div>
         </form>

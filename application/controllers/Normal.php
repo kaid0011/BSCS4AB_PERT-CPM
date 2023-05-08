@@ -7,22 +7,40 @@ class Normal extends CI_Controller
     }
 
     public function index()
+    {  
+        $arr = array(
+            'pagename' => 'Normal Distribution',
+            'css' => 'mainpage'
+        );
+        $this->session->set_userdata($arr);
+        redirect('Normal/Main');     
+    }
+
+    public function Main()
     {
-        $data['pagename'] = 'Normal Distribution';
-        $data['css'] = 'mainpage';
-        $this->load->view('template/header', $data);
+        $this->load->view('template/header');
         $this->load->view('normal/normal_main');
-        $this->load->view('template/footer');        
+        $this->load->view('template/footer'); 
     }
 
     public function proj_details()
     {
-        $data['proj_len'] = $this->input->post('proj_len');
-        $data['unit'] = $this->input->post('unit');
-        $data['pagename'] = 'Normal - Enter Project Details';
-        $data['css'] = 'inputpage';
-        $this->load->view('template/header', $data);
-        $this->load->view('normal/normal_input', $data);
+        $len = $this->input->post('proj_len');
+        $unit = $this->input->post('unit');
+        $arr = array(
+            'pagename' => 'Normal - Enter Project Details',
+            'css' => 'inputpage',
+            'proj_len' => $len,
+            'unit' => $unit
+        );
+        $this->session->set_userdata($arr);
+        redirect('Normal/ProjectDetails');
+    }
+
+    public function ProjectDetails()
+    {
+        $this->load->view('template/header');
+        $this->load->view('normal/normal_input');
         $this->load->view('template/footer');
     }
 
@@ -188,12 +206,21 @@ class Normal extends CI_Controller
                 $cp[] = $data[$j];
             }
         }
-        $data['project'] = $project;
-        $data['cp'] = $cp;
-        $data['pagename'] = 'Normal - Results';
-        $data['css'] = 'outputpage';
-        $this->load->view('template/header', $data);
-        $this->load->view('normal/normal_output', $data);
+        $arr = array(
+            'pagename' => 'Normal - Results',
+            'css' => 'outputpage',
+            'project' => $project,
+            'cp' => $cp,
+            'finish_time' => $data['finish_time']
+        );
+        $this->session->set_userdata($arr);
+        redirect('Normal/Results');
+    }
+
+    public function Results()
+    {
+        $this->load->view('template/header');
+        $this->load->view('normal/normal_output');
         $this->load->view('template/footer'); 
     }
 }

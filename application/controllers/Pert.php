@@ -8,21 +8,38 @@ class Pert extends CI_Controller
 
     public function index()
     {
-        $data['pagename'] = 'Project Evaluation Review Technique (PERT)';
-        $data['css'] = 'mainpage';
-        $this->load->view('template/header', $data, $data);
+        $arr = array(
+            'pagename' => 'Project Evaluation Review Technique (PERT)',
+            'css' => 'mainpage'
+        );
+        $this->session->set_userdata($arr);
+        redirect('Pert/Main');       
+    }
+
+    public function Main()
+    {
+        $this->load->view('template/header');
         $this->load->view('pert/pert_main');
-        $this->load->view('template/footer');        
+        $this->load->view('template/footer'); 
     }
 
     public function proj_details()
     {
-        $data['proj_len'] = $this->input->post('proj_len');
-        $data['unit'] = $this->input->post('unit');
-        $data['pagename'] = 'PERT - Enter Project Details';
-        $data['css'] = 'inputpage';
-        $this->load->view('template/header', $data);
-        $this->load->view('pert/pert_input', $data);
+        $len = $this->input->post('proj_len');
+        $unit = $this->input->post('unit');
+        $arr = array(
+            'pagename' => 'PERT - Enter Project Details',
+            'css' => 'inputpage',
+            'proj_len' => $len,
+            'unit' => $unit
+        );
+        $this->session->set_userdata($arr);
+        redirect('Pert/ProjectDetails');
+    }
+    public function ProjectDetails()
+    {
+        $this->load->view('template/header');
+        $this->load->view('pert/pert_input');
         $this->load->view('template/footer');
     }
 
@@ -172,15 +189,24 @@ class Pert extends CI_Controller
                 $cp[] = $data[$j];
                 $proj_var += $data[$j]['v'];    // add up variance of critical tasks to get project variance
             }
-        }
-        $data['project'] = $project;
-        $data['cp'] = $cp;
-        $data['proj_variance'] = $proj_var;
-        $data['proj_sd'] = sqrt($proj_var);     // project SD = square root of project variance
-        $data['pagename'] = 'PERT - Results';
-        $data['css'] = 'outputpage';
-        $this->load->view('template/header', $data);
-        $this->load->view('pert/pert_output', $data);
+        }  
+        $arr = array(
+            'pagename' => 'CPM - Results',
+            'css' => 'outputpage',
+            'project' => $project,
+            'cp' => $cp,
+            'finish_time' => $data['finish_time'],
+            'proj_variance' => $proj_var,
+            'proj_sd' => sqrt($proj_var)    // project SD = square root of project variance
+        );
+        $this->session->set_userdata($arr);
+        redirect('Pert/Results');
+    }
+
+    public function Results()
+    {
+        $this->load->view('template/header');
+        $this->load->view('pert/pert_output');
         $this->load->view('template/footer'); 
     }
 }

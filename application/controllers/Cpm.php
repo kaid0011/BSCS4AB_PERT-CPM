@@ -7,22 +7,40 @@ class Cpm extends CI_Controller
     }
 
     public function index()
+    {    
+        $arr = array(
+            'pagename' => 'Critical Path Method (CPM)',
+            'css' => 'mainpage'
+        );
+        $this->session->set_userdata($arr);
+        redirect('Cpm/Main');
+    }
+
+    public function Main()
     {
-        $data['pagename'] = 'Critical Path Method (CPM)';
-        $data['css'] = 'mainpage';
-        $this->load->view('template/header', $data);
+        $this->load->view('template/header');
         $this->load->view('cpm/cpm_main');
-        $this->load->view('template/footer');        
+        $this->load->view('template/footer'); 
     }
 
     public function proj_details()
     {
-        $data['proj_len'] = $this->input->post('proj_len');
-        $data['unit'] = $this->input->post('unit');
-        $data['pagename'] = 'CPM - Enter Project Details';
-        $data['css'] = 'inputpage';
-        $this->load->view('template/header', $data);
-        $this->load->view('cpm/cpm_input', $data);
+        $len = $this->input->post('proj_len');
+        $unit = $this->input->post('unit');
+        $arr = array(
+            'pagename' => 'CPM - Enter Project Details',
+            'css' => 'inputpage',
+            'proj_len' => $len,
+            'unit' => $unit
+        );
+        $this->session->set_userdata($arr);
+        redirect('Cpm/ProjectDetails');
+    }
+
+    public function ProjectDetails()
+    {
+        $this->load->view('template/header');
+        $this->load->view('cpm/cpm_input');
         $this->load->view('template/footer');
     }
 
@@ -153,12 +171,21 @@ class Cpm extends CI_Controller
                 $cp[] = $data[$j];
             }
         }
-        $data['project'] = $project;
-        $data['cp'] = $cp;       
-        $data['pagename'] = 'CPM - Results';
-        $data['css'] = 'outputpage';
-        $this->load->view('template/header', $data);
-        $this->load->view('cpm/cpm_output', $data);
+        $arr = array(
+            'pagename' => 'CPM - Results',
+            'css' => 'outputpage',
+            'project' => $project,
+            'cp' => $cp,
+            'finish_time' => $data['finish_time']
+        );
+        $this->session->set_userdata($arr);
+        redirect('Cpm/Results');
+    }
+
+    public function Results()
+    {
+        $this->load->view('template/header');
+        $this->load->view('cpm/cpm_output');
         $this->load->view('template/footer'); 
     }
 }
