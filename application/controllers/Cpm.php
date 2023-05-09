@@ -1,24 +1,46 @@
 <?php
 class Cpm extends CI_Controller
 {
-    public function __contruct()
+    public function __constwwwwruct()
     {
         parent::__construct();
     }
 
     public function index()
+    {    
+        $arr = array(
+            'pagename' => 'Critical Path Method (CPM)',
+            'css' => 'mainpage'
+        );
+        $this->session->set_userdata($arr);
+        redirect('Cpm/Main');
+    }
+
+    public function Main()
     {
         $this->load->view('template/header');
         $this->load->view('cpm/cpm_main');
-        $this->load->view('template/footer');        
+        $this->load->view('template/footer'); 
     }
 
     public function proj_details()
     {
-        $data['proj_len'] = $this->input->post('proj_len');
-        $data['unit'] = $this->input->post('unit');
+        $len = $this->input->post('proj_len');
+        $unit = $this->input->post('unit');
+        $arr = array(
+            'pagename' => 'CPM - Enter Project Details',
+            'css' => 'inputpage',
+            'proj_len' => $len,
+            'unit' => $unit
+        );
+        $this->session->set_userdata($arr);
+        redirect('Cpm/ProjectDetails');
+    }
+
+    public function ProjectDetails()
+    {
         $this->load->view('template/header');
-        $this->load->view('cpm/cpm_input', $data);
+        $this->load->view('cpm/cpm_input');
         $this->load->view('template/footer');
     }
 
@@ -149,11 +171,21 @@ class Cpm extends CI_Controller
                 $cp[] = $data[$j];
             }
         }
-        $data['project'] = $project;
-        $data['cp'] = $cp;
-        
+        $arr = array(
+            'pagename' => 'CPM - Results',
+            'css' => 'outputpage',
+            'project' => $project,
+            'cp' => $cp,
+            'finish_time' => $data['finish_time']
+        );
+        $this->session->set_userdata($arr);
+        redirect('Cpm/Results');
+    }
+
+    public function Results()
+    {
         $this->load->view('template/header');
-        $this->load->view('cpm/cpm_output', $data);
+        $this->load->view('cpm/cpm_output');
         $this->load->view('template/footer'); 
     }
 }
