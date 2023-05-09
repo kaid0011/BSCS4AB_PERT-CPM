@@ -1,26 +1,17 @@
-<div class="body-container">
-    <div class="firstpg">
+<div class="firstpg">
     <div class="title">
-        <h1>Normal Distribution</h1>
+        <b> NORMAL DISTRIBUTION </b>
     </div>
     <div class="paragone">
-            <div class="description">
-        <p>In normal distribution, the probability of an
+        In normal distribution, the probability of an
         event occurring is evenly distributed around the mean, and the probability
-        decreases as the distance from the mean increases. The normal distribution
+        decreases as the distance from the mean increases. 
+        <br><br>
+        The normal distribution
         is often used in scheduler calculators to represent task durations that are
         evenly distributed around an average value.
-        </p></div>
-        <div class = "howto">
-            <h2>How To?</h2>
-            <ul>
-            <li><p>Enter the Number of Activities of your project.</p></li>
-            <li><p>Choose your desired Unit of Time: Days, Weeks, or Months.</p></li>
-            <li><p>Click 'Generate Table' to generate a table to input your project details</p></li>
-            </ul></div>
     </div>
 </div>
-<br>
 <center>
     <div class="form">
         <form action="<?= base_url('normal/proj_details') ?>" method="post">
@@ -49,4 +40,82 @@
 </div>
 </form>
 <br><br>
-</div>
+
+<style>
+    .title {
+        font-size: 2rem;
+        text-align: center;
+        margin: 1rem;
+    }
+
+
+    .paragone {
+        font-size: 24px;
+        font-style: normal;
+        text-align: justify;
+        margin: 2rem 5rem;
+    }
+
+    .generate {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 2rem;
+    }
+
+    .container {
+        width: 100%;
+    }
+
+    center {
+        width: 75%;
+        margin-left: 12%;
+    }
+
+    .form {
+        background-color: #f0f0f0;
+        border-radius: 1.2rem;
+    }
+
+    .form-group {
+        margin: 2rem 5rem;
+        text-align: center;
+        box-sizing: border-box;
+
+    }
+
+    input,
+    select {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+    }
+
+    .btn {
+        text-decoration: none;
+        text-align: center;
+        font-size: 1.2rem;
+        color: #eeee;
+        background-color: #B19090;
+        border-radius: 40px;
+        display: inline-block;
+        padding: 10px 20px;
+        border-color: #544141;
+    }
+
+    .btn:hover {
+        background-color: #eeee;
+        color: #B19090;
+
+    }
+
+    @media screen {
+        .form {
+            background-color: #f0f0f0;
+            margin: 0rem 0rem 2rem;
+            border-radius: 1.2rem;
+            padding: 0.25rem;
+        }
+    }
+</style>
