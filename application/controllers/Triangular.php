@@ -8,40 +8,18 @@ class Triangular extends CI_Controller
     }
 
     public function index()
-    {       
-        $arr = array(
-            'pagename' => 'Triangular Distribution',
-            'css' => 'mainpage'
-        );
-        $this->session->set_userdata($arr);
-        redirect('Triangular/Main');       
-    }
-
-    public function Main()
     {
         $this->load->view('template/header');
         $this->load->view('triangular/triangular_main');
-        $this->load->view('template/footer'); 
+        $this->load->view('template/footer');        
     }
 
     public function proj_details()
     {
-        $len = $this->input->post('proj_len');
-        $unit = $this->input->post('unit');
-        $arr = array(
-            'pagename' => 'Triangular - Enter Project Details',
-            'css' => 'inputpage',
-            'proj_len' => $len,
-            'unit' => $unit
-        );
-        $this->session->set_userdata($arr);
-        redirect('Triangular/ProjectDetails');
-    }
-
-    public function ProjectDetails()
-    {
+        $data['proj_len'] = $this->input->post('proj_len');
+        $data['unit'] = $this->input->post('unit');
         $this->load->view('template/header');
-        $this->load->view('triangular/triangular_input');
+        $this->load->view('triangular/triangular_input', $data);
         $this->load->view('template/footer');
     }
 
@@ -207,24 +185,11 @@ class Triangular extends CI_Controller
                 $cp[] = $data[$j];
             }
         }
-        $arr = array(
-            'pagename' => 'Triangular - Results',
-            'css' => 'outputpage',
-            'project' => $project,
-            'cp' => $cp,
-            'finish_time' => $data['finish_time']
-        );
-        $this->session->set_userdata($arr);
-        redirect('Triangular/Results');
-    }
+        $data['project'] = $project;
+        $data['cp'] = $cp;
 
-    public function Results()
-    {
         $this->load->view('template/header');
-        $this->load->view('triangular/triangular_output');
-        $this->load->view('template/footer'); 
+        $this->load->view('triangular/triangular_output', $data);
+        $this->load->view('template/footer');
     }
 }
-
-
-
