@@ -13,10 +13,10 @@ class Home extends CI_Controller
             'css' => 'homepage'
         );
         $this->session->set_userdata($arr);
-        redirect('Home/Home');
+        redirect('home/home');
     }
 
-    public function Home()
+    public function home()
     {
         $this->load->view('template/header');
         $this->load->view('home/homepage');

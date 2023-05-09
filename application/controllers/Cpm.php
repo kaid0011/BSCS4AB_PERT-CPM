@@ -1,7 +1,7 @@
 <?php
 class Cpm extends CI_Controller
 {
-    public function __constwwwwruct()
+    public function __construct()
     {
         parent::__construct();
     }
@@ -13,10 +13,10 @@ class Cpm extends CI_Controller
             'css' => 'mainpage'
         );
         $this->session->set_userdata($arr);
-        redirect('Cpm/Main');
+        redirect('cpm/main');
     }
 
-    public function Main()
+    public function main()
     {
         $this->load->view('template/header');
         $this->load->view('cpm/cpm_main');
@@ -34,10 +34,10 @@ class Cpm extends CI_Controller
             'unit' => $unit
         );
         $this->session->set_userdata($arr);
-        redirect('Cpm/ProjectDetails');
+        redirect('cpm/projectdetails');
     }
 
-    public function ProjectDetails()
+    public function projectdetails()
     {
         $this->load->view('template/header');
         $this->load->view('cpm/cpm_input');
@@ -179,10 +179,10 @@ class Cpm extends CI_Controller
             'finish_time' => $data['finish_time']
         );
         $this->session->set_userdata($arr);
-        redirect('Cpm/Results');
+        redirect('cpm/results');
     }
 
-    public function Results()
+    public function results()
     {
         $this->load->view('template/header');
         $this->load->view('cpm/cpm_output');
