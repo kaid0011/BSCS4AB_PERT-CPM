@@ -7,12 +7,7 @@ class Triangular extends CI_Controller
     }
 
     public function index()
-    {
-        // $data['pagename'] = 'Triangular Distribution';
-        // $data['css'] = 'mainpage';
-        // $this->load->view('template/header', $data);
-        // $this->load->view('triangular/triangular_main');
-        // $this->load->view('template/footer'); 
+    {       
         $arr = array(
             'pagename' => 'Triangular Distribution',
             'css' => 'mainpage'
@@ -30,13 +25,6 @@ class Triangular extends CI_Controller
 
     public function proj_details()
     {
-        // $data['proj_len'] = $this->input->post('proj_len');
-        // $data['unit'] = $this->input->post('unit');
-        // $data['pagename'] = 'Triangular - Enter Project Details';
-        // $data['css'] = 'inputpage';
-        // $this->load->view('template/header', $data);
-        // $this->load->view('triangular/triangular_input', $data);
-        // $this->load->view('template/footer');
         $len = $this->input->post('proj_len');
         $unit = $this->input->post('unit');
         $arr = array(
@@ -218,13 +206,6 @@ class Triangular extends CI_Controller
                 $cp[] = $data[$j];
             }
         }
-        // $data['project'] = $project;
-        // $data['cp'] = $cp;
-        // $data['pagename'] = 'Triangular - Results';
-        // $data['css'] = 'outputpage';
-        // $this->load->view('template/header', $data);
-        // $this->load->view('triangular/triangular_output', $data);
-        // $this->load->view('template/footer');
         $arr = array(
             'pagename' => 'Triangular - Results',
             'css' => 'outputpage',
@@ -243,3 +224,6 @@ class Triangular extends CI_Controller
         $this->load->view('template/footer'); 
     }
 }
+
+
+
