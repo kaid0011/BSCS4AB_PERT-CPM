@@ -1,19 +1,30 @@
-<div class="firstpg">
+<div class="body-container">
+    <div class="firstpg">
     <div class="title">
-        <b> BETA-PERT Distribution </b>
+        <h1>BETA-PERT Distribution</h1>
     </div>
     <div class="paragone">
-        The BETA-PERT distribution is a type of probability
+            <div class="description">
+        <p>The BETA-PERT distribution is a type of probability
         distribution that is used in PERT analysis. It combines aspects of both the
         normal and triangular distributions to model uncertainty in task durations.
-        <br><br>
+        <br>
         The BETA-PERT distribution is characterized by three parameters: the minimum,
         most likely, and maximum duration for a task. It is often used in scheduler
         calculators to perform simulations that take into account the uncertainty and
-        variability of task durations.
+        variability of task durations.</p></div>
+        <div class = "howto">
+            <h2>How To?</h2>
+            <ul>
+                <li><p>Enter the Number of Activities of your project.</p></li>
+                <li><p>Choose your desired Unit of Time: Days, Weeks, or Months.</p></li>
+                <li><p>Click 'Generate Table' to generate a table to input your project details.</p></li>
+            </ul></div>
+
     </div>
 
 </div>
+<br>
 <center>
     <div class="form">
         <form action="<?= base_url('betapert/proj_details') ?>" method="post">
@@ -41,83 +52,5 @@
     <button class="btn">Generate Table</button>
 </div>
 </form>
-
-<style>
-    .title {
-        font-size: 2rem;
-        text-align: center;
-        margin: 1rem;
-    }
-
-
-    .paragone {
-        font-size: 24px;
-        font-style: normal;
-        text-align: justify;
-        margin: 2rem 5rem;
-    }
-
-    .generate {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-bottom: 2rem;
-    }
-
-    .container {
-        width: 100%;
-    }
-
-    center {
-        width: 75%;
-        margin-left: 12%;
-    }
-
-    .form {
-        background-color: #f0f0f0;
-        border-radius: 1.2rem;
-    }
-
-    .form-group {
-        margin: 2rem 5rem;
-        text-align: center;
-        box-sizing: border-box;
-
-    }
-
-    input,
-    select {
-        width: 100%;
-        padding: 12px 20px;
-        margin: 8px 0;
-        box-sizing: border-box;
-    }
-
-    .btn {
-        text-decoration: none;
-        text-align: center;
-        font-size: 1.2rem;
-        color: #eeee;
-        background-color: #B19090;
-        border-radius: 40px;
-        display: inline-block;
-        padding: 10px 20px;
-        border-color: #544141;
-    }
-
-    .btn:hover {
-        background-color: #eeee;
-        color: #B19090;
-
-    }
-
-    @media screen {
-        .form {
-            background-color: #f0f0f0;
-            margin: 0rem 0rem 2rem;
-            border-radius: 1.2rem;
-            padding: 0.25rem;
-        }
-        
-    }
-</style>
+<br><br>
+</div>

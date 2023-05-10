@@ -8,17 +8,39 @@ class Betapert extends CI_Controller
 
     public function index()
     {
+        $arr = array(
+            'pagename' => 'BETA-PERT Distribution',
+            'css' => 'mainpage'
+        );
+        $this->session->set_userdata($arr);
+        redirect('Betapert/Main');       
+    }
+
+    public function Main()
+    {
         $this->load->view('template/header');
         $this->load->view('betapert/betapert_main');
-        $this->load->view('template/footer');        
+        $this->load->view('template/footer'); 
     }
 
     public function proj_details()
     {
-        $data['proj_len'] = $this->input->post('proj_len');
-        $data['unit'] = $this->input->post('unit');
+        $len = $this->input->post('proj_len');
+        $unit = $this->input->post('unit');
+        $arr = array(
+            'pagename' => 'BETA-PERT - Enter Project Details',
+            'css' => 'inputpage',
+            'proj_len' => $len,
+            'unit' => $unit
+        );
+        $this->session->set_userdata($arr);
+        redirect('Betapert/ProjectDetails');
+    }
+
+    public function ProjectDetails()
+    {
         $this->load->view('template/header');
-        $this->load->view('betapert/betapert_input', $data);
+        $this->load->view('betapert/betapert_input');
         $this->load->view('template/footer');
     }
 
@@ -186,11 +208,25 @@ class Betapert extends CI_Controller
                 $cp[] = $data[$j];
             }
         }
-        $data['project'] = $project;
-        $data['cp'] = $cp;
 
+        $arr = array(
+            'pagename' => 'BETA-PERT - Results',
+            'css' => 'outputpage',
+            'project' => $project,
+            'cp' => $cp,
+            'finish_time' => $data['finish_time']
+        );
+        $this->session->set_userdata($arr);
+        redirect('Betapert/Results');
+    }
+
+    public function Results()
+    {
         $this->load->view('template/header');
-        $this->load->view('betapert/betapert_output', $data);
-        $this->load->view('template/footer');
+        $this->load->view('betapert/betapert_output');
+        $this->load->view('template/footer'); 
     }
 }
+
+
+
