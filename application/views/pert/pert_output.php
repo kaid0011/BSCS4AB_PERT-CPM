@@ -113,6 +113,7 @@ Probability of Individual Task Completion Completion by Given Date
     <!-- CARDS 1 -->
     <div class="containerbox">
         <div class="box1">
+            <center>
             <h3>Critical Path</h3>
             <p>
                 <?php
@@ -132,9 +133,11 @@ Probability of Individual Task Completion Completion by Given Date
             <p>
                 <?php echo $_SESSION['finish_time']; ?>
             </p>
+            </center>
         </div>
 
         <div class="box1">
+            <center>
             <h3>Project Variance</h3>
             <p>
                 <?php echo round($_SESSION['proj_variance'], 2); ?>
@@ -143,6 +146,7 @@ Probability of Individual Task Completion Completion by Given Date
             <p>
                 <?php echo round($_SESSION['proj_sd'], 2); ?>
             </p>
+            </center>
         </div>
     </div>
     <div class="export">
@@ -176,233 +180,240 @@ Probability of Individual Task Completion Completion by Given Date
             <center><button class="expbtn">Export Results</button></center>
         </form>
     </div>
+    <div class="probability">
+        <div class="title">
+            <h2> Completion Probability Calculator</h2>
+        </div>
+
+        <!-- EXPLANATION -->
+        <div class="paragone">
+            <div class="description">
+                <p>
+                    Our PERT Calculator also enables users to determine the probability of an expected duration
+                </p>
+            </div>
+        </div>
+        <!-- CARDS 2 -->
+
+        <div class="containerbox">
+            <div class="box2">
+                <center>
+                    <h4>Compute Project Completion Probability</h4>
+                    <h5>How To?</h5>
+                    <ul>
+                        <li>
+                            <p>Enter your expected project duration.</p>
+                        </li>
+                        <li>
+                            <p>Click 'Calculate' and wait for the probability to show.</p>
+                        </li>
+                    </ul>
+                    <h5>Expected Project Duration</h5>
+                    <!-- <label for="pcg">Enter expected project duration: </label><br><br> -->
+                    <input type="number" name="x" id="x" required>
+                    <input type="number" name="m" id="m" value="<?php echo round($_SESSION['finish_time'], 2); ?>" hidden>
+                    <input type="number" name="s" id="s" value="<?php echo round($_SESSION['proj_sd'], 2); ?>" hidden>
+                    <br><br>
+                    <button id="compute" class="compute">Calculate</button>
+
+                    <!-- <label for="p">Probability of completion: </label>
+<input type="textp" name="p" id="p" readonly> -->
+                    <h5>Probability of Completion</h5>
+                    <input type="textp" name="p" id="p" readonly>
+                </center>
+            </div>
+
+            <div class="box2">
+                <center>
+                    <h4>Compute Individual Task Completion Probability</h4>
+                    <h5>How To?</h5>
+                    <ul>
+                        <li>
+                            <p>Enter the Activity Number of the duration you want to compute.</p>
+                        </li>
+                        <li>
+                            <p>Enter your expected activity duration.</p>
+                        </li>
+                        <li>
+                            <p>Click 'Calculate' and wait for the probability to show.</p>
+                        </li>
+                    </ul>
+                    <h5>Activity ID: </h5>
+                    <input type="number" name="tid" id="tid">
+                    <h5>Expected Project Duration: </h5>
+                    <input type="number" name="x_indiv" id="x_indiv"> <br><br>
+                    <button id="compute_indiv" class="compute_indiv">Calculate</button>
+                    <h5>Probability of Completion</h5>
+                    <input type="textp" name="p_indiv" id="p_indiv" readonly>
+                </center>
+            </div>
+        </div>
+    </div>
     <section class="collapsible">
         <input type="checkbox" name="collapse" id="handle1" checked="checked">
         <h2 class="handle">
             <label for="handle1">How WAPS' Project Evaluation Review Technique (PERT) Works:</label>
         </h2>
         <div class="content">
-            <p><strong>Step 1:</strong> Identifies all the activities involved in the project and arranges them in a logical sequence using their Activity IDs.</p>
-            <p><strong>Step 2:</strong> Determines the 3 durations: optimistic (a), most likely (m), and pessimistic (b), which are the estimated times provided by the user for each activity that are required to complete the activities.</p>
-            <p><strong>Step 3:</strong> Calculates the duration (T) by getting the mean of the 3 durations.</p>
-            <img src="<?= base_url('assets/images/pert_mean.png') ?>"></img>
-            <p><strong>Step 4:</strong> Identifies the pre-requisites of each activity, which must be completed before another activity starts.</p>
-            <p><strong>Step 5:</strong> Performs a Forward Pass.</p>
-            <ol type="a">
-                <li>
-                    <p>Forward Pass starts with the first activity, to determine the Early Start Time (ES) and Early Finish Time (EF) for each activity.</p>
-                </li>
-                <li>
-                    <p>For each activity, WAPS calculates the ES by adding the duration of the preceding activity to its ES. If an activity has more than one predecessor, the predecessor to be added is the highest one. For the first activity, the ES is equal to 0.</p>
-                </li>
-                <li>
-                    <p>Then, calculates the EF by adding the duration of the activity to its ES.</p>
-                </li>
-                <center>
-                    <p><i>EF = ES + T</i></p>
-                </center>
-                <li>
-                    <p>This process continues until the ES and EF have been calculated for all activities.</p>
-                </li>
-                <li>
-                    <p>Identifies the slack of each activity to know the critical path, which is the sequence of activities that has the longest duration and has slack equals to 0.</p>
-                </li>
-            </ol>
-            <p><strong>Step 6:</strong> Performs a Backward Pass.</p>
-            <ol type="a">
-                <li>
-                    <p>Backward Pass starts with the last activity, to determine the Latest Start Time (LS) and Latest Finish Time (LF) for each activity.</p>
-                </li>
-                <li>
-                    <p>For each activity, WAPS calculates the LF by subtracting the duration of the following activity from its LS. If an activity has more than one successor, the successor to be added is the lowest one. If just starting with the Backward Pass, the duration should be subtracted to the Project Completion Time (PCT).</p>
-                </li>
-                <li>
-                    <p>Then, calculates the LS by subtracting the duration of the activity from its LF. This process continues until the LS and LF have been calculated for all activities in the network.</p>
-                </li>
-                <center>
-                    <p><i>LS = LF - T</i></p>
-                </center>
-                <li>
-                    <p>Calculates the slack (S) for each activity by subtracting the activity's EF from its LF or ES from its LS. If S isequal to zero, the activity is a critical value and completes the critical path.</p>
-                </li>
-                <li>
-                    <p>Uses the ES, EF, LS, LF, and S values to identify the project's Critical Path and determine the shortest possible time required to complete the project.</p>
-                </li>
-            </ol>
-            <p><strong>Step 7:</strong> Uses the Earliest Start Time (ES) and Latest Finish Time (LF) of each activity to create a Gantt Chart. The darker colored bars represent the critical values which complete the Critical Path.</p>
+            <div class="pert">
+                <p><strong>Step 1:</strong> Identifies all the activities involved in the project and arranges them in a logical sequence using their Activity IDs.</p>
+                <p><strong>Step 2:</strong> Determines the 3 durations: optimistic (a), most likely (m), and pessimistic (b), which are the estimated times provided by the user for each activity that are required to complete the activities.</p>
+                <p><strong>Step 3:</strong> Calculates the duration (T) by getting the mean of the 3 durations.</p>
+                <img src="<?= base_url('assets/images/pert_mean.png') ?>">
+                <p><strong>Step 4:</strong> Identifies the pre-requisites of each activity, which must be completed before another activity starts.</p>
+                <p><strong>Step 5:</strong> Performs a Forward Pass.</p>
+                <ol type="a">
+                    <li>
+                        <p>Forward Pass starts with the first activity, to determine the Early Start Time (ES) and Early Finish Time (EF) for each activity.</p>
+                    </li>
+                    <li>
+                        <p>For each activity, WAPS calculates the ES by adding the duration of the preceding activity to its ES. If an activity has more than one predecessor, the predecessor to be added is the highest one. For the first activity, the ES is equal to 0.</p>
+                    </li>
+                    <li>
+                        <p>Then, calculates the EF by adding the duration of the activity to its ES.</p>
+                    </li>
+                    <center>
+                        <p><i>EF = ES + T</i></p>
+                    </center>
+                    <li>
+                        <p>This process continues until the ES and EF have been calculated for all activities.</p>
+                    </li>
+                    <li>
+                        <p>Identifies the slack of each activity to know the critical path, which is the sequence of activities that has the longest duration and has slack equals to 0.</p>
+                    </li>
+                </ol>
+                <p><strong>Step 6:</strong> Performs a Backward Pass.</p>
+                <ol type="a">
+                    <li>
+                        <p>Backward Pass starts with the last activity, to determine the Latest Start Time (LS) and Latest Finish Time (LF) for each activity.</p>
+                    </li>
+                    <li>
+                        <p>For each activity, WAPS calculates the LF by subtracting the duration of the following activity from its LS. If an activity has more than one successor, the successor to be added is the lowest one. If just starting with the Backward Pass, the duration should be subtracted to the Project Completion Time (PCT).</p>
+                    </li>
+                    <li>
+                        <p>Then, calculates the LS by subtracting the duration of the activity from its LF. This process continues until the LS and LF have been calculated for all activities in the network.</p>
+                    </li>
+                    <center>
+                        <p><i>LS = LF - T</i></p>
+                    </center>
+                    <li>
+                        <p>Calculates the slack (S) for each activity by subtracting the activity's EF from its LF or ES from its LS. If S isequal to zero, the activity is a critical value and completes the critical path.</p>
+                    </li>
+                    <li>
+                        <p>Uses the ES, EF, LS, LF, and S values to identify the project's Critical Path and determine the shortest possible time required to complete the project.</p>
+                    </li>
+                </ol>
+                <p><strong>Step 7:</strong> Uses the Earliest Start Time (ES) and Latest Finish Time (LF) of each activity to create a Gantt Chart. The darker colored bars represent the critical values which complete the Critical Path.</p>
+            </div>
         </div>
     </section>
-
-    <div class="ganttchartname">
-        <b> Completion Probability Calculator</b>
-
-
-    </div>
-
-    <!-- EXPLANATION -->
-    <div class="paragone">
-        Our PERT Calculator also enables users to determine the probability of an expected duration
-        <br><br>
-        <b>Project Completion Probability</b>: Calculate the probability of an expected project completion time for the whole project <br>
-        <br>
-        <b> How To?</b><br>
-        • Enter your expected project duration. <br>
-        • Click 'Calculate' and wait for the probability to show.
-        <br><br>
-        <b>Activity Completion Probability</b>: Calculate the probability of an expected duration of a specific activity <br>
-        <br>
-        <b> How To?</b><br>
-        • Enter the Activity Number of the duration you want to compute.<br>
-        • Enter your expected activity duration.<br>
-        • Click 'Calculate' and wait for the probability to show.<br>
-
-    </div>
-
-    <!-- CARDS 2 -->
-
-    <div class="containerbox">
-        <div class="box2">
-            <center>
-                <b style="font-size:20px; color: rgb(104, 92, 92);"> Compute Project Completion Probability </b>
-                <h3 id="two">Expected Project Duration</h3>
-                <!-- <label for="pcg">Enter expected project duration: </label><br><br> -->
-                <input type="number" name="x" id="x" required>
-                <input type="number" name="m" id="m" value="<?php echo round($_SESSION['finish_time'], 2); ?>" hidden>
-                <input type="number" name="s" id="s" value="<?php echo round($_SESSION['proj_sd'], 2); ?>" hidden>
-                <br><br>
-                <button id="compute" class="compute">Calculate</button>
-
-                <!-- <label for="p">Probability of completion: </label>
-<input type="textp" name="p" id="p" readonly> -->
-                <h3 id="two">Probability of Completion</h3>
-                <input type="textp" name="p" id="p" readonly>
-            </center>
-        </div>
-
-        <div class="box2">
-            <center>
-                <b style="font-size:20px; color: rgb(104, 92, 92);"> Compute Individual Task Completion Probability </b>
-                <h3 id="two">Activity ID: </h3>
-                <input type="number" name="tid" id="tid">
-                <h3 id="two">Expected Project Duration: </h3>
-                <input type="number" name="x_indiv" id="x_indiv"> <br><br>
-                <button id="compute_indiv" class="compute_indiv">Calculate</button>
-                <h3 id="two">Probability of Completion</h3>
-                <input type="textp" name="p_indiv" id="p_indiv" readonly>
-            </center>
-        </div>
-    </div>
+    
 
     <br>
-    <div class="ganttchartname">
-        <b> Project Gantt Chart</b>
-    </div>
 
-    <!-- CHART -->
-    <div class="ganttcontainer" style="max-width: 100%; margin: 0 auto; padding: 30px;">
-        <div class="chart" style="display: grid; position: relative; overflow: hidden; overflow-x:auto">
+    <!-- Gantt Chart -->
 
-            <!-- GANTT CHART -->
-            <div class="grid-container-gantt">
-                <div style="overflow-x: auto;">
-                    <table class="gantt-chart">
-                        <thead>
-                            <tr>
-                                <th style="border-bottom-style: ridge; border-right-style: ridge;"></th>
+    <div class="grid-container-gantt">
+        <div class="title">
+            <h2>Gantt Chart</h2>
+        </div>
+        <div style="overflow-x: auto;">
+            <table class="gantt-chart">
+                <thead>
+                    <tr>
+                        <th style="border-bottom-style: ridge; border-right-style: ridge;"></th>
+                        <?php
+                        for ($col = 1; $col <= $_SESSION['finish_time'] + 1; $col++) {
+                            if ($col == ceil($_SESSION['finish_time']) + 1) { ?>
+                                <th style="border-bottom-style: ridge;"></th>
+                            <?php } else { ?>
+                                <th style="border-bottom-style: ridge; text-align: right;"><?php echo "$col"; ?></th>
+                        <?php }
+                        } ?>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    foreach ($project as $task) { ?>
+                        <tr>
+                            <td style="border-bottom-style: ridge; border-right-style: ridge;"><strong><?php echo "Activity " . $task['id']; ?></strong></td>
+                            <td style="border-bottom-style: ridge;" colspan="<?php echo ceil($_SESSION['finish_time']); ?>">
                                 <?php
-                                for ($col = 1; $col <= $_SESSION['finish_time'] + 1; $col++) {
-                                    if ($col == ceil($_SESSION['finish_time'])) { ?>
-                                        <th style="border-bottom-style: ridge;"></th>
-                                    <?php } else { ?>
-                                        <th style="border-bottom-style: ridge; text-align: right;"><?php echo "$col"; ?></th>
-                                <?php }
-                                } ?>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                            foreach ($project as $task) { ?>
-                                <tr>
-                                    <td style="border-bottom-style: ridge; border-right-style: ridge;"><strong><?php echo "Activity " . $task['id']; ?></strong></td>
-                                    <td style="border-bottom-style: ridge;" colspan="<?php echo ceil($_SESSION['finish_time']); ?>">
-                                        <?php
-                                        $waiting = ($task['es'] / $_SESSION['finish_time']) * 100;
-                                        $progress = (($task['lf'] - $task['es']) / $_SESSION['finish_time']) * 100;
-                                        $total_time = $_SESSION['finish_time'] / ceil($_SESSION['finish_time']) * 100;
-                                        ?>
-                                        <div style="background-color:#B19090; width: <?php echo $total_time; ?>%">
-                                            <div class="waiting" style="position: relative; float: left; display: inline-block; width: <?php echo $waiting ?>%"></div>
-                                            <div class="progress" style="position: relative; float: left; display: inline-block; width: <?php echo $progress ?>%"></div>
-                                        </div>
-                                    </td>
-                                </tr>
-                            <?php } ?>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+                                $waiting = ($task['es'] / $_SESSION['finish_time']) * 100;
+                                $progress = (($task['lf'] - $task['es']) / $_SESSION['finish_time']) * 100;
+                                $total_time = $_SESSION['finish_time'] / ceil($_SESSION['finish_time']) * 100;
+                                ?>
+                                <div style="background-color:#B19090; width: <?php echo $total_time; ?>%">
+                                    <div class="waiting" style="position: relative; float: left; display: inline-block; width: <?php echo $waiting ?>%"></div>
+                                    <div class="progress" style="position: relative; float: left; display: inline-block; width: <?php echo $progress ?>%"></div>
+                                </div>
+                            </td>
+                        </tr>
+                    <?php } ?>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
-    <br> <br>
+<br> <br>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <!-- AJAX for Project Completion Probability -->
-    <script>
-        $(document).ready(function() {
-            $(".compute").click(function() {
-                var x = $("#x").val();
-                var m = $("#m").val();
-                var s = $("#s").val();
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<!-- AJAX for Project Completion Probability -->
+<script>
+    $(document).ready(function() {
+        $(".compute").click(function() {
+            var x = $("#x").val();
+            var m = $("#m").val();
+            var s = $("#s").val();
 
-                $.ajax({
-                    url: "<?php echo base_url(); ?>Probability/compute",
-                    type: "post",
-                    dataType: "json",
-                    data: {
-                        x: x,
-                        m: m,
-                        s: s
-                    },
-                    success: function(data) {
-                        if (data.response == "success") {
-                            // alert(data.p);
-                            $('#p').val(data.p);
-                        } else {
-                            alert("Calculate failed");
-                        }
+            $.ajax({
+                url: "<?php echo base_url(); ?>Probability/compute",
+                type: "post",
+                dataType: "json",
+                data: {
+                    x: x,
+                    m: m,
+                    s: s
+                },
+                success: function(data) {
+                    if (data.response == "success") {
+                        // alert(data.p);
+                        $('#p').val(data.p);
+                    } else {
+                        alert("Calculate failed");
                     }
-                });
+                }
             });
         });
-    </script>
-    <!-- AJAX for Individual Task Completion Probability -->
-    <script>
-        $(document).ready(function() {
-            $(".compute_indiv").click(function() {
-                var id = $("#tid").val();
-                var x = $("#x_indiv").val();
-                var m = $("#m_" + id).val();
-                var s = $("#s_" + id).val();
+    });
+</script>
+<!-- AJAX for Individual Task Completion Probability -->
+<script>
+    $(document).ready(function() {
+        $(".compute_indiv").click(function() {
+            var id = $("#tid").val();
+            var x = $("#x_indiv").val();
+            var m = $("#m_" + id).val();
+            var s = $("#s_" + id).val();
 
-                $.ajax({
-                    url: "<?php echo base_url(); ?>Probability/compute",
-                    type: "post",
-                    dataType: "json",
-                    data: {
-                        x: x,
-                        m: m,
-                        s: s
-                    },
-                    success: function(data) {
-                        if (data.response == "success") {
-                            // alert(data.p);
-                            $('#p_indiv').val(data.p);
-                        } else {
-                            alert("Calculate failed");
-                        }
+            $.ajax({
+                url: "<?php echo base_url(); ?>Probability/compute",
+                type: "post",
+                dataType: "json",
+                data: {
+                    x: x,
+                    m: m,
+                    s: s
+                },
+                success: function(data) {
+                    if (data.response == "success") {
+                        // alert(data.p);
+                        $('#p_indiv').val(data.p);
+                    } else {
+                        alert("Calculate failed");
                     }
-                });
+                }
             });
         });
-    </script>
+    });
+</script>

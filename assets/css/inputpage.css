@@ -6,7 +6,7 @@ div.func-desc, div.where {
     padding-left: 2em;
 }
 
-div.where {
+div.where1 {
     padding-left: 2em;
     padding-top: 1em;
 }
@@ -15,13 +15,7 @@ div.func-desc{
     padding-top: 1em;
 }
 
-div.content center{
-    margin: 0;
-    padding-top: 1em;
-    padding-bottom: 1em;
-}
-
-div.normal img, div.betapert img{
+div.normal img, div.betapert img, div.pert img{
     height: 2.5em;
     width: auto;
     padding: 1em 0;
@@ -42,6 +36,12 @@ div.content p {
 }
 div.content i{
     font-weight: 600;
+}
+
+div.content center{
+    margin: 0;
+    padding-top: 1em;
+    padding-bottom: 1em;
 }
 
 .howto{

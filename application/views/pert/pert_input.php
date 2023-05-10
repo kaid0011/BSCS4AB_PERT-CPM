@@ -43,35 +43,35 @@
                 </tr>
             </thead>
             <tbody>
-            <form action="<?php echo base_url('pert/calculate') ?>" method="post">
-                <input type="number" name="proj_len" value="<?php echo $_SESSION['proj_len']; ?>" hidden>
-                <input type="text" name="choice" value="<?php echo 'pert'; ?>" hidden>
-                <input type="text" name="unit" value="<?php echo $_SESSION['unit']; ?>" hidden>
-                <?php
-                for ($i = 1; $i <= $_SESSION['proj_len']; $i++) {
-                ?>
-                    <tr>
-                        <td><input type="text1" name="<?php echo $i; ?>" value="<?php echo $i; ?>" readonly></td>
-                        <td><input type="text" name="task_desc_<?php echo $i; ?>"></td>
-                        <!-- <td><textarea  name = "task_desc_<?php echo $i; ?>"></textarea></td> -->
-                        <td><input type="number" name="task_opt_<?php echo $i; ?>" step="any"  min="1" max="20" oninput="validity.valid||(value='');" required></td>
-                        <td><input type="number" name="task_ml_<?php echo $i; ?>" step="any"  min="1" max="20" oninput="validity.valid||(value='');" required></td>
-                        <td><input type="number" name="task_pes_<?php echo $i; ?>" step="any"  min="1" max="20" oninput="validity.valid||(value='');" required></td>
-                        <td><?php
-                            if ($i == 1) {
-                            ?>
-                                <input type="text" name="task_prereq_<?php echo $i; ?>" value="-" readonly>
-                            <?php
-                            } else { ?>
-                                <input type="text" name="task_prereq_<?php echo $i; ?>" pattern="[1-<?php echo $i - 1; ?>](,[1-<?php echo $i - 1; ?>])*|^[\-]" oninvalid="this.setCustomValidity('bawal yan haha XD')" onchange="this.setCustomValidity('')" required>
-                            <?php } ?>
-                        </td>
-                    </tr>
-                <?php }
-                ?>
-        </tbody>
-    </table>
-</div>
+                <form action="<?php echo base_url('pert/calculate') ?>" method="post">
+                    <input type="number" name="proj_len" value="<?php echo $_SESSION['proj_len']; ?>" hidden>
+                    <input type="text" name="choice" value="<?php echo 'pert'; ?>" hidden>
+                    <input type="text" name="unit" value="<?php echo $_SESSION['unit']; ?>" hidden>
+                    <?php
+                    for ($i = 1; $i <= $_SESSION['proj_len']; $i++) {
+                    ?>
+                        <tr>
+                            <td><input type="text1" name="<?php echo $i; ?>" value="<?php echo $i; ?>" readonly></td>
+                            <td><input type="text" name="task_desc_<?php echo $i; ?>"></td>
+                            <!-- <td><textarea  name = "task_desc_<?php echo $i; ?>"></textarea></td> -->
+                            <td><input type="number" name="task_opt_<?php echo $i; ?>" step="any" min="1" max="20" oninput="validity.valid||(value='');" required></td>
+                            <td><input type="number" name="task_ml_<?php echo $i; ?>" step="any" min="1" max="20" oninput="validity.valid||(value='');" required></td>
+                            <td><input type="number" name="task_pes_<?php echo $i; ?>" step="any" min="1" max="20" oninput="validity.valid||(value='');" required></td>
+                            <td><?php
+                                if ($i == 1) {
+                                ?>
+                                    <input type="text" name="task_prereq_<?php echo $i; ?>" value="-" readonly>
+                                <?php
+                                } else { ?>
+                                    <input type="text" name="task_prereq_<?php echo $i; ?>" pattern="[1-<?php echo $i - 1; ?>](,[1-<?php echo $i - 1; ?>])*|^[\-]" oninvalid="this.setCustomValidity('bawal yan haha XD')" onchange="this.setCustomValidity('')" required>
+                                <?php } ?>
+                            </td>
+                        </tr>
+                    <?php }
+                    ?>
+            </tbody>
+        </table>
+    </div>
     <br><br>
     <div class="calculate">
         <button class="btn">Calculate</button>
@@ -152,54 +152,56 @@
             <label for="handle1">How WAPS' Project Evaluation Review Technique (PERT) Works:</label>
         </h2>
         <div class="content">
-            <p><strong>Step 1:</strong> Identifies all the activities involved in the project and arranges them in a logical sequence using their Activity IDs.</p>
-            <p><strong>Step 2:</strong> Determines the 3 durations: optimistic (a), most likely (m), and pessimistic (b), which are the estimated times provided by the user for each activity that are required to complete the activities.</p>
-            <p><strong>Step 3:</strong> Calculates the duration (T) by getting the mean of the 3 durations.</p>
-            <img src="<?= base_url('assets/images/pert_mean.png') ?>"></img>
-            <p><strong>Step 4:</strong> Identifies the pre-requisites of each activity, which must be completed before another activity starts.</p>
-            <p><strong>Step 5:</strong> Performs a Forward Pass.</p>
-            <ol type="a">
-                <li>
-                    <p>Forward Pass starts with the first activity, to determine the Early Start Time (ES) and Early Finish Time (EF) for each activity.</p>
-                </li>
-                <li>
-                    <p>For each activity, WAPS calculates the ES by adding the duration of the preceding activity to its ES. If an activity has more than one predecessor, the predecessor to be added is the highest one. For the first activity, the ES is equal to 0.</p>
-                </li>
-                <li>
-                    <p>Then, calculates the EF by adding the duration of the activity to its ES.</p>
-                </li>
-                <center>
-                    <p><i>EF = ES + T</i></p>
-                </center>
-                <li>
-                    <p>This process continues until the ES and EF have been calculated for all activities.</p>
-                </li>
-                <li>
-                    <p>Identifies the slack of each activity to know the critical path, which is the sequence of activities that has the longest duration and has slack equals to 0.</p>
-                </li>
-            </ol>
-            <p><strong>Step 6:</strong> Performs a Backward Pass.</p>
-            <ol type="a">
-                <li>
-                    <p>Backward Pass starts with the last activity, to determine the Latest Start Time (LS) and Latest Finish Time (LF) for each activity.</p>
-                </li>
-                <li>
-                    <p>For each activity, WAPS calculates the LF by subtracting the duration of the following activity from its LS. If an activity has more than one successor, the successor to be added is the lowest one. If just starting with the Backward Pass, the duration should be subtracted to the Project Completion Time (PCT).</p>
-                </li>
-                <li>
-                    <p>Then, calculates the LS by subtracting the duration of the activity from its LF. This process continues until the LS and LF have been calculated for all activities in the network.</p>
-                </li>
-                <center>
-                    <p><i>LS = LF - T</i></p>
-                </center>
-                <li>
-                    <p>Calculates the slack (S) for each activity by subtracting the activity's EF from its LF or ES from its LS. If S isequal to zero, the activity is a critical value and completes the critical path.</p>
-                </li>
-                <li>
-                    <p>Uses the ES, EF, LS, LF, and S values to identify the project's Critical Path and determine the shortest possible time required to complete the project.</p>
-                </li>
-            </ol>
-            <p><strong>Step 7:</strong> Uses the Earliest Start Time (ES) and Latest Finish Time (LF) of each activity to create a Gantt Chart. The darker colored bars represent the critical values which complete the Critical Path.</p>
+            <div class="pert">
+                <p><strong>Step 1:</strong> Identifies all the activities involved in the project and arranges them in a logical sequence using their Activity IDs.</p>
+                <p><strong>Step 2:</strong> Determines the 3 durations: optimistic (a), most likely (m), and pessimistic (b), which are the estimated times provided by the user for each activity that are required to complete the activities.</p>
+                <p><strong>Step 3:</strong> Calculates the duration (T) by getting the mean of the 3 durations.</p>
+                <img src="<?= base_url('assets/images/pert_mean.png') ?>"></img>
+                <p><strong>Step 4:</strong> Identifies the pre-requisites of each activity, which must be completed before another activity starts.</p>
+                <p><strong>Step 5:</strong> Performs a Forward Pass.</p>
+                <ol type="a">
+                    <li>
+                        <p>Forward Pass starts with the first activity, to determine the Early Start Time (ES) and Early Finish Time (EF) for each activity.</p>
+                    </li>
+                    <li>
+                        <p>For each activity, WAPS calculates the ES by adding the duration of the preceding activity to its ES. If an activity has more than one predecessor, the predecessor to be added is the highest one. For the first activity, the ES is equal to 0.</p>
+                    </li>
+                    <li>
+                        <p>Then, calculates the EF by adding the duration of the activity to its ES.</p>
+                    </li>
+                    <center>
+                        <p><i>EF = ES + T</i></p>
+                    </center>
+                    <li>
+                        <p>This process continues until the ES and EF have been calculated for all activities.</p>
+                    </li>
+                    <li>
+                        <p>Identifies the slack of each activity to know the critical path, which is the sequence of activities that has the longest duration and has slack equals to 0.</p>
+                    </li>
+                </ol>
+                <p><strong>Step 6:</strong> Performs a Backward Pass.</p>
+                <ol type="a">
+                    <li>
+                        <p>Backward Pass starts with the last activity, to determine the Latest Start Time (LS) and Latest Finish Time (LF) for each activity.</p>
+                    </li>
+                    <li>
+                        <p>For each activity, WAPS calculates the LF by subtracting the duration of the following activity from its LS. If an activity has more than one successor, the successor to be added is the lowest one. If just starting with the Backward Pass, the duration should be subtracted to the Project Completion Time (PCT).</p>
+                    </li>
+                    <li>
+                        <p>Then, calculates the LS by subtracting the duration of the activity from its LF. This process continues until the LS and LF have been calculated for all activities in the network.</p>
+                    </li>
+                    <center>
+                        <p><i>LS = LF - T</i></p>
+                    </center>
+                    <li>
+                        <p>Calculates the slack (S) for each activity by subtracting the activity's EF from its LF or ES from its LS. If S isequal to zero, the activity is a critical value and completes the critical path.</p>
+                    </li>
+                    <li>
+                        <p>Uses the ES, EF, LS, LF, and S values to identify the project's Critical Path and determine the shortest possible time required to complete the project.</p>
+                    </li>
+                </ol>
+                <p><strong>Step 7:</strong> Uses the Earliest Start Time (ES) and Latest Finish Time (LF) of each activity to create a Gantt Chart. The darker colored bars represent the critical values which complete the Critical Path.</p>
+            </div>
         </div>
     </section>
 </div>
