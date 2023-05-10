@@ -3,7 +3,7 @@
     <body>
     <div class="firstpg">
         <div class="title">
-                <b> WAPS with Simulation </b>
+                <b> WAPS with Simulation TEST</b>
                 <h3><i>Web-based Automated PERT-CPM Scheduler with Simulations</i></h3>
             </div>
             <div class="paragone">
