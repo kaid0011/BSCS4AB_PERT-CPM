@@ -10,13 +10,12 @@ class Triangular extends CI_Controller
     {       
         $arr = array(
             'pagename' => 'Triangular Distribution',
-            'css' => 'mainpage'
         );
         $this->session->set_userdata($arr);
-        redirect('Triangular/Main');       
+        redirect('triangular/main');       
     }
 
-    public function Main()
+    public function main()
     {
         $this->load->view('template/header');
         $this->load->view('triangular/triangular_main');
@@ -28,16 +27,15 @@ class Triangular extends CI_Controller
         $len = $this->input->post('proj_len');
         $unit = $this->input->post('unit');
         $arr = array(
-            'pagename' => 'Triangular - Enter Project Details',
-            'css' => 'inputpage',
+            'pagename' => 'Input | Triangular Distribution',
             'proj_len' => $len,
             'unit' => $unit
         );
         $this->session->set_userdata($arr);
-        redirect('Triangular/ProjectDetails');
+        redirect('triangular/projectdetails');
     }
 
-    public function ProjectDetails()
+    public function projectdetails()
     {
         $this->load->view('template/header');
         $this->load->view('triangular/triangular_input');
@@ -208,16 +206,15 @@ class Triangular extends CI_Controller
         }
         $arr = array(
             'pagename' => 'Triangular - Results',
-            'css' => 'outputpage',
             'project' => $project,
             'cp' => $cp,
             'finish_time' => $data['finish_time']
         );
         $this->session->set_userdata($arr);
-        redirect('Triangular/Results');
+        redirect('triangular/results');
     }
 
-    public function Results()
+    public function results()
     {
         $this->load->view('template/header');
         $this->load->view('triangular/triangular_output');
