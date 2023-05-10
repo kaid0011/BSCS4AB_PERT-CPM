@@ -136,9 +136,9 @@
 
     <!-- Gantt Chart -->
     <div class="grid-container-gantt">
-    <div class="title">
-                <h2>Gantt Chart</h2>
-            </div>
+        <div class="title">
+            <h2>Gantt Chart</h2>
+        </div>
         <div style="overflow-x: auto;">
             <table class="gantt-chart">
                 <thead>
@@ -146,7 +146,7 @@
                         <th style="border-bottom-style: ridge; border-right-style: ridge;"></th>
                         <?php
                         for ($col = 1; $col <= $_SESSION['finish_time'] + 1; $col++) {
-                            if ($col == ceil($_SESSION['finish_time'])+1) { ?>
+                            if ($col == ceil($_SESSION['finish_time']) + 1) { ?>
                                 <th style="border-bottom-style: ridge;"></th>
                             <?php } else { ?>
                                 <th style="border-bottom-style: ridge; text-align: right;"><?php echo "$col"; ?></th>
