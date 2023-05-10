@@ -29,7 +29,7 @@
         </div>
     </div>
 
-    <div class="container">
+    <div class="home-container">
         <div class="box">
             <div class="title">
                 <h4>PERT</h4>
