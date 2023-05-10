@@ -1,7 +1,7 @@
 <!-- Body  -->
 <div class="firstpg">
     <div class="title">
-        <b> CRITICAL PATH METHOD</b>
+        <b> Critical Path Method (CPM) </b>
     </div>
     <div class="paragone">
         CPM calculates the earliest and latest start and finish times for each activity,
@@ -12,24 +12,25 @@
     </div>
 </div>
 <div class="grid-container">
-    <div class="container" style="overflow-x:auto;">
+    <div class="container">
         <table class="results">
             <thead>
                 <tr>
-                    <th>Activity</th>
-                    <th>Description</th>
-                    <th>Duration</th>
-                    <th>Pre-Requisites</th>
-                    <th>ES</th>
-                    <th>EF</th>
-                    <th>LS</th>
-                    <th>LF</th>
-                    <th>Slack</th>
-                    <th>Critical</th>
+                <th>Activity</th>
+                    <th title ="Activity Description">Description <span class="tooltiptext">&#9432;</span></th>
+                    <th title ="Estimated Activity Duration">Duration <span class="tooltiptext">&#9432;</span></th>
+                    <th title ="Activity Number that needs to be completed first.">Pre-Requisites <span class="tooltiptext">&#9432;</span></th>
+                    <th title ="Activity's Earliest Start Time">ES <span class="tooltiptext">&#9432;</span></th>
+                    <th title ="Activity's Earliest Finish Time">EF <span class="tooltiptext">&#9432;</span></th>
+                    <th title ="Activity's Latest Start Time">LS <span class="tooltiptext">&#9432;</span></th>
+                    <th title ="Activity's Latest Finish Time">LF <span class="tooltiptext">&#9432;</span></th>
+                    <th title ="Activity's Available Slack Time">Slack <span class="tooltiptext">&#9432;</span></th>
+                    <th title ="If the Activity is Critical">Critical <span class="tooltiptext">&#9432;</span></th>
                 </tr>
             </thead>
             <tbody>
                 <?php
+                    $project = $_SESSION['project'];
                     foreach ($project as $task) {
                     ?>
                     <tr>
@@ -59,11 +60,13 @@
 </div>
 
 <!-- CARDS -->
-<div class="containerbox">
-        <div class="boxx">
+<div class="container-final">
+        <div class="resultsbox">
+            <center>
             <h3>Critical Path</h3>
             <p>
                 <?php
+                $cp = $_SESSION['cp'];
                 $max = max(array_column($cp, 'id'));
                 foreach ($cp as $cp) {
                     if ($cp['id'] == $max) {
@@ -74,42 +77,87 @@
                 }
                 ?>
             </p>
+            </center>
         </div>
 
-        <div class="boxx">
-            <h3>Project Finish Time</h3>
+        <div class="resultsbox">
+           <center>
+           <h3>Project Finish Time</h3>
             <p>
-                <?php echo $finish_time; ?>
+                <?php echo $_SESSION['finish_time']; ?>
             </p>
+           </center>
         </div>
 </div>
-
-<!-- BUTTON -->
-<div class="calculate">
-        <!-- <a class="btn" href="CPMOutput.html">Calculate</a> -->
-        <button class="btn">Export to CSV</button>
+<div class="export">
+    <!-- Export Results Excel File -->
+    <form action="<?php echo base_url('export/result') ?>" method="post">              
+        <?php
+        $len = count($project);
+        foreach ($project as $task) {
+        ?>            
+            <input type="hidden" name="<?php echo $task['id']; ?>" value="<?php echo $task['id']; ?>">
+            <input type="hidden" name="desc_<?php echo $task['id']; ?>" value="<?php echo $task['desc']; ?>">
+            <input type="hidden" name="time_<?php echo $task['id']; ?>" value="<?php echo $task['time']; ?>">
+            <?php
+            $pre = implode(",", $task['prereq']);
+            if ($pre == '-1') {
+                $pre = '-';
+            }
+            ?>
+            <input type="hidden" name="pre_<?php echo $task['id']; ?>" value="<?php echo $pre; ?>">
+            <input type="hidden" name="es_<?php echo $task['id']; ?>" value="<?php echo $task['es'];; ?>">
+            <input type="hidden" name="ef_<?php echo $task['id']; ?>" value="<?php echo $task['ef']; ?>">
+            <input type="hidden" name="ls_<?php echo $task['id']; ?>" value="<?php echo $task['ls']; ?>">
+            <input type="hidden" name="lf_<?php echo $task['id']; ?>" value="<?php echo $task['lf']; ?>">
+            <input type="hidden" name="slack_<?php echo $task['id']; ?>" value="<?php echo $task['slack']; ?>">
+            <input type="hidden" name="ic_<?php echo $task['id']; ?>" value="<?php echo $task['isCritical']; ?>">
+        <?php } ?>
+        <input type="hidden" name="len" value="<?php echo $len; ?>">
+        <center><button class="expbtn">Export Results</button></center>
+    </form>
 </div>
+<section class="collapsible">
+    <input type="checkbox" name="collapse" id="handle1" checked="checked">
+    <h2 class="handle">
+        <label for="handle1">How BETA-PERT Distribution Works: (Step by Step)</label>
+    </h2>
+    <div class="content">
+        <p>
+            <strong>Step 1:</strong> Identifies all the activities involved in the project and arranges them in a logical sequence using their Activity IDs. <br><br>
+            <strong>Step 2:</strong> Determines the duration (T), which is the time required to complete each activity.<br><br>
+            <strong>Step 3:</strong> Identifies the pre-requisites of each activity, which must be completed before another activity starts.<br><br>
+            <strong>Step 4:</strong> Performs a Forward Pass. <br><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>a.</b> Forward Pass starts with the first activity, to determine the Early Start Time (ES) and Early Finish Time (EF) for each activity. <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>b.</b> For each activity, WAPS calculates the ES by adding the duration of the preceding activity to its ES. If an activity has more than one predecessor, the predecessor to be added is the highest one. For the first activity, the ES is equal to 0. <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>c.</b>Then, calculates the EF by adding the duration of the activity to its ES. <br><br>
+            <center><i>EF = ES + T</i></center><BR>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>d.</b> This process continues until the ES and EF have been calculated for all activities. <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>e.</b> Identifies the slack of each activity to know the critical path, which is the sequence of activities that has the longest duration and has slack equals to 0. <br><br>
+            <strong>Step 5:</strong> Performs a Backward Pass. <br><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>a.</b>  Backward Pass starts with the last activity, to determine the Latest Start Time (LS) and Latest Finish Time (LF) for each activity <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>b.</b> For each activity, WAPS calculates the LF by subtracting the duration of the following activity from its LS. If an activity has more than one successor, the successor to be added is the lowest one. If just starting with the Backward Pass, the duration should be subtracted to the Project Completion Time (PCT) <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>c.</b>Then, calculates the LS by subtracting the duration of the activity from its LF. This process continues until the LS and LF have been calculated for all activities in the network. <br> <br>
+            <center><i>LS = LF - T</i></center><BR>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>d.</b> Calculates the slack (S) for each activity by subtracting the activity's EF from its LF or ES from its LS. If S isequal to zero, the activity is a critical value and completes the critical path. <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>e.</b> Uses the ES, EF, LS, LF, and S values to identify the project's Critical Path and determine the shortest possible time required to complete the project. <br><br>
+            <strong>Step 6:</strong> Uses the Earliest Start Time (ES) and Latest Finish Time (LF) of each activity to create a Gantt Chart. The darker colored bars represent the critical values which complete the Critical Path. <br><br>
+        </p>
+    </div>
+    </section>
 
-<!-- EXPLANATION -->
-<div class="paragone">
-    Lorem ipsum dolor sit amet, no clita veritus maiestatis vim, est illum consetetur no. Agam modus an vel. Nibh
-    feugiat pericula id eam. Sit aliquam platonem omittantur ut, eum meliore offendit at. Suas alienum at per, ad sit
-    exerci vocent docendi, te sea summo feugait. At vim cibo accumsan mnesarchum.
-    <br><br>
-    Usu nominavi atomorum maluisset ne. Sed ex pertinacia repudiandae, ferri lorem aeque et per. Duo exerci munere an,
-    vix malorum diceret fabulas an, nam ei mutat phaedrum. Sed ea timeam suscipiantur, ad eos partem audiam
-    adversarium, dicam appetere necessitatibus sed ut.
+<div class="ganttchartname">
+        <b> Project Gantt Chart</b>
 </div>
-
 <!-- CHART -->
-<div class="container" style="max-width: 100%; margin: 0 auto; padding: 50px;">
-       <div class="chart" style="display: grid; border: 2px solid #000; position: relative; overflow: hidden;">
+<div class="ganttcontainer" style="max-width: 100%; margin: 0 auto; padding: 50px;">
+       <div class="chart" style="display: grid; position: relative; overflow: hidden; overflow-x:auto">
         <table class="gantt-chart">
             <tr>
                 <th style="border-bottom-style: ridge; border-right-style: ridge;"></th>
                 <?php
-                    for ($col = 1; $col <= $finish_time+1; $col++) { 
-                        if ($col == ceil($finish_time)) { ?>
+                    for ($col = 1; $col <= $_SESSION['finish_time']+1; $col++) { 
+                        if ($col == ceil($_SESSION['finish_time'])) { ?>
                             <th style="border-bottom-style: ridge;"></th>
                         <?php } 
                         else { ?>
@@ -121,11 +169,11 @@
                 foreach ($project as $task) { ?>
                 <tr>
                     <th style="border-bottom-style: ridge; border-right-style: ridge;"><?php echo "Activity " . $task['id']; ?></th>
-                    <th style="border-bottom-style: ridge;" colspan="<?php echo ceil($finish_time);?>">
+                    <th style="border-bottom-style: ridge;" colspan="<?php echo ceil($_SESSION['finish_time']);?>">
                         <?php 
-                                $waiting = ($task['es']/$finish_time)*100;
-                                $progress = (($task['lf']-$task['es'])/$finish_time)*100;
-                                $total_time = $finish_time/ceil($finish_time)*100;
+                                $waiting = ($task['es']/$_SESSION['finish_time'])*100;
+                                $progress = (($task['lf']-$task['es'])/$_SESSION['finish_time'])*100;
+                                $total_time = $_SESSION['finish_time']/ceil($_SESSION['finish_time'])*100;
                         ?>
                         <div style="background-color:#B19090; width: <?php echo $total_time;?>%">
                             <div class="waiting" style="position: relative; float: left; display: inline-block; width: <?php echo $waiting?>%"></div>
@@ -138,191 +186,3 @@
     </div>
 </div>
 
-
-<style>
-    .title {
-        font-size: 2rem;
-        text-align: center;
-        margin: 1rem;
-    }
-
-    .paragone {
-        font-size: 24px;
-        font-style: normal;
-        text-align: justify;
-        margin: 2rem 5rem;
-    }
-
-    .calculate {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-bottom: 2rem;
-    }
-
-    .grid-container {
-        display: grid;
-        width: 90rem;
-        max-width: 100%;
-        margin-left: auto;
-        margin-right: auto;
-        text-align: center;
-    }
-
-    /* Gantt Container */
-    .grid-container-gantt {
-        display: grid;
-        width: 85%;
-        margin-left: auto;
-        margin-right: auto;
-        text-align: center;
-    }
-
-    .btn {
-        text-decoration: none;
-        text-align: center;
-        font-size: 1.2rem;
-        color: #eeee;
-        background-color: #B19090;
-        border-radius: 40px;
-        display: inline-block;
-        padding: 10px 20px;
-        border-color: #544141;
-    }
-
-    .btn:hover {
-        background-color: #eeee;
-        color: #B19090;
-
-    }
-
-    /* TABLE */
-    table.results {
-        padding: 1rem;
-        margin-top: 3rem;
-        margin-bottom: 2rem;
-        margin-left: auto;
-        margin-right: auto;
-        align-items: center;
-        border-spacing: 0;
-        border: none;
-        border-collapse: collapse;
-        border-style: none;
-        text-align: center;
-        background-color: #eeee;
-    }
-
-    table.results th,
-    table.results td {
-        border: none;
-        border-collapse: collapse;
-        border-style: none;
-        text-align: center;
-        padding: .5rem .8rem;
-        display: table-cell;
-        text-align: center;
-        vertical-align: middle;
-        border-radius: 0;
-        background-color: transparent;
-    }
-
-    table.gantt-chart {
-        margin-top: 2rem;
-        margin-bottom: 1rem;
-        display: table;
-        border-collapse: collapse;
-        align-items: justify;
-        width: 100%;
-        border-spacing: 0;
-        border: none;
-        border-collapse: collapse;
-        text-align: center;
-        border-style: ridge;
-        table-layout: fixed;
-    }
-
-    table.results tr 
-    {
-     border-bottom: 1px solid #ddd;
-    }
-    table.results td{
-        background-color: #eeee;
-    }
-
-    table.results th{
-        background-color: #d9c7c7;
-    }
-
-    table.gantt-chart th,
-    table.gantt-chart td {
-        white-space: nowrap;
-        border: none;
-        border-collapse: collapse;
-        text-align: center;
-        padding: 12px 5px;
-        display: table-cell;
-        vertical-align: middle;
-    }
-
-    .waiting 
-    {
-    height:30px;
-    position:relative;
-    background: none;
-    }
-
-    .progress {
-    height:30px;
-    position:relative;
-    background: #B19090;
-    border: 0px;
-    border-radius: 10px;
-    }
-
-    /* Cards */
-    .containerbox {
-        justify-content: space-evenly;
-        display: flex;
-        width: auto;
-        height: auto;
-    }
-
-    .boxx {
-        width: 30%;
-        height: auto;
-        padding: 3px 2px 25px 2px;
-        border: 1px solid #ccc;
-        margin: 5vh;
-        background: white;
-        border-radius: 10px;
-        transition: 0.9;
-    }
-
-    .boxx:hover {
-        box-shadow: 0 0 11px rgba(33, 33, 33, 0.5);
-        cursor: pointer;
-    }
-
-    h3 {
-        font-size: 20px;
-        padding: 5px 5px;
-        text-align: center;
-        color: rgb(104, 92, 92);
-    }
-
-    p {
-        font-size: 18px;
-        padding: 5px;
-        text-align: center;
-    }
-
-    /* RESPONSIVE */
-    @media screen {
-        .form {
-            background-color: #f0f0f0;
-            margin: 3rem 10rem 2rem;
-            border-radius: 1.2rem;
-            padding: 0.25rem;
-        }
-    }
-</style>
