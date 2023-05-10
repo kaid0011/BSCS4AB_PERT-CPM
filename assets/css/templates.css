@@ -1,18 +1,18 @@
-html 
-{
-    font-family: sans-serif;
-    background-color: #FFFFFF;
-    scroll-behavior: smooth;
-    -ms-overflow-style: none; /* IE and Edge */
+html {
+  font-family: sans-serif;
+  background-color: #FFFFFF;
+  scroll-behavior: smooth;
+  -ms-overflow-style: none;
+  /* IE and Edge */
 }
 
-body{
-    margin: 0;
-    padding: 0;
-    border: 0;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 h1 {
@@ -28,14 +28,14 @@ h2 {
   padding-bottom: 1em;
 }
 
-h3{
+h3 {
   font-size: 1.4em;
   color: rgb(104, 92, 92);
   font-weight: 600;
-  padding-top:1em;
+  padding-top: 1em;
 }
 
-h4{
+h4 {
   font-size: 1.3em;
   text-align: center;
   color: rgb(104, 92, 92);
@@ -43,13 +43,22 @@ h4{
   margin-top: 0;
 }
 
-h5{
+h5 {
   font-size: 1.1em;
   color: rgb(104, 92, 92);
   font-weight: 600;
   margin-top: 0;
   padding-bottom: 0;
-  margin-bottom:0;
+  margin-bottom: 0;
+}
+
+h6 {
+  font-size: 1em;
+  color: rgb(104, 92, 92);
+  font-weight: 600;
+  margin-top: 0;
+  padding-bottom: 0;
+  margin-bottom: 0;
 }
 
 p {
@@ -58,12 +67,18 @@ p {
   color: rgb(73, 66, 66);
   padding-bottom: 1em;
 }
-.title{
+
+.title {
   text-align: center;
 }
 
- .body-container{
+.body-container {
   padding-top: 5vh;
-   padding-left: 7vw;
-   padding-right: 7vw;
- }
+  padding-left: 7vw;
+  padding-right: 7vw;
+}
+
+ol > li::marker {
+  font-weight: 600;
+  color: rgb(73, 66, 66);
+}

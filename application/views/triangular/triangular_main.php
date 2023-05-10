@@ -14,8 +14,22 @@
                     range of possible values, but are most likely to fall within a specific range.
                 </p>
             </div>
+            <div class="howto">
+                <h2>How To?</h2>
+                <ul>
+                    <li>
+                        <p>Enter the Number of Activities of your project.</p>
+                    </li>
+                    <li>
+                        <p>Choose your desired Unit of Time: Days, Weeks, or Months.</p>
+                    </li>
+                    <li>
+                        <p>Click 'Generate Table' to generate a table to input your project details</p>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
+    </div><br>
     <center>
         <div class="form">
             <form action="<?= base_url('triangular/proj_details') ?>" method="post">
@@ -31,10 +45,8 @@
                         <option value="Weeks">Weeks</option>
                         <option value="Months">Months</option>
                     </select>
-                    <!-- <input type="text" name="unit" class="form-control" id="InputTime" placeholder="(e.g. Days, Weeks, Months)" required> -->
                 </div>
                 <br>
-
         </div>
     </center>
 </div>

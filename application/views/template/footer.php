@@ -1,11 +1,12 @@
+</body>
 <footer>
   <div class="footer">
-      <ul>
-          <li style="padding: 10px;"><a href="<?= base_url('normal') ?>">Privacy Policy</a></li>
-          <li style="padding: 10px;"><a href="<?= base_url('normal') ?>">Cookie Policy</a></a></li>
-          <li style="padding: 10px;"><a href="<?= base_url('normal') ?>">Terms & Conditions</a></li>
-          <li style="padding: 20px; float: right;">Copyright © 2023 WAPS</li>
-      </ul>
+    <ul>
+      <li style="padding: 10px;"><a href="<?= base_url('normal') ?>">Privacy Policy</a></li>
+      <li style="padding: 10px;"><a href="<?= base_url('normal') ?>">Cookie Policy</a></a></li>
+      <li style="padding: 10px;"><a href="<?= base_url('normal') ?>">Terms & Conditions</a></li>
+      <li style="padding: 20px; float: right;">Copyright © 2023 WAPS</li>
+    </ul>
   </div>
 </footer>
 
@@ -19,6 +20,5 @@
     }
   }
 </script>
-</body>
-</html>
 
+</html>

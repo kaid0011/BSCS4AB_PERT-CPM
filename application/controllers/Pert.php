@@ -13,10 +13,10 @@ class Pert extends CI_Controller
             'css' => 'mainpage'
         );
         $this->session->set_userdata($arr);
-        redirect('Pert/Main');       
+        redirect('pert/main');       
     }
 
-    public function Main()
+    public function main()
     {
         $this->load->view('template/header');
         $this->load->view('pert/pert_main');
@@ -34,9 +34,9 @@ class Pert extends CI_Controller
             'unit' => $unit
         );
         $this->session->set_userdata($arr);
-        redirect('Pert/ProjectDetails');
+        redirect('pert/projectdetails');
     }
-    public function ProjectDetails()
+    public function projectdetails()
     {
         $this->load->view('template/header');
         $this->load->view('pert/pert_input');
@@ -200,10 +200,10 @@ class Pert extends CI_Controller
             'proj_sd' => sqrt($proj_var)    // project SD = square root of project variance
         );
         $this->session->set_userdata($arr);
-        redirect('Pert/Results');
+        redirect('pert/results');
     }
 
-    public function Results()
+    public function results()
     {
         $this->load->view('template/header');
         $this->load->view('pert/pert_output');
