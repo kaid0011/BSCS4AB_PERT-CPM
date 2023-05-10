@@ -11,7 +11,7 @@
         </div>
     </div>
     <div class="grid-container">
-        <div class="grid-item">
+        <div class="container">
             <table class="results">
                 <thead>
                     <tr>

@@ -12,19 +12,6 @@
                     This table shows the project time completion based on the data provided using the CPM Method:
                 </p>
             </div>
-            <div class="howto">
-                <h2>How To?</h2>
-                <ul>
-                    <li>
-                        <p>For each activity, enter the description, durations (optimistic, most likely, and pessimistic), and its
-                            pre-requisite/s.</p>
-                    </li>
-                    <li>
-                        <p>After completing the table, click 'Calculate' to schedule your project. A table will show the following
-                            information for your project: <i> Activity, Description, Three Durations, Pre-Requisites, Earliest Start Time, Earliest Finish Time, Latest Start Time, Latest Finish Time, Slack, and Critical</i></p>
-                    </li>
-                </ul>
-            </div>
         </div>
     </div>
     <div class="grid-container">
