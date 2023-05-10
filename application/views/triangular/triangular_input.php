@@ -43,7 +43,11 @@
                 </tr>
             </thead>
             <tbody>
-                <form action="<?php echo base_url('triangular/calculate') ?>" method="post">
+                <form action="<?php
+
+use PhpParser\Node\Expr\AssignOp\Div;
+
+ echo base_url('triangular/calculate') ?>" method="post">
                     <?php
                     for ($i = 1; $i <= $_SESSION['proj_len']; $i++) {
                     ?>
@@ -157,6 +161,7 @@
             <label for="handle1">How WAPS' Triangular Distribution Works:</label>
         </h2>
         <div class="content">
+        <div class="triangular">
             <p><strong>Step 1:</strong> Identifies all the activities involved in the project and arranges them in a logical sequence using their Activity IDs.</p>
             <p><strong>Step 2:</strong> Determines the 3 durations: optimistic (a), most likely (m), and pessimistic (b), which are the estimated times
                 provided by the user for each activity that are required to complete the activities.</p>
@@ -227,6 +232,7 @@
                 </li>
             </ol>
             <p><strong>Step 8:</strong> Uses the Earliest Start Time (ES) and Latest Finish Time (LF) of each activity to create a Gantt Chart. The darker colored bars represent the critical values which complete the Critical Path.</p>
+        </div>
         </div>
     </section>
 </div>

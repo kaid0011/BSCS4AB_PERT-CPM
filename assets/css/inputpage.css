@@ -6,7 +6,7 @@ div.func-desc, div.where {
     padding-left: 2em;
 }
 
-div.where1 {
+div.where {
     padding-left: 2em;
     padding-top: 1em;
 }
@@ -21,7 +21,13 @@ div.content center{
     padding-bottom: 1em;
 }
 
-div.content img{
+div.normal img, div.betapert img{
+    height: 2.5em;
+    width: auto;
+    padding: 1em 0;
+}
+
+div.triangular img{
     height: 4em;
     width: auto;
     padding: 1em 0;
