@@ -427,6 +427,8 @@ div.homepg .box1 p {
   height: auto;
   padding: 2.5em 1.5em;
   margin-bottom: 1.5em;
+  margin-left: 1em;
+  margin-right: 1em;
   border: 1px solid #ccc;
   background: white;
   border-radius: 10px;
