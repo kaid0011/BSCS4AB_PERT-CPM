@@ -5,6 +5,7 @@ html {
   scroll-behavior: smooth;
   -ms-overflow-style: none;
 }
+
 body {
   margin: 0;
   padding: 0;
@@ -13,23 +14,27 @@ body {
   display: flex;
   flex-direction: column;
 }
+
 h1 {
   font-size: 1em;
   font-size: 2rem;
   text-align: center;
   color: #544141;
 }
+
 h2 {
   font-size: 1.4em;
   color: rgb(104, 92, 92);
   padding-bottom: 1em;
 }
+
 h3 {
   font-size: 1.4em;
   color: rgb(104, 92, 92);
   font-weight: 600;
   padding-top: 1em;
 }
+
 h4 {
   font-size: 1.3em;
   text-align: center;
@@ -37,6 +42,7 @@ h4 {
   font-weight: 600;
   margin-top: 0;
 }
+
 h5 {
   font-size: 1.1em;
   color: rgb(104, 92, 92);
@@ -45,6 +51,7 @@ h5 {
   padding-bottom: 0;
   margin-bottom: 0;
 }
+
 h6 {
   font-size: 1em;
   color: rgb(104, 92, 92);
@@ -71,7 +78,7 @@ p {
   padding-right: 7vw;
 }
 
-ol > li::marker {
+ol>li::marker {
   font-weight: 600;
   color: rgb(73, 66, 66);
 }
@@ -139,7 +146,7 @@ div.topnav li {
 }
 
 div.topnav li a,
-.dropbtn {
+div.topnav .dropbtn {
   display: inline-block;
   color: rgb(75, 61, 38);
   text-align: center;
@@ -188,69 +195,69 @@ div.topnav .dropdown:hover .dropdown-content {
 /* Responsive website */
 @media screen and (max-width: 800px) {
   .topnav {
-      overflow: hidden;
-      background-color: #D9D9D9;
+    overflow: hidden;
+    background-color: #D9D9D9;
   }
 
   .topnav ul {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
-      margin-left: auto;
-      margin-right: auto;
-      display: grid;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
   }
 
   .topnav ul li {
-      display: none;
+    display: none;
   }
 
-  .logo {
-      display: block;
+  div.topnav .logo {
+    display: block;
   }
 
   .topnav a.icon {
-      float: right;
-      display: flex;
+    float: right;
+    display: flex;
   }
 }
 
 @media screen and (max-width: 800px) {
   .topnav.responsive {
-      position: relative;
-      display: grid;
+    position: relative;
+    display: grid;
   }
 
   .topnav.responsive .icon {
-      position: absolute;
-      float: right;
-      right: 0;
-      top: 10px;
+    position: absolute;
+    float: right;
+    right: 0;
+    top: 10px;
   }
 
   .topnav.responsive ul li {
-      float: none;
-      display: block;
-      text-align: center;
-      align-items: center;
-      justify-content: center;
-      justify-items: center;
+    float: none;
+    display: block;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
   }
 
   div.topnav ul {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
-      align-items: center;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    align-items: center;
   }
 
   .topnav.responsive #logo {
-      float: left;
-      justify-content: left;
-      padding: 0 10px;
-      display: flex;
+    float: left;
+    justify-content: left;
+    padding: 0 10px;
+    display: flex;
   }
 }
 
@@ -305,30 +312,30 @@ footer li a:hover {
 @media screen and (max-width: 800px) {
 
   .footer ul {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
   }
 
   .footer ul li {
-      line-height: .1rem;
-      font-size: .9em;
+    line-height: .1rem;
+    font-size: .9em;
   }
 }
 
 @media screen and (max-width: 800px) {
   .footer ul {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
   }
 
   .footer ul li {
-      line-height: 1rem;
+    line-height: 1rem;
   }
 }
 
@@ -337,23 +344,56 @@ footer li a:hover {
   text-align: justify;
 }
 
-.secondpara {
+div.homepg .secondpara {
   font-style: normal;
   color: #544141;
   text-align: justify;
 }
 
-.box p, .box1 p{
+div.homepg .box p,
+div.homepg .box1 p {
   text-align: center;
 }
 
-/* Cards */
-.home-container {
+.tablecontainer {
   justify-content: space-evenly;
+  display: block;
+  width: auto;
+  height: auto;
+}
+
+/* Cards */
+.container {
+  justify-content: center;
   display: flex;
   width: auto;
   height: auto;
-  margin-bottom: 3rem;
+  margin-top: 2em;
+}
+
+.probability .container ul {
+  list-style-type: none;
+  margin-top: 0;
+}
+
+.probability .container p {
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+
+.probability .container h5 {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+
+.probability h2 {
+  padding-top: 2em;
+  padding-bottom: 0;
+}
+
+.probability .container h4 {
+  margin-bottom: 0.5em;
 }
 
 .box {
@@ -373,7 +413,7 @@ footer li a:hover {
 }
 
 .container1 {
-  justify-content: space-evenly;
+  justify-content: center;
   display: flex;
   width: auto;
   height: auto;
@@ -400,17 +440,27 @@ footer li a:hover {
 
   .container,
   .container1 {
-      width: 85%;
-      display: block;
+    display: block;
   }
 
   .box,
   .box1 {
-      width: 100%;
+    width: 80%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
-.btn {
+@media only screen and (max-width: 1500px) and (min-width: 300px) {
+  div.homepg .secondpara {
+    color: #544141;
+    text-align: justify;
+  }
+
+}
+
+div.homepg .btn {
   text-decoration: none;
   text-align: center;
   font-size: 1rem;
@@ -422,57 +472,45 @@ footer li a:hover {
   border-color: #544141;
 }
 
-.btn:hover {
+div.homepg .btn:hover {
   background-color: #eeee;
   color: #B19090;
 
 }
 
-/* Mainpage */
-div.howto h2, div.howto p {
-  padding-bottom: 0;
-}
 
-.howto{
-  padding-left: 2em;
-}
-.description{
-  text-align: center;
-}
-
-.generate {
+div.mainpg .generate {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-bottom: 2rem;
 }
 
-center {
-  width: 64%;
-  margin-left: 18%;
-}
-
-.form {
+div.mainpg .form {
   background-color: #f0f0f0;
   border-radius: 1.2rem;
+  margin: 2em 2em;
+  width: 80%;
+  padding: 1em 0em;
 }
 
-.form-group {
-  margin: 2rem 5rem;
+div.mainpg .form-group {
+  margin: 2rem 0;
   text-align: center;
   box-sizing: border-box;
 
 }
 
-input,
-select {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
+div.mainpg input,
+div.mainpg select {
+  width: 50%;
+  height: 3em;
+  padding: 0em 1em;
+  margin: 1em 2em;
   box-sizing: border-box;
 }
 
-.btn {
+div.mainpg .btn {
   text-decoration: none;
   text-align: center;
   font-size: 1.2rem;
@@ -484,97 +522,46 @@ select {
   border-color: #544141;
 }
 
-.btn:hover {
+div.mainpg .btn:hover {
   background-color: #eeee;
   color: #B19090;
 
 }
 
-@media screen {
-  .form {
-      background-color: #f0f0f0;
-      margin: 0rem 0rem 2rem;
-      border-radius: 1.2rem;
-      padding: 0.25rem;
-  }
-}
-
 /* Inputpage */
-div.func {
-  padding-top: 1em;
-}
 
-div.func-desc, div.where {
-  padding-left: 2em;
-}
 
-div.where1 {
-  padding-left: 2em;
-  padding-top: 1em;
-}
-
-div.func-desc{
-  padding-top: 1em;
-}
-
-div.normal img, div.betapert img, div.pert img{
-  height: 2.5em;
-  width: auto;
-  padding: 1em 0;
-}
-
-div.triangular img{
-  height: 4em;
-  width: auto;
-  padding: 1em 0;
-}
-
-div.howto h2, div.howto p {
+div.inputpg div.howto h2,
+div.inputpg div.howto p {
   padding-bottom: 0;
 }
-div.content p {
+
+div.inputpg div.content p {
   padding: 0;
   margin: 0;
 }
-div.content i{
+
+div.inputpg div.content i {
   font-weight: 600;
 }
 
-div.content center{
+div.inputpg div.content center {
   margin: 0;
   padding-top: 1em;
   padding-bottom: 1em;
 }
 
-.howto{
-  padding-left: 2em;
-}
-.mustknow{
-  padding-left: 2em;
-}
-.mustknow h2, .mustknow p{
-  padding-bottom: 0;
-}
-.mustknow-desc{
-  padding-left: 2.5em;
-}
-.mustknow-desc p{
-  margin-bottom: 0;
-  margin-top: 0; 
-}
-.description{
-  text-align: center;
-}
+
 
 /* Calculate Button */
-.calculate {
+div.inputpg .calculate {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-bottom: 2rem;
 }
 
-.btn {
+div.inputpg .btn {
   text-decoration: none;
   text-align: center;
   font-size: 1.2rem;
@@ -587,23 +574,15 @@ div.content center{
 
 }
 
-.btn:hover {
+div.inputpg .btn:hover {
   background-color: #eeee;
   color: #B19090;
   cursor: pointer;
 
 }
 
-/* TABLE */
-.container {
-  width: 99rem;
-  max-width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-}
 
-table {
+div.inputpg table {
   padding: 1rem;
   margin-top: 3rem;
   margin-bottom: 2rem;
@@ -621,8 +600,8 @@ table {
 
 }
 
-td,
-th {
+div.inputpg td,
+div.inputpg th {
   border: none;
   border-collapse: collapse;
   border-style: none;
@@ -635,33 +614,33 @@ th {
   background-color: transparent;
 }
 
-tr {
+div.inputpg tr {
   border-bottom: 1px solid #ddd;
 }
 
-td {
+div.inputpg td {
   background-color: #f0f0f0;
 }
 
-th {
+div.inputpg th {
   background-color: #d9c7c7;
   padding: 15px;
 
 }
 
-input[type=text1] {
+div.inputpg input[type=text1] {
   border-style: none;
   text-align: center;
   font-size: 2.5vh;
   background-color: transparent;
 }
 
-input[type=numbers] {
+div.inputpg input[type=numbers] {
   width: 14rem;
   padding: .5rem;
 }
 
-input {
+div.inputpg input {
   /* background-color: transparent; */
   border-radius: 5px;
   border: .5px solid;
@@ -669,13 +648,16 @@ input {
 }
 
 /* Number of Trials - Simulations */
-.trials {
+div.inputpg .trials {
   margin: auto;
   min-width: 15rem;
   max-width: 15rem;
   background-color: #D7D0D0;
   padding: 1rem;
   border-radius: 10px;
+}
+div.inputpg .trials input{
+  margin-top: 1em;
 }
 
 /* Collapsible*/
@@ -749,42 +731,25 @@ input {
   margin: 2em;
 }
 
-img{
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
-}
-
 .collapsible p:last-child {
   margin-bottom: 0;
 
 }
 
-@media screen and (max-width: 700px) {
-  .box {
-      width: 70%;
-  }
-
-  .popup {
-      width: 70%;
-  }
-}
-
 /* RESPONSIVE */
 @media screen {
-  .form {
-      background-color: #f0f0f0;
-      margin: 3rem 10rem 2rem;
-      border-radius: 1.2rem;
-      padding: 0.25rem;
+  div.inputpg .form {
+    background-color: #f0f0f0;
+    margin: 3rem 10rem 2rem;
+    border-radius: 1.2rem;
+    padding: 0.25rem;
   }
 }
 
 @media only screen and (max-width: 1500px) and (min-width: 300px) {
-  .table {
-      margin-left: 3vh;
-      margin-right: 5vh;
+  div.inputpg .table {
+    margin-left: 3vh;
+    margin-right: 5vh;
   }
 
 }
@@ -794,7 +759,8 @@ div.func {
   padding-top: 1em;
 }
 
-div.func-desc, div.where {
+div.func-desc,
+div.outputpg div.where {
   padding-left: 2em;
 }
 
@@ -803,61 +769,79 @@ div.where1 {
   padding-top: 1em;
 }
 
-div.func-desc{
+div.func-desc {
   padding-top: 1em;
 }
 
-div.normal img, div.betapert img, div.pert img{
+div.normal img,
+div.betapert img,
+div.pert img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
   height: 2.5em;
   width: auto;
   padding: 1em 0;
 }
 
-div.triangular img{
+div.triangular img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
   height: 4em;
   width: auto;
   padding: 1em 0;
 }
 
-div.howto h2, div.howto p {
+div.howto h2,
+div.howto p {
   padding-bottom: 0;
 }
+
 div.content p {
   padding: 0;
   margin: 0;
 }
-div.content i{
+
+div.content i {
   font-weight: 600;
 }
 
-div.content center{
+div.content center {
   margin: 0;
   padding-top: 1em;
   padding-bottom: 1em;
 }
 
-.howto{
+.howto {
+  padding-left: 2em;
+  margin-bottom: 2em;
+}
+
+.mustknow {
   padding-left: 2em;
 }
-.mustknow{
-  padding-left: 2em;
-}
-.mustknow h2, .mustknow p{
+
+.mustknow h2,
+.mustknow p {
   padding-bottom: 0;
 }
-.mustknow-desc{
+
+.mustknow-desc {
   padding-left: 2.5em;
 }
-.mustknow-desc p{
+
+.mustknow-desc p {
   margin-bottom: 0;
-  margin-top: 0; 
+  margin-top: 0;
 }
-.description{
+
+.description {
   text-align: center;
 }
 
 /* For scrollable results table */
-.grid-container {
+div.outputpg .grid-container {
   display: grid;
   width: 90rem;
   max-width: 100%;
@@ -868,38 +852,8 @@ div.content center{
   overflow-x: auto;
 }
 
-/* Calculate Button */
-.calculate {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 2rem;
-}
-
-.btn {
-  text-decoration: none;
-  text-align: center;
-  font-size: 1.2rem;
-  color: #eeee;
-  background-color: #B19090;
-  border-radius: 40px;
-  display: inline-block;
-  padding: 10px 20px;
-  border-color: #544141;
-
-}
-
-.btn:hover {
-  background-color: #eeee;
-  color: #B19090;
-  cursor: pointer;
-
-}
-
-
 /* Export Button */
-
-.expbtn {
+button {
   text-decoration: none;
   font-size: 1rem;
   color: #eeee;
@@ -910,53 +864,14 @@ div.content center{
   padding: 10px 20px;
   margin-bottom: 1.5rem;
 }
-
-.expbtn:hover {
+button:hover {
   background-color: #eeee;
   color: #B19090;
 
 }
 
 
-/* PERT Extra Compute */
-.compute {
-  text-decoration: none;
-  text-align: right;
-  font-size: 1rem;
-  color: #eeee;
-  background-color: #B19090;
-  border-radius: 10px;
-  display: inline-block;
-  padding: 10px 20px;
-  border: 1px solid;
-}
-
-.compute:hover {
-  background-color: #eeee;
-  color: #B19090;
-
-}
-
-.compute_indiv {
-  text-decoration: none;
-  text-align: right;
-  font-size: 1rem;
-  color: #eeee;
-  background-color: #B19090;
-  border-radius: 10px;
-  display: inline-block;
-  padding: 10px 20px;
-  border: 1px solid;
-}
-
-.compute_indiv:hover {
-  background-color: #eeee;
-  color: #B19090;
-
-}
-
-/* Results table*/
-table.results {
+div.outputpg table.results {
   font-size: 15px;
   margin-bottom: 2rem;
   margin-left: auto;
@@ -972,8 +887,8 @@ table.results {
   background-color: #f0f0f0;
 }
 
-td,
-th {
+div.outputpg td,
+div.outputpg th {
   border: none;
   border-collapse: collapse;
   border-style: none;
@@ -986,264 +901,81 @@ th {
   background-color: transparent;
 }
 
-tr {
+div.outputpg tr {
   border-bottom: 1px solid #ddd;
   padding: 15px;
 }
 
-td {
+div.outputpg td {
   background-color: #f0f0f0;
 }
 
-th {
+div.outputpg th {
   background-color: #d9c7c7;
   padding: 15px;
 
 }
 
-/* Cards for PERT*/
-.containerbox {
-  justify-content: space-evenly;
-  display: flex;
-  width: auto;
-  height: auto;
-}
-
-div.containerbox p {
-  padding: 0;
-  margin: 0;
-}
-
-div.containerbox ul {
-  list-style-type: none;
-  margin-top: 0;
-}
-
-div.containerbox h5 {
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
-}
-
-div.probability h2{
-  padding-top: 2em;
-  padding-bottom: 0;
-}
-
-div.probability h4{
-  margin-bottom: 0.5em;
-}
-
-.box2 {
-  width: 30%;
-  height: auto;
-  padding: 2em;
-  border: 1px solid #ccc;
-  margin: 5vh;
-  background: white;
-  border-radius: 10px;
-  transition: 0.9;
-}
-
-.box2:hover {
-  box-shadow: 0 0 11px rgba(33, 33, 33, 0.5);
-  cursor: pointer;
-}
-
-/* Box For Other Results */
-.container-final {
-  justify-content: space-evenly;
-  display: flex;
-  width: auto;
-  height: auto;
-  margin-bottom: 3rem;
-}
-
-.resultsbox {
-  width: 30%;
-  height: auto;
-  padding: 2.5em 1.5em;
-  margin-bottom: 1.5em;
-  border: 1px solid #ccc;
-  background: white;
-  border-radius: 10px;
-  transition: 0.9;
-}
-
-.resultsbox:hover {
-  box-shadow: 0 0 11px rgba(33, 33, 33, 0.5);
-  cursor: pointer;
-}
-
 /* Gantt Chart */
-.grid-container-gantt {
-display: grid;
-width: 85%;
-margin-left: auto;
-margin-right: auto;
-text-align: center;
+div.outputpg .grid-container-gantt {
+  display: grid;
+  width: 85%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 
-div.grid-container-gantt div.title h2{
+div.outputpg div.grid-container-gantt div.title h2 {
   padding: 0;
 }
 
-table.gantt-chart {
-margin-top: 0;
-margin-bottom: 1rem;
-display: table;
-border-collapse: collapse;
-align-items: justify;
-width: 100%;
-border-spacing: 0;
-border: none;
-border-collapse: collapse;
-text-align: center;
-border-style: ridge;
-table-layout: fixed;
-background-color: #f0f0f0;
+div.outputpg table.gantt-chart {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  display: table;
+  border-collapse: collapse;
+  align-items: justify;
+  width: 100%;
+  border-spacing: 0;
+  border: none;
+  border-collapse: collapse;
+  text-align: center;
+  border-style: ridge;
+  table-layout: fixed;
+  background-color: #f0f0f0;
 }
 
-table.gantt-chart th,
-table.gantt-chart td {
-white-space: nowrap;
-border: none;
-border-collapse: collapse;
-text-align: center;
-padding: 12px 5px;
-display: table-cell;
-vertical-align: middle;
-}
-
-.waiting {
-height: 30px;
-position: relative;
-background: none;
-}
-
-.progress {
-height: 30px;
-position: relative;
-background: #B19090;
-border: 0px;
-border-radius: 10px;
-}
-
-/* Collapsible*/
-.collapsible>input[type="checkbox"] {
-  position: relative;
-  left: -100vw;
-}
-
-.collapsible .content {
-  overflow-y: hidden;
-  height: 0;
-  transition: height 0.3s ease;
-  text-align: justify;
-}
-
-.collapsible>input[type="checkbox"]:checked~.content {
-  height: auto;
-  overflow: visible;
-}
-
-.collapsible label {
-  display: block;
-}
-
-.collapsible {
-  margin-bottom: 1em;
-}
-
-.collapsible>input[type="checkbox"]:checked~.content {
-  padding: 15px;
-  border: 1px solid #e8e8e8;
-  border-top: 0;
-}
-
-.collapsible .handle {
-  margin: 0;
-  font-size: 1.125em;
-  line-height: 1.2em;
-}
-
-.collapsible label {
-  color: #333;
-  cursor: pointer;
-  font-weight: normal;
-  padding: 15px;
-  background: #e8e8e8;
-}
-
-.collapsible label:hover,
-.collapsible label:focus {
-  background: #d8d8d8;
-}
-
-.collapsible .handle label:before {
-  font-family: 'fontawesome';
-  content: "\f054";
-  display: inline-block;
-  margin-right: 10px;
-  font-size: .58em;
-  line-height: 1.556em;
+div.outputpg table.gantt-chart th,
+div.outputpg table.gantt-chart td {
+  white-space: nowrap;
+  border: none;
+  border-collapse: collapse;
+  text-align: center;
+  padding: 12px 5px;
+  display: table-cell;
   vertical-align: middle;
 }
 
-.collapsible>input[type="checkbox"]:checked~.handle label:before {
-  content: "\f078";
+div.outputpg .waiting {
+  height: 30px;
+  position: relative;
+  background: none;
 }
 
-.collapsible {
-  max-width: 99%;
-  margin: 2em;
-}
-
-.collapsible p:last-child {
-  margin-bottom: 0;
-}
-
-.collapsible.content {
-  line-height: 1em;
+div.outputpg .progress {
+  height: 30px;
+  position: relative;
+  background: #B19090;
+  border: 0px;
+  border-radius: 10px;
 }
 
 /* RESPONSIVE */
 @media screen {
-  .form {
-      background-color: #f0f0f0;
-      margin: 3rem 10rem 2rem;
-      border-radius: 1.2rem;
-      padding: 0.25rem;
-  }
-}
-
-
-@media only screen and (max-width: 1500px) and (min-width: 300px) {
-  .grid-container {
-      margin-left: 5vh;
-      margin-right: 5vh;
-  }
-
-  .containerbox {
-      display: block;
-      margin: 3vh;
-  }
-
-  .box1,
-  .box2 {
-      width: 90%;
-  }
-
-  .grid-item {
-      margin-left: 5vh;
-      margin-right: 5vh;
-  }
-
-  .container-final {
-      display: block;
-      margin: 3vh;
-  }
-
-  .resultsbox {
-      width: 90%;
+  div.outputpg .form {
+    background-color: #f0f0f0;
+    margin: 3rem 10rem 2rem;
+    border-radius: 1.2rem;
+    padding: 0.25rem;
   }
 }

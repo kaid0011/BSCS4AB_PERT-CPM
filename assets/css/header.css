@@ -60,7 +60,7 @@ div.topnav li {
 }
 
 div.topnav li a,
-.dropbtn {
+div.topnav .dropbtn {
     display: inline-block;
     color: rgb(75, 61, 38);
     text-align: center;
@@ -127,7 +127,7 @@ div.topnav .dropdown:hover .dropdown-content {
         display: none;
     }
 
-    .logo {
+    div.topnav .logo {
         display: block;
     }
 
