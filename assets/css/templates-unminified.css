@@ -95,21 +95,22 @@ header {
   background-color: #D9D9D9;
   margin: 0 auto;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 0 2em;
 }
 
 .topnav a {
+  display: block;
   text-align: center;
   text-decoration: none;
-  font-size: 1.1em;
-  font-weight: 500;
+  font-size: 20px;
 }
 
 .topnav a .logo {
+  float: left;
+  display: block;
   text-align: center;
   text-decoration: none;
+  font-size: 20px;
 }
 
 .topnav .icon {
@@ -120,10 +121,7 @@ header {
 
 div.topnav img {
   width: 50px;
-}
-
-.menu-items{
-  float: right;
+  float: left;
 }
 
 .homes {
@@ -268,7 +266,6 @@ footer {
 
 footer li a {
   text-decoration: none;
-  color: #333;
 }
 
 .footer ul {
@@ -281,7 +278,10 @@ footer li a {
 
 footer li {
   float: left;
-  padding: 0 1em;
+}
+
+footer li a:hover {
+  background-color: #B19090;
 }
 
 ::-webkit-scrollbar {
@@ -437,7 +437,6 @@ input#p, input#p_indiv{
   border: none;
   pointer-events: none;
   text-align: center;
-  font-size: 1.5em;
 }
 
 @media (max-width: 800px) {

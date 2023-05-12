@@ -12,11 +12,6 @@ class Triangular extends CI_Controller
             'pagename' => 'Triangular Distribution',
         );
         $this->session->set_userdata($arr);
-        redirect('triangular/main');       
-    }
-
-    public function main()
-    {
         $this->load->view('template/header');
         $this->load->view('triangular/triangular_main');
         $this->load->view('template/footer'); 
@@ -27,7 +22,7 @@ class Triangular extends CI_Controller
         $len = $this->input->post('proj_len');
         $unit = $this->input->post('unit');
         $arr = array(
-            'pagename' => 'Input | Triangular Distribution',
+            'pagename' => 'Triangular Distribution',
             'proj_len' => $len,
             'unit' => $unit
         );
@@ -205,7 +200,7 @@ class Triangular extends CI_Controller
             }
         }
         $arr = array(
-            'pagename' => 'Triangular - Results',
+            'pagename' => 'Triangular Distribution',
             'project' => $project,
             'cp' => $cp,
             'finish_time' => $data['finish_time']

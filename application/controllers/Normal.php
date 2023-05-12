@@ -12,11 +12,6 @@ class Normal extends CI_Controller
             'pagename' => 'Normal Distribution',
         );
         $this->session->set_userdata($arr);
-        redirect('normal/main');     
-    }
-
-    public function main()
-    {
         $this->load->view('template/header');
         $this->load->view('normal/normal_main');
         $this->load->view('template/footer'); 
@@ -27,7 +22,7 @@ class Normal extends CI_Controller
         $len = $this->input->post('proj_len');
         $unit = $this->input->post('unit');
         $arr = array(
-            'pagename' => 'Input | Normal Distribution',
+            'pagename' => 'Normal Distribution',
             'proj_len' => $len,
             'unit' => $unit
         );
@@ -205,7 +200,7 @@ class Normal extends CI_Controller
             }
         }
         $arr = array(
-            'pagename' => 'Output | Normal Distribution',
+            'pagename' => 'Normal Distribution',
             'project' => $project,
             'cp' => $cp,
             'finish_time' => $data['finish_time']

@@ -1,78 +1,29 @@
 #!/usr/bin/env python
-
-from random import random
-import array as arr
-from scipy import stats as stats
-from math import sqrt
-import sys
-
-from scipy.stats import norm, beta
-
-pd = sys.argv[1]
-a = int(sys.argv[2])
-m = int(sys.argv[3])
-b = int(sys.argv[4])
-N = int(sys.argv[5])
-i = 0
-arr_norm = arr.array( 'f' , [] )
-arr_beta = arr.array( 'f' , [] )
-arr_tri = arr.array( 'f' , [] )
-    
-def inv_beta(a, m, b):
-    alpha = (4 * m + b - 5 * a) / (b - a )
-    bet4 = (5 * b - a - 4 * m) / (b - a )
-    mean = (a + 4*m + b) / 6
-    sd = (b - a) / 6
-    
-    result = beta.ppf(random(), alpha, bet4, mean, sd)
-    return result
-
-def inv_norm(a, m , b):
-    mean = (a + m + b) / 3
-    sd = (((a - mean)**2) + ((m - mean)**2) + ((b - mean)**2)) / 3
-    var = sqrt(sd)
-    result = norm.ppf(random(), mean, var)
-    return result
-
-def inv_tri(a, m, b):
-    r = random()
-    if r < (m - a) / (b - a):
-        x = 1
-        y = -2 * a
-        z = a**2 - r * (m - a) * (b - a)
-        result = (-y + sqrt(y**2 - 4 * x * z)) / 2 / x
-    else:
-        x = 1
-        y = -2 * b
-        z = b**2 - (1 - r) * (b - a) * (b - m)
-        result = (-y - sqrt(y**2 - 4 * x * z)) / 2 / x
-    return result
-
-# if-else for type of distribution
-if pd == 'beta':
-    # for i in range(N):
-    #     output_beta = (inv_beta(a, m, b))
-    #     arr_beta.append(output_beta)
-        
-    # average_beta = sum(arr_beta)/len(arr_beta)
-    # print (average_beta)
-    output_beta = (inv_beta(a, m, b))
-    print(output_beta)
-elif pd == 'normal':
-    # for i in range(N):
-    #     output_norm = (inv_norm(a, m, b))
-    #     arr_norm.append(output_norm)
-    
-    # average_norm = sum(arr_norm)/len(arr_norm)
-    # print (average_norm)
-    output_norm = (inv_norm(a, m, b))
-    print(output_norm)
-elif pd == 'tri':
-    # for i in range(N):
-    #     output_tri = (inv_tri(a, m, b))
-    #     arr_tri.append(output_tri)
-    
-    # average_tri = sum(arr_tri)/len(arr_tri)
-    # print (average_tri)
-    output_tri = (inv_tri(a, m, b))
-    print(output_tri)
+K='f'
+J=print
+B=int
+from random import random as C
+import array as D
+from scipy import stats as R
+from math import sqrt as E
+import sys as A
+from scipy.stats import norm,beta
+F=A.argv[1]
+G=B(A.argv[2])
+H=B(A.argv[3])
+I=B(A.argv[4])
+S=B(A.argv[5])
+T=0
+U=D.array(K,[])
+V=D.array(K,[])
+W=D.array(K,[])
+def L(a,m,b):A=(4*m+b-5*a)/(b-a);B=(5*b-a-4*m)/(b-a);D=(a+4*m+b)/6;E=(b-a)/6;F=beta.ppf(C(),A,B,D,E);return F
+def M(a,m,b):A=(a+m+b)/3;B=((a-A)**2+(m-A)**2+(b-A)**2)/3;D=E(B);F=norm.ppf(C(),A,D);return F
+def N(a,m,b):
+	D=C()
+	if D<(m-a)/(b-a):A=1;B=-2*a;F=a**2-D*(m-a)*(b-a);G=(-B+E(B**2-4*A*F))/2/A
+	else:A=1;B=-2*b;F=b**2-(1-D)*(b-a)*(b-m);G=(-B-E(B**2-4*A*F))/2/A
+	return G
+if F=='beta':O=L(G,H,I);J(O)
+elif F=='normal':P=M(G,H,I);J(P)
+elif F=='tri':Q=N(G,H,I);J(Q)

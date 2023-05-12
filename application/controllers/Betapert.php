@@ -12,22 +12,16 @@ class Betapert extends CI_Controller
             'pagename' => 'BETA-PERT Distribution',
         );
         $this->session->set_userdata($arr);
-        redirect('betapert/main');       
-    }
-
-    public function Main()
-    {
         $this->load->view('template/header');
         $this->load->view('betapert/betapert_main');
-        $this->load->view('template/footer'); 
-    }
+        $this->load->view('template/footer');     }
 
     public function proj_details()
     {
         $len = $this->input->post('proj_len');
         $unit = $this->input->post('unit');
         $arr = array(
-            'pagename' => 'Input | BETA-PERT Distribution',
+            'pagename' => 'BETA-PERT Distribution',
             'proj_len' => $len,
             'unit' => $unit
         );
@@ -208,7 +202,7 @@ class Betapert extends CI_Controller
         }
 
         $arr = array(
-            'pagename' => 'BETA-PERT - Results',
+            'pagename' => 'BETA-PERT Distribution',
             'project' => $project,
             'cp' => $cp,
             'finish_time' => $data['finish_time']

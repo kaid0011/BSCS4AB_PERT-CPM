@@ -12,11 +12,6 @@ class Pert extends CI_Controller
             'pagename' => 'Project Evaluation Review Technique (PERT)',
         );
         $this->session->set_userdata($arr);
-        redirect('pert/main');       
-    }
-
-    public function main()
-    {
         $this->load->view('template/header');
         $this->load->view('pert/pert_main');
         $this->load->view('template/footer'); 
@@ -27,7 +22,7 @@ class Pert extends CI_Controller
         $len = $this->input->post('proj_len');
         $unit = $this->input->post('unit');
         $arr = array(
-            'pagename' => 'Input | Project Evaluation Review Technique (PERT)',
+            'pagename' => 'Project Evaluation Review Technique (PERT)',
             'proj_len' => $len,
             'unit' => $unit
         );
@@ -189,7 +184,7 @@ class Pert extends CI_Controller
             }
         }  
         $arr = array(
-            'pagename' => 'Output | Project Evaluation Review Technique (PERT)',
+            'pagename' => 'Project Evaluation Review Technique (PERT)',
             'project' => $project,
             'cp' => $cp,
             'finish_time' => $data['finish_time'],
