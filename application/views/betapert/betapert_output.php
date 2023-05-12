@@ -152,41 +152,43 @@
             <div class="title">
                 <h2>Gantt Chart</h2>
             </div>
-            <div style="overflow-x: auto;">
-                <table class="gantt-chart">
-                    <thead>
-                        <tr>
-                            <th style="border-bottom-style: ridge; border-right-style: ridge;"></th>
-                            <?php
-                            for ($col = 1; $col <= $_SESSION['finish_time'] + 1; $col++) {
-                                if ($col == ceil($_SESSION['finish_time']) + 1) { ?>
-                                    <th style="border-bottom-style: ridge;"></th>
-                                <?php } else { ?>
-                                    <th style="border-bottom-style: ridge; text-align: right;"><?php echo "$col"; ?></th>
-                            <?php }
-                            } ?>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        foreach ($project as $task) { ?>
-                            <tr>
-                                <td style="border-bottom-style: ridge; border-right-style: ridge;"><strong><?php echo "Activity " . $task['id']; ?></strong></td>
-                                <td style="border-bottom-style: ridge;" colspan="<?php echo ceil($_SESSION['finish_time']); ?>">
-                                    <?php
-                                    $waiting = ($task['es'] / $_SESSION['finish_time']) * 100;
-                                    $progress = (($task['lf'] - $task['es']) / $_SESSION['finish_time']) * 100;
-                                    $total_time = $_SESSION['finish_time'] / ceil($_SESSION['finish_time']) * 100;
-                                    ?>
-                                    <div style="background-color:#B19090; width: <?php echo $total_time; ?>%">
-                                        <div class="waiting" style="position: relative; float: left; display: inline-block; width: <?php echo $waiting ?>%"></div>
-                                        <div class="progress" style="position: relative; float: left; display: inline-block; width: <?php echo $progress ?>%"></div>
-                                    </div>
-                                </td>
+            <div class="gridd-container">
+                <div class="gantt">
+                    <table class="gantt-chart">
+                        <thead>
+                            <tr class="gantt-act">
+                                <th class="first"></th>
+                                <?php
+                                for ($col = 1; $col <= $_SESSION['finish_time'] + 1; $col++) {
+                                    if ($col == ceil($_SESSION['finish_time']) + 1) { ?>
+                                        <th class="other"></th>
+                                    <?php } else { ?>
+                                        <th class="other" style="text-align: right;"><?php echo "$col"; ?></th>
+                                <?php }
+                                } ?>
                             </tr>
-                        <?php } ?>
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            <?php
+                            foreach ($project as $task) { ?>
+                                <tr>
+                                    <td><strong><?php echo "Activity " . $task['id']; ?></strong></td>
+                                    <td colspan="<?php echo ceil($_SESSION['finish_time']); ?>">
+                                        <?php
+                                        $waiting = ($task['es'] / $_SESSION['finish_time']) * 100;
+                                        $progress = (($task['lf'] - $task['es']) / $_SESSION['finish_time']) * 100;
+                                        $total_time = $_SESSION['finish_time'] / ceil($_SESSION['finish_time']) * 100;
+                                        ?>
+                                        <div style="background-color:#B19090; width: <?php echo $total_time; ?>%">
+                                            <div class="waiting" style="position: relative; float: left; display: inline-block; width: <?php echo $waiting ?>%"></div>
+                                            <div class="progress" style="position: relative; float: left; display: inline-block; width: <?php echo $progress ?>%"></div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            <?php } ?>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
 

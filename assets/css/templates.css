@@ -401,6 +401,8 @@ div.homepg .box1 p {
   height: auto;
   padding: 2.5em 1.5em;
   margin-bottom: 1.5em;
+  margin-left: 1em;
+  margin-right: 1em;
   border: 1px solid #ccc;
   background: white;
   border-radius: 10px;
@@ -434,6 +436,16 @@ div.homepg .box1 p {
 .box1:hover {
   box-shadow: 0 0 11px rgba(33, 33, 33, 0.5);
   cursor: pointer;
+}
+
+.probability input[type="number"]{
+  text-align: center;
+}
+
+input#p, input#p_indiv{
+  border: none;
+  pointer-events: none;
+  text-align: center;
 }
 
 @media (max-width: 800px) {
@@ -840,6 +852,13 @@ div.content center {
   text-align: center;
 }
 
+.probability input{
+  height: 3em;
+    padding: 0em 1em;
+    box-sizing: border-box;
+  margin-bottom: 1.5em;
+}
+
 /* For scrollable results table */
 div.outputpg .grid-container {
   display: grid;
@@ -863,13 +882,13 @@ button {
   display: inline-block;
   padding: 10px 20px;
   margin-bottom: 1.5rem;
+  margin-top: 0.5em;
 }
 button:hover {
   background-color: #eeee;
   color: #B19090;
 
 }
-
 
 div.outputpg table.results {
   font-size: 15px;
@@ -913,13 +932,12 @@ div.outputpg td {
 div.outputpg th {
   background-color: #d9c7c7;
   padding: 15px;
-
+  min-width: 10em;
 }
 
 /* Gantt Chart */
 div.outputpg .grid-container-gantt {
-  display: grid;
-  width: 85%;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
@@ -929,10 +947,22 @@ div.outputpg div.grid-container-gantt div.title h2 {
   padding: 0;
 }
 
+div.grid-container-gantt{
+  overflow-x: auto;
+}
+div.grid-container-gantt .gridd-container{
+display: grid;
+max-width: 90vw;
+margin-left: auto;
+margin-right: auto;
+text-align: center;
+border-radius: 10px;
+overflow-x: auto;}
+
 div.outputpg table.gantt-chart {
   margin-top: 0;
   margin-bottom: 1rem;
-  display: table;
+  display: block;
   border-collapse: collapse;
   align-items: justify;
   width: 100%;
@@ -940,9 +970,18 @@ div.outputpg table.gantt-chart {
   border: none;
   border-collapse: collapse;
   text-align: center;
-  border-style: ridge;
+  border-style: none;
   table-layout: fixed;
   background-color: #f0f0f0;
+}
+
+div.gantt tr.gantt-act th.first{
+  min-width: 10em;
+}
+
+div.gantt tr.gantt-act th.other{
+  width: auto;
+  min-width: 5em;
 }
 
 div.outputpg table.gantt-chart th,

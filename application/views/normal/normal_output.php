@@ -77,9 +77,9 @@
                         $max = max(array_column($cp, 'id'));
                         foreach ($cp as $cp) {
                             if ($cp['id'] == $max) {
-                                echo "Activity " . $cp['id'];
+                                echo $cp['id'];
                             } else {
-                                echo  "Activity " . $cp['id'] . " → ";
+                                echo  $cp['id'] . " → ";
                             }
                         }
                         ?>
