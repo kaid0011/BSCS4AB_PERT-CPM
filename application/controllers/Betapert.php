@@ -87,8 +87,8 @@ class Betapert extends CI_Controller
 
             $al = $data[$id]['alpha'];
             $be = $data[$id]['beta'];
-            $me = $data[$id]['mean'];
-            $sd = $data[$id]['sd'];
+            $me = $a;
+            $sd = $b;
             $v = 0;
 
             // Pass values to python to compute task duration
