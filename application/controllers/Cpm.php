@@ -10,14 +10,8 @@ class Cpm extends CI_Controller
     {    
         $arr = array(
             'pagename' => 'Critical Path Method (CPM)',
-            'css' => 'mainpage'
         );
         $this->session->set_userdata($arr);
-        redirect('cpm/main');
-    }
-
-    public function main()
-    {
         $this->load->view('template/header');
         $this->load->view('cpm/cpm_main');
         $this->load->view('template/footer'); 
@@ -28,8 +22,7 @@ class Cpm extends CI_Controller
         $len = $this->input->post('proj_len');
         $unit = $this->input->post('unit');
         $arr = array(
-            'pagename' => 'CPM - Enter Project Details',
-            'css' => 'inputpage',
+            'pagename' => 'Critical Path Method (CPM)',
             'proj_len' => $len,
             'unit' => $unit
         );
@@ -172,8 +165,7 @@ class Cpm extends CI_Controller
             }
         }
         $arr = array(
-            'pagename' => 'CPM - Results',
-            'css' => 'outputpage',
+            'pagename' => 'Critical Path Method (CPM)',
             'project' => $project,
             'cp' => $cp,
             'finish_time' => $data['finish_time']

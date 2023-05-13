@@ -95,21 +95,22 @@ header {
   background-color: #D9D9D9;
   margin: 0 auto;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 0 2em;
 }
 
 .topnav a {
+  display: block;
   text-align: center;
   text-decoration: none;
-  font-size: 1.1em;
-  font-weight: 500;
+  font-size: 20px;
 }
 
 .topnav a .logo {
+  float: left;
+  display: block;
   text-align: center;
   text-decoration: none;
+  font-size: 20px;
 }
 
 .topnav .icon {
@@ -120,10 +121,7 @@ header {
 
 div.topnav img {
   width: 50px;
-}
-
-.menu-items{
-  float: right;
+  float: left;
 }
 
 .homes {
@@ -268,7 +266,6 @@ footer {
 
 footer li a {
   text-decoration: none;
-  color: #333;
 }
 
 .footer ul {
@@ -281,7 +278,10 @@ footer li a {
 
 footer li {
   float: left;
-  padding: 0 1em;
+}
+
+footer li a:hover {
+  background-color: #B19090;
 }
 
 ::-webkit-scrollbar {
@@ -437,7 +437,6 @@ input#p, input#p_indiv{
   border: none;
   pointer-events: none;
   text-align: center;
-  font-size: 1.5em;
 }
 
 @media (max-width: 800px) {
@@ -919,24 +918,12 @@ div.outputpg th {
 }
 
 div.outputpg .grid-container-gantt {
-  /* width: 100%; */
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
 }
 
-div.grid-container-gantt .gridd-container{
-  display: grid;
-  /* max-width: 90vw; */
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-  border-radius: 10px;
-  overflow-x: auto;
-}
-tr.gantt-act{
-  /* min-width: 90vw; */
-}
 div.outputpg div.grid-container-gantt div.title h2 {
   padding: 0;
 }
@@ -944,9 +931,14 @@ div.outputpg div.grid-container-gantt div.title h2 {
 div.grid-container-gantt{
   overflow-x: auto;
 }
-
-
-
+div.grid-container-gantt .gridd-container{
+display: grid;
+max-width: 90vw;
+margin-left: auto;
+margin-right: auto;
+text-align: center;
+border-radius: 10px;
+overflow-x: auto;}
 
 div.outputpg table.gantt-chart {
   margin-top: 0;
@@ -954,7 +946,7 @@ div.outputpg table.gantt-chart {
   display: block;
   border-collapse: collapse;
   align-items: justify;
-  width: max-content;
+  width: 100%;
   border-spacing: 0;
   border: none;
   border-collapse: collapse;
@@ -962,8 +954,6 @@ div.outputpg table.gantt-chart {
   border-style: none;
   table-layout: fixed;
   background-color: #f0f0f0;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 div.gantt tr.gantt-act th.first{

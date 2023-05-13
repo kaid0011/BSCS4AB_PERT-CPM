@@ -10,34 +10,26 @@ class Betapert extends CI_Controller
     {
         $arr = array(
             'pagename' => 'BETA-PERT Distribution',
-            'css' => 'mainpage'
         );
         $this->session->set_userdata($arr);
-        redirect('Betapert/Main');       
-    }
-
-    public function Main()
-    {
         $this->load->view('template/header');
         $this->load->view('betapert/betapert_main');
-        $this->load->view('template/footer'); 
-    }
+        $this->load->view('template/footer');     }
 
     public function proj_details()
     {
         $len = $this->input->post('proj_len');
         $unit = $this->input->post('unit');
         $arr = array(
-            'pagename' => 'BETA-PERT - Enter Project Details',
-            'css' => 'inputpage',
+            'pagename' => 'BETA-PERT Distribution',
             'proj_len' => $len,
             'unit' => $unit
         );
         $this->session->set_userdata($arr);
-        redirect('Betapert/ProjectDetails');
+        redirect('betapert/projectdetails');
     }
 
-    public function ProjectDetails()
+    public function projectdetails()
     {
         $this->load->view('template/header');
         $this->load->view('betapert/betapert_input');
@@ -210,17 +202,16 @@ class Betapert extends CI_Controller
         }
 
         $arr = array(
-            'pagename' => 'BETA-PERT - Results',
-            'css' => 'outputpage',
+            'pagename' => 'BETA-PERT Distribution',
             'project' => $project,
             'cp' => $cp,
             'finish_time' => $data['finish_time']
         );
         $this->session->set_userdata($arr);
-        redirect('Betapert/Results');
+        redirect('betapert/results');
     }
 
-    public function Results()
+    public function results()
     {
         $this->load->view('template/header');
         $this->load->view('betapert/betapert_output');

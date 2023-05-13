@@ -10,14 +10,8 @@ class Normal extends CI_Controller
     {  
         $arr = array(
             'pagename' => 'Normal Distribution',
-            'css' => 'mainpage'
         );
         $this->session->set_userdata($arr);
-        redirect('Normal/Main');     
-    }
-
-    public function Main()
-    {
         $this->load->view('template/header');
         $this->load->view('normal/normal_main');
         $this->load->view('template/footer'); 
@@ -28,16 +22,15 @@ class Normal extends CI_Controller
         $len = $this->input->post('proj_len');
         $unit = $this->input->post('unit');
         $arr = array(
-            'pagename' => 'Normal - Enter Project Details',
-            'css' => 'inputpage',
+            'pagename' => 'Normal Distribution',
             'proj_len' => $len,
             'unit' => $unit
         );
         $this->session->set_userdata($arr);
-        redirect('Normal/ProjectDetails');
+        redirect('normal/projectdetails');
     }
 
-    public function ProjectDetails()
+    public function projectdetails()
     {
         $this->load->view('template/header');
         $this->load->view('normal/normal_input');
@@ -207,14 +200,13 @@ class Normal extends CI_Controller
             }
         }
         $arr = array(
-            'pagename' => 'Normal - Results',
-            'css' => 'outputpage',
+            'pagename' => 'Normal Distribution',
             'project' => $project,
             'cp' => $cp,
             'finish_time' => $data['finish_time']
         );
         $this->session->set_userdata($arr);
-        redirect('Normal/Results');
+        redirect('normal/results');
     }
 
     public function Results()
