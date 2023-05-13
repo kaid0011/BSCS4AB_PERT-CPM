@@ -8,11 +8,8 @@ class Triangular extends CI_Controller
 
     public function index()
     {       
-        $arr = array(
-            'pagename' => 'Triangular Distribution',
-        );
-        $this->session->set_userdata($arr);
-        $this->load->view('template/header');
+        $temp['title'] = 'Triangular Distribution';
+        $this->load->view('template/header', $temp);
         $this->load->view('triangular/triangular_main');
         $this->load->view('template/footer'); 
     }
@@ -22,7 +19,6 @@ class Triangular extends CI_Controller
         $len = $this->input->post('proj_len');
         $unit = $this->input->post('unit');
         $arr = array(
-            'pagename' => 'Triangular Distribution',
             'proj_len' => $len,
             'unit' => $unit
         );
@@ -32,7 +28,8 @@ class Triangular extends CI_Controller
 
     public function projectdetails()
     {
-        $this->load->view('template/header');
+        $temp['title'] = 'Triangular Distribution';
+        $this->load->view('template/header', $temp);
         $this->load->view('triangular/triangular_input');
         $this->load->view('template/footer');
     }
@@ -200,10 +197,10 @@ class Triangular extends CI_Controller
             }
         }
         $arr = array(
-            'pagename' => 'Triangular Distribution',
             'project' => $project,
             'cp' => $cp,
-            'finish_time' => $data['finish_time']
+            'finish_time' => $data['finish_time'],
+            'unit' => $data[1]['unit']
         );
         $this->session->set_userdata($arr);
         redirect('triangular/results');
@@ -211,7 +208,8 @@ class Triangular extends CI_Controller
 
     public function results()
     {
-        $this->load->view('template/header');
+        $temp['title'] = 'Triangular Distribution';
+        $this->load->view('template/header', $temp);
         $this->load->view('triangular/triangular_output');
         $this->load->view('template/footer'); 
     }

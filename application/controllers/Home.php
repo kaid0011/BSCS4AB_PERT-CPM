@@ -8,13 +8,8 @@ class Home extends CI_Controller
 
     public function index()
     {
-        $arr = array(
-            'pagename' => 'WAPS with Simulation',
-            'css' => 'homepage'
-        );
-        $this->session->set_userdata($arr);
-
-        $this->load->view('template/header');
+        $temp['title'] = 'WAPS with Simulation';
+        $this->load->view('template/header', $temp);
         $this->load->view('home/homepage');
         $this->load->view('template/footer');
     }

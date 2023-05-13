@@ -8,11 +8,8 @@ class Pert extends CI_Controller
 
     public function index()
     {
-        $arr = array(
-            'pagename' => 'Project Evaluation Review Technique (PERT)',
-        );
-        $this->session->set_userdata($arr);
-        $this->load->view('template/header');
+        $temp['title'] = 'Project Evaluation Review Technique (PERT)';
+        $this->load->view('template/header', $temp);
         $this->load->view('pert/pert_main');
         $this->load->view('template/footer'); 
     }
@@ -22,7 +19,6 @@ class Pert extends CI_Controller
         $len = $this->input->post('proj_len');
         $unit = $this->input->post('unit');
         $arr = array(
-            'pagename' => 'Project Evaluation Review Technique (PERT)',
             'proj_len' => $len,
             'unit' => $unit
         );
@@ -31,7 +27,8 @@ class Pert extends CI_Controller
     }
     public function projectdetails()
     {
-        $this->load->view('template/header');
+        $temp['title'] = 'Project Evaluation Review Technique (PERT)';
+        $this->load->view('template/header', $temp);
         $this->load->view('pert/pert_input');
         $this->load->view('template/footer');
     }
@@ -184,12 +181,12 @@ class Pert extends CI_Controller
             }
         }  
         $arr = array(
-            'pagename' => 'Project Evaluation Review Technique (PERT)',
             'project' => $project,
             'cp' => $cp,
             'finish_time' => $data['finish_time'],
             'proj_variance' => $proj_var,
-            'proj_sd' => sqrt($proj_var)    // project SD = square root of project variance
+            'proj_sd' => sqrt($proj_var),    // project SD = square root of project variance
+            'unit' => $data[1]['unit']
         );
         $this->session->set_userdata($arr);
         redirect('pert/results');
@@ -197,7 +194,8 @@ class Pert extends CI_Controller
 
     public function results()
     {
-        $this->load->view('template/header');
+        $temp['title'] = 'Project Evaluation Review Technique (PERT)';
+        $this->load->view('template/header', $temp);
         $this->load->view('pert/pert_output');
         $this->load->view('template/footer'); 
     }

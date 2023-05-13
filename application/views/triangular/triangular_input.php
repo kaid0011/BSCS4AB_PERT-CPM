@@ -56,9 +56,9 @@
                                 <tr>
                                     <td><input type="text1" name="<?php echo $i; ?>" value="<?php echo $i; ?>" readonly></td>
                                     <td><input type="text" name="task_desc_<?php echo $i; ?>"></td>
-                                    <td><input type="number" name="task_opt_<?php echo $i; ?>" step="any" min="1" max="20" oninput="validity.valid||(value='');" required></td>
-                                    <td><input type="number" name="task_ml_<?php echo $i; ?>" step="any" min="1" max="20" oninput="validity.valid||(value='');" required></td>
-                                    <td><input type="number" name="task_pes_<?php echo $i; ?>" step="any" min="1" max="20" oninput="validity.valid||(value='');" required></td>
+                                    <td><input type="number" name="task_opt_<?php echo $i; ?>" step="any" min="1" max="100" placeholder="Max. 100" oninput="validity.valid||(value='');" required></td>
+                                    <td><input type="number" name="task_ml_<?php echo $i; ?>" step="any" min="1" max="100" placeholder="Max. 100" oninput="validity.valid||(value='');" required></td>
+                                    <td><input type="number" name="task_pes_<?php echo $i; ?>" step="any" min="1" max="100" placeholder="Max. 100" oninput="validity.valid||(value='');" required></td>
                                     <td><?php
                                         if ($i == 1) {
                                         ?>
