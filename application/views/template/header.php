@@ -30,7 +30,7 @@
       </ul>
     </div>
     <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-      <i style="font-size:36px" class="fa"> &#xf0c9;</i>
+      <i class="fa"> &#xf0c9;</i>
     </a>
   </div>
 </header>
