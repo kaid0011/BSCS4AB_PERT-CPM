@@ -919,12 +919,24 @@ div.outputpg th {
 }
 
 div.outputpg .grid-container-gantt {
-  width: 100%;
+  /* width: 100%; */
   margin-left: auto;
   margin-right: auto;
   text-align: center;
 }
 
+div.grid-container-gantt .gridd-container{
+  display: grid;
+  /* max-width: 90vw; */
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  border-radius: 10px;
+  overflow-x: auto;
+}
+tr.gantt-act{
+  /* min-width: 90vw; */
+}
 div.outputpg div.grid-container-gantt div.title h2 {
   padding: 0;
 }
@@ -932,14 +944,9 @@ div.outputpg div.grid-container-gantt div.title h2 {
 div.grid-container-gantt{
   overflow-x: auto;
 }
-div.grid-container-gantt .gridd-container{
-display: grid;
-max-width: 90vw;
-margin-left: auto;
-margin-right: auto;
-text-align: center;
-border-radius: 10px;
-overflow-x: auto;}
+
+
+
 
 div.outputpg table.gantt-chart {
   margin-top: 0;
@@ -947,7 +954,7 @@ div.outputpg table.gantt-chart {
   display: block;
   border-collapse: collapse;
   align-items: justify;
-  width: 100%;
+  width: max-content;
   border-spacing: 0;
   border: none;
   border-collapse: collapse;

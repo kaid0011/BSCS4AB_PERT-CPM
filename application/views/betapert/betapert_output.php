@@ -191,7 +191,6 @@
                 </div>
             </div>
         </div>
-
         <section class="collapsible">
             <input type="checkbox" name="collapse" id="handle1" checked="checked">
             <h2 class="handle">

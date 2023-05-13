@@ -149,8 +149,8 @@
             </form>
         </div>
 
-        <!-- Gantt Chart -->
-        <div class="grid-container-gantt">
+         <!-- Gantt Chart -->
+         <div class="grid-container-gantt">
             <div class="title">
                 <h2>Gantt Chart</h2>
             </div>
