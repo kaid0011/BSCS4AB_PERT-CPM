@@ -962,6 +962,8 @@ div.outputpg table.gantt-chart {
   border-style: none;
   table-layout: fixed;
   background-color: #f0f0f0;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 div.gantt tr.gantt-act th.first{

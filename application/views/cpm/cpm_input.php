@@ -26,42 +26,44 @@
                 </div>
             </div>
         </div>
-        <div class="tablecontainer" style="overflow-x:auto;">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Activity</th>
-                        <th title="Activity Description">Description <span class="tooltiptext">&#9432;</span></th>
-                        <th title="Estimated Activity Duration">Duration <span class="tooltiptext">&#9432;</span></th>
-                        <th title="Activity Number that needs to be completed first.">Pre-Requisites <span class="tooltiptext">&#9432;</span></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <form action="<?php echo base_url('cpm/calculate') ?>" method="post">
-                        <input type="number" name="proj_len" value="<?php echo $_SESSION['proj_len']; ?>" hidden>
-                        <input type="text" name="choice" value="<?php echo 'cpm'; ?>" hidden>
-                        <input type="text" name="unit" value="<?php echo $_SESSION['unit']; ?>" hidden>
-                        <?php
-                        for ($i = 1; $i <= $_SESSION['proj_len']; $i++) {
-                        ?>
-                            <tr>
-                                <td><input type="text1" name="<?php echo $i; ?>" value="<?php echo $i; ?>" readonly></td>
-                                <td><input type="text" name="task_desc_<?php echo $i; ?>"></td>
-                                <td><input type="number" name="task_time_<?php echo $i; ?>" min="1" max="20" step="any" oninput="validity.valid||(value='');" required></td>
-                                <td><?php
-                                    if ($i == 1) {
-                                    ?>
-                                        <input type="text" name="task_prereq_<?php echo $i; ?>" value="-" readonly>
-                                    <?php
-                                    } else { ?>
-                                        <input type="text" name="task_prereq_<?php echo $i; ?>" pattern="[1-<?php echo $i - 1; ?>](,[1-<?php echo $i - 1; ?>])*|^[\-]" oninvalid="this.setCustomValidity('bawal yan haha XD')" onchange="this.setCustomValidity('')" required>
-                                    <?php } ?>
-                                </td>
-                            </tr>
-                        <?php }
-                        ?>
-                </tbody>
-            </table>
+        <div class="grid-container">
+            <div class="tablecontainer" style="overflow-x:auto;">
+                <table class="results">
+                    <thead>
+                        <tr>
+                            <th>Activity</th>
+                            <th title="Activity Description">Description <span class="tooltiptext">&#9432;</span></th>
+                            <th title="Estimated Activity Duration">Duration <span class="tooltiptext">&#9432;</span></th>
+                            <th title="Activity Number that needs to be completed first.">Pre-Requisites <span class="tooltiptext">&#9432;</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <form action="<?php echo base_url('cpm/calculate') ?>" method="post">
+                            <input type="number" name="proj_len" value="<?php echo $_SESSION['proj_len']; ?>" hidden>
+                            <input type="text" name="choice" value="<?php echo 'cpm'; ?>" hidden>
+                            <input type="text" name="unit" value="<?php echo $_SESSION['unit']; ?>" hidden>
+                            <?php
+                            for ($i = 1; $i <= $_SESSION['proj_len']; $i++) {
+                            ?>
+                                <tr>
+                                    <td><input type="text1" name="<?php echo $i; ?>" value="<?php echo $i; ?>" readonly></td>
+                                    <td><input type="text" name="task_desc_<?php echo $i; ?>"></td>
+                                    <td><input type="number" name="task_time_<?php echo $i; ?>" min="1" max="20" step="any" oninput="validity.valid||(value='');" required></td>
+                                    <td><?php
+                                        if ($i == 1) {
+                                        ?>
+                                            <input type="text" name="task_prereq_<?php echo $i; ?>" value="-" readonly>
+                                        <?php
+                                        } else { ?>
+                                            <input type="text" name="task_prereq_<?php echo $i; ?>" pattern="[1-<?php echo $i - 1; ?>](,[1-<?php echo $i - 1; ?>])*|^[\-]" oninvalid="this.setCustomValidity('bawal yan haha XD')" onchange="this.setCustomValidity('')" required>
+                                        <?php } ?>
+                                    </td>
+                                </tr>
+                            <?php }
+                            ?>
+                    </tbody>
+                </table>
+            </div>
         </div>
         <br>
         <div class="calculate">
