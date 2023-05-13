@@ -82,8 +82,25 @@ class Triangular extends CI_Controller
 
             for($k = 1; $k <= $N; $k++)
             {
-                $command = escapeshellcmd("python pd.py $pd $a $m $b $N");
-                $res = shell_exec($command);
+                // $command = escapeshellcmd("python pd.py $pd $a $m $b $N");
+                // $res = shell_exec($command);
+
+                $r = rand() / getrandmax();
+                if($r < ($m - $a) / ($b - $a))
+                {
+                    $x = 1;
+                    $y = -2 * $a;
+                    $z = pow($a, 2) - $r * ($m - $a) * ($b - $a);
+                    $res = (-$y + sqrt((pow($y, 2)) - 4 * $x * $z)) / 2 / $x;
+                }
+                else
+                {
+                    $x = 1;
+                    $y = -2 * $b;
+                    $z = (pow($b, 2)) - (1 - $r) * ($b - $a) * ($b - $m);
+                    $res = (-$y + sqrt((pow($y, 2)) - 4 * $x * $z)) / 2 / $x;
+                }
+
                 $f = floatval($res);
                 $sim_arr[$id][] = $f; 
                 $data[$id]['sim_val'][] = $f;          
