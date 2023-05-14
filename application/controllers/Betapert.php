@@ -82,8 +82,8 @@ class Betapert extends CI_Controller
 
             $data[$id]['alpha'] = (4 * $m + $b - 5 * $a) / ($b - $a);
             $data[$id]['beta'] = (5 * $b - $a - 4 * $m) / ($b - $a );
-            $data[$id]['mean'] = $a;
-            $data[$id]['sd'] = $b;
+            $data[$id]['mean'] = ($a + (4 * $m) + $b) / 6;
+            $data[$id]['sd'] = round((($b - $a) / 6), 2);
 
             $al = $data[$id]['alpha'];
             $be = $data[$id]['beta'];
@@ -103,6 +103,7 @@ class Betapert extends CI_Controller
             $data[$id]['time'] = round($t, 2);     // assign task duration
 
         }
+        exit;
         $this->forward_pass($data); // proceed to forward pass
     }
 
@@ -189,8 +190,7 @@ class Betapert extends CI_Controller
                 $data[$rid]['ls'] = bcsub($data[$rid]['lf'], $rtasks['time'], 2);
             }
             //compute slack and if critical task
-            //$data[$rid]['slack'] = $data[$rid]['lf'] - $data[$rid]['ef'];
-            $data[$rid]['slack'] = bcsub($data[$rid]['lf'], $data[$rid]['ef'], 2);
+            $data[$rid]['slack'] = $data[$rid]['lf'] - $data[$rid]['ef'];
             if ($data[$rid]['slack'] == 0) {
                 $data[$rid]['isCritical'] = "Yes";
             }
