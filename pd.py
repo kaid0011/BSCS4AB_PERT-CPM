@@ -36,10 +36,4 @@ def inv_norm(me, sd, v):
     result = norm.ppf(random(), me, v)
     return result
 
-# if-else for type of distribution
-if pd == 'beta':
-    output_beta = (inv_beta(al, be, me, sd))
-    print(output_beta)
-elif pd == 'normal':
-    output_norm = (inv_norm(me, sd, v))
-    print(output_norm)
+# if-else for type of distributiongit 
