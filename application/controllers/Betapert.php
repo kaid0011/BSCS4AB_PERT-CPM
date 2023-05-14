@@ -103,7 +103,6 @@ class Betapert extends CI_Controller
             $data[$id]['time'] = round($t, 2);     // assign task duration
 
         }
-        exit;
         $this->forward_pass($data); // proceed to forward pass
     }
 
