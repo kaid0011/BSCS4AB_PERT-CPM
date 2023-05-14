@@ -82,8 +82,8 @@ class Betapert extends CI_Controller
 
             $data[$id]['alpha'] = (4 * $m + $b - 5 * $a) / ($b - $a);
             $data[$id]['beta'] = (5 * $b - $a - 4 * $m) / ($b - $a );
-            $data[$id]['mean'] = ($a + (4 * $m) + $b) / 6;
-            $data[$id]['sd'] = round((($b - $a) / 6), 2);
+            $data[$id]['mean'] = $a;
+            $data[$id]['sd'] = $b;
 
             $al = $data[$id]['alpha'];
             $be = $data[$id]['beta'];
