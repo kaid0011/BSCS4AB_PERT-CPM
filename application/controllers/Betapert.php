@@ -104,7 +104,7 @@ class Betapert extends CI_Controller
             }
             $t = (array_sum($data[$id]['sim_val']) / count($data[$id]['sim_val']));
 
-            $data[$id]['time'] = round($t-2, 2);     // assign task duration
+            $data[$id]['time'] = round($t-1, 2);     // assign task duration
 
         }
         $this->forward_pass($data); // proceed to forward pass
