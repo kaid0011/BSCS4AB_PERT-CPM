@@ -184,7 +184,8 @@ class Normal extends CI_Controller
                 $data[$rid]['ls'] = bcsub($data[$rid]['lf'], $rtasks['time'], 2);
             }
             //compute slack and if critical task
-            $data[$rid]['slack'] = $data[$rid]['lf'] - $data[$rid]['ef'];
+            //$data[$rid]['slack'] = $data[$rid]['lf'] - $data[$rid]['ef'];
+            $data[$rid]['slack'] = bcsub($data[$rid]['lf'], $data[$rid]['ef'], 2);
             if ($data[$rid]['slack'] == 0) {
                 $data[$rid]['isCritical'] = "Yes";
             }
