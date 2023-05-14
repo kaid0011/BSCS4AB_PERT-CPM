@@ -8,11 +8,8 @@ class Normal extends CI_Controller
 
     public function index()
     {  
-        $arr = array(
-            'pagename' => 'Normal Distribution',
-        );
-        $this->session->set_userdata($arr);
-        $this->load->view('template/header');
+        $temp['title'] = 'Normal Distribution';
+        $this->load->view('template/header', $temp);
         $this->load->view('normal/normal_main');
         $this->load->view('template/footer'); 
     }
@@ -22,7 +19,6 @@ class Normal extends CI_Controller
         $len = $this->input->post('proj_len');
         $unit = $this->input->post('unit');
         $arr = array(
-            'pagename' => 'Normal Distribution',
             'proj_len' => $len,
             'unit' => $unit
         );
@@ -32,7 +28,8 @@ class Normal extends CI_Controller
 
     public function projectdetails()
     {
-        $this->load->view('template/header');
+        $temp['title'] = 'Normal Distribution';
+        $this->load->view('template/header', $temp);
         $this->load->view('normal/normal_input');
         $this->load->view('template/footer');
     }
@@ -55,7 +52,9 @@ class Normal extends CI_Controller
             } else {    //If first task
                 $data[$i]['prereq'][] = -1; // Turn prereq into array and replace with -1
             }
-            // $data[$i]['sd'] = 0;
+            $data[$i]['mean'] = 0;
+            $data[$i]['var'] = 0;
+            $data[$i]['sd'] = 0;
             $data[$i]['es'] = 0;    // Earliest Start
             $data[$i]['ef'] = 0;    // Earliest Finish
             $data[$i]['ls'] = 0;    // Latest Start
@@ -79,13 +78,19 @@ class Normal extends CI_Controller
             $pd = 'normal';
             $N = $ab['N'];
 
-            // Pass values to python to compute task duration
-            // $command = escapeshellcmd("python pd.py $pd $a $m $b $N");
-            // $output = shell_exec($command);
+            $me = ($a + $m + $b) / 3;
+            $sd = ((pow($a - $me, 2)) + (pow($m - $me, 2)) + (pow($b - $me, 2))) / 3;
+            $v = sqrt($sd);
+            $al = 0;
+            $be = 0;
+
+            $data[$id]['mean'] = $me;
+            $data[$id]['sd'] = round($sd, 2);
+            $data[$id]['var'] = round($v, 2);
 
             for($k = 1; $k <= $N; $k++)
             {
-                $command = escapeshellcmd("python pd.py $pd $a $m $b $N");
+                $command = escapeshellcmd("python pd.py $pd $N $al $be $me $sd $v"); 
                 $res = shell_exec($command);
                 $f = floatval($res);
                 $sim_arr[$id][] = $f; 
@@ -200,10 +205,10 @@ class Normal extends CI_Controller
             }
         }
         $arr = array(
-            'pagename' => 'Normal Distribution',
             'project' => $project,
             'cp' => $cp,
-            'finish_time' => $data['finish_time']
+            'finish_time' => $data['finish_time'],
+            'unit' => $data[1]['unit']
         );
         $this->session->set_userdata($arr);
         redirect('normal/results');
@@ -211,7 +216,8 @@ class Normal extends CI_Controller
 
     public function Results()
     {
-        $this->load->view('template/header');
+        $temp['title'] = 'Normal Distribution';
+        $this->load->view('template/header', $temp);
         $this->load->view('normal/normal_output');
         $this->load->view('template/footer'); 
     }

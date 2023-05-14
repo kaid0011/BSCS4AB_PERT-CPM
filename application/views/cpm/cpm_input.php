@@ -48,14 +48,14 @@
                                 <tr>
                                     <td><input type="text1" name="<?php echo $i; ?>" value="<?php echo $i; ?>" readonly></td>
                                     <td><input type="text" name="task_desc_<?php echo $i; ?>"></td>
-                                    <td><input type="number" name="task_time_<?php echo $i; ?>" min="1" max="20" step="any" oninput="validity.valid||(value='');" required></td>
+                                    <td><input type="number" name="task_time_<?php echo $i; ?>" min="1" max="100" placeholder="Max. 100" step="any" oninput="validity.valid||(value='');" required></td>
                                     <td><?php
                                         if ($i == 1) {
                                         ?>
                                             <input type="text" name="task_prereq_<?php echo $i; ?>" value="-" readonly>
                                         <?php
                                         } else { ?>
-                                            <input type="text" name="task_prereq_<?php echo $i; ?>" pattern="[1-<?php echo $i - 1; ?>](,[1-<?php echo $i - 1; ?>])*|^[\-]" oninvalid="this.setCustomValidity('bawal yan haha XD')" onchange="this.setCustomValidity('')" required>
+                                            <input type="text" name="task_prereq_<?php echo $i; ?>" pattern="[1-<?php echo $i - 1; ?>](,[1-<?php echo $i - 1; ?>])*|^[\-]" oninvalid="this.setCustomValidity('Enter Valid Activity ID')" onchange="this.setCustomValidity('')" required>
                                         <?php } ?>
                                     </td>
                                 </tr>

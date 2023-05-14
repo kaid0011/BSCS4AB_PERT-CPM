@@ -8,20 +8,17 @@ class Betapert extends CI_Controller
 
     public function index()
     {
-        $arr = array(
-            'pagename' => 'BETA-PERT Distribution',
-        );
-        $this->session->set_userdata($arr);
-        $this->load->view('template/header');
+        $temp['title'] = 'BETA-PERT Distribution';
+        $this->load->view('template/header', $temp);
         $this->load->view('betapert/betapert_main');
-        $this->load->view('template/footer');     }
+        $this->load->view('template/footer');     
+    }
 
     public function proj_details()
     {
         $len = $this->input->post('proj_len');
         $unit = $this->input->post('unit');
         $arr = array(
-            'pagename' => 'BETA-PERT Distribution',
             'proj_len' => $len,
             'unit' => $unit
         );
@@ -31,7 +28,8 @@ class Betapert extends CI_Controller
 
     public function projectdetails()
     {
-        $this->load->view('template/header');
+        $temp['title'] = 'BETA-PERT Distribution';
+        $this->load->view('template/header', $temp);
         $this->load->view('betapert/betapert_input');
         $this->load->view('template/footer');
     }
@@ -54,7 +52,10 @@ class Betapert extends CI_Controller
             } else {    //If first task
                 $data[$i]['prereq'][] = -1; // Turn prereq into array and replace with -1
             }
-            // $data[$i]['sd'] = 0;
+            $data[$i]['alpha'] = 0;
+            $data[$i]['beta'] = 0;
+            $data[$i]['mean'] = 0;
+            $data[$i]['sd'] = 0;
             $data[$i]['es'] = 0;    // Earliest Start
             $data[$i]['ef'] = 0;    // Earliest Finish
             $data[$i]['ls'] = 0;    // Latest Start
@@ -79,13 +80,23 @@ class Betapert extends CI_Controller
             $pd = 'beta';       // type of probability distribution
             $N = $ab['N'];      // number of trials
 
+            $data[$id]['alpha'] = (4 * $m + $b - 5 * $a) / ($b - $a);
+            $data[$id]['beta'] = (5 * $b - $a - 4 * $m) / ($b - $a );
+            $data[$id]['mean'] = ($a + (4 * $m) + $b) / 6;
+            $data[$id]['sd'] = round((($b - $a) / 6), 2);
+
+            $al = $data[$id]['alpha'];
+            $be = $data[$id]['beta'];
+            $me = $data[$id]['mean'];
+            $sd = $data[$id]['sd'];
+            $v = 0;
+
             // Pass values to python to compute task duration
-            //$command = escapeshellcmd("python pd.py $pd $a $m $b $N");
-            //$res = shell_exec($command);
             
             for($k = 1; $k <= $N; $k++)
             {
-                $command = escapeshellcmd("python pd.py $pd $a $m $b $N");
+                //$command = escapeshellcmd("python pd.py $pd $a $m $b $N"); //change parameters to a, b, mean, sd
+                $command = escapeshellcmd("python pd.py $pd $N $al $be $me $sd $v"); 
                 $res = shell_exec($command);
                 $f = floatval($res);
                 $sim_arr[$id][] = $f; 
@@ -202,10 +213,10 @@ class Betapert extends CI_Controller
         }
 
         $arr = array(
-            'pagename' => 'BETA-PERT Distribution',
             'project' => $project,
             'cp' => $cp,
-            'finish_time' => $data['finish_time']
+            'finish_time' => $data['finish_time'],
+            'unit' => $data[1]['unit']
         );
         $this->session->set_userdata($arr);
         redirect('betapert/results');
@@ -213,7 +224,8 @@ class Betapert extends CI_Controller
 
     public function results()
     {
-        $this->load->view('template/header');
+        $temp['title'] = 'BETA-PERT Distribution';
+        $this->load->view('template/header', $temp);
         $this->load->view('betapert/betapert_output');
         $this->load->view('template/footer'); 
     }

@@ -90,7 +90,7 @@
                 <center>
                     <h4>Project Completion Time</h4>
                     <p>
-                        <?php echo $_SESSION['finish_time']; ?>
+                        <?php echo $_SESSION['finish_time']." ".$_SESSION['unit']; ?>
                     </p>
                 </center>
             </div>

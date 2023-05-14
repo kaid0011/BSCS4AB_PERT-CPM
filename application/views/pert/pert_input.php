@@ -55,16 +55,16 @@
                                     <td><input type="text1" name="<?php echo $i; ?>" value="<?php echo $i; ?>" readonly></td>
                                     <td><input type="text" name="task_desc_<?php echo $i; ?>"></td>
                                     <!-- <td><textarea  name = "task_desc_<?php echo $i; ?>"></textarea></td> -->
-                                    <td><input type="number" name="task_opt_<?php echo $i; ?>" step="any" min="1" max="20" oninput="validity.valid||(value='');" required></td>
-                                    <td><input type="number" name="task_ml_<?php echo $i; ?>" step="any" min="1" max="20" oninput="validity.valid||(value='');" required></td>
-                                    <td><input type="number" name="task_pes_<?php echo $i; ?>" step="any" min="1" max="20" oninput="validity.valid||(value='');" required></td>
+                                    <td><input type="number" name="task_opt_<?php echo $i; ?>" id="task_opt_<?php echo $i; ?>" step="any" min="1" max="100" placeholder="Max. 100" onchange="check_opt(this)" required></td>
+                                    <td><input type="number" name="task_ml_<?php echo $i; ?>" id="task_ml_<?php echo $i; ?>" step="any" min="1" max="100" placeholder="Max. 100" onchange="check_ml(this)" required></td>
+                                    <td><input type="number" name="task_pes_<?php echo $i; ?>" id="task_pes_<?php echo $i; ?>" step="any" min="1" max="100" placeholder="Max. 100" onchange="check_pes(this)" required></td>
                                     <td><?php
                                         if ($i == 1) {
                                         ?>
                                             <input type="text" name="task_prereq_<?php echo $i; ?>" value="-" readonly>
                                         <?php
                                         } else { ?>
-                                            <input type="text" name="task_prereq_<?php echo $i; ?>" pattern="[1-<?php echo $i - 1; ?>](,[1-<?php echo $i - 1; ?>])*|^[\-]" oninvalid="this.setCustomValidity('bawal yan haha XD')" onchange="this.setCustomValidity('')" required>
+                                            <input type="text" name="task_prereq_<?php echo $i; ?>" pattern="[1-<?php echo $i - 1; ?>](,[1-<?php echo $i - 1; ?>])*|^[\-]" oninvalid="this.setCustomValidity('Enter Valid Activity ID')" onchange="this.setCustomValidity('')" required>
                                         <?php } ?>
                                     </td>
                                 </tr>
@@ -208,3 +208,47 @@
         </section>
     </div>
 </div>
+<script>
+    function check_opt(opt) {
+        var opt = opt;
+        if(!opt.validity.valid) {
+            opt.value = "";
+        } 
+    }
+
+    function check_ml(ml) {
+        var ml = ml;
+        var ml_id = ml.id;
+        ml_id = ml_id.substr(8);
+        if(!ml.validity.valid) {
+            ml.value = "";
+        } 
+        else {          
+            var optv = document.getElementById("task_opt_" + ml_id).value;
+            var mlv = Number(ml.value);
+            optv = Number(optv);
+            if(mlv <= optv) {
+                alert('Most Likely should be equal to or greater than Optimistic.');
+                ml.value = "";
+            }
+        }
+    }
+
+    function check_pes(pes) {
+        var pes = pes;
+        var pes_id = pes.id;
+        pes_id = pes_id.substr(9);
+        if(!pes.validity.valid) {
+            pes.value = "";
+        }
+        else {
+            var mlv = document.getElementById("task_ml_" + pes_id).value;
+            var pesv = Number(pes.value);
+            mlv = Number(mlv);
+            if(pesv <= mlv) {
+                alert('Pessimistic should be equal to or greater than Most Likely and Optimistic.');
+                pes.value = "";
+            }
+        }
+    }
+</script>

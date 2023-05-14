@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="<?= base_url() ?>/assets/css/templates.css">
   <link rel="icon" type="image/png" href="<?= base_url() ?>/assets/images/logo.svg" />
-  <title><?php echo $_SESSION['pagename']; ?></title>
+  <title><?php echo $title; ?></title>
 </head>
 <header>
   <div class="topnav" id="myTopnav">
@@ -30,7 +30,7 @@
       </ul>
     </div>
     <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-      <i style="font-size:36px" class="fa"> &#xf0c9;</i>
+      <i class="fa"> &#xf0c9;</i>
     </a>
   </div>
 </header>
