@@ -33,7 +33,7 @@ def inv_norm(me, sd, v):
     # me = (a + m + b) / 3
     # sd = (((a - mean)**2) + ((m - mean)**2) + ((b - mean)**2)) / 3
     # v = sqrt(sd)
-    result = norm.ppf(random(), me, v)
+    result = (norm.ppf(random(), me, v) - 2)
     return result
 
 # if-else for type of distribution
