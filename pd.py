@@ -26,7 +26,7 @@ def inv_beta(al, be, me, sd):
     # mean = (a + 4*m + b) / 6
     # sd = (b - a) / 6
     
-    result = beta.ppf(random(), al, be, me, sd)
+    result = beta.ppf(random(), al, be, me, sd) - 2
     return result
 
 def inv_norm(me, sd, v):
