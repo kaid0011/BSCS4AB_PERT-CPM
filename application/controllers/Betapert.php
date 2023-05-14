@@ -102,7 +102,7 @@ class Betapert extends CI_Controller
                 $sim_arr[$id][] = $f; 
                 $data[$id]['sim_val'][] = $f;          
             }
-            $t = array_sum($data[$id]['sim_val']) / count($data[$id]['sim_val']);
+            $t = (array_sum($data[$id]['sim_val']) / count($data[$id]['sim_val'])) - 2;
 
             $data[$id]['time'] = round($t, 2);     // assign task duration
 
