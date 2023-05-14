@@ -16,24 +16,27 @@ me = float(sys.argv[5])
 sd = float(sys.argv[6])
 v = float(sys.argv[7])
 i = 0
-arr_norm = arr.array( 'f' , [] )
-arr_beta = arr.array( 'f' , [] )
-arr_tri = arr.array( 'f' , [] )
+arr_beta = []
+arr_norm = []
     
 def inv_beta(al, be, me, sd):
-    # alpha = (4 * m + b - 5 * a) / (b - a )
-    # bet4 = (5 * b - a - 4 * m) / (b - a )
-    # mean = (a + 4*m + b) / 6
-    # sd = (b - a) / 6
-    
     result = beta.ppf(random(), al, be, me, sd)
     return result
 
 def inv_norm(me, sd, v):
-    # me = (a + m + b) / 3
-    # sd = (((a - mean)**2) + ((m - mean)**2) + ((b - mean)**2)) / 3
-    # v = sqrt(sd)
     result = norm.ppf(random(), me, v)
     return result
 
-# if-else for type of distributiongit 
+# if-else for type of distribution
+if pd == 'beta':
+    for i in range(N):
+        output_beta = (inv_beta(al, be, me, sd))
+        arr_beta.append(output_beta)
+        
+    print(arr_beta)
+elif pd == 'normal':
+    for i in range(N):
+        output_norm = (inv_norm(me, sd, v))
+        arr_norm.append(output_norm)
+    
+    print(arr_norm)

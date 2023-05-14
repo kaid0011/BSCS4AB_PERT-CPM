@@ -92,21 +92,18 @@ class Betapert extends CI_Controller
             $v = 0;
 
             // Pass values to python to compute task duration
-            
-            for($k = 1; $k <= $N; $k++)
-            {
-                //$command = escapeshellcmd("python pd.py $pd $a $m $b $N"); //change parameters to a, b, mean, sd
-                $command = escapeshellcmd("python pd.py $pd $N $al $be $me $sd $v"); 
-                $res = shell_exec($command);
-                $f = floatval($res);
-                $sim_arr[$id][] = $f; 
-                $data[$id]['sim_val'][] = $f;          
-            }
+            $command = escapeshellcmd("python pd.py $pd $N $al $be $me $sd $v"); 
+            $res = shell_exec($command);
+            $res = str_replace(array('[',']',' '), '',$res);    // remove unnecessary characters from python output
+            $res = trim($res, ' ');
+            $data[$id]['sim_val'] = explode(",", $res);         // convert string to array and assign to main data array
+
             $t = array_sum($data[$id]['sim_val']) / count($data[$id]['sim_val']);
 
             $data[$id]['time'] = round($t, 2);     // assign task duration
 
         }
+        exit;
         $this->forward_pass($data); // proceed to forward pass
     }
 
