@@ -130,7 +130,7 @@
 
         <div class="export">
             <!-- Export Simulation Values Excel File -->
-            <form action="<?php echo base_url('export') ?>" method="post">
+            <form action="<?php echo base_url('export/simu') ?>" method="post">
                 <?php
                 foreach ($project as $sim) {
                     $id = $sim['id'];
