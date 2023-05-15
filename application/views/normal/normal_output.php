@@ -45,7 +45,7 @@
                                 <td><?php echo $task['opt'] . " " . $task['unit']; ?></td>
                                 <td><?php echo $task['ml'] . " " . $task['unit']; ?></td>
                                 <td><?php echo $task['pes'] . " " . $task['unit']; ?></td>
-                                <td><?php echo $task['time'] . " " . $task['unit']; ?></td>
+                                <td><?php echo number_format((float)$task['time'], 2, '.', '') . " " . $task['unit']; ?></td>
                                 <td><?php
                                     $pre = implode(",", $task['prereq']);
                                     if ($pre == '-1') {
@@ -53,14 +53,14 @@
                                     }
                                     echo $pre;
                                     ?></td>
-                                <td><?php echo $task['mean']; ?></td>
-                                <td><?php echo $task['sd']; ?></td>
-                                <td><?php echo $task['var']; ?></td>
-                                <td><?php echo $task['es']; ?></td>
-                                <td><?php echo $task['ef']; ?></td>
-                                <td><?php echo $task['ls']; ?></td>
-                                <td><?php echo $task['lf']; ?></td>
-                                <td><?php echo $task['slack']; ?></td>
+                                <td><?php echo number_format((float)$task['mean'], 2, '.', ''); ?></td>
+                                <td><?php echo number_format((float)$task['sd'], 2, '.', ''); ?></td>
+                                <td><?php echo number_format((float)$task['var'], 2, '.', ''); ?></td>
+                                <td><?php echo number_format((float)$task['es'], 2, '.', ''); ?></td>
+                                <td><?php echo number_format((float)$task['ef'], 2, '.', ''); ?></td>
+                                <td><?php echo number_format((float)$task['ls'], 2, '.', ''); ?></td>
+                                <td><?php echo number_format((float)$task['lf'], 2, '.', ''); ?></td>
+                                <td><?php echo number_format((float)$task['slack'], 2, '.', ''); ?></td>
                                 <td><?php echo $task['isCritical']; ?></td>
                             </tr>
                         <?php
@@ -96,7 +96,7 @@
                 <center>
                     <h4>Project Completion Time</h4>
                     <p>
-                        <?php echo $_SESSION['finish_time']." ".$_SESSION['unit']; ?>
+                        <?php echo number_format((float)$_SESSION['finish_time'], 2, '.', '')." ".$_SESSION['unit']; ?>
                     </p>
                 </center>
             </div>

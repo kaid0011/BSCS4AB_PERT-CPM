@@ -49,7 +49,7 @@
                                 <td><?php echo $task['ml'] . " " . $task['unit']; ?></td>
                                 <td><?php echo $task['pes'] . " " . $task['unit']; ?></td>
                                 <td>
-                                    <?php echo round($task['time'], 2) . " " . $task['unit']; ?>
+                                    <?php echo number_format((float)$task['time'], 2, '.', '') . " " . $task['unit']; ?>
                                     <input type="number" name="m" id="m_<?php echo $task['id']; ?>" value="<?php echo round($task['time'], 2); ?>" hidden>
                                 </td>
                                 <td><?php
@@ -60,15 +60,15 @@
                                     echo $pre;
                                     ?></td>
                                 <td>
-                                    <?php echo round($task['sd'], 2); ?>
-                                    <input type="number" name="s" id="s_<?php echo $task['id']; ?>" value="<?php echo round($task['sd'], 2); ?>" hidden>
+                                    <?php echo number_format((float)$task['sd'], 2, '.', ''); ?>
+                                    <input type="number" name="s" id="s_<?php echo $task['id']; ?>" value="<?php echo number_format((float)$task['sd'], 2, '.', ''); ?>" hidden>
                                 </td>
-                                <td><?php echo round($task['v'], 2); ?></td>
-                                <td><?php echo round($task['es'], 2); ?></td>
-                                <td><?php echo round($task['ef'], 2); ?></td>
-                                <td><?php echo round($task['ls'], 2); ?></td>
-                                <td><?php echo round($task['lf'], 2); ?></td>
-                                <td><?php echo round($task['slack'], 2); ?></td>
+                                <td><?php echo number_format((float)$task['v'], 2, '.', ''); ?></td>
+                                <td><?php echo number_format((float)$task['es'], 2, '.', ''); ?></td>
+                                <td><?php echo number_format((float)$task['ef'], 2, '.', ''); ?></td>
+                                <td><?php echo number_format((float)$task['ls'], 2, '.', ''); ?></td>
+                                <td><?php echo number_format((float)$task['lf'], 2, '.', ''); ?></td>
+                                <td><?php echo number_format((float)$task['slack'], 2, '.', ''); ?></td>
                                 <td><?php echo $task['isCritical']; ?></td>
                             </tr>
                         <?php
@@ -100,7 +100,7 @@
 
                     <h4>Project Completion Time</h4>
                     <p>
-                        <?php echo $_SESSION['finish_time']." ".$_SESSION['unit']; ?>
+                        <?php echo number_format((float)$_SESSION['finish_time'], 2, '.', '')." ".$_SESSION['unit']; ?>
                     </p>
                 </center>
             </div>
@@ -109,11 +109,11 @@
                 <center>
                     <h4>Project Variance</h4>
                     <p>
-                        <?php echo round($_SESSION['proj_variance'], 2); ?>
+                        <?php echo number_format((float)$_SESSION['proj_variance'], 2, '.', ''); ?>
                     </p>
                     <h4>Project Standard Deviation</h4>
                     <p>
-                        <?php echo round($_SESSION['proj_sd'], 2); ?>
+                        <?php echo number_format((float)$_SESSION['proj_sd'], 2, '.', ''); ?>
                     </p>
                 </center>
             </div>
@@ -179,8 +179,8 @@
                         </ul>
                         <h5>Expected Project Duration</h5>
                         <input type="number" name="x" id="x" required>
-                        <input type="number" name="m" id="m" value="<?php echo round($_SESSION['finish_time'], 2); ?>" hidden>
-                        <input type="number" name="s" id="s" value="<?php echo round($_SESSION['proj_sd'], 2); ?>" hidden>
+                        <input type="number" name="m" id="m" value="<?php echo number_format((float)$_SESSION['finish_time'], 2, '.', ''); ?>" hidden>
+                        <input type="number" name="s" id="s" value="<?php echo number_format((float)$_SESSION['proj_sd'], 2, '.', ''); ?>" hidden>
                         <br>
                         <button id="compute" class="compute">Calculate</button>
                         <h5>Probability of Completion</h5>
