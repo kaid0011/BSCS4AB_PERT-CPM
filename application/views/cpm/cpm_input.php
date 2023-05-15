@@ -53,10 +53,19 @@
                                         if ($i == 1) {
                                         ?>
                                             <input type="text" name="task_prereq_<?php echo $i; ?>" value="-" readonly>
-                                        <?php
-                                        } else { ?>
-                                            <input type="text" name="task_prereq_<?php echo $i; ?>" pattern="[1-<?php echo $i - 1; ?>](,[1-<?php echo $i - 1; ?>])*|^[\-]" oninvalid="this.setCustomValidity('Enter Valid Activity ID')" onchange="this.setCustomValidity('')" required>
-                                        <?php } ?>
+                                            <?php
+                                            } else {
+                                                $x = $i - 1;
+                                                if ($i <= 10) {
+                                                ?>
+                                                    <input type="text" name="task_prereq_<?php echo $i; ?>" pattern="[1-<?php echo $x; ?>](,[1-<?php echo $x; ?>])*|^[\-]" oninvalid="this.setCustomValidity('Enter Valid Activity ID')" onchange="this.setCustomValidity('')" required>
+                                                <?php
+                                                } else if ($i > 10) {
+                                                    $y = $i - 11;
+                                                ?>
+                                                    <input type="text" name="task_prereq_<?php echo $i; ?>" pattern="([1-9]|1[0-<?php echo $y; ?>])(,([1-9]|1[0-<?php echo $y; ?>]))*|^[\-]" oninvalid="this.setCustomValidity('Enter Valid Activity ID')" onchange="this.setCustomValidity('')" required>
+                                            <?php }
+                                            } ?>
                                     </td>
                                 </tr>
                             <?php }
