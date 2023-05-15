@@ -45,7 +45,7 @@
                             <?php
                             for ($i = 1; $i <= $_SESSION['proj_len']; $i++) {
                             ?> <tr>
-                                    <td><input type="text1" name="<?php echo $i; ?>" value="<?php echo $i; ?>" readonly="readonly"></td>
+                                    <td><input type="text1" name="<?php echo $i; ?>" value="<?php echo $i; ?>" readonly></td>
                                     <td><input type="text" name="task_desc_<?php echo $i; ?>"></td>
                                     <td><input type="number" name="task_opt_<?php echo $i; ?>" id="task_opt_<?php echo $i; ?>" step="any" min="1" max="100" placeholder="Max. 100" onchange="check_opt(this)" required></td>
                                     <td><input type="number" name="task_ml_<?php echo $i; ?>" id="task_ml_<?php echo $i; ?>" step="any" min="1" max="100" placeholder="Max. 100" onchange="check_ml(this)" required></td>

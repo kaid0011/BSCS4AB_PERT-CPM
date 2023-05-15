@@ -141,7 +141,7 @@ div.topnav img {
 }
 
 div.topnav li {
-  float: left;
+  display: inline-block;
 }
 
 div.topnav li a,
@@ -643,7 +643,7 @@ div.inputpg th {
 div.inputpg input[type=text1] {
   border-style: none;
   text-align: center;
-  font-size: 2.5vh;
+  font-size: 1.2em;
   background-color: transparent;
 }
 

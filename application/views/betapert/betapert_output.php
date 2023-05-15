@@ -21,11 +21,11 @@
                             <th title="Shortest Estimated Activity Duration">Optimistic <span class="tooltiptext">&#9432;</span></th>
                             <th title="Reasonable Estimated Activity Duration">Most Likely <span class="tooltiptext">&#9432;</span></th>
                             <th title="Maximum Estimated Activity Duration">Pessimistic <span class="tooltiptext">&#9432;</span></th>
-                            <th title="alpha">Alpha Value <span class="tooltiptext">&#9432;</span></th>
-                            <th title="beta">Beta Value <span class="tooltiptext">&#9432;</span></th>
+                            <th title="alpha">Alpha <span class="tooltiptext">&#9432;</span></th>
+                            <th title="beta">Beta <span class="tooltiptext">&#9432;</span></th>
                             <th title="mean">Mean <span class="tooltiptext">&#9432;</span></th>
                             <th title="sd">Standard Deviation <span class="tooltiptext">&#9432;</span></th>
-                            <th title="Estimated Activity Completion based on OT, MLT, and PT">Estimated Duration <span class="tooltiptext">&#9432;</span></th>
+                            <th title="Computed Activity Completion based on OT, MLT, and PT">Computed Duration <span class="tooltiptext">&#9432;</span></th>
                             <th title="Activity Number that needs to be completed first.">Pre-Requisites <span class="tooltiptext">&#9432;</span></th>
                             <th title="Activity's Earliest Start Time">ES <span class="tooltiptext">&#9432;</span></th>
                             <th title="Activity's Earliest Finish Time">EF <span class="tooltiptext">&#9432;</span></th>
