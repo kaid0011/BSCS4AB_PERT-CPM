@@ -236,5 +236,4 @@ class Normal extends CI_Controller
     }
 }
 
-
-
+?>

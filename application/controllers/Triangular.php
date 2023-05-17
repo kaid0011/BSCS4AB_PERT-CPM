@@ -247,5 +247,4 @@ class Triangular extends CI_Controller
     }
 }
 
-
-
+?>
