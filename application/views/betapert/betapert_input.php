@@ -248,6 +248,7 @@
             </div>
         </section>
     </div>
+<<<<<<< HEAD
 </div>
 <script>
     function check_opt(opt) {
@@ -291,3 +292,6 @@
         }
     }
 </script>
+=======
+</div>
+>>>>>>> 70f3ae6177fed2fea59bafb656b2b8d076fdd73c
