@@ -47,14 +47,9 @@
             </center>
         </div>
 
-<<<<<<< HEAD
-    <div class="generate">
-        <button class="btn">Generate Table</button>
-=======
         <div class="generate">
             <button class="btn">Generate Table</button>
         </div>
         </form>
->>>>>>> 8d05d719a47b1c0b0cbe5e45999db99e740a0fdf
     </div>
 </div>
