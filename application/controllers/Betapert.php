@@ -241,6 +241,4 @@ class Betapert extends CI_Controller
         }
     }
 }
-
-
-
+?>

@@ -20,5 +20,5 @@
     }
   }
 </script>
-
+<script src="<?= base_url() ?>/assets/js/go.js"></script>
 </html>
