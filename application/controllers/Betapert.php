@@ -28,10 +28,17 @@ class Betapert extends CI_Controller
 
     public function projectdetails()
     {
-        $temp['title'] = 'BETA-PERT Distribution';
-        $this->load->view('template/header', $temp);
-        $this->load->view('betapert/betapert_input');
-        $this->load->view('template/footer');
+        if(!$this->session->userdata("proj_len"))
+        {
+            redirect("Home");            
+        }
+        else 
+        {
+            $temp['title'] = 'BETA-PERT Distribution';
+            $this->load->view('template/header', $temp);
+            $this->load->view('betapert/betapert_input');
+            $this->load->view('template/footer');
+        }
     }
 
     public function calculate()
@@ -221,10 +228,17 @@ class Betapert extends CI_Controller
 
     public function results()
     {
-        $temp['title'] = 'BETA-PERT Distribution';
-        $this->load->view('template/header', $temp);
-        $this->load->view('betapert/betapert_output');
-        $this->load->view('template/footer'); 
+        if(!$this->session->userdata("project"))
+        {
+            redirect("Home");            
+        }
+        else 
+        {
+            $temp['title'] = 'BETA-PERT Distribution';
+            $this->load->view('template/header', $temp);
+            $this->load->view('betapert/betapert_output');
+            $this->load->view('template/footer'); 
+        }
     }
 }
 

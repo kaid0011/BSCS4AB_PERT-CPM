@@ -48,11 +48,11 @@
                                     }
                                     echo $pre;
                                     ?></td>
-                                <td><?php echo $task['es']; ?></td>
-                                <td><?php echo $task['ef']; ?></td>
-                                <td><?php echo $task['ls']; ?></td>
-                                <td><?php echo $task['lf']; ?></td>
-                                <td><?php echo $task['slack']; ?></td>
+                                <td><?php echo number_format((float)$task['es'], 2, '.', ''); ?></td>
+                                <td><?php echo number_format((float)$task['ef'], 2, '.', ''); ?></td>
+                                <td><?php echo number_format((float)$task['ls'], 2, '.', ''); ?></td>
+                                <td><?php echo number_format((float)$task['lf'], 2, '.', ''); ?></td>
+                                <td><?php echo number_format((float)$task['slack'], 2, '.', ''); ?></td>
                                 <td><?php echo $task['isCritical']; ?></td>
                             </tr>
                         <?php
@@ -88,7 +88,7 @@
                 <center>
                     <h4>Project Finish Time</h4>
                     <p>
-                        <?php echo $_SESSION['finish_time']." ".$_SESSION['unit']; ?>
+                        <?php echo number_format((float)$_SESSION['finish_time'], 2, '.', '')." ".$_SESSION['unit']; ?>
                     </p>
                 </center>
             </div>
@@ -110,7 +110,7 @@
                     }
                     ?>
                     <input type="hidden" name="pre_<?php echo $task['id']; ?>" value="<?php echo $pre; ?>">
-                    <input type="hidden" name="es_<?php echo $task['id']; ?>" value="<?php echo $task['es'];; ?>">
+                    <input type="hidden" name="es_<?php echo $task['id']; ?>" value="<?php echo $task['es']; ?>">
                     <input type="hidden" name="ef_<?php echo $task['id']; ?>" value="<?php echo $task['ef']; ?>">
                     <input type="hidden" name="ls_<?php echo $task['id']; ?>" value="<?php echo $task['ls']; ?>">
                     <input type="hidden" name="lf_<?php echo $task['id']; ?>" value="<?php echo $task['lf']; ?>">
