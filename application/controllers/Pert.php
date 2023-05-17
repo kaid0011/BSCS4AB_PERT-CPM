@@ -27,10 +27,17 @@ class Pert extends CI_Controller
     }
     public function projectdetails()
     {
-        $temp['title'] = 'Project Evaluation Review Technique (PERT)';
-        $this->load->view('template/header', $temp);
-        $this->load->view('pert/pert_input');
-        $this->load->view('template/footer');
+        if(!$this->session->userdata("proj_len"))
+        {
+            redirect("Home");            
+        }
+        else 
+        {
+            $temp['title'] = 'Project Evaluation Review Technique (PERT)';
+            $this->load->view('template/header', $temp);
+            $this->load->view('pert/pert_input');
+            $this->load->view('template/footer');
+        }
     }
 
     public function calculate()
@@ -195,9 +202,16 @@ class Pert extends CI_Controller
 
     public function results()
     {
-        $temp['title'] = 'Project Evaluation Review Technique (PERT)';
-        $this->load->view('template/header', $temp);
-        $this->load->view('pert/pert_output');
-        $this->load->view('template/footer'); 
+        if(!$this->session->userdata("project"))
+        {
+            redirect("Home");            
+        }
+        else 
+        {
+            $temp['title'] = 'Project Evaluation Review Technique (PERT)';
+            $this->load->view('template/header', $temp);
+            $this->load->view('pert/pert_output');
+            $this->load->view('template/footer'); 
+        }
     }
 }
