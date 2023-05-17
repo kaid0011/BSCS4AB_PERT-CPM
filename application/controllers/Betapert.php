@@ -8,19 +8,10 @@ class Betapert extends CI_Controller
 
     public function index()
     {
-        $arr = array(
-            'pagename' => 'BETA-PERT Distribution',
-            'css' => 'mainpage'
-        );
-        $this->session->set_userdata($arr);
-        redirect('Betapert/Main');       
-    }
-
-    public function Main()
-    {
-        $this->load->view('template/header');
+        $temp['title'] = 'BETA-PERT Distribution';
+        $this->load->view('template/header', $temp);
         $this->load->view('betapert/betapert_main');
-        $this->load->view('template/footer'); 
+        $this->load->view('template/footer');     
     }
 
     public function proj_details()
@@ -28,18 +19,17 @@ class Betapert extends CI_Controller
         $len = $this->input->post('proj_len');
         $unit = $this->input->post('unit');
         $arr = array(
-            'pagename' => 'BETA-PERT - Enter Project Details',
-            'css' => 'inputpage',
             'proj_len' => $len,
             'unit' => $unit
         );
         $this->session->set_userdata($arr);
-        redirect('Betapert/ProjectDetails');
+        redirect('betapert/projectdetails');
     }
 
-    public function ProjectDetails()
+    public function projectdetails()
     {
-        $this->load->view('template/header');
+        $temp['title'] = 'BETA-PERT Distribution';
+        $this->load->view('template/header', $temp);
         $this->load->view('betapert/betapert_input');
         $this->load->view('template/footer');
     }
@@ -62,7 +52,10 @@ class Betapert extends CI_Controller
             } else {    //If first task
                 $data[$i]['prereq'][] = -1; // Turn prereq into array and replace with -1
             }
-            // $data[$i]['sd'] = 0;
+            $data[$i]['alpha'] = 0;
+            $data[$i]['beta'] = 0;
+            $data[$i]['mean'] = 0;
+            $data[$i]['sd'] = 0;
             $data[$i]['es'] = 0;    // Earliest Start
             $data[$i]['ef'] = 0;    // Earliest Finish
             $data[$i]['ls'] = 0;    // Latest Start
@@ -87,18 +80,25 @@ class Betapert extends CI_Controller
             $pd = 'beta';       // type of probability distribution
             $N = $ab['N'];      // number of trials
 
+            $data[$id]['alpha'] = (4 * $m + $b - 5 * $a) / ($b - $a);
+            $data[$id]['beta'] = (5 * $b - $a - 4 * $m) / ($b - $a );
+            $data[$id]['mean'] = ($a + (4 * $m) + $b) / 6;
+            $data[$id]['sd'] = round((($b - $a) / 6), 2);
+
+            $al = $data[$id]['alpha'];
+            $be = $data[$id]['beta'];
+            $me = $data[$id]['mean'];
+            $sd = $data[$id]['sd'];
+            $v = 0;
+
             // Pass values to python to compute task duration
-            //$command = escapeshellcmd("python pd.py $pd $a $m $b $N");
-            //$res = shell_exec($command);
             
-            for($k = 1; $k <= $N; $k++)
-            {
-                $command = escapeshellcmd("python pd.py $pd $a $m $b $N");
-                $res = shell_exec($command);
-                $f = floatval($res);
-                $sim_arr[$id][] = $f; 
-                $data[$id]['sim_val'][] = $f;          
-            }
+            $command = escapeshellcmd("python pd.py $pd $N $al $be $me $sd $v"); 
+            $res = shell_exec($command);
+            $res = str_replace(array('[',']',' '), '',$res);    // remove unnecessary characters from python output
+            $res = trim($res, ' ');
+            $data[$id]['sim_val'] = explode(",", $res);         // convert string to array and assign to main data array
+            
             $t = array_sum($data[$id]['sim_val']) / count($data[$id]['sim_val']);
 
             $data[$id]['time'] = round($t, 2);     // assign task duration
@@ -190,7 +190,7 @@ class Betapert extends CI_Controller
                 $data[$rid]['ls'] = bcsub($data[$rid]['lf'], $rtasks['time'], 2);
             }
             //compute slack and if critical task
-            $data[$rid]['slack'] = $data[$rid]['lf'] - $data[$rid]['ef'];
+            $data[$rid]['slack'] = bcsub($data[$rid]['lf'], $data[$rid]['ef'], 2);
             if ($data[$rid]['slack'] == 0) {
                 $data[$rid]['isCritical'] = "Yes";
             }
@@ -210,19 +210,19 @@ class Betapert extends CI_Controller
         }
 
         $arr = array(
-            'pagename' => 'BETA-PERT - Results',
-            'css' => 'outputpage',
             'project' => $project,
             'cp' => $cp,
-            'finish_time' => $data['finish_time']
+            'finish_time' => $data['finish_time'],
+            'unit' => $data[1]['unit']
         );
         $this->session->set_userdata($arr);
-        redirect('Betapert/Results');
+        redirect('betapert/results');
     }
 
-    public function Results()
+    public function results()
     {
-        $this->load->view('template/header');
+        $temp['title'] = 'BETA-PERT Distribution';
+        $this->load->view('template/header', $temp);
         $this->load->view('betapert/betapert_output');
         $this->load->view('template/footer'); 
     }

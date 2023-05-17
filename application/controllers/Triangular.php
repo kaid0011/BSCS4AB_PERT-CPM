@@ -4,22 +4,12 @@ class Triangular extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        require 'application/vendor/autoload.php';
     }
 
     public function index()
     {       
-        $arr = array(
-            'pagename' => 'Triangular Distribution',
-            'css' => 'mainpage'
-        );
-        $this->session->set_userdata($arr);
-        redirect('Triangular/Main');       
-    }
-
-    public function Main()
-    {
-        $this->load->view('template/header');
+        $temp['title'] = 'Triangular Distribution';
+        $this->load->view('template/header', $temp);
         $this->load->view('triangular/triangular_main');
         $this->load->view('template/footer'); 
     }
@@ -29,18 +19,17 @@ class Triangular extends CI_Controller
         $len = $this->input->post('proj_len');
         $unit = $this->input->post('unit');
         $arr = array(
-            'pagename' => 'Triangular - Enter Project Details',
-            'css' => 'inputpage',
             'proj_len' => $len,
             'unit' => $unit
         );
         $this->session->set_userdata($arr);
-        redirect('Triangular/ProjectDetails');
+        redirect('triangular/projectdetails');
     }
 
-    public function ProjectDetails()
+    public function projectdetails()
     {
-        $this->load->view('template/header');
+        $temp['title'] = 'Triangular Distribution';
+        $this->load->view('template/header', $temp);
         $this->load->view('triangular/triangular_input');
         $this->load->view('template/footer');
     }
@@ -93,8 +82,25 @@ class Triangular extends CI_Controller
 
             for($k = 1; $k <= $N; $k++)
             {
-                $command = escapeshellcmd("python pd.py $pd $a $m $b $N");
-                $res = shell_exec($command);
+                // $command = escapeshellcmd("python pd.py $pd $a $m $b $N");
+                // $res = shell_exec($command);
+
+                $r = rand() / getrandmax();
+                if($r < (($m - $a) / ($b - $a)))
+                {
+                    $x = 1;
+                    $y = -2 * $a;
+                    $z = pow($a, 2) - $r * ($m - $a) * ($b - $a);
+                    $res = ((-$y + sqrt((pow($y, 2)) - 4 * $x * $z)) / 2) / $x;
+                }
+                else
+                {
+                    $x = 1;
+                    $y = -2 * $b;
+                    $z = (pow($b, 2)) - (1 - $r) * ($b - $a) * ($b - $m);
+                    $res = ((-$y - sqrt((pow($y, 2)) - 4 * $x * $z)) / 2) / $x;
+                }
+
                 $f = floatval($res);
                 $sim_arr[$id][] = $f; 
                 $data[$id]['sim_val'][] = $f;          
@@ -189,7 +195,8 @@ class Triangular extends CI_Controller
                 $data[$rid]['ls'] = bcsub($data[$rid]['lf'], $rtasks['time'], 2);
             }
             //compute slack and if critical task
-            $data[$rid]['slack'] = $data[$rid]['lf'] - $data[$rid]['ef'];
+            //$data[$rid]['slack'] = $data[$rid]['lf'] - $data[$rid]['ef'];
+            $data[$rid]['slack'] = bcsub($data[$rid]['lf'], $data[$rid]['ef'], 2);
             if ($data[$rid]['slack'] == 0) {
                 $data[$rid]['isCritical'] = "Yes";
             }
@@ -208,19 +215,19 @@ class Triangular extends CI_Controller
             }
         }
         $arr = array(
-            'pagename' => 'Triangular - Results',
-            'css' => 'outputpage',
             'project' => $project,
             'cp' => $cp,
-            'finish_time' => $data['finish_time']
+            'finish_time' => $data['finish_time'],
+            'unit' => $data[1]['unit']
         );
         $this->session->set_userdata($arr);
-        redirect('Triangular/Results');
+        redirect('triangular/results');
     }
 
-    public function Results()
+    public function results()
     {
-        $this->load->view('template/header');
+        $temp['title'] = 'Triangular Distribution';
+        $this->load->view('template/header', $temp);
         $this->load->view('triangular/triangular_output');
         $this->load->view('template/footer'); 
     }
