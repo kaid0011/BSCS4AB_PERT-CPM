@@ -28,10 +28,17 @@ class Normal extends CI_Controller
 
     public function projectdetails()
     {
-        $temp['title'] = 'Normal Distribution';
-        $this->load->view('template/header', $temp);
-        $this->load->view('normal/normal_input');
-        $this->load->view('template/footer');
+        if(!$this->session->userdata("proj_len"))
+        {
+            redirect("Home");            
+        }
+        else 
+        {
+            $temp['title'] = 'Normal Distribution';
+            $this->load->view('template/header', $temp);
+            $this->load->view('normal/normal_input');
+            $this->load->view('template/footer');
+        }
     }
 
     public function calculate()
@@ -215,10 +222,17 @@ class Normal extends CI_Controller
 
     public function Results()
     {
-        $temp['title'] = 'Normal Distribution';
-        $this->load->view('template/header', $temp);
-        $this->load->view('normal/normal_output');
-        $this->load->view('template/footer'); 
+        if(!$this->session->userdata("project"))
+        {
+            redirect("Home");            
+        }
+        else 
+        {
+            $temp['title'] = 'Normal Distribution';
+            $this->load->view('template/header', $temp);
+            $this->load->view('normal/normal_output');
+            $this->load->view('template/footer'); 
+        }
     }
 }
 
