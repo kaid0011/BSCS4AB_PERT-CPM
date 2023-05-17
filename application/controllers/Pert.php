@@ -8,17 +8,8 @@ class Pert extends CI_Controller
 
     public function index()
     {
-        $arr = array(
-            'pagename' => 'Project Evaluation Review Technique (PERT)',
-            'css' => 'mainpage'
-        );
-        $this->session->set_userdata($arr);
-        redirect('Pert/Main');       
-    }
-
-    public function Main()
-    {
-        $this->load->view('template/header');
+        $temp['title'] = 'Project Evaluation Review Technique (PERT)';
+        $this->load->view('template/header', $temp);
         $this->load->view('pert/pert_main');
         $this->load->view('template/footer'); 
     }
@@ -28,17 +19,16 @@ class Pert extends CI_Controller
         $len = $this->input->post('proj_len');
         $unit = $this->input->post('unit');
         $arr = array(
-            'pagename' => 'PERT - Enter Project Details',
-            'css' => 'inputpage',
             'proj_len' => $len,
             'unit' => $unit
         );
         $this->session->set_userdata($arr);
-        redirect('Pert/ProjectDetails');
+        redirect('pert/projectdetails');
     }
-    public function ProjectDetails()
+    public function projectdetails()
     {
-        $this->load->view('template/header');
+        $temp['title'] = 'Project Evaluation Review Technique (PERT)';
+        $this->load->view('template/header', $temp);
         $this->load->view('pert/pert_input');
         $this->load->view('template/footer');
     }
@@ -170,7 +160,8 @@ class Pert extends CI_Controller
                 $data[$rid]['ls'] = bcsub($data[$rid]['lf'], $rtasks['time'], 2);
             }
             //compute slack and if critical task
-            $data[$rid]['slack'] = $data[$rid]['lf'] - $data[$rid]['ef'];
+            //$data[$rid]['slack'] = $data[$rid]['lf'] - $data[$rid]['ef'];
+            $data[$rid]['slack'] = bcsub($data[$rid]['lf'], $data[$rid]['ef'], 2);
             if ($data[$rid]['slack'] == 0) {
                 $data[$rid]['isCritical'] = "Yes";
             }
@@ -191,21 +182,21 @@ class Pert extends CI_Controller
             }
         }  
         $arr = array(
-            'pagename' => 'CPM - Results',
-            'css' => 'outputpage',
             'project' => $project,
             'cp' => $cp,
             'finish_time' => $data['finish_time'],
             'proj_variance' => $proj_var,
-            'proj_sd' => sqrt($proj_var)    // project SD = square root of project variance
+            'proj_sd' => sqrt($proj_var),    // project SD = square root of project variance
+            'unit' => $data[1]['unit']
         );
         $this->session->set_userdata($arr);
-        redirect('Pert/Results');
+        redirect('pert/results');
     }
 
-    public function Results()
+    public function results()
     {
-        $this->load->view('template/header');
+        $temp['title'] = 'Project Evaluation Review Technique (PERT)';
+        $this->load->view('template/header', $temp);
         $this->load->view('pert/pert_output');
         $this->load->view('template/footer'); 
     }

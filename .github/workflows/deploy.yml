@@ -39,3 +39,19 @@ jobs:
           script: |
             cd /home/henry/${{ env.REPO_NAME }}
             docker compose up -d
+  prune:
+    name: Clean up
+    needs: [push, run]
+    runs-on: ubuntu-latest
+    environment: Staging
+    steps:
+      - name: Clean up
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
+          script: |
+            docker container prune -f
+            docker image prune -a -f
