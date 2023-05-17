@@ -28,10 +28,17 @@ class Triangular extends CI_Controller
 
     public function projectdetails()
     {
-        $temp['title'] = 'Triangular Distribution';
-        $this->load->view('template/header', $temp);
-        $this->load->view('triangular/triangular_input');
-        $this->load->view('template/footer');
+        if(!$this->session->userdata("proj_len"))
+        {
+            redirect("Home");            
+        }
+        else 
+        {
+            $temp['title'] = 'Triangular Distribution';
+            $this->load->view('template/header', $temp);
+            $this->load->view('triangular/triangular_input');
+            $this->load->view('template/footer');
+        }
     }
 
     public function calculate()
@@ -226,10 +233,17 @@ class Triangular extends CI_Controller
 
     public function results()
     {
-        $temp['title'] = 'Triangular Distribution';
-        $this->load->view('template/header', $temp);
-        $this->load->view('triangular/triangular_output');
-        $this->load->view('template/footer'); 
+        if(!$this->session->userdata("project"))
+        {
+            redirect("Home");            
+        }
+        else 
+        {
+            $temp['title'] = 'Triangular Distribution';
+            $this->load->view('template/header', $temp);
+            $this->load->view('triangular/triangular_output');
+            $this->load->view('template/footer'); 
+        }
     }
 }
 
