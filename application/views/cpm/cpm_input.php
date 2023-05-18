@@ -15,12 +15,12 @@
                     <h2>How To?</h2>
                     <ul>
                         <li>
-                            <p>For each activity, enter the description, durations (optimistic, most likely, and pessimistic), and its
+                            <p>For each activity, enter the description, estimated duration, and its
                                 pre-requisite/s.</p>
                         </li>
                         <li>
                             <p>After completing the table, click 'Calculate' to schedule your project. A table will show the following
-                                information for your project: <i> Activity, Description, Three Durations, Pre-Requisites, Earliest Start Time, Earliest Finish Time, Latest Start Time, Latest Finish Time, Slack, and Critical</i></p>
+                                information for your project: <i> Activity, Description, Estimated Duration, Pre-Requisites, Earliest Start Time, Earliest Finish Time, Latest Start Time, Latest Finish Time, Slack, and Critical</i></p>
                         </li>
                     </ul>
                 </div>
@@ -98,16 +98,13 @@
                         <p>This is an optional input.</p>
                     </li>
                 </ul>
-                <h5>Optimistic</h5>
+                <h5>Estimated Duration</h5>
                 <ul>
                     <li>
-                        <p>The minimum amount of time required to finish a task, assuming that the progress is faster than the typical expectations.</p>
+                        <p>The length of time required to complete each activity.</p>
                     </li>
                     <li>
-                        <p>Optimistic duration must be a positive integer.</p>
-                    </li>
-                    <li>
-                        <p>Decimals are accepted.</p>
+                        <p>Duration must be a positive integer. Decimals are accepted.</p>
                     </li>
                 </ul>
                 <h5>Most Likely</h5>
