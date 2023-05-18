@@ -75,6 +75,7 @@ p {
   padding-top: 5vh;
   padding-left: 7vw;
   padding-right: 7vw;
+  padding-bottom: 5vh;
 }
 
 ol>li::marker {
@@ -88,6 +89,7 @@ header {
   position: sticky;
   margin-left: auto;
   margin-right: auto;
+  z-index: 1;
 }
 
 .topnav {
@@ -1004,7 +1006,7 @@ div.outputpg .waiting {
 
 div.outputpg .progress {
   height: 30px;
-  position: relative;
+  position: inherit;
   background: #B19090;
   border: 0px;
   border-radius: 10px;
@@ -1017,4 +1019,78 @@ div.outputpg .progress {
     border-radius: 1.2rem;
     padding: 0.25rem;
   }
+}
+
+div.howtouse table.use {
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+  border: 1px solid;
+  border-collapse:collapse;
+}
+
+div.howtouse td,
+div.howtouse th {
+  text-align: center;
+  padding: 1rem;
+  text-align: center;
+  vertical-align: middle;
+  border: 1px solid;
+}
+
+div.howtouse div.explained p {
+  padding: 0;
+  margin: 0;
+}
+
+div.howtouse img.how1{
+  width: 50em;
+}
+
+div.howtouse img.how2{
+  width: 55em;
+}
+
+div.howtouse img.how3{
+  width: 90em;
+}
+
+div.howtouse img.how4{
+  width: 60em;
+}
+
+div.howtouse img.how5{
+  width: 80em;
+}
+
+div.howtouse img.how6{
+  width: 100%;
+}
+
+div.howtouse .row {
+  display: flex;
+  padding: 0 15em;
+}
+div.howtouse .column {
+  flex: 50%;
+  padding: 0 2em;
+}
+
+@media only screen and (max-width: 1500px) and (min-width: 300px) {
+  div.howtouse img.how1{
+    width: 60vw;
+  }
+  
+  div.howtouse img.how2{
+    width: 70vw;
+  }
+  
+  div.howtouse img.how3{
+    width: 95vw;
+  }
+  
+  div.howtouse img.how4{
+    width: 70vw;
+  }
+
 }
