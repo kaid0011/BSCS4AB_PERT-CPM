@@ -28,10 +28,17 @@ class Cpm extends CI_Controller
 
     public function projectdetails()
     {
-        $temp['title'] = 'Critical Path Method (CPM)';
-        $this->load->view('template/header', $temp);
-        $this->load->view('cpm/cpm_input');
-        $this->load->view('template/footer');
+        if(!$this->session->userdata("proj_len"))
+        {
+            redirect("Home");            
+        }
+        else 
+        {
+            $temp['title'] = 'Critical Path Method (CPM)';
+            $this->load->view('template/header', $temp);
+            $this->load->view('cpm/cpm_input');
+            $this->load->view('template/footer');
+        }
     }
 
     public function calculate()
@@ -143,7 +150,8 @@ class Cpm extends CI_Controller
                 $data[$rid]['ls'] = bcsub($data[$rid]['lf'], $rtasks['time'], 2);
             }
             //compute slack and if critical task
-            $data[$rid]['slack'] = $data[$rid]['lf'] - $data[$rid]['ef'];
+            //$data[$rid]['slack'] = $data[$rid]['lf'] - $data[$rid]['ef'];
+            $data[$rid]['slack'] = bcsub($data[$rid]['lf'], $data[$rid]['ef'], 2);
             if ($data[$rid]['slack'] == 0) {
                 $data[$rid]['isCritical'] = "Yes";
             }
@@ -173,9 +181,17 @@ class Cpm extends CI_Controller
 
     public function results()
     {
-        $temp['title'] = 'Critical Path Method (CPM)';
-        $this->load->view('template/header', $temp);
-        $this->load->view('cpm/cpm_output');
-        $this->load->view('template/footer'); 
+        if(!$this->session->userdata("project"))
+        {
+            redirect("Home");            
+        }
+        else 
+        {
+            $temp['title'] = 'Critical Path Method (CPM)';
+            $this->load->view('template/header', $temp);
+            $this->load->view('cpm/cpm_output');
+            $this->load->view('template/footer'); 
+        }
     }
 }
+?>

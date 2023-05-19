@@ -28,10 +28,17 @@ class Triangular extends CI_Controller
 
     public function projectdetails()
     {
-        $temp['title'] = 'Triangular Distribution';
-        $this->load->view('template/header', $temp);
-        $this->load->view('triangular/triangular_input');
-        $this->load->view('template/footer');
+        if(!$this->session->userdata("proj_len"))
+        {
+            redirect("Home");            
+        }
+        else 
+        {
+            $temp['title'] = 'Triangular Distribution';
+            $this->load->view('template/header', $temp);
+            $this->load->view('triangular/triangular_input');
+            $this->load->view('template/footer');
+        }
     }
 
     public function calculate()
@@ -86,19 +93,19 @@ class Triangular extends CI_Controller
                 // $res = shell_exec($command);
 
                 $r = rand() / getrandmax();
-                if($r < ($m - $a) / ($b - $a))
+                if($r < (($m - $a) / ($b - $a)))
                 {
                     $x = 1;
                     $y = -2 * $a;
                     $z = pow($a, 2) - $r * ($m - $a) * ($b - $a);
-                    $res = (-$y + sqrt((pow($y, 2)) - 4 * $x * $z)) / 2 / $x;
+                    $res = ((-$y + sqrt((pow($y, 2)) - 4 * $x * $z)) / 2) / $x;
                 }
                 else
                 {
                     $x = 1;
                     $y = -2 * $b;
                     $z = (pow($b, 2)) - (1 - $r) * ($b - $a) * ($b - $m);
-                    $res = (-$y + sqrt((pow($y, 2)) - 4 * $x * $z)) / 2 / $x;
+                    $res = ((-$y - sqrt((pow($y, 2)) - 4 * $x * $z)) / 2) / $x;
                 }
 
                 $f = floatval($res);
@@ -195,7 +202,8 @@ class Triangular extends CI_Controller
                 $data[$rid]['ls'] = bcsub($data[$rid]['lf'], $rtasks['time'], 2);
             }
             //compute slack and if critical task
-            $data[$rid]['slack'] = $data[$rid]['lf'] - $data[$rid]['ef'];
+            //$data[$rid]['slack'] = $data[$rid]['lf'] - $data[$rid]['ef'];
+            $data[$rid]['slack'] = bcsub($data[$rid]['lf'], $data[$rid]['ef'], 2);
             if ($data[$rid]['slack'] == 0) {
                 $data[$rid]['isCritical'] = "Yes";
             }
@@ -225,12 +233,18 @@ class Triangular extends CI_Controller
 
     public function results()
     {
-        $temp['title'] = 'Triangular Distribution';
-        $this->load->view('template/header', $temp);
-        $this->load->view('triangular/triangular_output');
-        $this->load->view('template/footer'); 
+        if(!$this->session->userdata("project"))
+        {
+            redirect("Home");            
+        }
+        else 
+        {
+            $temp['title'] = 'Triangular Distribution';
+            $this->load->view('template/header', $temp);
+            $this->load->view('triangular/triangular_output');
+            $this->load->view('template/footer'); 
+        }
     }
 }
 
-
-
+?>

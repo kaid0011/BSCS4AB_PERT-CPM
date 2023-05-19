@@ -62,10 +62,19 @@
                                         if ($i == 1) {
                                         ?>
                                             <input type="text" name="task_prereq_<?php echo $i; ?>" value="-" readonly>
-                                        <?php
-                                        } else { ?>
-                                            <input type="text" name="task_prereq_<?php echo $i; ?>" pattern="[1-<?php echo $i - 1; ?>](,[1-<?php echo $i - 1; ?>])*|^[\-]" oninvalid="this.setCustomValidity('Enter Valid Activity ID')" onchange="this.setCustomValidity('')" required>
-                                        <?php } ?>
+                                            <?php
+                                        } else {
+                                            $x = $i - 1;
+                                            if ($i <= 10) {
+                                            ?>
+                                                <input type="text" name="task_prereq_<?php echo $i; ?>" pattern="[1-<?php echo $x; ?>](,[1-<?php echo $x; ?>])*|^[\-]" oninvalid="this.setCustomValidity('Enter Valid Activity ID')" onchange="this.setCustomValidity('')" required>
+                                            <?php
+                                            } else if ($i > 10) {
+                                                $y = $i - 11;
+                                            ?>
+                                                <input type="text" name="task_prereq_<?php echo $i; ?>" pattern="([1-9]|1[0-<?php echo $y; ?>])(,([1-9]|1[0-<?php echo $y; ?>]))*|^[\-]" oninvalid="this.setCustomValidity('Enter Valid Activity ID')" onchange="this.setCustomValidity('')" required>
+                                        <?php }
+                                        } ?>
                                     </td>
                                 </tr>
                             <?php }
@@ -211,23 +220,22 @@
 <script>
     function check_opt(opt) {
         var opt = opt;
-        if(!opt.validity.valid) {
+        if (!opt.validity.valid) {
             opt.value = "";
-        } 
+        }
     }
 
     function check_ml(ml) {
         var ml = ml;
         var ml_id = ml.id;
         ml_id = ml_id.substr(8);
-        if(!ml.validity.valid) {
+        if (!ml.validity.valid) {
             ml.value = "";
-        } 
-        else {          
+        } else {
             var optv = document.getElementById("task_opt_" + ml_id).value;
             var mlv = Number(ml.value);
             optv = Number(optv);
-            if(mlv <= optv) {
+            if(mlv < optv) {
                 alert('Most Likely should be equal to or greater than Optimistic.');
                 ml.value = "";
             }
@@ -238,14 +246,13 @@
         var pes = pes;
         var pes_id = pes.id;
         pes_id = pes_id.substr(9);
-        if(!pes.validity.valid) {
+        if (!pes.validity.valid) {
             pes.value = "";
-        }
-        else {
+        } else {
             var mlv = document.getElementById("task_ml_" + pes_id).value;
             var pesv = Number(pes.value);
             mlv = Number(mlv);
-            if(pesv <= mlv) {
+            if(pesv < mlv) {
                 alert('Pessimistic should be equal to or greater than Most Likely and Optimistic.');
                 pes.value = "";
             }
