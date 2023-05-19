@@ -77,6 +77,7 @@
         </div><br><input type="number" name="proj_len" value="<?php echo $_SESSION['proj_len']; ?>" hidden> <input type="text" name="choice" value="<?php echo 'cpm'; ?>" hidden> <input type="text" name="unit" value="<?php echo $_SESSION['unit']; ?>" hidden>
         <div class="trials"><strong>Number of Trials:</strong><input type="numbers" name="N" min="1" max="1000" oninput='validity.valid||(value="")' placeholder="Max. 1000" required></div><br>
         <div class="calculate"><button class="btn">Calculate</button></div>
+        </form>
         <div class="mustknow">
             <h2>Must Know!</h2>
             <div class="mustknow-desc">
@@ -285,7 +286,13 @@
             var pesv = Number(pes.value);
             mlv = Number(mlv);
             if(pesv < mlv) {
-                alert('Pessimistic should be equal to or greater than Most Likely and Optimistic.');
+                alert('Pessimistic should be equal to or greater than Most Likely.');
+                pes.value = "";
+            }
+            var optv = document.getElementById("task_opt_" + pes_id).value;
+            optv = Number(optv);
+            if(optv == pesv) {
+                alert('Pessimistic should not be equal to Optimistic.');
                 pes.value = "";
             }
         }
