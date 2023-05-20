@@ -17,7 +17,7 @@
                 <p><strong>Cookies</strong> means small files that are placed on Your computer, mobile device or any other device by a website, containing details of your browsing history on that website among its many uses.</p>
             </li>
             <li>
-                <p><strong>Website</strong> refers to WAPS with Simulation, accessible from <a href="http://localhost/BSCS4AB_PERT-CPM" rel="external nofollow noopener" target="_blank">http://localhost/BSCS4AB_PERT-CPM</a></p>
+                <p><strong>Website</strong> refers to WAPS with Simulation, accessible from <a href="https://pertcpmsimulations.online" rel="external nofollow noopener" target="_blank">https://pertcpmsimulations.online</a></p>
             </li>
             <li>
                 <p><strong>You</strong> means the individual accessing or using the Website, or a company, or any legal entity on behalf of which such individual is accessing or using the Website, as applicable.</p>
