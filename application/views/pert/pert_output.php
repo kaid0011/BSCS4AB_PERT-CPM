@@ -69,7 +69,7 @@
                                 <td><?php echo number_format((float)$task['ls'], 2, '.', ''); ?></td>
                                 <td><?php echo number_format((float)$task['lf'], 2, '.', ''); ?></td>
                                 <td><?php echo number_format((float)$task['slack'], 2, '.', ''); ?></td>
-                                <td><?php echo $task['isCritical']; ?></td>
+                                <td><?php echo $task['isCritical'] == 1 ? "Yes" : "No"; ?></td>
                             </tr>
                         <?php
                         }
@@ -193,6 +193,9 @@
                 </div>
             </div>
         </div>
+        <!-- PERT Chart -->
+        <?php $this->view('trial'); ?>
+
         <div class="probability">
             <div class="title">
                 <h2> Completion Probability Calculator</h2>
