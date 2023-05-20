@@ -20,20 +20,20 @@
                     <thead>
                         <tr>
                             <th>Activity</th>
-                            <th title="Activity Description">Description <span class="tooltiptext">&#9432;</span></th>
-                            <th title="Shortest Estimated Activity Duration">Optimistic <span class="tooltiptext">&#9432;</span></th>
-                            <th title="Reasonable Estimated Activity Duration">Most Likely <span class="tooltiptext">&#9432;</span></th>
-                            <th title="Maximum Estimated Activity Duration">Pessimistic <span class="tooltiptext">&#9432;</span></th>
-                            <th title="Calculated Activity Completion based on OT, MLT, and PT">Calculated Duration <span class="tooltiptext">&#9432;</span></th>
-                            <th title="Activity Number that needs to be completed first.">Pre-Requisites <span class="tooltiptext">&#9432;</span></th>
-                            <th title="The calculated Standard Deviation of Each Activity">Standard Deviation <span class="tooltiptext">&#9432;</span></th>
-                            <th title="The calculated Variance of Each Activity">Variance <span class="tooltiptext">&#9432;</span></th>
-                            <th title="Activity's Earliest Start Time">ES <span class="tooltiptext">&#9432;</span></th>
-                            <th title="Activity's Earliest Finish Time">EF <span class="tooltiptext">&#9432;</span></th>
-                            <th title="Activity's Latest Start Time">LS <span class="tooltiptext">&#9432;</span></th>
-                            <th title="Activity's Latest Finish Time">LF <span class="tooltiptext">&#9432;</span></th>
-                            <th title="Activity's Available Slack Time">Slack <span class="tooltiptext">&#9432;</span></th>
-                            <th title="If the Activity is Critical">Critical <span class="tooltiptext">&#9432;</span></th>
+                            <th title="Activity Description">Description </th>
+                            <th title="Shortest Estimated Activity Duration">Optimistic </th>
+                            <th title="Reasonable Estimated Activity Duration">Most Likely </th>
+                            <th title="Maximum Estimated Activity Duration">Pessimistic </th>
+                            <th title="Calculated Activity Completion based on OT, MLT, and PT">Calculated Duration </th>
+                            <th title="Activity Number that needs to be completed first.">Pre-Requisites </th>
+                            <th title="The calculated Standard Deviation of Each Activity">Standard Deviation </th>
+                            <th title="The calculated Variance of Each Activity">Variance </th>
+                            <th class="short" title="Activity's Earliest Start Time">ES </th>
+                            <th class="short" title="Activity's Earliest Finish Time">EF </th>
+                            <th class="short" title="Activity's Latest Start Time">LS </th>
+                            <th class="short" title="Activity's Latest Finish Time">LF </th>
+                            <th class="short" title="Activity's Available Slack Time">Slack </th>
+                            <th title="If the Activity is Critical">Critical </th>
 
                         </tr>
                     </thead>
