@@ -16,6 +16,17 @@ services:
     depends_on:
       - db
 
+  caddy:
+    image: caddy:2-alpine
+    container_name: caddy
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - caddy_data:/data
+      - caddy_config:/config
+    ports:
+      - 8081:80
+      - 443:443
+
   # built in mysql database
   db:
     image: mysql:5.7
