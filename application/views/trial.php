@@ -173,77 +173,32 @@
             var nodeDataArray = [{
                     key: 1,
                     text: "Start",
-                    length: 0,
-                    earlyStart: 0,
-                    lateFinish: 0,
+                    length: 0.00,
+                    earlyStart: 0.00,
+                    lateFinish: 0.00,
                     critical: true
-                },
-                {
-                    key: 2,
-                    text: "a",
-                    length: 4,
-                    earlyStart: 0,
-                    lateFinish: 4,
-                    critical: true
-                },
-                {
-                    key: 3,
-                    text: "b",
-                    length: 5.33,
-                    earlyStart: 0,
-                    lateFinish: 9.17,
-                    critical: false
-                },
-                {
-                    key: 4,
-                    text: "c",
-                    length: 5.17,
-                    earlyStart: 4,
-                    lateFinish: 9.17,
-                    critical: true
-                },
-                {
-                    key: 5,
-                    text: "d",
-                    length: 6.33,
-                    earlyStart: 4,
-                    lateFinish: 15.01,
-                    critical: false
-                },
-                {
-                    key: 6,
-                    text: "e",
-                    length: 5.17,
-                    earlyStart: 9.17,
-                    lateFinish: 14.34,
-                    critical: true
-                },
-                {
-                    key: 7,
-                    text: "f",
-                    length: 4.5,
-                    earlyStart: 10.33,
-                    lateFinish: 19.51,
-                    critical: false
-                },
-                {
-                    key: 8,
-                    text: "g",
-                    length: 5.17,
-                    earlyStart: 14.34,
-                    lateFinish: 19.51,
-                    critical: true
-                },
-                {
-                    key: 9,
+                }
+                <?php
+                $project = $_SESSION['project'];
+                foreach ($project as $task) {
+                ?>, {
+                        key: <?php echo $task['id'] + 1; ?>,
+                        text: <?php echo $task['id']; ?>,
+                        length: <?php echo number_format((float)$task['time'], 2, '.', ''); ?>,
+                        earlyStart: <?php echo number_format((float)$task['es'], 2, '.', ''); ?>,
+                        lateFinish: <?php echo number_format((float)$task['lf'], 2, '.', ''); ?>,
+                        critical: <?php echo $task['isCritical'] == 1 ? 1 : 0; ?>
+                    }
+                <?php } ?>, {
+                    key: <?php echo count($project) + 2; ?>,
                     text: "Finish",
                     length: 0,
-                    earlyStart: 19.51,
-                    lateFinish: 19.51,
+                    earlyStart: <?php echo number_format((float)$_SESSION['finish_time'], 2, '.', ''); ?>,
+                    lateFinish: <?php echo number_format((float)$_SESSION['finish_time'], 2, '.', ''); ?>,
                     critical: true
                 }
             ];
-            
+
             // DITO KA MAGBABAGO PARA SA PREREQUISITES SAKA CONNECTION NG BOXES
             // DITO KA MAGBABAGO PARA SA PREREQUISITES SAKA CONNECTION NG BOXES
             // DITO KA MAGBABAGO PARA SA PREREQUISITES SAKA CONNECTION NG BOXES
@@ -262,45 +217,37 @@
             // DITO KA MAGBABAGO PARA SA PREREQUISITES SAKA CONNECTION NG BOXES
             // DITO KA MAGBABAGO PARA SA PREREQUISITES SAKA CONNECTION NG BOXES
             // DITO KA MAGBABAGO PARA SA PREREQUISITES SAKA CONNECTION NG BOXES
-            var linkDataArray = [{
-                    from: 1,
-                    to: 2
-                },
+            var linkDataArray = [
+                <?php
+                $project = $_SESSION['project'];
+                foreach ($project as $task) {
+                    if (count($task['prereq']) > 1) {
+                        //if more than 1 prereq
+                        foreach($task['prereq'] as $prereq) {
+                ?>
+                        {
+                            from: <?php echo $prereq + 1; ?>,
+                            to: <?php echo $task['id'] + 1; ?>
+                        },
+                <?php
+                        }
+                    } 
+                    else {
+                        $pre = implode(",", $task['prereq']);
+                        if ($pre == '-1') {
+                            $pre = 0;
+                        }
+                ?> 
                 {
-                    from: 1,
-                    to: 3
+                    from: <?php echo $pre + 1; ?>,
+                    to: <?php echo $task['id'] + 1; ?>
                 },
+                <?php }
+                } ?>
+
                 {
-                    from: 2,
-                    to: 4
-                },
-                {
-                    from: 2,
-                    to: 5
-                },
-                {
-                    from: 3,
-                    to: 6
-                },
-                {
-                    from: 4,
-                    to: 6
-                },
-                {
-                    from: 5,
-                    to: 7
-                },
-                {
-                    from: 6,
-                    to: 8
-                },
-                {
-                    from: 7,
-                    to: 9
-                },
-                {
-                    from: 8,
-                    to: 9
+                    from: <?php echo count($project) + 1; ?>,
+                    to: <?php echo count($project) + 2; ?>
                 }
             ];
             myDiagram.model = new go.GraphLinksModel(nodeDataArray, linkDataArray);
@@ -383,6 +330,6 @@
         window.addEventListener('DOMContentLoaded', init);
     </script>
 
-        <div id="myDiagramDiv" style="width:100%; height:400px"></div>
+    <div id="myDiagramDiv" style="width:100%; height:400px"></div>
 
 </div>

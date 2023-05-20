@@ -68,7 +68,7 @@ class Betapert extends CI_Controller
             $data[$i]['ls'] = 0;    // Latest Start
             $data[$i]['lf'] = 0;    // Latest Finish
             $data[$i]['slack'] = 0; // slack
-            $data[$i]['isCritical'] = "No"; // Critical task or not
+            $data[$i]['isCritical'] = false; // Critical task or not
             $data[$i]['N'] = $this->input->post('N');   // Number of trials
             $data[$i]['pqty'] = $proj_len;
         }
@@ -199,7 +199,7 @@ class Betapert extends CI_Controller
             //compute slack and if critical task
             $data[$rid]['slack'] = bcsub($data[$rid]['lf'], $data[$rid]['ef'], 2);
             if ($data[$rid]['slack'] == 0) {
-                $data[$rid]['isCritical'] = "Yes";
+                $data[$rid]['isCritical'] = true;
             }
         }
         $this->show_result($data);  // proceed to show_result
@@ -210,7 +210,7 @@ class Betapert extends CI_Controller
         $data['qty'] = count($data);
         for ($j = 1; $j < $data['qty']; $j++) {
             $project[] = $data[$j];
-            if ($data[$j]['isCritical'] == "Yes")
+            if ($data[$j]['isCritical'] == true)
             {
                 $cp[] = $data[$j];
             }

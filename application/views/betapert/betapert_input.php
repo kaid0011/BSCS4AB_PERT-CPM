@@ -62,7 +62,6 @@
         <div class="trials"><strong>Number of Trials:</strong><input type="numbers" name="N" min="1" max="1000" oninput='validity.valid||(value="")' placeholder="Max. 1000" required></div><br>
         <div class="calculate"><button class="btn">Calculate</button></div>
         </form>
-
         <section class="collapsible"><input type="checkbox" name="collapse" id="handle1" checked="checked">
             <h2 class="handle"><label for="handle1">How BETA-PERT Distribution Works: (Step by Step)</label></h2>
             <div class="content">
@@ -307,8 +306,19 @@
             var mlv = document.getElementById("task_ml_" + pes_id).value;
             var pesv = Number(pes.value);
             mlv = Number(mlv);
+<<<<<<< HEAD
             if (pesv < mlv) {
                 alert('Pessimistic should be equal to or greater than Most Likely and Optimistic.');
+=======
+            if(pesv < mlv) {
+                alert('Pessimistic should be equal to or greater than Most Likely.');
+                pes.value = "";
+            }
+            var optv = document.getElementById("task_opt_" + pes_id).value;
+            optv = Number(optv);
+            if(optv == pesv) {
+                alert('Pessimistic should not be equal to Optimistic.');
+>>>>>>> 059088f9e1e84dcea2c9fe67271cab06b3b682ea
                 pes.value = "";
             }
         }
