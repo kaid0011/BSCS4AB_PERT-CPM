@@ -40,7 +40,7 @@
       </div>
 
       <div class="member">
-        <center><img alt="" src="<?=base_url()?>/assets/images/developers/pabalan.jpg"></center>
+        <center><img alt="" src="<?=base_url()?>/assets/images/developers/rosales.jpg"></center>
         <h2>Earl Benjamin<br>T. Rosales</h2>
         <p class="role"><i>UI Developer<br>Researcher</i></p>
         <p class="desc">Earl is a skilled and collaborative UI Developer who worked closely with the entire team. With
