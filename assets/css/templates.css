@@ -611,7 +611,7 @@ div.inputpg table {
   text-align: center;
   background-color: #f0f0f0;
   width: auto;
-
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 div.inputpg td,
@@ -633,7 +633,7 @@ div.inputpg tr {
 }
 
 div.inputpg td {
-  background-color: #f0f0f0;
+  background-color: #f3f3f3;
 }
 
 div.inputpg th {
@@ -885,6 +885,7 @@ div.outputpg table.results {
   text-align: center;
   background-color: #f0f0f0;
   width: auto;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 div.outputpg td,
@@ -907,7 +908,7 @@ div.outputpg tr {
 }
 
 div.outputpg td {
-  background-color: #f0f0f0;
+  background-color: #f3f3f3;
 }
 
 div.outputpg th {
@@ -966,6 +967,7 @@ div.outputpg table.gantt-chart {
   background-color: #f0f0f0;
   margin-left: auto;
   margin-right: auto;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 div.gantt tr.gantt-act th.first{
@@ -1245,7 +1247,7 @@ footer hr{
 
 @media screen and (max-width: 768px) {
   .members {
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(1, 1fr);
   }
 }
 
@@ -1359,7 +1361,7 @@ footer hr{
 
 @media (max-width: 950px) {
   .contact-us .container{
-    width: 90%;
+    width: auto;
     padding: 30px 40px 40px 35px ;
   }
   .contact-us .container .content .right-side{
