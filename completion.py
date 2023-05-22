@@ -11,7 +11,7 @@ s = float(sys.argv[3])      #standard deviation
 # m = 15
 # s = 0.58
 
-z = (m - x) / s
+# z = (m - x) / s
 
 p = scipy.stats.norm.cdf(x, m, s) 
 print (p)
