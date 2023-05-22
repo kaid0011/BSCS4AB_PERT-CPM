@@ -1,5 +1,5 @@
 <?php
-class Howtouse extends CI_Controller 
+class Howtouse extends CI_Controller
 {
     public function __construct()
     {
