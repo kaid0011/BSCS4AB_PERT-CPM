@@ -1,5 +1,5 @@
 <?php
-class Howtouse extends CI_Controller
+class Howtouse extends CI_Controller 
 {
     public function __construct()
     {
@@ -10,7 +10,7 @@ class Howtouse extends CI_Controller
     {
         $temp['title'] = 'WAPS with Simulation';
         $this->load->view('template/header', $temp);
-        $this->load->view('howtouse/cpm');
+        $this->load->view('howtouse/cpm'); 
         $this->load->view('template/footer');
     }
 
@@ -18,7 +18,7 @@ class Howtouse extends CI_Controller
     {
         $temp['title'] = 'WAPS with Simulation';
         $this->load->view('template/header', $temp);
-        $this->load->view('howtouse/pert');
+        $this->load->view('howtouse/pert'); 
         $this->load->view('template/footer');
     }
 
@@ -26,7 +26,7 @@ class Howtouse extends CI_Controller
     {
         $temp['title'] = 'WAPS with Simulation';
         $this->load->view('template/header', $temp);
-        $this->load->view('howtouse/normal');
+        $this->load->view('howtouse/normal'); 
         $this->load->view('template/footer');
     }
 
@@ -34,7 +34,7 @@ class Howtouse extends CI_Controller
     {
         $temp['title'] = 'WAPS with Simulation';
         $this->load->view('template/header', $temp);
-        $this->load->view('howtouse/triangular');
+        $this->load->view('howtouse/triangular'); 
         $this->load->view('template/footer');
     }
 
@@ -42,7 +42,7 @@ class Howtouse extends CI_Controller
     {
         $temp['title'] = 'WAPS with Simulation';
         $this->load->view('template/header', $temp);
-        $this->load->view('howtouse/betapert');
+        $this->load->view('howtouse/betapert'); 
         $this->load->view('template/footer');
     }
 }

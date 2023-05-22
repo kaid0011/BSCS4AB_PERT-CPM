@@ -48,6 +48,14 @@
             <a href="<?= base_url('howitworks/betapert') ?>">BETA-PERT Distribution</a>
           </div>
         </li>
+        <li class="dropdown">
+          <a href="javascript:void(0)" class="dropbtn">ABOUT <i class="fa fa-caret-down"></i></a>
+          <div class="dropdown-content">
+            <a href="<?= base_url('aboutwaps') ?>">About WAPS</a>
+            <a href="<?= base_url('aboutus') ?>">About Us</a>
+            <a href="<?= base_url('contactus') ?>">Contact Us</a>
+          </div>
+        </li>
       </ul>
     </div>
     <a href="javascript:void(0);" class="icon" onclick="myFunction()">

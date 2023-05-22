@@ -4,7 +4,7 @@
     <ul>
       <li><a href="<?= base_url('aboutwaps') ?>">About WAPS</a></li>
       <li><a href="<?= base_url('aboutus') ?>">About Us</a></li>
-      <!-- <li><a href="<?= base_url('contactus') ?>">Contact Us</a></li> -->
+      <li><a href="<?= base_url('contactus') ?>">Contact Us</a></li>
       <li style="float: right;"><a href="<?= base_url('policy/privacypolicy') ?>">Privacy Policy</a></li>
       <li style="float: right;"><a href="<?= base_url('policy/cookiepolicy') ?>">Cookie Policy</a></a></li>
       <li style="float: right;"><a href="<?= base_url('policy/termsandconditions') ?>">Terms & Conditions</a></li>
