@@ -194,7 +194,7 @@
             </div>
         </div>
         <!-- PERT Chart -->
-        <?php $this->view('trial'); ?>
+        <!-- <?php $this->view('trial'); ?> -->
 
         <div class="probability">
             <div class="title">

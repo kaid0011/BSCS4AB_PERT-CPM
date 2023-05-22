@@ -1,6 +1,6 @@
 <div class="about-us">
   <div class="body-container">
-    <h1>About Us</h1>
+    <h1>About the Developers</h1>
     <p>Welcome to WAPS with Simulation! We are a team of dedicated and passionate individuals currently pursuing our Bachelor of Science in Computer Science at the esteemed Technological University of the Philippines. As fourth-year students, we have united our talents and expertise to embark on an exciting journey in creating WAPS with Simulation as a pivotal component of our thesis project.</p>
     <p>Driven by our shared enthusiasm for computer science and a commitment to innovation, we have recognized the immense potential of simulation-based learning in revolutionizing the educational landscape. With a deep understanding of the power of technology and its ability to enhance learning experiences, we have set out to develop WAPS with Simulation, an exceptional platform that combines educational content with immersive calculators and simulations to provide a unique and engaging approach to project management.</p>
     <p>Our collective academic journey at the Technological University of the Philippines has equipped us with a strong foundation in computer science principles, programming languages, software development methodologies, and more. Drawing from this knowledge and our diverse skill sets, we have collaborated extensively to bring WAPS with Simulation to life.</p>
@@ -10,9 +10,9 @@
     <div class="members">
       <div class="member">
         <center><img alt="" src="<?=base_url()?>/assets/images/developers/pabalan.jpg"></center>
-        <h2>Kim Dianne G. Bagasona</h2>
-        <p><i>Team Lead, Quality Assurance</i></p>
-        <p>Kim is a highly organized and detail-oriented individual who played a pivotal role in our team as the
+        <h2>Kim Dianne<br>G. Bagasona</h2>
+        <p  class="role"><i>Team Lead<br>Quality Assurance</i></p>
+        <p class="desc">Kim is a highly organized and detail-oriented individual who played a pivotal role in our team as the
           Team Lead and Project Manager. With strong leadership skills and a keen eye for quality assurance,
           Kim ensured the successful completion of the project. She also contributed to the finalization of
           WAPS with Simulation and conducted thorough quality assurance throughout the development process.
@@ -21,9 +21,9 @@
 
       <div class="member">
         <center><img alt="" src="<?=base_url()?>/assets/images/developers/pabalan.jpg"></center>
-        <h2>Allana Mae L. Romero</h2>
-        <p><i>Backend Developer, MVC Manager</i></p>
-        <p>Allana is a talented and skilled back-end developer who focused on coding the necessary algorithms
+        <h2>Allana Mae<br>L. Romero</h2>
+        <p class="role"><i>Backend Developer<br>MVC Manager</i></p>
+        <p class="desc">Allana is a talented and skilled back-end developer who focused on coding the necessary algorithms
           and functions required for the system. With expertise in managing the Model-View-Controller (MVC)
           architecture, Allana ensured the smooth functioning and efficient performance of WAPS with
           Simulation.</p>
@@ -31,9 +31,9 @@
 
       <div class="member">
         <center><img alt="" src="<?=base_url()?>/assets/images/developers/pabalan.jpg"></center>
-        <h2>Louise Emmanuelle D. Pabalan</h2>
-        <p><i>UI/UX Designer, System Tester</i></p>
-        <p>Louise is a creative and detail-oriented team member who excelled as our UI/UX Designer and System Tester.
+        <h2>Louise Emmanuelle<br>D. Pabalan</h2>
+        <p class="role"><i>UI/UX Designer<br>System Tester</i></p>
+        <p class="desc">Louise is a creative and detail-oriented team member who excelled as our UI/UX Designer and System Tester.
           With a strong sense of aesthetics and user experience, Louise crafted an intuitive and visually
           appealing design for WAPS with Simulation. Additionally, Louise played a crucial role in conducting
           final testing to ensure the system's functionality and usability.</p>
@@ -41,9 +41,9 @@
 
       <div class="member">
         <center><img alt="" src="<?=base_url()?>/assets/images/developers/pabalan.jpg"></center>
-        <h2>Earl Benjamin T. Rosales</h2>
-        <p><i>UI Developer</i></p>
-        <p>Earl is a skilled and collaborative UI Developer who worked closely with the entire team. With
+        <h2>Earl Benjamin<br>T. Rosales</h2>
+        <p class="role"><i>UI Developer<br>Researcher</i></p>
+        <p class="desc">Earl is a skilled and collaborative UI Developer who worked closely with the entire team. With
           expertise in front-end development, Earl contributed to the implementation of the user interface for
           WAPS with Simulation. Their ability to work hand in hand with the team ensured the seamless
           integration of design and functionality.</p>

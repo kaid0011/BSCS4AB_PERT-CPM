@@ -306,10 +306,6 @@
             var mlv = document.getElementById("task_ml_" + pes_id).value;
             var pesv = Number(pes.value);
             mlv = Number(mlv);
-<<<<<<< HEAD
-            if (pesv < mlv) {
-                alert('Pessimistic should be equal to or greater than Most Likely and Optimistic.');
-=======
             if(pesv < mlv) {
                 alert('Pessimistic should be equal to or greater than Most Likely.');
                 pes.value = "";
@@ -318,7 +314,6 @@
             optv = Number(optv);
             if(optv == pesv) {
                 alert('Pessimistic should not be equal to Optimistic.');
->>>>>>> 059088f9e1e84dcea2c9fe67271cab06b3b682ea
                 pes.value = "";
             }
         }

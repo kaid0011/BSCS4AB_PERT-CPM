@@ -194,7 +194,7 @@
             </div>
         </div>
         <!-- PERT Chart -->
-        <?php $this->view('trial'); ?> 
+        <!-- <?php $this->view('trial'); ?>  -->
 
         <section class="collapsible">
             <input type="checkbox" name="collapse" id="handle1" checked="checked">
