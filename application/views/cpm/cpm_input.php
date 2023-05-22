@@ -11,19 +11,6 @@
                         allowing project managers to determine which activities can be delayed without
                         affecting the project's overall duration.</p>
                 </div>
-                <div class="howto">
-                    <h2>How To?</h2>
-                    <ul>
-                        <li>
-                            <p>For each activity, enter the description, durations (optimistic, most likely, and pessimistic), and its
-                                pre-requisite/s.</p>
-                        </li>
-                        <li>
-                            <p>After completing the table, click 'Calculate' to schedule your project. A table will show the following
-                                information for your project: <i> Activity, Description, Three Durations, Pre-Requisites, Earliest Start Time, Earliest Finish Time, Latest Start Time, Latest Finish Time, Slack, and Critical</i></p>
-                        </li>
-                    </ul>
-                </div>
             </div>
         </div>
         <div class="grid-container">
@@ -32,9 +19,9 @@
                     <thead>
                         <tr>
                             <th>Activity</th>
-                            <th title="Activity Description">Description <span class="tooltiptext">&#9432;</span></th>
-                            <th title="Estimated Activity Duration">Duration <span class="tooltiptext">&#9432;</span></th>
-                            <th title="Activity Number that needs to be completed first.">Pre-Requisites <span class="tooltiptext">&#9432;</span></th>
+                            <th title="Activity Description">Description </th>
+                            <th title="Estimated Activity Duration">Duration </th>
+                            <th title="Activity Number that needs to be completed first.">Pre-Requisites </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -54,18 +41,18 @@
                                         ?>
                                             <input type="text" name="task_prereq_<?php echo $i; ?>" value="-" readonly>
                                             <?php
-                                            } else {
-                                                $x = $i - 1;
-                                                if ($i <= 10) {
-                                                ?>
-                                                    <input type="text" name="task_prereq_<?php echo $i; ?>" pattern="[1-<?php echo $x; ?>](,[1-<?php echo $x; ?>])*|^[\-]" oninvalid="this.setCustomValidity('Enter Valid Activity ID')" onchange="this.setCustomValidity('')" required>
-                                                <?php
-                                                } else if ($i > 10) {
-                                                    $y = $i - 11;
-                                                ?>
-                                                    <input type="text" name="task_prereq_<?php echo $i; ?>" pattern="([1-9]|1[0-<?php echo $y; ?>])(,([1-9]|1[0-<?php echo $y; ?>]))*|^[\-]" oninvalid="this.setCustomValidity('Enter Valid Activity ID')" onchange="this.setCustomValidity('')" required>
-                                            <?php }
-                                            } ?>
+                                        } else {
+                                            $x = $i - 1;
+                                            if ($i <= 10) {
+                                            ?>
+                                                <input type="text" name="task_prereq_<?php echo $i; ?>" pattern="[1-<?php echo $x; ?>](,[1-<?php echo $x; ?>])*|^[\-]" oninvalid="this.setCustomValidity('Enter Valid Activity ID')" onchange="this.setCustomValidity('')" required>
+                                            <?php
+                                            } else if ($i > 10) {
+                                                $y = $i - 11;
+                                            ?>
+                                                <input type="text" name="task_prereq_<?php echo $i; ?>" pattern="([1-9]|1[0-<?php echo $y; ?>])(,([1-9]|1[0-<?php echo $y; ?>]))*|^[\-]" oninvalid="this.setCustomValidity('Enter Valid Activity ID')" onchange="this.setCustomValidity('')" required>
+                                        <?php }
+                                        } ?>
                                     </td>
                                 </tr>
                             <?php }
@@ -80,74 +67,7 @@
         </div>
         </form>
 
-        <div class="mustknow">
-            <h2>Must Know!</h2>
-            <div class="mustknow-desc">
-                <h5>Activity</h5>
-                <ul>
-                    <li>
-                        <p>The activity column is auto iterated from 1 by the system and cannot be changed.</p>
-                    </li>
-                </ul>
-                <h5>Description</h5>
-                <ul>
-                    <li>
-                        <p>Description of each activity with a maximum of 50 characters.</p>
-                    </li>
-                    <li>
-                        <p>This is an optional input.</p>
-                    </li>
-                </ul>
-                <h5>Optimistic</h5>
-                <ul>
-                    <li>
-                        <p>The minimum amount of time required to finish a task, assuming that the progress is faster than the typical expectations.</p>
-                    </li>
-                    <li>
-                        <p>Optimistic duration must be a positive integer.</p>
-                    </li>
-                    <li>
-                        <p>Decimals are accepted.</p>
-                    </li>
-                </ul>
-                <h5>Most Likely</h5>
-                <ul>
-                    <li>
-                        <p>The expected duration for completing a task, assuming that progress is in accordance with standard expectations.</p>
-                    </li>
-                    <li>
-                        <p>Most Likely duration must be a positive integer.</p>
-                    </li>
-                    <li>
-                        <p>Decimals are accepted.</p>
-                    </li>
-                </ul>
-                <h5>Pessimistic</h5>
-                <ul>
-                    <li>
-                        <p>The maximum amount of time required to complete a task, assuming everything that could possibly go wrong, actually goes wrong.</p>
-                    </li>
-                    <li>
-                        <p>Pessimistic duration must be a positive integer.</p>
-                    </li>
-                    <li>
-                        <p>Decimals are accepted.</p>
-                    </li>
-                </ul>
-                <h5>Pre-requisites</h5>
-                <ul>
-                    <li>
-                        <p>The activity/s that must be completed before the current activity starts. </p>
-                    </li>
-                    <li>
-                        <p>Pre-requisites of each activity must be existing activity numbers separated by commas without spaces.</p>
-                    </li>
-                    <li>
-                        <p>If there are no pre-requisites, enter '-'. The first activity's pre-requisite is automatically set to '-'.</p>
-                    </li>
-                </ul>
-            </div>
-        </div>
+
         <section class="collapsible">
             <input type="checkbox" name="collapse" id="handle1" checked="checked">
             <h2 class="handle">
@@ -205,5 +125,104 @@
                 </div>
             </div>
         </section>
+
+        <button id="myBtn"><i class="fa fa-question" aria-hidden="true"></i></button>
+        <div id="myModal" class="mymodal">
+            <!-- Modal content -->
+            <div class="modal-dialog" style="overflow-y: scroll; max-height:85%;  margin-top: 50px; margin-bottom:50px;">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <div class="modal-header">
+                        <h3 class="mmodal-title"></h3>
+                    </div>
+                    <div class="modal-body">
+                            <hr>
+                        <div class="mustknow">
+                            <h2>Must Know!</h2>
+                            <div class="mustknow-desc">
+                                <h5>Activity</h5>
+                                <ul>
+                                    <li>
+                                        <p>The activity column is auto iterated from 1 by the system and cannot be changed.</p>
+                                    </li>
+                                </ul>
+                                <h5>Description</h5>
+                                <ul>
+                                    <li>
+                                        <p>Description of each activity with a maximum of 50 characters.</p>
+                                    </li>
+                                    <li>
+                                        <p>This is an optional input.</p>
+                                    </li>
+                                </ul>
+                                <h5>Estimated Duration</h5>
+                                <ul>
+                                    <li>
+                                        <p>The length of time required to complete each activity.</p>
+                                    </li>
+                                    <li>
+                                        <p>Duration must be a positive integer. Decimals are accepted.</p>
+                                    </li>
+                                </ul>
+                                <h5>Most Likely</h5>
+                                <ul>
+                                    <li>
+                                        <p>The expected duration for completing a task, assuming that progress is in accordance with standard expectations.</p>
+                                    </li>
+                                    <li>
+                                        <p>Most Likely duration must be a positive integer.</p>
+                                    </li>
+                                    <li>
+                                        <p>Decimals are accepted.</p>
+                                    </li>
+                                </ul>
+                                <h5>Pessimistic</h5>
+                                <ul>
+                                    <li>
+                                        <p>The maximum amount of time required to complete a task, assuming everything that could possibly go wrong, actually goes wrong.</p>
+                                    </li>
+                                    <li>
+                                        <p>Pessimistic duration must be a positive integer.</p>
+                                    </li>
+                                    <li>
+                                        <p>Decimals are accepted.</p>
+                                    </li>
+                                </ul>
+                                <h5>Pre-requisites</h5>
+                                <ul>
+                                    <li>
+                                        <p>The activity/s that must be completed before the current activity starts. </p>
+                                    </li>
+                                    <li>
+                                        <p>Pre-requisites of each activity must be existing activity numbers separated by commas without spaces.</p>
+                                    </li>
+                                    <li>
+                                        <p>If there are no pre-requisites, enter '-'. The first activity's pre-requisite is automatically set to '-'.</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="howto">
+                            <h2>How To?</h2>
+                            <ul>
+                                <li>
+                                    <p>For each activity, enter the description, estimated duration, and its
+                                        pre-requisite/s.</p>
+                                </li>
+                                <li>
+                                    <p>After completing the table, click 'Calculate' to schedule your project. A table will show the following
+                                        information for your project: <i> Activity, Description, Estimated Duration, Pre-Requisites, Earliest Start Time, Earliest Finish Time, Latest Start Time, Latest Finish Time, Slack, and Critical</i></p>
+                                </li>
+                            </ul>
+                        </div>
+                            <hr>
+                            <center>
+                                <h6><a href="<?= base_url('howtouse/cpm') ?>">Click here</a> to see more how to use WAPS with Simulation.</h6>
+                            </center>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

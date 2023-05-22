@@ -2,9 +2,8 @@
     <div class="body-container">
         <div class="firstpg">
             <div class="title">
-                <h1><b> WAPS with Simulation </b>
-                    <h1>
-                        <h2><i>Web-based Automated PERT-CPM Scheduler with Simulations</i></h2>
+                <h1>WAPS with Simulation</h1>
+                <h2>Web-based Automated PERT-CPM Scheduler with Simulations</h2>
             </div>
             <div class="paragone">
                 <p class="paragone">WAPS offers a user-friendly interface that allows you to manage your project activities, durations, and dependencies with ease. By utilizing the power of <b>PERT (Program Evaluation and Review Technique) and CPM (Critical Path Method) algorithms</b>, WAPS helps you plan and schedule your project efficiently.
@@ -29,6 +28,8 @@
                 </p>
             </div>
         </div>
+
+        
 
         <div class="container">
             <div class="box">

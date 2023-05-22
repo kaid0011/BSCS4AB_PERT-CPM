@@ -27,10 +27,17 @@ class Pert extends CI_Controller
     }
     public function projectdetails()
     {
-        $temp['title'] = 'Project Evaluation Review Technique (PERT)';
-        $this->load->view('template/header', $temp);
-        $this->load->view('pert/pert_input');
-        $this->load->view('template/footer');
+        if(!$this->session->userdata("proj_len"))
+        {
+            redirect("Home");            
+        }
+        else 
+        {
+            $temp['title'] = 'Project Evaluation Review Technique (PERT)';
+            $this->load->view('template/header', $temp);
+            $this->load->view('pert/pert_input');
+            $this->load->view('template/footer');
+        }
     }
 
     public function calculate()
@@ -58,7 +65,7 @@ class Pert extends CI_Controller
             $data[$i]['ls'] = 0;
             $data[$i]['lf'] = 0;
             $data[$i]['slack'] = 0;
-            $data[$i]['isCritical'] = "No";
+            $data[$i]['isCritical'] = false;
             $data[$i]['pqty'] = $proj_len;
         }
         $this->time($data);
@@ -163,7 +170,7 @@ class Pert extends CI_Controller
             //$data[$rid]['slack'] = $data[$rid]['lf'] - $data[$rid]['ef'];
             $data[$rid]['slack'] = bcsub($data[$rid]['lf'], $data[$rid]['ef'], 2);
             if ($data[$rid]['slack'] == 0) {
-                $data[$rid]['isCritical'] = "Yes";
+                $data[$rid]['isCritical'] = true;
             }
         }
         $this->show_result($data);  // proceed to show_result
@@ -175,7 +182,7 @@ class Pert extends CI_Controller
         $data['qty'] = count($data);
         for ($j = 1; $j < $data['qty']; $j++) {
             $project[] = $data[$j];
-            if ($data[$j]['isCritical'] == "Yes")
+            if ($data[$j]['isCritical'] == true)
             {
                 $cp[] = $data[$j];
                 $proj_var += $data[$j]['v'];    // add up variance of critical tasks to get project variance
@@ -195,9 +202,17 @@ class Pert extends CI_Controller
 
     public function results()
     {
-        $temp['title'] = 'Project Evaluation Review Technique (PERT)';
-        $this->load->view('template/header', $temp);
-        $this->load->view('pert/pert_output');
-        $this->load->view('template/footer'); 
+        if(!$this->session->userdata("project"))
+        {
+            redirect("Home");            
+        }
+        else 
+        {
+            $temp['title'] = 'Project Evaluation Review Technique (PERT)';
+            $this->load->view('template/header', $temp);
+            $this->load->view('pert/pert_output');
+            $this->load->view('template/footer'); 
+        }
     }
 }
+?>

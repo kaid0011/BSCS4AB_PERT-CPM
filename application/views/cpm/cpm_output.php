@@ -21,15 +21,15 @@
                     <thead>
                         <tr>
                             <th>Activity</th>
-                            <th title="Activity Description">Description <span class="tooltiptext">&#9432;</span></th>
-                            <th title="Estimated Activity Duration">Duration <span class="tooltiptext">&#9432;</span></th>
-                            <th title="Activity Number that needs to be completed first.">Pre-Requisites <span class="tooltiptext">&#9432;</span></th>
-                            <th title="Activity's Earliest Start Time">ES <span class="tooltiptext">&#9432;</span></th>
-                            <th title="Activity's Earliest Finish Time">EF <span class="tooltiptext">&#9432;</span></th>
-                            <th title="Activity's Latest Start Time">LS <span class="tooltiptext">&#9432;</span></th>
-                            <th title="Activity's Latest Finish Time">LF <span class="tooltiptext">&#9432;</span></th>
-                            <th title="Activity's Available Slack Time">Slack <span class="tooltiptext">&#9432;</span></th>
-                            <th title="If the Activity is Critical">Critical <span class="tooltiptext">&#9432;</span></th>
+                            <th title="Activity Description">Description </th>
+                            <th title="Estimated Activity Duration">Duration </th>
+                            <th title="Activity Number that needs to be completed first.">Pre-Requisites </th>
+                            <th class="short" title="Activity's Earliest Start Time">ES </th>
+                            <th class="short" title="Activity's Earliest Finish Time">EF </th>
+                            <th class="short" title="Activity's Latest Start Time">LS </th>
+                            <th class="short" title="Activity's Latest Finish Time">LF </th>
+                            <th class="short" title="Activity's Available Slack Time">Slack </th>
+                            <th title="If the Activity is Critical">Critical </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -53,7 +53,7 @@
                                 <td><?php echo number_format((float)$task['ls'], 2, '.', ''); ?></td>
                                 <td><?php echo number_format((float)$task['lf'], 2, '.', ''); ?></td>
                                 <td><?php echo number_format((float)$task['slack'], 2, '.', ''); ?></td>
-                                <td><?php echo $task['isCritical']; ?></td>
+                                <td><?php echo $task['isCritical'] == 1 ? "Yes" : "No" ; ?></td>
                             </tr>
                         <?php
                         }
@@ -166,6 +166,9 @@
                 </div>
             </div>
         </div>
+        <!-- PERT Chart -->
+        <!-- <?php $this->view('trial'); ?>   -->
+
         <section class="collapsible">
             <input type="checkbox" name="collapse" id="handle1" checked="checked">
             <h2 class="handle">

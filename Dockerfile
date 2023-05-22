@@ -1,4 +1,4 @@
-FROM php:7.4-apache AS base
+FROM php:8.0-apache AS base
 
 # Install required packages and PHP extensions
 RUN apt-get update && \
@@ -12,7 +12,7 @@ RUN apt-get update && \
 COPY . /var/www/html
 
 # Build stage for Python
-FROM python:3.9-slim-buster AS build-python
+FROM python:3.10-slim-buster AS build-python
 
 # Copy requirements.txt to the working directory
 COPY requirements.txt .

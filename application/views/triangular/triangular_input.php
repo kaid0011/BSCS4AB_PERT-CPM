@@ -13,22 +13,7 @@
                         range of possible values, but are most likely to fall within a specific range.
                     </p>
                 </div>
-                <div class="howto">
-                    <h2> How To?</h2>
-                    <ul>
-                        <li>
-                            <p>For each activity, enter the description, durations (optimistic, most likely, and pessimistic), and its
-                                pre-requisite/s.</p>
-                        </li>
-                        <li>
-                            <p>After completing the table, click 'Calculate' to schedule your project. A table will show the following
-                                information for your project: <i> Activity, Description, Three Durations, Pre-Requisites, Earliest Start Time, Earliest Finish Time, Latest Start Time, Latest Finish Time, Slack, and Critical</i></p>
-                        </li>
-                        <li>
-                            <p>After generating the results of your input, you will have a choice to download an Excel file containing all the simulation results by clicking on "Export Results" or "Export Simulation Values"</p>
-                        </li>
-                    </ul>
-                </div>
+
             </div>
         </div>
         <div class="grid-container">
@@ -37,11 +22,11 @@
                     <thead>
                         <tr>
                             <th>Activity</th>
-                            <th title="Activity Description">Description <span class="tooltiptext">&#9432;</span></th>
-                            <th title="Shortest Estimated Activity Duration">Optimistic <span class="tooltiptext">&#9432;</span></th>
-                            <th title="Reasonable Estimated Activity Duration">Most Likely <span class="tooltiptext">&#9432;</span></th>
-                            <th title="Maximum Estimated Activity Duration">Pessimistic <span class="tooltiptext">&#9432;</span></th>
-                            <th title="Activity Number that needs to be completed first.">Pre-Requisites <span class="tooltiptext">&#9432;</span></th>
+                            <th title="Activity Description">Description </th>
+                            <th title="Shortest Estimated Activity Duration">Optimistic </th>
+                            <th title="Reasonable Estimated Activity Duration">Most Likely </th>
+                            <th title="Maximum Estimated Activity Duration">Pessimistic </th>
+                            <th title="Activity Number that needs to be completed first.">Pre-Requisites </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -98,74 +83,7 @@
         </div>
         </form>
 
-        <div class="mustknow">
-            <h2>Must Know!</h2>
-            <div class="mustknow-desc">
-                <h5>Activity</h5>
-                <ul>
-                    <li>
-                        <p>The activity column is auto iterated from 1 by the system and cannot be changed.</p>
-                    </li>
-                </ul>
-                <h5>Description</h5>
-                <ul>
-                    <li>
-                        <p>Description of each activity with a maximum of 50 characters.</p>
-                    </li>
-                    <li>
-                        <p>This is an optional input.</p>
-                    </li>
-                </ul>
-                <h5>Optimistic</h5>
-                <ul>
-                    <li>
-                        <p>The minimum amount of time required to finish a task, assuming that the progress is faster than the typical expectations.</p>
-                    </li>
-                    <li>
-                        <p>Optimistic duration must be a positive integer.</p>
-                    </li>
-                    <li>
-                        <p>Decimals are accepted.</p>
-                    </li>
-                </ul>
-                <h5>Most Likely</h5>
-                <ul>
-                    <li>
-                        <p>The expected duration for completing a task, assuming that progress is in accordance with standard expectations.</p>
-                    </li>
-                    <li>
-                        <p>Most Likely duration must be a positive integer.</p>
-                    </li>
-                    <li>
-                        <p>Decimals are accepted.</p>
-                    </li>
-                </ul>
-                <h5>Pessimistic</h5>
-                <ul>
-                    <li>
-                        <p>The maximum amount of time required to complete a task, assuming everything that could possibly go wrong, actually goes wrong.</p>
-                    </li>
-                    <li>
-                        <p>Pessimistic duration must be a positive integer.</p>
-                    </li>
-                    <li>
-                        <p>Decimals are accepted.</p>
-                    </li>
-                </ul>
-                <h5>Pre-requisites</h5>
-                <ul>
-                    <li>
-                        <p>The activity/s that must be completed before the current activity starts. </p>
-                    </li>
-                    <li>
-                        <p>Pre-requisites of each activity must be existing activity numbers separated by commas without spaces.</p>
-                    </li>
-                    <li>
-                        <p>If there are no pre-requisites, enter '-'. The first activity's pre-requisite is automatically set to '-'.</p>
-                    </li>
-                </ul>
-            </div>
-        </div>
+
         <section class="collapsible">
             <input type="checkbox" name="collapse" id="handle1" checked="checked">
             <h2 class="handle">
@@ -246,6 +164,110 @@
                 </div>
             </div>
         </section>
+        <button id="myBtn"><i class="fa fa-question" aria-hidden="true"></i></button>
+        <div id="myModal" class="mymodal">
+            <!-- Modal content -->
+            <div class="modal-dialog" style="overflow-y: scroll; max-height:85%;  margin-top: 50px; margin-bottom:50px;">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <div class="modal-header">
+                        <h3 class="mmodal-title"></h3>
+                    </div>
+                    <div class="modal-body">
+                        <hr>
+                        <div class="mustknow">
+                            <h2>Must Know!</h2>
+                            <div class="mustknow-desc">
+                                <h5>Activity</h5>
+                                <ul>
+                                    <li>
+                                        <p>The activity column is auto iterated from 1 by the system and cannot be changed.</p>
+                                    </li>
+                                </ul>
+                                <h5>Description</h5>
+                                <ul>
+                                    <li>
+                                        <p>Description of each activity with a maximum of 50 characters.</p>
+                                    </li>
+                                    <li>
+                                        <p>This is an optional input.</p>
+                                    </li>
+                                </ul>
+                                <h5>Optimistic</h5>
+                                <ul>
+                                    <li>
+                                        <p>The minimum amount of time required to finish a task, assuming that the progress is faster than the typical expectations.</p>
+                                    </li>
+                                    <li>
+                                        <p>Optimistic duration must be a positive integer.</p>
+                                    </li>
+                                    <li>
+                                        <p>Decimals are accepted.</p>
+                                    </li>
+                                </ul>
+                                <h5>Most Likely</h5>
+                                <ul>
+                                    <li>
+                                        <p>The expected duration for completing a task, assuming that progress is in accordance with standard expectations.</p>
+                                    </li>
+                                    <li>
+                                        <p>Most Likely duration must be a positive integer.</p>
+                                    </li>
+                                    <li>
+                                        <p>Decimals are accepted.</p>
+                                    </li>
+                                </ul>
+                                <h5>Pessimistic</h5>
+                                <ul>
+                                    <li>
+                                        <p>The maximum amount of time required to complete a task, assuming everything that could possibly go wrong, actually goes wrong.</p>
+                                    </li>
+                                    <li>
+                                        <p>Pessimistic duration must be a positive integer.</p>
+                                    </li>
+                                    <li>
+                                        <p>Decimals are accepted.</p>
+                                    </li>
+                                </ul>
+                                <h5>Pre-requisites</h5>
+                                <ul>
+                                    <li>
+                                        <p>The activity/s that must be completed before the current activity starts. </p>
+                                    </li>
+                                    <li>
+                                        <p>Pre-requisites of each activity must be existing activity numbers separated by commas without spaces.</p>
+                                    </li>
+                                    <li>
+                                        <p>If there are no pre-requisites, enter '-'. The first activity's pre-requisite is automatically set to '-'.</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="howto">
+                            <h2> How To?</h2>
+                            <ul>
+                                <li>
+                                    <p>For each activity, enter the description, durations (optimistic, most likely, and pessimistic), and its
+                                        pre-requisite/s.</p>
+                                </li>
+                                <li>
+                                    <p>After completing the table, click 'Calculate' to schedule your project. A table will show the following
+                                        information for your project: <i> Activity, Description, Three Durations, Pre-Requisites, Earliest Start Time, Earliest Finish Time, Latest Start Time, Latest Finish Time, Slack, and Critical</i></p>
+                                </li>
+                                <li>
+                                    <p>After generating the results of your input, you will have a choice to download an Excel file containing all the simulation results by clicking on "Export Results" or "Export Simulation Values"</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <hr>
+                        <center>
+                            <h6><a href="<?= base_url('howtouse/triangular') ?>">Click here</a> to see more on how to use WAPS with Simulation.</h6>
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 <script>
@@ -266,7 +288,7 @@
             var optv = document.getElementById("task_opt_" + ml_id).value;
             var mlv = Number(ml.value);
             optv = Number(optv);
-            if(mlv < optv) {
+            if (mlv < optv) {
                 alert('Most Likely should be equal to or greater than Optimistic.');
                 ml.value = "";
             }
@@ -284,7 +306,13 @@
             var pesv = Number(pes.value);
             mlv = Number(mlv);
             if(pesv < mlv) {
-                alert('Pessimistic should be equal to or greater than Most Likely and Optimistic.');
+                alert('Pessimistic should be equal to or greater than Most Likely.');
+                pes.value = "";
+            }
+            var optv = document.getElementById("task_opt_" + pes_id).value;
+            optv = Number(optv);
+            if(optv == pesv) {
+                alert('Pessimistic should not be equal to Optimistic.');
                 pes.value = "";
             }
         }

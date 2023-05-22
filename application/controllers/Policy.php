@@ -10,7 +10,7 @@ class Policy extends CI_Controller
     {
         $temp['title'] = 'Privacy Policy';
         $this->load->view('template/header', $temp);
-        $this->load->view('policy/privacypolicy');
+        $this->load->view('policies/privacypolicy');
         $this->load->view('template/footer');
     }
 
@@ -18,7 +18,7 @@ class Policy extends CI_Controller
     {
         $temp['title'] = 'Cookie Policy';
         $this->load->view('template/header', $temp);
-        $this->load->view('policy/cookie');
+        $this->load->view('policies/cookie');
         $this->load->view('template/footer');
     }
 
@@ -26,7 +26,8 @@ class Policy extends CI_Controller
     {
         $temp['title'] = 'Terms and Conditions';
         $this->load->view('template/header', $temp);
-        $this->load->view('policy/tnc');
+        $this->load->view('policies/tnc');
         $this->load->view('template/footer');
     }
 }
+?>

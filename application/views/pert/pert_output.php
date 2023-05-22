@@ -20,20 +20,20 @@
                     <thead>
                         <tr>
                             <th>Activity</th>
-                            <th title="Activity Description">Description <span class="tooltiptext">&#9432;</span></th>
-                            <th title="Shortest Estimated Activity Duration">Optimistic <span class="tooltiptext">&#9432;</span></th>
-                            <th title="Reasonable Estimated Activity Duration">Most Likely <span class="tooltiptext">&#9432;</span></th>
-                            <th title="Maximum Estimated Activity Duration">Pessimistic <span class="tooltiptext">&#9432;</span></th>
-                            <th title="Calculated Activity Completion based on OT, MLT, and PT">Calculated Duration <span class="tooltiptext">&#9432;</span></th>
-                            <th title="Activity Number that needs to be completed first.">Pre-Requisites <span class="tooltiptext">&#9432;</span></th>
-                            <th title="The calculated Standard Deviation of Each Activity">Standard Deviation <span class="tooltiptext">&#9432;</span></th>
-                            <th title="The calculated Variance of Each Activity">Variance <span class="tooltiptext">&#9432;</span></th>
-                            <th title="Activity's Earliest Start Time">ES <span class="tooltiptext">&#9432;</span></th>
-                            <th title="Activity's Earliest Finish Time">EF <span class="tooltiptext">&#9432;</span></th>
-                            <th title="Activity's Latest Start Time">LS <span class="tooltiptext">&#9432;</span></th>
-                            <th title="Activity's Latest Finish Time">LF <span class="tooltiptext">&#9432;</span></th>
-                            <th title="Activity's Available Slack Time">Slack <span class="tooltiptext">&#9432;</span></th>
-                            <th title="If the Activity is Critical">Critical <span class="tooltiptext">&#9432;</span></th>
+                            <th title="Activity Description">Description </th>
+                            <th title="Shortest Estimated Activity Duration">Optimistic </th>
+                            <th title="Reasonable Estimated Activity Duration">Most Likely </th>
+                            <th title="Maximum Estimated Activity Duration">Pessimistic </th>
+                            <th title="Calculated Activity Completion based on OT, MLT, and PT">Calculated Duration </th>
+                            <th title="Activity Number that needs to be completed first.">Pre-Requisites </th>
+                            <th title="The calculated Standard Deviation of Each Activity">Standard Deviation </th>
+                            <th title="The calculated Variance of Each Activity">Variance </th>
+                            <th class="short" title="Activity's Earliest Start Time">ES </th>
+                            <th class="short" title="Activity's Earliest Finish Time">EF </th>
+                            <th class="short" title="Activity's Latest Start Time">LS </th>
+                            <th class="short" title="Activity's Latest Finish Time">LF </th>
+                            <th class="short" title="Activity's Available Slack Time">Slack </th>
+                            <th title="If the Activity is Critical">Critical </th>
 
                         </tr>
                     </thead>
@@ -69,7 +69,7 @@
                                 <td><?php echo number_format((float)$task['ls'], 2, '.', ''); ?></td>
                                 <td><?php echo number_format((float)$task['lf'], 2, '.', ''); ?></td>
                                 <td><?php echo number_format((float)$task['slack'], 2, '.', ''); ?></td>
-                                <td><?php echo $task['isCritical']; ?></td>
+                                <td><?php echo $task['isCritical'] == 1 ? "Yes" : "No"; ?></td>
                             </tr>
                         <?php
                         }
@@ -149,71 +149,6 @@
                 <center><button class="expbtn">Export Results</button></center>
             </form>
         </div>
-        <div class="probability">
-            <div class="title">
-                <h2> Completion Probability Calculator</h2>
-            </div>
-
-            <!-- EXPLANATION -->
-            <div class="paragone">
-                <div class="description">
-                    <p>
-                        Our PERT Calculator also enables users to determine the probability of an expected duration
-                    </p>
-                </div>
-            </div>
-            <!-- CARDS 2 -->
-
-            <div class="container">
-                <div class="box">
-                    <center>
-                        <h4>Compute Project Completion Probability</h4>
-                        <h5>How To?</h5>
-                        <ul>
-                            <li>
-                                <p>Enter your expected project duration.</p>
-                            </li>
-                            <li>
-                                <p>Click 'Calculate' and wait for the probability to show.</p>
-                            </li>
-                        </ul>
-                        <h5>Expected Project Duration</h5>
-                        <input type="number" name="x" id="x" required>
-                        <input type="number" name="m" id="m" value="<?php echo number_format((float)$_SESSION['finish_time'], 2, '.', ''); ?>" hidden>
-                        <input type="number" name="s" id="s" value="<?php echo number_format((float)$_SESSION['proj_sd'], 2, '.', ''); ?>" hidden>
-                        <br>
-                        <button id="compute" class="compute">Calculate</button>
-                        <h5>Probability of Completion</h5>
-                        <input type="textp" name="p" id="p" readonly>
-                    </center>
-                </div>
-
-                <div class="box">
-                    <center>
-                        <h4>Compute Individual Task Completion Probability</h4>
-                        <h5>How To?</h5>
-                        <ul>
-                            <li>
-                                <p>Enter the Activity Number of the duration you want to compute.</p>
-                            </li>
-                            <li>
-                                <p>Enter your expected activity duration.</p>
-                            </li>
-                            <li>
-                                <p>Click 'Calculate' and wait for the probability to show.</p>
-                            </li>
-                        </ul>
-                        <h5>Activity ID:</h5>
-                        <input type="number" name="tid" id="tid">
-                        <h5>Expected Task Duration: </h5>
-                        <input type="number" name="x_indiv" id="x_indiv"><br>
-                        <button id="compute_indiv" class="compute_indiv">Calculate</button>
-                        <h5>Probability of Completion</h5>
-                        <input type="textp" name="p_indiv" id="p_indiv" readonly>
-                    </center>
-                </div>
-            </div>
-        </div>
         <!-- Gantt Chart -->
         <div class="grid-container-gantt">
             <div class="title">
@@ -258,6 +193,75 @@
                 </div>
             </div>
         </div>
+        <!-- PERT Chart -->
+        <!-- <?php $this->view('trial'); ?> -->
+
+        <div class="probability">
+            <div class="title">
+                <h2> Completion Probability Calculator</h2>
+            </div>
+
+            <!-- EXPLANATION -->
+            <div class="paragone">
+                <div class="description">
+                    <p>
+                        Our PERT Calculator also enables users to determine the probability of an expected duration
+                    </p>
+                </div>
+            </div>
+            <!-- CARDS 2 -->
+
+            <div class="container">
+                <div class="box">
+                    <center>
+                        <h4>Compute Project Completion Probability</h4>
+                        <h5>How To?</h5>
+                        <ul>
+                            <li>
+                                <p>Enter your expected project duration.</p>
+                            </li>
+                            <li>
+                                <p>Click 'Calculate' and wait for the probability to show.</p>
+                            </li>
+                        </ul>
+                        <h5>Expected Project Duration</h5>
+                        <input type="number" name="x" id="x" required>
+                        <input type="number" name="m" id="m" value="<?php echo number_format((float)$_SESSION['finish_time'], 2, '.', ''); ?>" hidden>
+                        <input type="number" name="s" id="s" value="<?php echo number_format((float)$_SESSION['proj_sd'], 2, '.', ''); ?>" hidden>
+                        <br>
+                        <button id="compute" class="compute">Calculate</button>
+                        <h5>Probability of Completion</h5>
+                        <input type="textp" name="p" id="p" readonly>
+                    </center>
+                </div>
+
+                <div class="box">
+                    <center>
+                        <h4>Compute Individual Activity Completion Probability</h4>
+                        <h5>How To?</h5>
+                        <ul>
+                            <li>
+                                <p>Enter the Activity Number of the duration you want to compute.</p>
+                            </li>
+                            <li>
+                                <p>Enter your expected activity duration.</p>
+                            </li>
+                            <li>
+                                <p>Click 'Calculate' and wait for the probability to show.</p>
+                            </li>
+                        </ul>
+                        <h5>Activity ID:</h5>
+                        <input type="number" name="tid" id="tid">
+                        <h5>Expected Activity Duration: </h5>
+                        <input type="number" name="x_indiv" id="x_indiv"><br>
+                        <button id="compute_indiv" class="compute_indiv">Calculate</button>
+                        <h5>Probability of Completion</h5>
+                        <input type="textp" name="p_indiv" id="p_indiv" readonly>
+                    </center>
+                </div>
+            </div>
+        </div>
+        
         <section class="collapsible">
             <input type="checkbox" name="collapse" id="handle1" checked="checked">
             <h2 class="handle">
