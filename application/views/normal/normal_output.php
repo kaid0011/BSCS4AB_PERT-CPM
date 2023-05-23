@@ -211,11 +211,11 @@
                     <p><strong>Step 2:</strong> Determines the 3 durations: optimistic (a), most likely (m), and pessimistic (b), which are the estimated times
                         provided by the user for each activity that are required to complete the activities.</p>
                     <p><strong>Step 3:</strong> Calculates the mean (𝜇) of the 3 durations for each activity.</p>
-                    <img src="<?= base_url('assets/images/normal_mean.png') ?>">
+                    <img src="<?= base_url('assets/images/howitworks/normal_mean.png') ?>">
                     <p><strong>Step 4:</strong> Calculates the variance (𝜎<sup>2</sup>) of the 3 durations for each activity.</p>
-                    <img src="<?= base_url('assets/images/normal_variance.png') ?>">
+                    <img src="<?= base_url('assets/images/howitworks/normal_variance.png') ?>">
                     <p><strong>Step 5:</strong> Calculates the standard deviation (𝜎) using the variance for each activity.</p>
-                    <img src="<?= base_url('assets/images/normal_sd.png') ?>">
+                    <img src="<?= base_url('assets/images/howitworks/normal_sd.png') ?>">
                     <p><strong>Step 6:</strong> Computes the duration (T) by using the norm.ppf function from scipy.stats to get the normal distribution value
                         (or the inverse of the cumulative distribution function) for which a given probability is the required value.</p>
                     <div class="func">

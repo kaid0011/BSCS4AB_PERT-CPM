@@ -1,7 +1,7 @@
 </body>
 <footer>
   <div class="footer">
-    <ul>
+    <ul class="row1">
       <li><a href="<?= base_url('aboutwaps') ?>">About WAPS</a></li>
       <li><a href="<?= base_url('aboutus') ?>">About Us</a></li>
       <li><a href="<?= base_url('contactus') ?>">Contact Us</a></li>

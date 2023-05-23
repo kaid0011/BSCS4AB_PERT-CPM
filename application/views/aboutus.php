@@ -20,7 +20,7 @@
       </div>
 
       <div class="member">
-        <center><img alt="" src="<?=base_url()?>/assets/images/developers/pabalan.jpg"></center>
+        <center><img alt="" src="<?=base_url()?>/assets/images/developers/romero.jpg"></center>
         <h2>Allana Mae<br>L. Romero</h2>
         <p class="role"><i>Backend Developer<br>MVC Manager</i></p>
         <p class="desc">Allana is a talented and skilled back-end developer who focused on coding the necessary algorithms

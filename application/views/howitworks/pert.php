@@ -6,7 +6,7 @@
                 <p><strong>Step 1: </strong> Identifies all the activities involved in the project and arranges them in a logical sequence using their Activity IDs.</p>
                 <p><strong>Step 2: </strong> Determines the 3 durations: optimistic (a), most likely (m), and pessimistic (b), which are the estimated times provided by the user for each activity that are required to complete the activities.</p>
                 <p><strong>Step 3: </strong> Calculates the duration (T) by getting the mean of the 3 durations.</p>
-                <img src="<?= base_url('assets/images/pert_mean.png') ?>"></img>
+                <img src="<?= base_url('assets/images/howitworks/pert_mean.png') ?>"></img>
                 <p><strong>Step 4: </strong> Identifies the pre-requisites of each activity, which must be completed before another activity starts.</p>
                 <p><strong>Step 5: </strong> Performs a Forward Pass.</p>
                 <ol type="a">
