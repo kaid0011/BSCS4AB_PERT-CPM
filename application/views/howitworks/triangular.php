@@ -19,7 +19,7 @@
                         <p>z = a<sup>2</sup> - r (m - a) (b - a);</p>
                         <p>Then, compute the duration (T) using the formula:</p>
                     </div>
-                    <img src="<?= base_url('assets/images/tria_1.png') ?>">
+                    <img src="<?= base_url('assets/images/howitworks/tria_1.png') ?>">
                     <p>Else:</p>
                     <div class="func-desc">
                         <p>x = 1;</p>
@@ -27,7 +27,7 @@
                         <p>z = b<sup>2</sup> - (1 - r) (b - a) (b - m);</p>
                         <p>Then, compute the duration (T) using the formula:</p>
                     </div>
-                    <img src="<?= base_url('assets/images/tria_2.png') ?>">
+                    <img src="<?= base_url('assets/images/howitworks/tria_2.png') ?>">
                 </div>
                 <p><strong>Step 5: </strong> Identifies the pre-requisites of each activity, which must be completed before another activity starts.</p>
                 <p><strong>Step 6: </strong> Performs a Forward Pass.</p>

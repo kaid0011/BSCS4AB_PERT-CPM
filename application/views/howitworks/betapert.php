@@ -5,10 +5,10 @@
                 <h1>How WAPS with Simulation's BETA-PERT Distribution Works?</h1><br>
                 <p><strong>Step 1: </strong>Identifies all the activities involved in the project and arranges them in a logical sequence using their Activity IDs.</p>
                 <p><strong>Step 2: </strong>Determines the 3 durations: optimistic (a), most likely (m), and pessimistic (b), which are the estimated times provided by the user for each activity that are required to complete the activities.</p>
-                <p><strong>Step 3: </strong>Calculates the alpha value (𝛼) of the 3 durations for each activity.</p><img src="<?= base_url('assets/images/beta_alpha.png') ?>">
-                <p><strong>Step 4: </strong>Calculates the beta value (𝛽) of the 3 durations for each activity.</p><img src="<?= base_url('assets/images/beta_beta.png') ?>">
-                <p><strong>Step 5: </strong>Calculates the mean (𝜇) of the 3 durations for each activity.</p><img src="<?= base_url('assets/images/beta_mean.png') ?>">
-                <p><strong>Step 6: </strong>Calculates the standard deviation (𝜎) using the variance for each activity.</p><img src="<?= base_url('assets/images/beta_sd.png') ?>">
+                <p><strong>Step 3: </strong>Calculates the alpha value (𝛼) of the 3 durations for each activity.</p><img src="<?= base_url('assets/images/howitworks/beta_alpha.png') ?>">
+                <p><strong>Step 4: </strong>Calculates the beta value (𝛽) of the 3 durations for each activity.</p><img src="<?= base_url('assets/images/howitworks/beta_beta.png') ?>">
+                <p><strong>Step 5: </strong>Calculates the mean (𝜇) of the 3 durations for each activity.</p><img src="<?= base_url('assets/images/howitworks/beta_mean.png') ?>">
+                <p><strong>Step 6: </strong>Calculates the standard deviation (𝜎) using the variance for each activity.</p><img src="<?= base_url('assets/images/howitworks/beta_sd.png') ?>">
                 <p><strong>Step 7: </strong>Computes the duration (T) by using the beta.ppf function from scipy.stats to get the percentile rank (or the inverse of the cumulative distribution function) for a given beta distribution.</p>
                 <div class="func">
                     <div class="title">
