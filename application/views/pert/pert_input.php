@@ -12,8 +12,6 @@
                 </div>
             </div>
         </div>
-        <!-- FOR DEMO PURPOSES -->
-        <input type="hidden" name="d" id="d" value="<?php echo $_SESSION['d']; ?>">
         <div class="grid-container">
             <div class="tablecontainer" style="overflow-x:auto;">
                 <table class="results">
@@ -37,25 +35,26 @@
                             ?>
                                 <tr>
                                     <td><input type="text1" name="<?php echo $i; ?>" value="<?php echo $i; ?>" readonly></td>
-                                    <td><input type="text" name="task_desc_<?php echo $i; ?>" id="task_desc_<?php echo $i; ?>"></td>
+                                    <td><input type="text" name="task_desc_<?php echo $i; ?>"></td>
+                                    <!-- <td><textarea  name = "task_desc_<?php echo $i; ?>"></textarea></td> -->
                                     <td><input type="number" name="task_opt_<?php echo $i; ?>" id="task_opt_<?php echo $i; ?>" step="any" min="1" max="100" placeholder="Max. 100" onchange="check_opt(this)" required></td>
                                     <td><input type="number" name="task_ml_<?php echo $i; ?>" id="task_ml_<?php echo $i; ?>" step="any" min="1" max="100" placeholder="Max. 100" onchange="check_ml(this)" required></td>
                                     <td><input type="number" name="task_pes_<?php echo $i; ?>" id="task_pes_<?php echo $i; ?>" step="any" min="1" max="100" placeholder="Max. 100" onchange="check_pes(this)" required></td>
                                     <td><?php
                                         if ($i == 1) {
                                         ?>
-                                            <input type="text" name="task_prereq_<?php echo $i; ?>" id="task_prereq_<?php echo $i; ?>" value="-" readonly>
+                                            <input type="text" name="task_prereq_<?php echo $i; ?>" value="-" readonly>
                                             <?php
                                         } else {
                                             $x = $i - 1;
                                             if ($i <= 10) {
                                             ?>
-                                                <input type="text" name="task_prereq_<?php echo $i; ?>" id="task_prereq_<?php echo $i; ?>" pattern="[1-<?php echo $x; ?>](,[1-<?php echo $x; ?>])*|^[\-]" oninvalid="this.setCustomValidity('Enter Valid Activity ID')" onchange="this.setCustomValidity('')" required>
+                                                <input type="text" name="task_prereq_<?php echo $i; ?>" pattern="[1-<?php echo $x; ?>](,[1-<?php echo $x; ?>])*|^[\-]" oninvalid="this.setCustomValidity('Enter Valid Activity ID')" onchange="this.setCustomValidity('')" required>
                                             <?php
                                             } else if ($i > 10) {
                                                 $y = $i - 11;
                                             ?>
-                                                <input type="text" name="task_prereq_<?php echo $i; ?>" id="task_prereq_<?php echo $i; ?>" pattern="([1-9]|1[0-<?php echo $y; ?>])(,([1-9]|1[0-<?php echo $y; ?>]))*|^[\-]" oninvalid="this.setCustomValidity('Enter Valid Activity ID')" onchange="this.setCustomValidity('')" required>
+                                                <input type="text" name="task_prereq_<?php echo $i; ?>" pattern="([1-9]|1[0-<?php echo $y; ?>])(,([1-9]|1[0-<?php echo $y; ?>]))*|^[\-]" oninvalid="this.setCustomValidity('Enter Valid Activity ID')" onchange="this.setCustomValidity('')" required>
                                         <?php }
                                         } ?>
                                     </td>
@@ -239,19 +238,6 @@
     </div>
 </div>
 <script>
-    $(document).ready(function() {
-        var d = $("#d").val();
-        if(d == 'demo1') {
-            demo1();
-        }
-        else if(d == 'demo2') {
-            demo2();
-        }
-        else if(d == 'demo3') {
-            demo3();
-        }
-    });
-
     function check_opt(opt) {
         var opt = opt;
         if (!opt.validity.valid) {
@@ -291,152 +277,5 @@
                 pes.value = "";
             }
         }
-    }
-
-    function demo1() {
-        console.log('demo 1');
-        document.getElementById('task_desc_1').value = "A";
-        document.getElementById('task_opt_1').value = "3";
-        document.getElementById('task_ml_1').value = "5";
-        document.getElementById('task_pes_1').value = "7";
-        document.getElementById('task_prereq_1').value = "-";
-
-        document.getElementById('task_desc_2').value = "B";
-        document.getElementById('task_opt_2').value = "4";
-        document.getElementById('task_ml_2').value = "6";
-        document.getElementById('task_pes_2').value = "9";
-        document.getElementById('task_prereq_2').value = "1";
-        
-        document.getElementById('task_desc_3').value = "C";
-        document.getElementById('task_opt_3').value = "2";
-        document.getElementById('task_ml_3').value = "3";
-        document.getElementById('task_pes_3').value = "6";
-        document.getElementById('task_prereq_3').value = "2";
-        
-        document.getElementById('task_desc_4').value = "D";
-        document.getElementById('task_opt_4').value = "7";
-        document.getElementById('task_ml_4').value = "10";
-        document.getElementById('task_pes_4').value = "15";
-        document.getElementById('task_prereq_4').value = "-";
-        
-        document.getElementById('task_desc_5').value = "E";
-        document.getElementById('task_opt_5').value = "9";
-        document.getElementById('task_ml_5').value = "12";
-        document.getElementById('task_pes_5').value = "19";
-        document.getElementById('task_prereq_5').value = "1";
-        
-        document.getElementById('task_desc_6').value = "F";
-        document.getElementById('task_opt_6').value = "2";
-        document.getElementById('task_ml_6').value = "6";
-        document.getElementById('task_pes_6').value = "13";
-        document.getElementById('task_prereq_6').value = "2";
-        
-        document.getElementById('task_desc_7').value = "G";
-        document.getElementById('task_opt_7').value = "6";
-        document.getElementById('task_ml_7').value = "9";
-        document.getElementById('task_pes_7').value = "13";
-        document.getElementById('task_prereq_7').value = "3";
-        
-        document.getElementById('task_desc_8').value = "H";
-        document.getElementById('task_opt_8').value = "4";
-        document.getElementById('task_ml_8').value = "7";
-        document.getElementById('task_pes_8').value = "12";
-        document.getElementById('task_prereq_8').value = "4";
-        
-        document.getElementById('task_desc_9').value = "I";
-        document.getElementById('task_opt_9').value = "5";
-        document.getElementById('task_ml_9').value = "9";
-        document.getElementById('task_pes_9').value = "18";
-        document.getElementById('task_prereq_9').value = "5";
-        
-        document.getElementById('task_desc_10').value = "J";
-        document.getElementById('task_opt_10').value = "2";
-        document.getElementById('task_ml_10').value = "5";
-        document.getElementById('task_pes_10').value = "9";
-        document.getElementById('task_prereq_10').value = "5";
-        
-        document.getElementById('task_desc_11').value = "K";
-        document.getElementById('task_opt_11').value = "1";
-        document.getElementById('task_ml_11').value = "3";
-        document.getElementById('task_pes_11').value = "6";
-        document.getElementById('task_prereq_11').value = "6";
-        
-        document.getElementById('task_desc_12').value = "L";
-        document.getElementById('task_opt_12').value = "7";
-        document.getElementById('task_ml_12').value = "9";
-        document.getElementById('task_pes_12').value = "12";
-        document.getElementById('task_prereq_12').value = "7";
-        
-        document.getElementById('task_desc_13').value = "M";
-        document.getElementById('task_opt_13').value = "10";
-        document.getElementById('task_ml_13').value = "15";
-        document.getElementById('task_pes_13').value = "17";
-        document.getElementById('task_prereq_13').value = "10";
-        
-        document.getElementById('task_desc_14').value = "N";
-        document.getElementById('task_opt_14').value = "14";
-        document.getElementById('task_ml_14').value = "19";
-        document.getElementById('task_pes_14').value = "22";
-        document.getElementById('task_prereq_14').value = "12";
-        
-        document.getElementById('task_desc_15').value = "O";
-        document.getElementById('task_opt_15').value = "4";
-        document.getElementById('task_ml_15').value = "9";
-        document.getElementById('task_pes_15').value = "14";
-        document.getElementById('task_prereq_15').value = "14";       
-    }
-
-    function demo2() {
-        console.log('demo 2');
-        document.getElementById('task_desc_1').value = "A";
-        document.getElementById('task_opt_1').value = "2";
-        document.getElementById('task_ml_1').value = "4";
-        document.getElementById('task_pes_1').value = "5";
-        document.getElementById('task_prereq_1').value = "-";
-
-        document.getElementById('task_desc_2').value = "B";
-        document.getElementById('task_opt_2').value = "1";
-        document.getElementById('task_ml_2').value = "2";
-        document.getElementById('task_pes_2').value = "4";
-        document.getElementById('task_prereq_2').value = "1";
-        
-        document.getElementById('task_desc_3').value = "C";
-        document.getElementById('task_opt_3').value = "1";
-        document.getElementById('task_ml_3').value = "3";
-        document.getElementById('task_pes_3').value = "4";
-        document.getElementById('task_prereq_3').value = "1,2";
-        
-        document.getElementById('task_desc_4').value = "D";
-        document.getElementById('task_opt_4').value = "1";
-        document.getElementById('task_ml_4').value = "2";
-        document.getElementById('task_pes_4').value = "4";
-        document.getElementById('task_prereq_4').value = "1,2,3";
-    }
-
-    function demo3() {
-        console.log('demo 3');
-        document.getElementById('task_desc_1').value = "A";
-        document.getElementById('task_opt_1').value = "1";
-        document.getElementById('task_ml_1').value = "3";
-        document.getElementById('task_pes_1').value = "5";
-        document.getElementById('task_prereq_1').value = "-";
-
-        document.getElementById('task_desc_2').value = "B";
-        document.getElementById('task_opt_2').value = "1";
-        document.getElementById('task_ml_2').value = "4";
-        document.getElementById('task_pes_2').value = "5";
-        document.getElementById('task_prereq_2').value = "-";
-        
-        document.getElementById('task_desc_3').value = "C";
-        document.getElementById('task_opt_3').value = "1";
-        document.getElementById('task_ml_3').value = "2";
-        document.getElementById('task_pes_3').value = "5";
-        document.getElementById('task_prereq_3').value = "2";
-        
-        document.getElementById('task_desc_4').value = "D";
-        document.getElementById('task_opt_4').value = "3";
-        document.getElementById('task_ml_4').value = "4";
-        document.getElementById('task_pes_4').value = "5";
-        document.getElementById('task_prereq_4').value = "1";
     }
 </script>

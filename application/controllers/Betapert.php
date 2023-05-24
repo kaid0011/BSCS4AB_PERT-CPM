@@ -20,31 +20,7 @@ class Betapert extends CI_Controller
         $unit = $this->input->post('unit');
         $arr = array(
             'proj_len' => $len,
-            'unit' => $unit,
-            'd' => 'none'   //FOR DEMO PURPOSES ONLY
-        );
-        $this->session->set_userdata($arr);
-        redirect('betapert/projectdetails');
-    }
-
-    public function demo()
-    {
-        //FOR DEMO PURPOSES ONLY
-        $d = $this->uri->segment(3);
-        if($d == 'demo1') {
-            $proj_len = 5;
-        }
-        else if($d == 'demo2') {
-            $proj_len = 10;
-        }
-        else if ($d == 'demo3') {
-            $proj_len = 15;
-        }
-
-        $arr = array(
-            'd' => $d,
-            'proj_len' => $proj_len,
-            'unit' => 'Days'
+            'unit' => $unit
         );
         $this->session->set_userdata($arr);
         redirect('betapert/projectdetails');
