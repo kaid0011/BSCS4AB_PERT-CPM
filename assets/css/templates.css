@@ -1038,27 +1038,36 @@ div.howtouse div.explained p {
 
 div.howtouse img.how1{
   /* num of act */
-  width: 40em;
+  width: 50em;
 }
 
 div.howtouse img.how2{
-  width: 4em;
+  /* cpm input */
+  width: 30em;
 }
 
 div.howtouse img.how3{
-  width: 90em;
+  /* cpm res.tab. */
+  width: 55em;
 }
 
 div.howtouse img.how4{
-  width: 60em;
+  /* cpm res.boxes; others input; others gantt */
+  width: 45em;
 }
 
 div.howtouse img.how5{
-  /* others input */
-  width: 80em;
+  /* cpm gantt */
+  width: 60em;
 }
 
 div.howtouse img.how6{
+  /* others res.tab. */
+  width: 65em;
+}
+
+div.howtouse img.how7{
+  /* pert proba */
   width: 100%;
 }
 
@@ -1071,7 +1080,7 @@ div.howtouse .column {
   padding: 0 2em;
 }
 
-@media only screen and (max-width: 767px) {
+/* @media only screen and (max-width: 767px) {
   div.howtouse img.how1{
     width: 60vw;
   }
@@ -1095,7 +1104,7 @@ div.howtouse .column {
     width: 90vw;
   }
   
-}
+} */
 
 /* POPUP */
 

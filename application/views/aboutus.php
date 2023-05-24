@@ -9,7 +9,7 @@
 
     <div class="members">
       <div class="member">
-        <center><img alt="" src="<?=base_url()?>/assets/images/developers/pabalan.jpg"></center>
+        <center><img alt="" src="<?=base_url()?>/assets/images/developers/bagasona.jpg"></center>
         <h2>Kim Dianne<br>G. Bagasona</h2>
         <p  class="role"><i>Team Lead<br>Quality Assurance</i></p>
         <p class="desc">Kim is a highly organized and detail-oriented individual who played a pivotal role in our team as the
