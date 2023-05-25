@@ -33,25 +33,28 @@
         </div>
         <div class="explained">
             <h3>Example:</h3>
+            <center>
+                <h5>Your project has 3 activities.</h5>
+            </center><br>
             <table class="use">
                 <tr>
                     <th>
-                        <h6>Activity</h6>
+                        <h6>Act</h6>
                     </th>
                     <th>
-                        <h6>Description</h6>
+                        <h6>Desc</h6>
                     </th>
                     <th>
-                        <h6>Optimistic</h6>
+                        <h6>Opt</h6>
                     </th>
                     <th>
-                        <h6>Most Likely</h6>
+                        <h6>ML</h6>
                     </th>
                     <th>
-                        <h6>Pessimistic</h6>
+                        <h6>Pes</h6>
                     </th>
                     <th>
-                        <h6>Pre-requisite/s</h6>
+                        <h6>Pre-req</h6>
                     </th>
                 </tr>
                 <tr>
@@ -59,7 +62,7 @@
                         <p>1</p>
                     </td>
                     <td>
-                        <p>This is the first activity</p>
+                        <p>First activity</p>
                     </td>
                     <td>
                         <p>6</p>
@@ -79,7 +82,7 @@
                         <p>2</p>
                     </td>
                     <td>
-                        <p>This is the second activity</p>
+                        <p>Second activity</p>
                     </td>
                     <td>
                         <p>2</p>
@@ -99,7 +102,7 @@
                         <p>3</p>
                     </td>
                     <td>
-                        <p>This is the third activity</p>
+                        <p>Third activity</p>
                     </td>
                     <td>
                         <p>2</p>
