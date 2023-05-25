@@ -13,6 +13,8 @@
                 </div>
             </div>
         </div>
+        <!-- FOR DEMO PURPOSES -->
+        <input type="hidden" name="d" id="d" value="<?php echo $_SESSION['d']; ?>">
         <div class="grid-container">
             <div class="tablecontainer" style="overflow-x:auto;">
                 <table class="results">
@@ -34,23 +36,23 @@
                             ?>
                                 <tr>
                                     <td><input type="text1" name="<?php echo $i; ?>" value="<?php echo $i; ?>" readonly></td>
-                                    <td><input type="text" name="task_desc_<?php echo $i; ?>"></td>
-                                    <td><input type="number" name="task_time_<?php echo $i; ?>" min="1" max="100" placeholder="Max. 100" step="any" oninput="validity.valid||(value='');" required></td>
+                                    <td><input type="text" name="task_desc_<?php echo $i; ?>" id="task_desc_<?php echo $i; ?>"></td>
+                                    <td><input type="number" name="task_time_<?php echo $i; ?>" id="task_time_<?php echo $i; ?>" min="1" max="100" placeholder="Max. 100" step="any" oninput="validity.valid||(value='');" required></td>
                                     <td><?php
                                         if ($i == 1) {
                                         ?>
-                                            <input type="text" name="task_prereq_<?php echo $i; ?>" value="-" readonly>
+                                            <input type="text" name="task_prereq_<?php echo $i; ?>" id="task_prereq_<?php echo $i; ?>" value="-" readonly>
                                             <?php
                                         } else {
                                             $x = $i - 1;
                                             if ($i <= 10) {
                                             ?>
-                                                <input type="text" name="task_prereq_<?php echo $i; ?>" pattern="[1-<?php echo $x; ?>](,[1-<?php echo $x; ?>])*|^[\-]" oninvalid="this.setCustomValidity('Enter Valid Activity ID')" onchange="this.setCustomValidity('')" required>
+                                                <input type="text" name="task_prereq_<?php echo $i; ?>" id="task_prereq_<?php echo $i; ?>" pattern="[1-<?php echo $x; ?>](,[1-<?php echo $x; ?>])*|^[\-]" oninvalid="this.setCustomValidity('Enter Valid Activity ID')" onchange="this.setCustomValidity('')" required>
                                             <?php
                                             } else if ($i > 10) {
                                                 $y = $i - 11;
                                             ?>
-                                                <input type="text" name="task_prereq_<?php echo $i; ?>" pattern="([1-9]|1[0-<?php echo $y; ?>])(,([1-9]|1[0-<?php echo $y; ?>]))*|^[\-]" oninvalid="this.setCustomValidity('Enter Valid Activity ID')" onchange="this.setCustomValidity('')" required>
+                                                <input type="text" name="task_prereq_<?php echo $i; ?>" id="task_prereq_<?php echo $i; ?>" pattern="([1-9]|1[0-<?php echo $y; ?>])(,([1-9]|1[0-<?php echo $y; ?>]))*|^[\-]" oninvalid="this.setCustomValidity('Enter Valid Activity ID')" onchange="this.setCustomValidity('')" required>
                                         <?php }
                                         } ?>
                                     </td>
@@ -226,3 +228,118 @@
         </div>
     </div>
 </div>
+<script>
+    $(document).ready(function() {
+        var d = $("#d").val();
+        if(d == 'demo1') {
+            demo1();
+        }
+        else if(d == 'demo2') {
+            demo2();
+        }
+        else if(d == 'demo3') {
+            demo3();
+        }
+    });
+
+    function demo1() {
+        console.log('demo 1');
+        document.getElementById('task_desc_1').value = "A";
+        document.getElementById('task_time_1').value = "3";
+        document.getElementById('task_prereq_1').value = "-";
+
+        document.getElementById('task_desc_2').value = "B";
+        document.getElementById('task_time_2').value = "4";
+        document.getElementById('task_prereq_2').value = "-";
+        
+        document.getElementById('task_desc_3').value = "C";
+        document.getElementById('task_time_3').value = "5";
+        document.getElementById('task_prereq_3').value = "1";
+        
+        document.getElementById('task_desc_4').value = "D";
+        document.getElementById('task_time_4').value = "6";
+        document.getElementById('task_prereq_4').value = "2";
+        
+        document.getElementById('task_desc_5').value = "E";
+        document.getElementById('task_time_5').value = "7";
+        document.getElementById('task_prereq_5').value = "3";
+        
+        document.getElementById('task_desc_6').value = "F";
+        document.getElementById('task_time_6').value = "8";
+        document.getElementById('task_prereq_6').value = "4,5";
+        
+        document.getElementById('task_desc_7').value = "G";
+        document.getElementById('task_time_7').value = "9";
+        document.getElementById('task_prereq_7').value = "6";
+        
+        document.getElementById('task_desc_8').value = "H";
+        document.getElementById('task_time_8').value = "10";
+        document.getElementById('task_prereq_8').value = "7";
+        
+        document.getElementById('task_desc_9').value = "I";
+        document.getElementById('task_time_9').value = "11";
+        document.getElementById('task_prereq_9').value = "8";
+        
+        document.getElementById('task_desc_10').value = "J";
+        document.getElementById('task_time_10').value = "12";
+        document.getElementById('task_prereq_10').value = "9";
+        
+        document.getElementById('task_desc_11').value = "K";
+        document.getElementById('task_time_11').value = "13";
+        document.getElementById('task_prereq_11').value = "-";
+        
+        document.getElementById('task_desc_12').value = "L";
+        document.getElementById('task_time_12').value = "10";
+        document.getElementById('task_prereq_12').value = "1";
+        
+        document.getElementById('task_desc_13').value = "M";
+        document.getElementById('task_time_13').value = "9";
+        document.getElementById('task_prereq_13').value = "3";
+        
+        document.getElementById('task_desc_14').value = "N";
+        document.getElementById('task_time_14').value = "4";
+        document.getElementById('task_prereq_14').value = "-";
+        
+        document.getElementById('task_desc_15').value = "O";
+        document.getElementById('task_time_15').value = "7";
+        document.getElementById('task_prereq_15').value = "-";       
+    }
+
+    function demo2() {
+        console.log('demo 2');
+        document.getElementById('task_desc_1').value = "A";
+        document.getElementById('task_time_1').value = "19";
+        document.getElementById('task_prereq_1').value = "-";
+
+        document.getElementById('task_desc_2').value = "B";
+        document.getElementById('task_time_2').value = "17";
+        document.getElementById('task_prereq_2').value = "1";
+        
+        document.getElementById('task_desc_3').value = "C";
+        document.getElementById('task_time_3').value = "11";
+        document.getElementById('task_prereq_3').value = "1";
+        
+        document.getElementById('task_desc_4').value = "D";
+        document.getElementById('task_time_4').value = "20";
+        document.getElementById('task_prereq_4').value = "2";
+        
+        document.getElementById('task_desc_5').value = "E";
+        document.getElementById('task_time_5').value = "13";
+        document.getElementById('task_prereq_5').value = "3";
+    }
+
+    function demo3() {
+        console.log('demo 3');
+        document.getElementById('task_desc_1').value = "A";
+        document.getElementById('task_time_1').value = "13";
+        document.getElementById('task_prereq_1').value = "-";
+
+        document.getElementById('task_desc_2').value = "B";
+        document.getElementById('task_time_2').value = "14";
+        document.getElementById('task_prereq_2').value = "1";
+        
+        document.getElementById('task_desc_3').value = "C";
+        document.getElementById('task_time_3').value = "15";
+        document.getElementById('task_prereq_3').value = "1,2";
+    }
+</script>

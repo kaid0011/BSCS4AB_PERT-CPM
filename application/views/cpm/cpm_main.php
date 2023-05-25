@@ -49,7 +49,11 @@
 
         <div class="generate">
             <button class="btn">Generate Table</button>
-        </div>
+            <!-- FOR DEMO PURPOSES -->
+            <a class="btn" href="<?= base_url('cpm/demo/demo1') ?>">Demo 1</a>
+            <a class="btn" href="<?= base_url('cpm/demo/demo2') ?>">Demo 2</a>
+            <a class="btn" href="<?= base_url('cpm/demo/demo3') ?>">Demo 3</a>
+        </div>      
         </form>
     </div>
 </div>
