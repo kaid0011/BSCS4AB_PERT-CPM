@@ -223,7 +223,7 @@ div.topnav i{
 @media screen and (max-width: 800px) {
   .topnav {
     overflow: hidden;
-    background-color: #D9D9D9;
+    background-color: #4f4f51;
   }
 
   .topnav ul {
@@ -533,7 +533,6 @@ div.mainpg .generate {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 2rem;
 }
 
 div.mainpg .form {
@@ -1410,4 +1409,17 @@ footer hr{
    width: 100%;
    margin-left: 0;
  }
+}
+
+/* for sample buttons */
+div.sample .btn{
+  text-decoration: none;
+  font-size: 1rem;
+  color: #f7f7f7;
+  background-color: #B19090;
+  border-radius: 40px;
+  border: none;
+  display: inline-block;
+  padding: 8px 15px;
+  margin: 0 5px  
 }

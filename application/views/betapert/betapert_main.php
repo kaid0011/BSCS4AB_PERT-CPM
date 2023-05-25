@@ -53,11 +53,15 @@
 
         <div class="generate">
             <button class="btn">Generate Table</button>
-            <!-- FOR DEMO PURPOSES -->
+        </div>
+        <!-- FOR DEMO PURPOSES -->
+        <center>
+            <div class="sample">
             <a class="btn" href="<?= base_url('betapert/demo/demo1') ?>">Demo 1</a>
             <a class="btn" href="<?= base_url('betapert/demo/demo2') ?>">Demo 2</a>
             <a class="btn" href="<?= base_url('betapert/demo/demo3') ?>">Demo 3</a>
-        </div>
+            </div>
+        </center>
         </form>
     </div>
 </div>
