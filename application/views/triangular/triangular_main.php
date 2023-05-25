@@ -52,6 +52,10 @@
 
         <div class="generate">
             <button class="btn">Generate Table</button>
+            <!-- FOR DEMO PURPOSES -->
+            <a class="btn" href="<?= base_url('triangular/demo/demo1') ?>">Demo 1</a>
+            <a class="btn" href="<?= base_url('triangular/demo/demo2') ?>">Demo 2</a>
+            <a class="btn" href="<?= base_url('triangular/demo/demo3') ?>">Demo 3</a>
         </div>
         </form>
     </div>
