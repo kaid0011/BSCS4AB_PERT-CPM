@@ -1079,7 +1079,7 @@ div.howtouse .column {
   padding: 0 2em;
 }
 
-/* @media only screen and (max-width: 767px) {
+@media only screen and (max-width: 768px) {
   div.howtouse img.how1{
     width: 60vw;
   }
@@ -1103,9 +1103,16 @@ div.howtouse .column {
     width: 90vw;
   }
   
-} */
-
-/* POPUP */
+  div.howtouse .row {
+    display: flex;
+    padding: 0 3em;
+  }
+  div.howtouse .column {
+    flex: 50%;
+    padding: 0 2em;
+  }
+  
+}
 
 /* The Modal (background) */
 .mymodal {
