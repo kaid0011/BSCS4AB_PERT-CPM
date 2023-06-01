@@ -29,7 +29,7 @@
                     <form action="<?= base_url('pert/proj_details') ?>" method="post">
                         <div class="form-group">
                             <label for="InputTask">Number of Activities:</label><br>
-                            <input type="number" name="proj_len" class="form-control" id="InputTask" aria-describedby="input" placeholder="Max. 20." min="1" max="20" oninput="validity.valid||(value='');" required>
+                            <input type="number" name="proj_len" class="form-control" id="InputTask" aria-describedby="input" placeholder="Max. 20." min="2" max="20" oninput="validity.valid||(value='');" required>
                         </div>
                         <div class="form-group">
                             <label for="InputTime">Unit of Time:</label><br>
@@ -47,6 +47,14 @@
         <div class="generate">
             <button class="btn">Generate Table</button>
         </div>
+        <!-- FOR DEMO PURPOSES -->
+        <center>
+            <div class="sample">
+            <a class="btn" href="<?= base_url('pert/demo/demo1') ?>">Demo 1</a>
+            <a class="btn" href="<?= base_url('pert/demo/demo2') ?>">Demo 2</a>
+            <a class="btn" href="<?= base_url('pert/demo/demo3') ?>">Demo 3</a>
+            </div>
+        </center>
         </form>
     </div>
 </div>

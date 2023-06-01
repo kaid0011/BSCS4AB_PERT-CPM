@@ -29,16 +29,16 @@
             <table class="use">
                 <tr>
                     <th>
-                        <h6>Activity</h6>
+                        <h6>Act</h6>
                     </th>
                     <th>
-                        <h6>Description</h6>
+                        <h6>Desc</h6>
                     </th>
                     <th>
-                        <h6>Estimated Duration</h6>
+                        <h6>Duration</h6>
                     </th>
                     <th>
-                        <h6>Pre-requisite/s</h6>
+                        <h6>Pre-req</h6>
                     </th>
                 </tr>
                 <tr>
@@ -46,7 +46,7 @@
                         <p>1</p>
                     </td>
                     <td>
-                        <p>This is the first activity</p>
+                        <p>First activity</p>
                     </td>
                     <td>
                         <p>9</p>
@@ -60,7 +60,7 @@
                         <p>2</p>
                     </td>
                     <td>
-                        <p>This is the second activity</p>
+                        <p>Second activity</p>
                     </td>
                     <td>
                         <p>12</p>
@@ -74,7 +74,7 @@
                         <p>3</p>
                     </td>
                     <td>
-                        <p>This is the third activity</p>
+                        <p>Third activity</p>
                     </td>
                     <td>
                         <p>14</p>

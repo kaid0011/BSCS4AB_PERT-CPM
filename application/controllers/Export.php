@@ -19,7 +19,7 @@ class Export extends CI_Controller
         header('Content-Disposition: attachment; filename=Simulation Values.csv');
     
         foreach ($sv as $row) {
-            echo implode(",", $row) . "\t";
+            echo implode(",", $row) . "\n";
         }
     }
 

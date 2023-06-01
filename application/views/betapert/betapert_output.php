@@ -17,22 +17,22 @@
                     <thead>
                         <tr>
                             <th>Activity</th>
-                            <th title="Activity Description">Description <span class="tooltiptext">&#9432;</span></th>
-                            <th title="Shortest Estimated Activity Duration">Optimistic <span class="tooltiptext">&#9432;</span></th>
-                            <th title="Reasonable Estimated Activity Duration">Most Likely <span class="tooltiptext">&#9432;</span></th>
-                            <th title="Maximum Estimated Activity Duration">Pessimistic <span class="tooltiptext">&#9432;</span></th>
-                            <th title="alpha">Alpha <span class="tooltiptext">&#9432;</span></th>
-                            <th title="beta">Beta <span class="tooltiptext">&#9432;</span></th>
-                            <th title="mean">Mean <span class="tooltiptext">&#9432;</span></th>
-                            <th title="sd">Standard Deviation <span class="tooltiptext">&#9432;</span></th>
-                            <th title="Computed Activity Completion based on OT, MLT, and PT">Computed Duration <span class="tooltiptext">&#9432;</span></th>
-                            <th title="Activity Number that needs to be completed first.">Pre-Requisites <span class="tooltiptext">&#9432;</span></th>
-                            <th title="Activity's Earliest Start Time">ES <span class="tooltiptext">&#9432;</span></th>
-                            <th title="Activity's Earliest Finish Time">EF <span class="tooltiptext">&#9432;</span></th>
-                            <th title="Activity's Latest Start Time">LS <span class="tooltiptext">&#9432;</span></th>
-                            <th title="Activity's Latest Finish Time">LF <span class="tooltiptext">&#9432;</span></th>
-                            <th title="Activity's Available Slack Time">Slack <span class="tooltiptext">&#9432;</span></th>
-                            <th title="If the Activity is Critical">Critical <span class="tooltiptext">&#9432;</span></th>
+                            <th title="Activity Description">Description </th>
+                            <th title="Shortest Estimated Activity Duration">Optimistic </th>
+                            <th title="Reasonable Estimated Activity Duration">Most Likely </th>
+                            <th title="Maximum Estimated Activity Duration">Pessimistic </th>
+                            <th class="short" title="alpha">Alpha </th>
+                            <th class="short" title="beta">Beta </th>
+                            <th class="short" title="mean">Mean </th>
+                            <th title="sd">Standard Deviation </th>
+                            <th title="Computed Activity Completion based on OT, MLT, and PT">Computed Duration </th>
+                            <th title="Activity Number that needs to be completed first.">Pre-Requisites </th>
+                            <th class="short" title="Activity's Earliest Start Time">ES </th>
+                            <th class="short" title="Activity's Earliest Finish Time">EF </th>
+                            <th class="short" title="Activity's Latest Start Time">LS </th>
+                            <th class="short" title="Activity's Latest Finish Time">LF </th>
+                            <th class="short" title="Activity's Available Slack Time">Slack </th>
+                            <th title="If the Activity is Critical">Critical </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -200,7 +200,7 @@
             </div>
         </div>
         <!-- PERT Chart -->
-        <?php $this->view('trial'); ?> 
+        <!-- <?php $this->view('trial'); ?>  -->
         
         <section class="collapsible">
             <input type="checkbox" name="collapse" id="handle1" checked="checked">
@@ -213,13 +213,13 @@
                     <p> <strong>Step 2:</strong> Determines the 3 durations: optimistic (a), most likely (m), and pessimistic (b), which are the estimated times
                         provided by the user for each activity that are required to complete the activities.</p>
                     <p><strong>Step 3:</strong> Calculates the alpha value (𝛼) of the 3 durations for each activity.</p>
-                    <img src="<?= base_url('assets/images/beta_alpha.png') ?>">
+                    <img src="<?= base_url('assets/images/howitworks/beta_alpha.png') ?>">
                     <p><strong>Step 4:</strong> Calculates the beta value (𝛽) of the 3 durations for each activity.</p>
-                    <img src="<?= base_url('assets/images/beta_beta.png') ?>">
+                    <img src="<?= base_url('assets/images/howitworks/beta_beta.png') ?>">
                     <p><strong>Step 5:</strong> Calculates the mean (𝜇) of the 3 durations for each activity.</p>
-                    <img src="<?= base_url('assets/images/beta_mean.png') ?>">
+                    <img src="<?= base_url('assets/images/howitworks/beta_mean.png') ?>">
                     <p><strong>Step 6:</strong> Calculates the standard deviation (𝜎) using the variance for each activity.</p>
-                    <img src="<?= base_url('assets/images/beta_sd.png') ?>">
+                    <img src="<?= base_url('assets/images/howitworks/beta_sd.png') ?>">
                     <p> <strong>Step 7:</strong> Computes the duration (T) by using the beta.ppf function from scipy.stats to get the percentile rank (or the
                         inverse of the cumulative distribution function) for a given beta distribution.</p>
                     <div class="func">

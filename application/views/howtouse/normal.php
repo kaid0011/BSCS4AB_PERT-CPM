@@ -2,7 +2,7 @@
     <div class="body-container">
         <div class="summary">
             <h1>How to use WAPS with Simulation's Normal Distribution?</h1>
-            <h3>To use WAPS with Simulation's Normal Distribution?, you must follow these steps:</h3>
+            <h3>To use WAPS with Simulation's Normal Distribution, you must follow these steps:</h3>
             <ol type="1">
                 <li>
                     <p>Enter the Number of Activities of your project.</p>
@@ -31,25 +31,28 @@
         </div>
         <div class="explained">
             <h3>Example:</h3>
+            <center>
+                <h5>Your project has 3 activities.</h5>
+            </center><br>
             <table class="use">
                 <tr>
                     <th>
-                        <h6>Activity</h6>
+                        <h6>Act</h6>
                     </th>
                     <th>
-                        <h6>Description</h6>
+                        <h6>Desc</h6>
                     </th>
                     <th>
-                        <h6>Optimistic</h6>
+                        <h6>Opt</h6>
                     </th>
                     <th>
-                        <h6>Most Likely</h6>
+                        <h6>ML</h6>
                     </th>
                     <th>
-                        <h6>Pessimistic</h6>
+                        <h6>Pes</h6>
                     </th>
                     <th>
-                        <h6>Pre-requisite/s</h6>
+                        <h6>Pre-req</h6>
                     </th>
                 </tr>
                 <tr>
@@ -57,7 +60,7 @@
                         <p>1</p>
                     </td>
                     <td>
-                        <p>This is the first activity</p>
+                        <p>First activity</p>
                     </td>
                     <td>
                         <p>6</p>
@@ -77,7 +80,7 @@
                         <p>2</p>
                     </td>
                     <td>
-                        <p>This is the second activity</p>
+                        <p>Second activity</p>
                     </td>
                     <td>
                         <p>2</p>
@@ -97,7 +100,7 @@
                         <p>3</p>
                     </td>
                     <td>
-                        <p>This is the third activity</p>
+                        <p>Third activity</p>
                     </td>
                     <td>
                         <p>2</p>
@@ -127,7 +130,7 @@
                     <p>Click 'Generate Table' to generate a table to input your project details.</p>
                 </li>
             </ul>
-            <center><img class="how5" alt="" src="<?= base_url() ?>/assets/images/howtouse/normal/normal2.png"></center>
+            <center><img class="how4" alt="" src="<?= base_url() ?>/assets/images/howtouse/normal/normal2.png"></center>
             <ul>
                 <li>
                     <p>For each activity, enter the description, durations (optimistic, most likely, and pessimistic), and its pre-requisite/s.</p>
@@ -139,7 +142,7 @@
                     <p>After completing the table, click 'Calculate' to schedule your project. </p>
                 </li>
             </ul>
-            <center><img class="how5" alt="" src="<?= base_url() ?>/assets/images/howtouse/normal/normal3.png"></center>
+            <center><img class="how4" alt="" src="<?= base_url() ?>/assets/images/howtouse/normal/normal3.png"></center>
             <ul>
                 <li>
                     <p>A table will show the following information for your project: Activity, Description, Estimated Duration, Earliest Start Time, Earliest Finish Time, Latest Start Time, Latest Finish Time, Slack, and Critical.</p>
@@ -154,15 +157,15 @@
                     <p>You will have an option to download an Excel file containing the simulations by clicking the "Export Simulation Values" button.</p>
                 </li>
             </ul>
-            <center><img class="how3" alt="" src="<?= base_url() ?>/assets/images/howtouse/normal/normal4.png"></center>
-            <center><img class="how3" alt="" src="<?= base_url() ?>/assets/images/howtouse/normal/normal5.png"></center>
+            <center><img class="how6" alt="" src="<?= base_url() ?>/assets/images/howtouse/normal/normal4.png"></center>
+            <center><img class="how6" alt="" src="<?= base_url() ?>/assets/images/howtouse/normal/normal5.png"></center>
             <center><img class="how4" alt="" src="<?= base_url() ?>/assets/images/howtouse/normal/normal6.png"></center>
             <ul>
                 <li>
                     <p>Additionally, a gantt chart is provided for better visualization of the scheduled project activities.</p>
                 </li>
             </ul>
-            <center><img class="how5" alt="" src="<?= base_url() ?>/assets/images/howtouse/normal/normal7.png"></center>
+            <center><img class="how4" alt="" src="<?= base_url() ?>/assets/images/howtouse/normal/normal7.png"></center>
         </div>
     </div>
 </div>
