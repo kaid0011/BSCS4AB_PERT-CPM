@@ -127,7 +127,7 @@ class Cpm extends CI_Controller
         $this->forward_pass($data); // proceed to forward pass
     }
 
-    public function forward_pass($data)
+    public function forward_pass($data) //new - data array keys
     {
         /* 
             ---FORWARD PASS---
@@ -162,7 +162,7 @@ class Cpm extends CI_Controller
         $this->backward_pass($data);    // proceed to backward pass
     }
 
-    public function backward_pass($data)
+    public function backward_pass($data) //new - data array keys
     {
         /*
             ---BACKWARD PASS---

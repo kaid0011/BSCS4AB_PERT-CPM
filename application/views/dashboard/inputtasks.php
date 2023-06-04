@@ -48,22 +48,22 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td><input type="text1" name="TaskID_1" id="TaskID_1" value="1" readonly></td>
-                                <td><input type="text" name="TaskName_1" id="TaskName_1"></td>
-                                <td><input type="text" name="TaskDesc_1" id="TaskDesc_1"></td>
+                                <td><input type="text1" name="3TaskID_1" id="3TaskID_1" value="1" readonly></td>
+                                <td><input type="text" name="3TaskName_1" id="3TaskName_1"></td>
+                                <td><input type="text" name="3TaskDesc_1" id="3TaskDesc_1"></td>
                                 <td><input type="number" name="Opt_1" id="Opt_1" min="1" max="100" placeholder="Max. 100" step="any" oninput="validity.valid||(value='');" required></td>
                                 <td><input type="number" name="ML_1" id="ML_1" min="1" max="100" placeholder="Max. 100" step="any" oninput="validity.valid||(value='');" required></td>
                                 <td><input type="number" name="Pes_1" id="Pes_1" min="1" max="100" placeholder="Max. 100" step="any" oninput="validity.valid||(value='');" required></td>
-                                <td><input type="text" name="PreRequisites_1" id="PreRequisites_1" value="-" readonly></td>
+                                <td><input type="text" name="3PreRequisites_1" id="3PreRequisites_1" value="-" readonly></td>
                             </tr>
                             <tr>
-                                <td><input type="text1" name="TaskID_2" id="TaskID_2" value="2" readonly></td>
-                                <td><input type="text" name="TaskName_2" id="TaskName_2"></td>
-                                <td><input type="text" name="TaskDesc_2" id="TaskDesc_2"></td>
+                                <td><input type="text1" name="3TaskID_2" id="3TaskID_2" value="2" readonly></td>
+                                <td><input type="text" name="3TaskName_2" id="3TaskName_2"></td>
+                                <td><input type="text" name="3TaskDesc_2" id="3TaskDesc_2"></td>
                                 <td><input type="number" name="Opt_2" id="Opt_2" min="1" max="100" placeholder="Max. 100" step="any" oninput="validity.valid||(value='');" required></td>
                                 <td><input type="number" name="ML_2" id="ML_2" min="1" max="100" placeholder="Max. 100" step="any" oninput="validity.valid||(value='');" required></td>
                                 <td><input type="number" name="Pes_2" id="Pes_2" min="1" max="100" placeholder="Max. 100" step="any" oninput="validity.valid||(value='');" required></td>
-                                <td><input type="text" name="PreRequisites_2" id="PreRequisites_2"></td>
+                                <td><input type="text" name="3PreRequisites_2" id="3PreRequisites_2"></td>
                             </tr>
                         </tbody>
                     </table>

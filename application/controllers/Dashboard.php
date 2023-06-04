@@ -129,5 +129,48 @@ class Dashboard extends CI_Controller
             echo "</tr>";
         }
     }
+
+    public function getpertResults()
+    {
+        if($this->input->is_ajax_request()) {
+            $ProjectID = $this->input->post('ProjectID');
+        }
+        $data = $this->Projects_model->getpertResults($ProjectID);
+
+        foreach($data as $row)
+        {
+            echo "<tr>";
+            echo "<td>".$row->TaskID."</td>";
+            echo "<td>".$row->TaskName."</td>";
+            echo "<td>".$row->TaskDesc."</td>";
+            echo "<td>".$row->Optimistic."</td>";
+            echo "<td>".$row->MostLikely."</td>";
+            echo "<td>".$row->Pessimistic."</td>";
+            echo "<td>".$row->Duration."</td>";
+            $pre = $row->PreRequisites;
+            if($pre == -1) {
+                $pre = "-";
+            }
+            echo "<td>".$pre."</td>";
+            echo "<td>".$row->SD."</td>";
+            echo "<td>".$row->Variance."</td>";
+            echo "<td>".$row->ES."</td>";
+            echo "<td>".$row->EF."</td>";
+            echo "<td>".$row->LS."</td>";
+            echo "<td>".$row->LF."</td>";
+            echo "<td>".$row->Slack."</td>";
+            $cri = $row->Critical;
+            if($cri == 1) {
+                $cri = "Yes";
+            }
+            else {
+                $cri = "No";
+            }
+            echo "<td>".$cri."</td>";
+            echo "<td>".$row->PriorityLvl."</td>";
+            echo "<td>".$row->Type."</td>";
+            echo "</tr>";
+        }
+    }
 }
 ?>

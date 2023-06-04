@@ -17,7 +17,7 @@
                             </ul>
                             <!-- fieldsets -->
                             <fieldset>       
-                                <input type="text" name="ProjectID" id="ProjectID" value="0">                        
+                                <input type="hidden" name="ProjectID" id="ProjectID" value="0">                        
                                 <?php $this->view('dashboard/projectdetails'); ?>                                   
                                 <input type="button" name="next" class="next action-button" value="Next Step">
                             </fieldset>
@@ -118,8 +118,12 @@ $(document).ready(function() {
         //ex. pertTasks(), normalTasks()
 
         var CompType = document.getElementById("CompType").value;
+        console.log("CompType: " + CompType);
         if(CompType == 'CPM') {
             var x = cpmTasks();
+        }
+        else if(CompType == 'PERT') {
+            var x = pertTasks();
         }
         
 
@@ -298,72 +302,8 @@ function cpmTasks() {
         error: function(err) {
             console.log(err);
         }
-    });  
-    
-    //done - get data w/ results from db
-    return true; 
-}
-
-function pertTasks() {
-    var Form = new FormData();
-    var TaskIDL = new Array();
-	var TaskNameL = new Array();
-	var TaskDescL = new Array();
-	var OptL = new Array(); 
-	var MLiL = new Array(); 
-	var PesL = new Array(); 
-	var PreRequisitesL = new Array();
-	var ProjectIDL = new Array();
-    var ProjectID = document.getElementById("ProjectID").value;
-
-    var rowCount = $('#inputTbl1 tbody tr').length;
-
-    for(var i = 1; i <= rowCount; i++) {
-        var ti = $('#TaskID_'+i).val();
-        var tn = $('#TaskName_'+i).val();
-        var td = $('#TaskDesc_'+i).val();
-        var op = $('#Opt_'+i).val();
-        var ml = $('#ML_'+i).val();
-        var pe = $('#Pes_'+i).val();
-        var pr = $('#PreRequisites_'+i).val();
-
-        if(ti != "" && tn != "" && td != "" && du != "" && pr != "") {
-            TaskIDL.push(ti);
-            TaskNameL.push(tn);
-            TaskDescL.push(td);
-            OptL.push(op);
-            MLiL.push(ml);
-            PesL.push(pe);
-            PreRequisitesL.push(pr);
-            ProjectIDL.push(ProjectID);
-        }
-    }
-
-    Form.append('ProjectID', ProjectIDL);
-    Form.append('TaskID', TaskIDL);
-    Form.append('TaskName', TaskNameL);
-    Form.append('TaskDesc', TaskDescL);
-    Form.append('Optimistic', OptL);
-    Form.append('MostLikely', MLiL);
-    Form.append('Pessimistic', PesL);
-    Form.append('PreRequisites', PreRequisitesL);
-
-    $.ajax({
-        url: "<?php echo base_url(); ?>cpm/dbCalculate", //change to pert
-        method: 'POST',
-        dataType: 'json',
-        processData: false,
-        contentType: false,
-        data: Form,
-        success: function(data) {
-            console.log("Task details insert success"); 
-        },
-        error: function(err) {
-            console.log(err);
-        }
-    });     //done - get data w/ results from db
-    return true; 
-
+    });     
+    //return true; 
 }
 
 function getcpmResults(data) {
@@ -381,11 +321,113 @@ function getcpmResults(data) {
         data: Form,
         success: function(data) {
             console.log(data);
-            $('#cpmResults tbody').html(data);
+            document.getElementById("cpmResults").style.display = "block";
+            document.getElementById("pertResults").style.display = "none";
+            // document.getElementById("normalResults").style.display = "none";
+            // document.getElementById("triResults").style.display = "none";
+            // document.getElementById("betaResults").style.display = "none";
+            $('#cpmResults tbody').html(data);           
         },
         error: function(err) {
             console.log(err);
         }
     });
 }
+
+function pertTasks() {
+    var Form = new FormData();
+    var TaskIDL = new Array();
+	var TaskNameL = new Array();
+	var TaskDescL = new Array();
+	var OptL = new Array(); 
+	var MLiL = new Array(); 
+	var PesL = new Array(); 
+	var PreRequisitesL = new Array();
+	var ProjectIDL = new Array();
+    var ProjectID = document.getElementById("ProjectID").value;
+
+    var rowCount = $('#inputTbl3 tbody tr').length;
+
+    for(var i = 1; i <= rowCount; i++) {
+        var ti = $('#3TaskID_'+i).val();
+        var tn = $('#3TaskName_'+i).val();
+        var td = $('#3TaskDesc_'+i).val();
+        var op = $('#Opt_'+i).val();
+        var ml = $('#ML_'+i).val();
+        var pe = $('#Pes_'+i).val();
+        var pr = $('#3PreRequisites_'+i).val();
+        console.log("tn:"+tn);
+
+        if(ti != "" && tn != "" && td != "" && op != "" && ml != "" && pe != "" && pr != "") {
+            console.log("cond true");
+
+            TaskIDL.push(ti);
+            TaskNameL.push(tn);
+            TaskDescL.push(td);
+            OptL.push(op);
+            MLiL.push(ml);
+            PesL.push(pe);
+            PreRequisitesL.push(pr);
+            ProjectIDL.push(ProjectID);
+        }
+    }
+    console.log(TaskNameL.length);
+
+    Form.append('ProjectID', ProjectIDL);
+    Form.append('TaskID', TaskIDL);
+    Form.append('TaskName', TaskNameL);
+    Form.append('TaskDesc', TaskDescL);
+    Form.append('Optimistic', OptL);
+    Form.append('MostLikely', MLiL);
+    Form.append('Pessimistic', PesL);
+    Form.append('PreRequisites', PreRequisitesL);
+
+    $.ajax({
+        url: "<?php echo base_url(); ?>pert/dbCalculate", //change to pert
+        method: 'POST',
+        dataType: 'json',
+        processData: false,
+        contentType: false,
+        data: Form,
+        success: function(data) {
+            console.log("Task details insert success"); 
+            console.log(data);
+            getpertResults(data);
+        },
+        error: function(err) {
+            console.log(err);
+        }
+    });     //done - get data w/ results from db
+    return true; 
+
+}
+
+function getpertResults(data) {
+    console.log("getProject - ProjID: " + data);
+    var Form = new FormData();
+    var ProjectID = data;
+
+    Form.append('ProjectID', ProjectID);
+
+    $.ajax({
+        url: "<?php echo base_url(); ?>dashboard/getpertResults",
+        method: 'POST',
+        processData: false,
+        contentType: false,
+        data: Form,
+        success: function(data) {
+            console.log(data);
+            document.getElementById("pertResults").style.display = "block";
+            document.getElementById("cpmResults").style.display = "none";
+            // document.getElementById("normalResults").style.display = "none";
+            // document.getElementById("triResults").style.display = "none";
+            // document.getElementById("betaResults").style.display = "none";
+            $('#pertResults tbody').html(data);           
+        },
+        error: function(err) {
+            console.log(err);
+        }
+    });
+}
+
 </script>

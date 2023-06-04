@@ -54,4 +54,34 @@ class Projects_model extends CI_model{
         $query = $this->db->get('cpm');
         return $query->result();
     }
+
+    //PERT
+    public function insertPERT($data)
+    {
+        foreach($data as $d)
+        {
+            $this->db->insert('pert', $d);
+        }
+        $lastID = $this->db->insert_id();
+        //get last insert id
+        //get liID row
+        //get proj id
+        //get rows where proj id = proj id
+        $this->db->where('RecordID', $lastID);
+        $this->db->select('ProjectID');
+        $query = $this->db->get('pert');
+        foreach ($query->result() as $row)
+        {
+            $ProjectID = $row->ProjectID;
+        }
+
+        return $ProjectID;
+    }
+
+    public function getpertResults($ProjectID)
+    {
+        $this->db->where('ProjectID', $ProjectID);
+        $query = $this->db->get('pert');
+        return $query->result();
+    }
 }
