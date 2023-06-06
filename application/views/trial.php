@@ -182,8 +182,8 @@
                 $project = $_SESSION['project'];
                 foreach ($project as $task) {
                 ?>, {
-                        key: <?php echo $task['id'] + 1; ?>,
-                        text: <?php echo $task['id']; ?>,
+                        key: <?php echo $task['taskid'] + 1; ?>,
+                        text: <?php echo $task['taskid']; ?>,
                         length: <?php echo number_format((float)$task['time'], 2, '.', ''); ?>,
                         earlyStart: <?php echo number_format((float)$task['es'], 2, '.', ''); ?>,
                         lateFinish: <?php echo number_format((float)$task['lf'], 2, '.', ''); ?>,
@@ -221,13 +221,14 @@
                 <?php
                 $project = $_SESSION['project'];
                 foreach ($project as $task) {
+                    $task['prereq'] =  explode(";", $task['prereq']);
                     if (count($task['prereq']) > 1) {
                         //if more than 1 prereq
                         foreach($task['prereq'] as $prereq) {
                 ?>
                         {
                             from: <?php echo $prereq + 1; ?>,
-                            to: <?php echo $task['id'] + 1; ?>
+                            to: <?php echo $task['taskid'] + 1; ?>
                         },
                 <?php
                         }
@@ -240,7 +241,7 @@
                 ?> 
                 {
                     from: <?php echo $pre + 1; ?>,
-                    to: <?php echo $task['id'] + 1; ?>
+                    to: <?php echo $task['taskid'] + 1; ?>
                 },
                 <?php }
                 } ?>

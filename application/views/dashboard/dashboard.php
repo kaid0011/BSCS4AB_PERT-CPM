@@ -125,6 +125,9 @@ $(document).ready(function() {
         else if(CompType == 'PERT') {
             var x = pertTasks();
         }
+        else if(CompType == 'NORMAL') {
+            var x = normalTasks();
+        }
         
 
         if(x == true) {
@@ -270,7 +273,7 @@ function cpmTasks() {
         var du = $('#Duration_'+i).val();
         var pr = $('#PreRequisites_'+i).val();
 
-        if(ti != "" && tn != "" && td != "" && du != "" && pr != "") {
+        if(ti != "" && du != "" && pr != "") {
             TaskIDL.push(ti);
             TaskNameL.push(tn);
             TaskDescL.push(td);
@@ -356,10 +359,8 @@ function pertTasks() {
         var ml = $('#ML_'+i).val();
         var pe = $('#Pes_'+i).val();
         var pr = $('#3PreRequisites_'+i).val();
-        console.log("tn:"+tn);
 
-        if(ti != "" && tn != "" && td != "" && op != "" && ml != "" && pe != "" && pr != "") {
-            console.log("cond true");
+        if(ti != "" && op != "" && ml != "" && pe != "" && pr != "") {
 
             TaskIDL.push(ti);
             TaskNameL.push(tn);
@@ -371,7 +372,6 @@ function pertTasks() {
             ProjectIDL.push(ProjectID);
         }
     }
-    console.log(TaskNameL.length);
 
     Form.append('ProjectID', ProjectIDL);
     Form.append('TaskID', TaskIDL);
@@ -399,7 +399,6 @@ function pertTasks() {
         }
     });     //done - get data w/ results from db
     return true; 
-
 }
 
 function getpertResults(data) {
@@ -430,4 +429,67 @@ function getpertResults(data) {
     });
 }
 
+function normalTasks() {
+    var Form = new FormData();
+    var TaskIDL = new Array();
+	var TaskNameL = new Array();
+	var TaskDescL = new Array();
+	var OptL = new Array(); 
+	var MLiL = new Array(); 
+	var PesL = new Array(); 
+	var PreRequisitesL = new Array();
+	var ProjectIDL = new Array();
+    var ProjectID = document.getElementById("ProjectID").value;
+
+    var rowCount = $('#inputTbl3 tbody tr').length;
+
+    for(var i = 1; i <= rowCount; i++) {
+        var ti = $('#3TaskID_'+i).val();
+        var tn = $('#3TaskName_'+i).val();
+        var td = $('#3TaskDesc_'+i).val();
+        var op = $('#Opt_'+i).val();
+        var ml = $('#ML_'+i).val();
+        var pe = $('#Pes_'+i).val();
+        var pr = $('#3PreRequisites_'+i).val();
+
+        if(ti != "" && op != "" && ml != "" && pe != "" && pr != "") {
+
+            TaskIDL.push(ti);
+            TaskNameL.push(tn);
+            TaskDescL.push(td);
+            OptL.push(op);
+            MLiL.push(ml);
+            PesL.push(pe);
+            PreRequisitesL.push(pr);
+            ProjectIDL.push(ProjectID);
+        }
+    }
+
+    Form.append('ProjectID', ProjectIDL);
+    Form.append('TaskID', TaskIDL);
+    Form.append('TaskName', TaskNameL);
+    Form.append('TaskDesc', TaskDescL);
+    Form.append('Optimistic', OptL);
+    Form.append('MostLikely', MLiL);
+    Form.append('Pessimistic', PesL);
+    Form.append('PreRequisites', PreRequisitesL);
+
+    $.ajax({
+        url: "<?php echo base_url(); ?>normal/dbCalculate",
+        method: 'POST',
+        dataType: 'json',
+        processData: false,
+        contentType: false,
+        data: Form,
+        success: function(data) {
+            console.log("Task details insert success"); 
+            console.log(data);
+            getpertResults(data);
+        },
+        error: function(err) {
+            console.log(err);
+        }
+    });     //done - get data w/ results from db
+    return true; 
+}
 </script>

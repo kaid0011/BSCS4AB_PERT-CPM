@@ -15,12 +15,20 @@
                 </div>
             </div>
         </div>
+        <div>
+            <?php if($_SESSION['new'] == 'true') { ?>
+                <button type="button" onclick="createNew()">Create New</button>
+            <?php } else { ?>
+                <button type="button" onclick="editData()">Edit Data</button>
+            <?php } ?>
+        </div>
         <div class="grid-container">
             <div class="tablecontainer">
                 <table class="results">
                     <thead>
                         <tr>
                             <th>Activity</th>
+                            <th title="Activity Name">Name </th>
                             <th title="Activity Description">Description </th>
                             <th title="Estimated Activity Duration">Duration </th>
                             <th title="Activity Number that needs to be completed first.">Pre-Requisites </th>
@@ -30,6 +38,8 @@
                             <th class="short" title="Activity's Latest Finish Time">LF </th>
                             <th class="short" title="Activity's Available Slack Time">Slack </th>
                             <th title="If the Activity is Critical">Critical </th>
+                            <th title="">Priority Level </th>
+                            <th title="">Type </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -38,22 +48,19 @@
                         foreach ($project as $task) {
                         ?>
                             <tr>
-                                <td><?php echo $task['id']; ?></td>
+                                <td><?php echo $task['taskid']; ?></td>
+                                <td><?php echo $task['name']; ?></td>
                                 <td><?php echo $task['desc']; ?></td>
                                 <td><?php echo $task['time'] . " " . $task['unit']; ?></td>
-                                <td><?php
-                                    $pre = implode(",", $task['prereq']);
-                                    if ($pre == '-1') {
-                                        $pre = '-';
-                                    }
-                                    echo $pre;
-                                    ?></td>
+                                <td><?php echo $task['prereq']; ?></td>
                                 <td><?php echo number_format((float)$task['es'], 2, '.', ''); ?></td>
                                 <td><?php echo number_format((float)$task['ef'], 2, '.', ''); ?></td>
                                 <td><?php echo number_format((float)$task['ls'], 2, '.', ''); ?></td>
                                 <td><?php echo number_format((float)$task['lf'], 2, '.', ''); ?></td>
                                 <td><?php echo number_format((float)$task['slack'], 2, '.', ''); ?></td>
                                 <td><?php echo $task['isCritical'] == 1 ? "Yes" : "No" ; ?></td>
+                                <td><?php echo $task['priorityLvl']; ?></td>
+                                <td><?php echo $task['type']; ?></td>
                             </tr>
                         <?php
                         }
@@ -71,12 +78,12 @@
                     <p>
                         <?php
                         $cp = $_SESSION['cp'];
-                        $max = max(array_column($cp, 'id'));
+                        $max = max(array_column($cp, 'taskid'));
                         foreach ($cp as $cp) {
-                            if ($cp['id'] == $max) {
-                                echo $cp['id'];
+                            if ($cp['taskid'] == $max) {
+                                echo $cp['taskid'];
                             } else {
-                                echo $cp['id'] . " → ";
+                                echo $cp['taskid'] . " → ";
                             }
                         }
                         ?>
@@ -100,26 +107,34 @@
                 $len = count($project);
                 foreach ($project as $task) {
                 ?>
-                    <input type="hidden" name="<?php echo $task['id']; ?>" value="<?php echo $task['id']; ?>">
-                    <input type="hidden" name="desc_<?php echo $task['id']; ?>" value="<?php echo $task['desc']; ?>">
-                    <input type="hidden" name="time_<?php echo $task['id']; ?>" value="<?php echo $task['time']; ?>">
-                    <?php
-                    $pre = implode(",", $task['prereq']);
-                    if ($pre == '-1') {
-                        $pre = '-';
-                    }
-                    ?>
-                    <input type="hidden" name="pre_<?php echo $task['id']; ?>" value="<?php echo $pre; ?>">
-                    <input type="hidden" name="es_<?php echo $task['id']; ?>" value="<?php echo $task['es']; ?>">
-                    <input type="hidden" name="ef_<?php echo $task['id']; ?>" value="<?php echo $task['ef']; ?>">
-                    <input type="hidden" name="ls_<?php echo $task['id']; ?>" value="<?php echo $task['ls']; ?>">
-                    <input type="hidden" name="lf_<?php echo $task['id']; ?>" value="<?php echo $task['lf']; ?>">
-                    <input type="hidden" name="slack_<?php echo $task['id']; ?>" value="<?php echo $task['slack']; ?>">
-                    <input type="hidden" name="ic_<?php echo $task['id']; ?>" value="<?php echo $task['isCritical']; ?>">
+                    <input type="hidden" name="<?php echo $task['taskid']; ?>" value="<?php echo $task['taskid']; ?>">
+                    <input type="hidden" name="desc_<?php echo $task['taskid']; ?>" value="<?php echo $task['desc']; ?>">
+                    <input type="hidden" name="time_<?php echo $task['taskid']; ?>" value="<?php echo $task['time']; ?>">
+                    <input type="hidden" name="pre_<?php echo $task['taskid']; ?>" value="<?php echo $task['prereq']; ?>">
+                    <input type="hidden" name="es_<?php echo $task['taskid']; ?>" value="<?php echo $task['es']; ?>">
+                    <input type="hidden" name="ef_<?php echo $task['taskid']; ?>" value="<?php echo $task['ef']; ?>">
+                    <input type="hidden" name="ls_<?php echo $task['taskid']; ?>" value="<?php echo $task['ls']; ?>">
+                    <input type="hidden" name="lf_<?php echo $task['taskid']; ?>" value="<?php echo $task['lf']; ?>">
+                    <input type="hidden" name="slack_<?php echo $task['taskid']; ?>" value="<?php echo $task['slack']; ?>">
+                    <input type="hidden" name="ic_<?php echo $task['taskid']; ?>" value="<?php echo $task['isCritical']; ?>">
                 <?php } ?>
                 <input type="hidden" name="len" value="<?php echo $len; ?>">
                 <center><button class="expbtn">Export Results</button></center>
             </form>
+        </div>
+
+        <div>
+            <?php if($_SESSION['new'] == 'true') { ?>
+                <div class="form-group">
+                    <label for="UserEmail">Email: </label>
+                    <input type="email" name="UserEmail" id="UserEmail" autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <label>Reference No.</label>
+                    <input type="text" name="ReferenceNo" id="ReferenceNo" value="<?php echo $_SESSION['ReferenceNo']; ?>" readonly>
+                </div>
+                <button type="button" onclick="addEmail()">Save</button>
+            <?php }?>          
         </div>
 
         <!-- Gantt Chart -->
@@ -147,7 +162,7 @@
                             <?php
                             foreach ($project as $task) { ?>
                                 <tr>
-                                    <td><strong><?php echo "Activity " . $task['id']; ?></strong></td>
+                                    <td><strong><?php echo "Activity " . $task['taskid']; ?></strong></td>
                                     <td colspan="<?php echo ceil($_SESSION['finish_time']); ?>">
                                         <?php
                                         $waiting = ($task['es'] / $_SESSION['finish_time']) * 100;
@@ -173,7 +188,7 @@
             </div>
         </div>
         <!-- PERT Chart -->
-        <!-- <?php $this->view('trial'); ?>   -->
+        <?php $this->view('trial'); ?>  
 
         <section class="collapsible">
             <input type="checkbox" name="collapse" id="handle1" checked="checked">
@@ -234,3 +249,41 @@
         </section>
     </div>
 </div>
+
+<script>
+    function addEmail() {
+        var Form = new FormData();
+        var UserEmail = document.getElementById("UserEmail").value;
+        var ReferenceNo = document.getElementById("ReferenceNo").value;
+
+        Form.append("UserEmail", UserEmail);
+        Form.append("ReferenceNo", ReferenceNo);
+
+        $.ajax({
+            url: "<?php echo base_url(); ?>main/addEmail",
+            method: 'POST',
+            dataType: 'json',
+            processData: false,
+            contentType: false,
+            data: Form,
+            success: function(data) {
+                alert("Email added successfully");
+            },
+            error: function(err) {
+                console.log(err);
+            }
+        }); 
+    }
+
+    function createNew() {
+        if(confirm("Are you sure you want to create a new project?"))
+        {
+            window.location.href = "<?php echo base_url(); ?>main";
+        }        
+        return false;
+    }
+
+    function editData() {
+        window.location.href = "<?php echo base_url(); ?>cpm/editcpm";
+    }
+</script>
