@@ -1,0 +1,87 @@
+{ "name": "WAPS with Simulation",
+"short_name": "WAPS",
+"start_url": "pertcpmsimulations.online",
+"display": "standalone",
+"description": "An automated PERT-CPM Scheduler with Simulation",
+"lang": " English",
+"dir": "auto",
+"theme_color": "#000000",
+"background_color": "#e5e5e5",
+"orientation": "landscape",
+"icons": [
+    {
+        "src": "https://pertcpmsimulations.online/assets/images/logo.svg",
+        "sizes": "512x512",
+        "type": "image/svg",
+        "purpose": "maskable"
+    }
+],
+"screenshots": [
+    {
+        "src": "https://pertcpmsimulations.online/assets/images/developers/bagasona.jpg",
+        "sizes": "734x979",
+        "type": "image/jpg",
+        "description": "developer_bagasona"
+    },
+    {
+        "src": "https://pertcpmsimulations.online/assets/images/developers/pabalan.jpg",
+        "sizes": "734x979",
+        "type": "image/jpg",
+        "description": "developer_pabalan"
+    },
+    {
+        "src": "https://pertcpmsimulations.online/assets/images/developers/romero.jpg",
+        "sizes": "734x979",
+        "type": "image/jpg",
+        "description": "developer_romero"
+    },
+    {
+        "src": "https://pertcpmsimulations.online/assets/images/developers/rosales.jpg",
+        "sizes": "734x979",
+        "type": "image/jpg",
+        "description": "developer_rosales"
+    },
+    {
+        "src": "https://pertcpmsimulations.online/assets/images/howitworks/beta_alpha.png",
+        "sizes": "",
+        "type": "image/png",
+        "description": "beta_alpha"
+    },
+    {
+        "src": "https://pertcpmsimulations.online/assets/images/howitworks/beta_beta.png",
+        "sizes": "",
+        "type": "image/png",
+        "description": "beta_beta"
+    },
+    {
+        "src": "https://pertcpmsimulations.online/assets/images/howitworks/beta_alpha.png",
+        "sizes": "",
+        "type": "image/png",
+        "description": "beta_alpha"
+    },
+    {
+        "src": "https://pertcpmsimulations.online/assets/images/howitworks/beta_mean.png",
+        "sizes": "",
+        "type": "image/png",
+        "description": "beta_mean"
+    },
+    {
+        "src": "https://pertcpmsimulations.online/assets/images/howitworks/beta_sd.png",
+        "sizes": "",
+        "type": "image/png",
+        "description": "beta_sd"
+    }
+],
+"prefer_related_applications": false,
+"shortcuts": [
+    {
+        "name":"WAPS",
+        "url":"pertcpmsimulations.online/shortcut",
+        "description":""
+    }
+]
+ "url":"pertcpmsimulations.online/shortcut",
+        "description":""
+    }
+]
+}
