@@ -4,6 +4,7 @@ class Pert extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->load->model('Projects_model');
     }
 
     public function index()
@@ -68,10 +69,16 @@ class Pert extends CI_Controller
     public function calculate()
     {
         $proj_len = $this->input->post('proj_len');
+        $ProjectID = $this->input->post('ProjectID');
 
         // ASSIGNING VALUES TO ARRAY
         for ($i = 1; $i <= $proj_len; $i++) {
-            $data[$i]['id'] = $this->input->post($i);
+            if($_SESSION['new'] == false) {
+                $data[$i]['RecordID'] = $this->input->post('RecordID_' . $i);
+            }
+            $data[$i]['taskid'] = $this->input->post($i);
+            $data[$i]['ProjectID'] = $ProjectID;
+            $data[$i]['name'] = $this->input->post('task_name_' . $i);  // Task Name
             $data[$i]['desc'] = $this->input->post('task_desc_' . $i);
             $data[$i]['opt'] = $this->input->post('task_opt_' . $i);
             $data[$i]['ml'] = $this->input->post('task_ml_' . $i);
@@ -79,7 +86,7 @@ class Pert extends CI_Controller
             $data[$i]['time'] = 0;
             $data[$i]['unit'] = $this->input->post('unit');     // Unit
             if ($this->input->post('task_prereq_' . $i) != '-') {
-                $data[$i]['prereq'] = explode(",", $this->input->post('task_prereq_' . $i));
+                $data[$i]['prereq'] = explode(";", $this->input->post('task_prereq_' . $i));
             } else {
                 $data[$i]['prereq'][] = -1;
             }
@@ -91,6 +98,8 @@ class Pert extends CI_Controller
             $data[$i]['lf'] = 0;
             $data[$i]['slack'] = 0;
             $data[$i]['isCritical'] = false;
+            $data[$i]['priorityLvl'] = "Low"; // Critical task or not
+            $data[$i]['type'] = "Parallel"; // Critical task or not
             $data[$i]['pqty'] = $proj_len;
         }
         $this->time($data);
@@ -100,7 +109,7 @@ class Pert extends CI_Controller
     {
         foreach ($data as $time)
         {
-            $tid = $time['id'];
+            $tid = $time['taskid'];
             $duration = ($time['opt'] + (4 * $time['ml']) + $time['pes']) / 6;              // compute task mean
             $data[$tid]['time'] = round($duration, 2);                                      // round mean to 2 decimal places
             $data[$tid]['sd'] = ($time['pes'] - $time['opt']) / 6;                          // compute task standard deviation
@@ -120,17 +129,17 @@ class Pert extends CI_Controller
             * If more than one prerequisite, get highest 
         */
         foreach ($data as $tasks) {
-            $id = $tasks['id'];
+            $id = $tasks['taskid'];
             if (in_array("-1", $tasks['prereq'])) //check if first task
             {
                 $data[$id]['es'] = 0;   //ES = 0
-                $data[$id]['ef'] = $tasks['time'];      //EF = duration
+                $data[$id]['ef'] = $tasks['time'];   //EF = duration
             } else {    //if not first task
                 foreach ($tasks['prereq'] as $prereq) {     // Loop through the prereq array of each task 
                     if ($prereq != '-1' and count($tasks['prereq']) == 1) {     // If only 1 prereq
                         $data[$id]['es'] = $data[$prereq]['ef'];                // ES = EF of prereq
                         $data[$id]['ef'] = $data[$id]['es'] + $tasks['time'];   // EF = ES + Duration
-                    } elseif ($prereq != '-1') {    // If multiple prereqs
+                    } elseif ($prereq != '-1') {        // If multiple prereqs
                         if ($data[$prereq]['ef'] > $data[$id]['es']) {      // if prereq's EF is greater than current task's ES
                             $data[$id]['es'] = $data[$prereq]['ef'];        // ES = EF of prereq
                             $data[$id]['ef'] = $data[$id]['es'] + $tasks['time'];   // EF = ES + duration
@@ -161,14 +170,14 @@ class Pert extends CI_Controller
         $rdata = array();
         $pre = array();
         for ($j = $cnt; $j >= 1; $j--) {
-            $rdata[] = $data[$j];           // assign reversed $data array to $rdata
-            $pre[] = $data[$j]['prereq'];   // assign all prereqs to $pre associative array
+            $rdata[] = $data[$j];            // assign reversed $data array to $rdata
+            $pre[] = $data[$j]['prereq'];    // assign all prereqs to $pre associative array
         }
         $merged_pre = call_user_func_array('array_merge', $pre);    // merge $pre array to easily locate if a task is a prereq of any task
 
         foreach ($rdata as $rtasks) {
-            $rid = $rtasks['id'];
-            if (in_array($rid, $merged_pre)) {  // if current task is a prereq of any task
+            $rid = $rtasks['taskid'];
+            if (in_array($rid, $merged_pre)) {
                 $p = array_column($data, 'prereq');
                 $key = '';
                 foreach ($p as $k => $v) {
@@ -186,7 +195,7 @@ class Pert extends CI_Controller
                         }
                     }
                 }
-            } else {    // if not a prereq of any task
+            } else {     // if not a prereq of any task
                 $data[$rid]['lf'] = $data['finish_time'];
                 // $data[$rid]['ls'] = $data[$rid]['lf'] - $rtasks['time'];
                 $data[$rid]['ls'] = bcsub($data[$rid]['lf'], $rtasks['time'], 2);
@@ -196,6 +205,8 @@ class Pert extends CI_Controller
             $data[$rid]['slack'] = bcsub($data[$rid]['lf'], $data[$rid]['ef'], 2);
             if ($data[$rid]['slack'] == 0) {
                 $data[$rid]['isCritical'] = true;
+                $data[$rid]['priorityLvl'] = "High";
+                $data[$rid]['type'] = "Sequential";
             }
         }
         $this->show_result($data);  // proceed to show_result
@@ -206,21 +217,43 @@ class Pert extends CI_Controller
         $proj_var = 0;
         $data['qty'] = count($data);
         for ($j = 1; $j < $data['qty']; $j++) {
+            $data[$j]['prereq'] = implode(";", $data[$j]['prereq']);
             $project[] = $data[$j];
+            $ProjectID = $data[$j]['ProjectID'];
             if ($data[$j]['isCritical'] == true)
             {
                 $cp[] = $data[$j];
                 $proj_var += $data[$j]['v'];    // add up variance of critical tasks to get project variance
             }
         }  
-        $arr = array(
-            'project' => $project,
-            'cp' => $cp,
-            'finish_time' => $data['finish_time'],
-            'proj_variance' => $proj_var,
-            'proj_sd' => sqrt($proj_var),    // project SD = square root of project variance
-            'unit' => $data[1]['unit']
-        );
+
+        //insert to db
+        $this->Projects_model->insertPERT($project, $ProjectID);
+        if(isset($_SESSION['new']) && $_SESSION['new'] == false)
+        {
+            $arr = array(
+                'project' => $project,
+                'cp' => $cp,
+                'finish_time' => $data['finish_time'],
+                'proj_variance' => $proj_var,
+                'proj_sd' => sqrt($proj_var),
+                'unit' => $data[1]['unit'],
+                'new' => false
+            );
+        }
+        else
+        {
+            $arr = array(
+                'project' => $project,
+                'cp' => $cp,
+                'finish_time' => $data['finish_time'],
+                'proj_variance' => $proj_var,
+                'proj_sd' => sqrt($proj_var),
+                'unit' => $data[1]['unit'],
+                'new' => true
+            );
+        }
+      
         $this->session->set_userdata($arr);
         redirect('pert/results');
     }
@@ -237,6 +270,21 @@ class Pert extends CI_Controller
             $this->load->view('template/header', $temp);
             $this->load->view('pert/pert_output');
             $this->load->view('template/footer'); 
+        }
+    }
+
+    public function editpert()
+    {
+        if(!$this->session->userdata("project"))
+        {
+            redirect("Home");            
+        }
+        else 
+        {
+            $temp['title'] = 'Project Evaluation Review Technique (PERT)';
+            $this->load->view('header', $temp);
+            $this->load->view('pert/pert_edit');
+            $this->load->view('footer'); 
         }
     }
 }

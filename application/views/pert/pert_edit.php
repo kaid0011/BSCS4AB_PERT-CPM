@@ -12,8 +12,6 @@
                 </div>
             </div>
         </div>
-        <!-- FOR DEMO PURPOSES -->
-        <input type="hidden" name="d" id="d" value="<?php echo $_SESSION['d']; ?>">
         <div class="grid-container">
             <div class="tablecontainer" style="overflow-x:auto;">
                 <table class="results">
@@ -30,20 +28,24 @@
                     </thead>
                     <tbody>
                         <form action="<?php echo base_url('pert/calculate') ?>" method="post">
-                            <input type="number" name="proj_len" value="<?php echo $_SESSION['proj_len']; ?>" hidden>
-                            <input type="text" name="choice" value="<?php echo 'pert'; ?>" hidden>
-                            <input type="text" name="unit" value="<?php echo $_SESSION['unit']; ?>" hidden>
-                            <input type="text" name="ProjectID" value="<?php echo $_SESSION['ProjectID']; ?>" hidden>
-                            <?php
-                            for ($i = 1; $i <= $_SESSION['proj_len']; $i++) {
-                            ?>
+                        <?php
+                            $project = $_SESSION['project'];
+                            foreach ($project as $task) {
+                                $i = $task['taskid'];
+                        ?>
                                 <tr>
                                     <td><input type="text1" name="<?php echo $i; ?>" value="<?php echo $i; ?>" readonly></td>
-                                    <td><input type="text" name="task_name_<?php echo $i; ?>" id="task_name_<?php echo $i; ?>"></td>
-                                    <td><input type="text" name="task_desc_<?php echo $i; ?>" id="task_desc_<?php echo $i; ?>"></td>
-                                    <td><input type="number" name="task_opt_<?php echo $i; ?>" id="task_opt_<?php echo $i; ?>" step="any" min="1" max="100" placeholder="Max. 100" onchange="check_opt(this)" required></td>
-                                    <td><input type="number" name="task_ml_<?php echo $i; ?>" id="task_ml_<?php echo $i; ?>" step="any" min="1" max="100" placeholder="Max. 100" onchange="check_ml(this)" required></td>
-                                    <td><input type="number" name="task_pes_<?php echo $i; ?>" id="task_pes_<?php echo $i; ?>" step="any" min="1" max="100" placeholder="Max. 100" onchange="check_pes(this)" required></td>
+                                    <td>
+                                        <input type="text" name="task_name_<?php echo $i; ?>" id="task_name_<?php echo $i; ?>" value="<?php echo $task['name']; ?>">
+                                        <input type="number" name="proj_len" value="<?php echo $task['pqty']; ?>" hidden>
+                                        <input type="text" name="unit" value="<?php echo $task['unit']; ?>" hidden>
+                                        <input type="text" name="ProjectID" value="<?php echo $task['ProjectID']; ?>" hidden>
+                                        <input type="text" name="RecordID_<?php echo $i; ?>" value="<?php echo $task['RecordID']; ?>" hidden>
+                                    </td>
+                                    <td><input type="text" name="task_desc_<?php echo $i; ?>" id="task_desc_<?php echo $i; ?>" value="<?php echo $task['desc']; ?>"></td>
+                                    <td><input type="number" name="task_opt_<?php echo $i; ?>" id="task_opt_<?php echo $i; ?>" value="<?php echo $task['opt']; ?>" step="any" min="1" max="100" placeholder="Max. 100" onchange="check_opt(this)" required></td>
+                                    <td><input type="number" name="task_ml_<?php echo $i; ?>" id="task_ml_<?php echo $i; ?>" value="<?php echo $task['ml']; ?>" step="any" min="1" max="100" placeholder="Max. 100" onchange="check_ml(this)" required></td>
+                                    <td><input type="number" name="task_pes_<?php echo $i; ?>" id="task_pes_<?php echo $i; ?>" value="<?php echo $task['pes']; ?>" step="any" min="1" max="100" placeholder="Max. 100" onchange="check_pes(this)" required></td>
                                     <td><?php
                                         if ($i == 1) {
                                         ?>
@@ -53,12 +55,12 @@
                                             $x = $i - 1;
                                             if ($i <= 10) {
                                             ?>
-                                                <input type="text" name="task_prereq_<?php echo $i; ?>" id="task_prereq_<?php echo $i; ?>" pattern="[1-<?php echo $x; ?>](;[1-<?php echo $x; ?>])*|^[\-]" oninvalid="this.setCustomValidity('Enter Valid Activity ID')" onchange="this.setCustomValidity('')" required>
+                                                <input type="text" name="task_prereq_<?php echo $i; ?>" id="task_prereq_<?php echo $i; ?>" value="<?php echo $task['prereq']; ?>" pattern="[1-<?php echo $x; ?>](;[1-<?php echo $x; ?>])*|^[\-]" oninvalid="this.setCustomValidity('Enter Valid Activity ID')" onchange="this.setCustomValidity('')" required>
                                             <?php
                                             } else if ($i > 10) {
                                                 $y = $i - 11;
                                             ?>
-                                                <input type="text" name="task_prereq_<?php echo $i; ?>" id="task_prereq_<?php echo $i; ?>" pattern="([1-9]|1[0-<?php echo $y; ?>])(;([1-9]|1[0-<?php echo $y; ?>]))*|^[\-]" oninvalid="this.setCustomValidity('Enter Valid Activity ID')" onchange="this.setCustomValidity('')" required>
+                                                <input type="text" name="task_prereq_<?php echo $i; ?>" id="task_prereq_<?php echo $i; ?>" value="<?php echo $task['prereq']; ?>" pattern="([1-9]|1[0-<?php echo $y; ?>])(;([1-9]|1[0-<?php echo $y; ?>]))*|^[\-]" oninvalid="this.setCustomValidity('Enter Valid Activity ID')" onchange="this.setCustomValidity('')" required>
                                         <?php }
                                         } ?>
                                     </td>
@@ -242,18 +244,6 @@
     </div>
 </div>
 <script>
-    $(document).ready(function() {
-        var d = $("#d").val();
-        if(d == 'demo1') {
-            demo1();
-        }
-        else if(d == 'demo2') {
-            demo2();
-        }
-        else if(d == 'demo3') {
-            demo3();
-        }
-    });
 
     function check_opt(opt) {
         var opt = opt;

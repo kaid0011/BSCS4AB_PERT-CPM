@@ -19,6 +19,7 @@
                     <thead>
                         <tr>
                             <th>Activity</th>
+                            <th title="Activity Name">Name </th>
                             <th title="Activity Description">Description</th>
                             <th title="Shortest Estimated Activity Duration">Optimistic</th>
                             <th title="Reasonable Estimated Activity Duration">Most Likely</th>
@@ -32,6 +33,7 @@
                             for ($i = 1; $i <= $_SESSION['proj_len']; $i++) {
                             ?> <tr>
                                     <td><input type="text1" name="<?php echo $i; ?>" value="<?php echo $i; ?>" readonly></td>
+                                    <td><input type="text" name="task_name_<?php echo $i; ?>" id="task_name_<?php echo $i; ?>"></td>
                                     <td><input type="text" name="task_desc_<?php echo $i; ?>" id="task_desc_<?php echo $i; ?>"></td>
                                     <td><input type="number" name="task_opt_<?php echo $i; ?>" id="task_opt_<?php echo $i; ?>" step="any" min="1" max="100" placeholder="Max. 100" onchange="check_opt(this)" required></td>
                                     <td><input type="number" name="task_ml_<?php echo $i; ?>" id="task_ml_<?php echo $i; ?>" step="any" min="1" max="100" placeholder="Max. 100" onchange="check_ml(this)" required></td>
@@ -46,12 +48,12 @@
                                             $x = $i - 1;
                                             if ($i <= 10) {
                                             ?>
-                                                <input type="text" name="task_prereq_<?php echo $i; ?>" id="task_prereq_<?php echo $i; ?>" pattern="[1-<?php echo $x; ?>](,[1-<?php echo $x; ?>])*|^[\-]" oninvalid="this.setCustomValidity('Enter Valid Activity ID')" onchange="this.setCustomValidity('')" required>
+                                                <input type="text" name="task_prereq_<?php echo $i; ?>" id="task_prereq_<?php echo $i; ?>" pattern="[1-<?php echo $x; ?>](;[1-<?php echo $x; ?>])*|^[\-]" oninvalid="this.setCustomValidity('Enter Valid Activity ID')" onchange="this.setCustomValidity('')" required>
                                             <?php
                                             } else if ($i > 10) {
                                                 $y = $i - 11;
                                             ?>
-                                                <input type="text" name="task_prereq_<?php echo $i; ?>" id="task_prereq_<?php echo $i; ?>" pattern="([1-9]|1[0-<?php echo $y; ?>])(,([1-9]|1[0-<?php echo $y; ?>]))*|^[\-]" oninvalid="this.setCustomValidity('Enter Valid Activity ID')" onchange="this.setCustomValidity('')" required>
+                                                <input type="text" name="task_prereq_<?php echo $i; ?>" id="task_prereq_<?php echo $i; ?>" pattern="([1-9]|1[0-<?php echo $y; ?>])(;([1-9]|1[0-<?php echo $y; ?>]))*|^[\-]" oninvalid="this.setCustomValidity('Enter Valid Activity ID')" onchange="this.setCustomValidity('')" required>
                                         <?php }
                                         } ?>
                                     </td>
@@ -60,9 +62,20 @@
                     </tbody>
                 </table>
             </div>
-        </div><br><input type="number" name="proj_len" value="<?php echo $_SESSION['proj_len']; ?>" hidden> <input type="text" name="choice" value="<?php echo 'cpm'; ?>" hidden> <input type="text" name="unit" value="<?php echo $_SESSION['unit']; ?>" hidden>
-        <div class="trials"><strong>Number of Trials:</strong><input type="numbers" name="N" min="1" max="1000" oninput='validity.valid||(value="")' placeholder="Max. 1000" required></div><br>
-        <div class="calculate"><button class="btn">Calculate</button></div>
+        </div>
+        <br>
+        <input type="number" name="proj_len" value="<?php echo $_SESSION['proj_len']; ?>" hidden> 
+        <input type="text" name="choice" value="<?php echo 'cpm'; ?>" hidden> 
+        <input type="text" name="unit" value="<?php echo $_SESSION['unit']; ?>" hidden>
+        <input type="text" name="ProjectID" value="<?php echo $_SESSION['ProjectID']; ?>" hidden>
+        <div class="trials">
+            <strong>Number of Trials:</strong>
+            <input type="numbers" name="N" min="1" max="1000" oninput='validity.valid||(value="")' placeholder="Max. 1000" required>
+        </div>
+        <br>
+        <div class="calculate">
+            <button class="btn">Calculate</button>
+        </div>
         </form>
         <section class="collapsible"><input type="checkbox" name="collapse" id="handle1" checked="checked">
             <h2 class="handle"><label for="handle1">How BETA-PERT Distribution Works: (Step by Step)</label></h2>

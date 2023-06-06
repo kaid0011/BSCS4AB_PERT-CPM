@@ -4,6 +4,7 @@ class Cpm extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->load->model('Projects_model');
     }
 
     public function index()
@@ -68,15 +69,22 @@ class Cpm extends CI_Controller
     public function calculate()
     {
         $proj_len = $this->input->post('proj_len');
+        $ProjectID = $this->input->post('ProjectID');
 
         // ASSIGNING VALUES TO ARRAY
         for ($i = 1; $i <= $proj_len; $i++) {
-            $data[$i]['id'] = $this->input->post($i);   // Task ID
+            if($_SESSION['new'] == false) {
+                $data[$i]['RecordID'] = $this->input->post('RecordID_' . $i);
+            }
+
+            $data[$i]['taskid'] = $this->input->post($i);   // Task ID
+            $data[$i]['ProjectID'] = $ProjectID;
+            $data[$i]['name'] = $this->input->post('task_name_' . $i);  // Task Name
             $data[$i]['desc'] = $this->input->post('task_desc_' . $i);  // Task Description
             $data[$i]['time'] = $this->input->post('task_time_' . $i);  // Duration
             $data[$i]['unit'] = $this->input->post('unit');     // Unit
             if ($this->input->post('task_prereq_' . $i) != '-') {   // If not 1st task
-                $data[$i]['prereq'] = explode(",", $this->input->post('task_prereq_' . $i));    // Turn prereqs into array
+                $data[$i]['prereq'] = explode(";", $this->input->post('task_prereq_' . $i));    // Turn prereqs into array
             } else {    //If first task
                 $data[$i]['prereq'][] = -1; // Turn prereq into array and replace with -1
             }
@@ -86,6 +94,8 @@ class Cpm extends CI_Controller
             $data[$i]['lf'] = 0;    // Latest Finish
             $data[$i]['slack'] = 0; // slack
             $data[$i]['isCritical'] = false; // Critical task or not
+            $data[$i]['priorityLvl'] = "Low"; // Critical task or not
+            $data[$i]['type'] = "Parallel"; // Critical task or not
             $data[$i]['pqty'] = $proj_len;
         }
         $this->forward_pass($data); // proceed to forward pass
@@ -102,7 +112,7 @@ class Cpm extends CI_Controller
             * If more than one prerequisite, get highest 
         */
         foreach ($data as $tasks) {
-            $id = $tasks['id'];
+            $id = $tasks['taskid'];
             if (in_array("-1", $tasks['prereq'])) //check if first task
             {
                 $data[$id]['es'] = 0;   //ES = 0
@@ -149,7 +159,7 @@ class Cpm extends CI_Controller
         $merged_pre = call_user_func_array('array_merge', $pre);    // merge $pre array to easily locate if a task is a prereq of any task
 
         foreach ($rdata as $rtasks) {
-            $rid = $rtasks['id'];
+            $rid = $rtasks['taskid'];
             if (in_array($rid, $merged_pre)) {
                 $p = array_column($data, 'prereq');
                 $key = '';
@@ -178,6 +188,8 @@ class Cpm extends CI_Controller
             $data[$rid]['slack'] = bcsub($data[$rid]['lf'], $data[$rid]['ef'], 2);
             if ($data[$rid]['slack'] == 0) {
                 $data[$rid]['isCritical'] = true;
+                $data[$rid]['priorityLvl'] = "High";
+                $data[$rid]['type'] = "Sequential";
             }
         }
         $this->show_result($data);  // proceed to show_result
@@ -186,19 +198,39 @@ class Cpm extends CI_Controller
     public function show_result($data)
     {
         $data['qty'] = count($data);
-        for ($j = 1; $j < $data['qty']; $j++) {
+        for ($j = 1; $j < $data['qty']; $j++) {          
+            $data[$j]['prereq'] = implode(";", $data[$j]['prereq']);
             $project[] = $data[$j];
+            $ProjectID = $data[$j]['ProjectID'];
             if ($data[$j]['isCritical'] == true)
             {
                 $cp[] = $data[$j];
             }
+        }   
+
+        //insert to db
+        $this->Projects_model->insertCPM($project, $ProjectID);
+        if(isset($_SESSION['new']) && $_SESSION['new'] == false)
+        {
+            $arr = array(
+                'project' => $project,
+                'cp' => $cp,
+                'finish_time' => $data['finish_time'],
+                'unit' => $data[1]['unit'],
+                'new' => false
+            );
         }
-        $arr = array(
-            'project' => $project,
-            'cp' => $cp,
-            'finish_time' => $data['finish_time'],
-            'unit' => $data[1]['unit']
-        );
+        else
+        {
+            $arr = array(
+                'project' => $project,
+                'cp' => $cp,
+                'finish_time' => $data['finish_time'],
+                'unit' => $data[1]['unit'],
+                'new' => true
+            );
+        }
+       
         $this->session->set_userdata($arr);
         redirect('cpm/results');
     }
@@ -212,9 +244,24 @@ class Cpm extends CI_Controller
         else 
         {
             $temp['title'] = 'Critical Path Method (CPM)';
-            $this->load->view('template/header', $temp);
+            $this->load->view('header', $temp);
             $this->load->view('cpm/cpm_output');
-            $this->load->view('template/footer'); 
+            $this->load->view('footer'); 
+        }
+    }
+
+    public function editcpm()
+    {
+        if(!$this->session->userdata("project"))
+        {
+            redirect("Home");            
+        }
+        else 
+        {
+            $temp['title'] = 'Critical Path Method (CPM)';
+            $this->load->view('header', $temp);
+            $this->load->view('cpm/cpm_edit');
+            $this->load->view('footer'); 
         }
     }
 }

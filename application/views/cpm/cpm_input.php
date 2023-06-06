@@ -21,6 +21,7 @@
                     <thead>
                         <tr>
                             <th>Activity</th>
+                            <th title="Activity Name">Name </th>
                             <th title="Activity Description">Description </th>
                             <th title="Estimated Activity Duration">Duration </th>
                             <th title="Activity Number that needs to be completed first.">Pre-Requisites </th>
@@ -31,11 +32,13 @@
                             <input type="number" name="proj_len" value="<?php echo $_SESSION['proj_len']; ?>" hidden>
                             <input type="text" name="choice" value="<?php echo 'cpm'; ?>" hidden>
                             <input type="text" name="unit" value="<?php echo $_SESSION['unit']; ?>" hidden>
+                            <input type="text" name="ProjectID" value="<?php echo $_SESSION['ProjectID']; ?>" hidden>
                             <?php
                             for ($i = 1; $i <= $_SESSION['proj_len']; $i++) {
                             ?>
                                 <tr>
                                     <td><input type="text1" name="<?php echo $i; ?>" value="<?php echo $i; ?>" readonly></td>
+                                    <td><input type="text" name="task_name_<?php echo $i; ?>" id="task_name_<?php echo $i; ?>"></td>
                                     <td><input type="text" name="task_desc_<?php echo $i; ?>" id="task_desc_<?php echo $i; ?>"></td>
                                     <td><input type="number" name="task_time_<?php echo $i; ?>" id="task_time_<?php echo $i; ?>" min="1" max="100" placeholder="Max. 100" step="any" oninput="validity.valid||(value='');" required></td>
                                     <td><?php
@@ -47,12 +50,12 @@
                                             $x = $i - 1;
                                             if ($i <= 10) {
                                             ?>
-                                                <input type="text" name="task_prereq_<?php echo $i; ?>" id="task_prereq_<?php echo $i; ?>" pattern="[1-<?php echo $x; ?>](,[1-<?php echo $x; ?>])*|^[\-]" oninvalid="this.setCustomValidity('Enter Valid Activity ID')" onchange="this.setCustomValidity('')" required>
+                                                <input type="text" name="task_prereq_<?php echo $i; ?>" id="task_prereq_<?php echo $i; ?>" pattern="[1-<?php echo $x; ?>](;[1-<?php echo $x; ?>])*|^[\-]" oninvalid="this.setCustomValidity('Enter Valid Activity ID')" onchange="this.setCustomValidity('')" required>
                                             <?php
                                             } else if ($i > 10) {
                                                 $y = $i - 11;
                                             ?>
-                                                <input type="text" name="task_prereq_<?php echo $i; ?>" id="task_prereq_<?php echo $i; ?>" pattern="([1-9]|1[0-<?php echo $y; ?>])(,([1-9]|1[0-<?php echo $y; ?>]))*|^[\-]" oninvalid="this.setCustomValidity('Enter Valid Activity ID')" onchange="this.setCustomValidity('')" required>
+                                                <input type="text" name="task_prereq_<?php echo $i; ?>" id="task_prereq_<?php echo $i; ?>" pattern="([1-9]|1[0-<?php echo $y; ?>])(;([1-9]|1[0-<?php echo $y; ?>]))*|^[\-]" oninvalid="this.setCustomValidity('Enter Valid Activity ID')" onchange="this.setCustomValidity('')" required>
                                         <?php }
                                         } ?>
                                     </td>

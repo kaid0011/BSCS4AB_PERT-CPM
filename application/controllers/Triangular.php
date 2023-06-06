@@ -4,6 +4,7 @@ class Triangular extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->load->model('Projects_model');
     }
 
     public function index()
@@ -68,10 +69,16 @@ class Triangular extends CI_Controller
     public function calculate()
     {
         $proj_len = $this->input->post('proj_len');
+        $ProjectID = $this->input->post('ProjectID');
 
         // ASSIGNING VALUES TO ARRAY
         for ($i = 1; $i <= $proj_len; $i++) {
-            $data[$i]['id'] = $this->input->post($i);
+            if($_SESSION['new'] == false) {
+                $data[$i]['RecordID'] = $this->input->post('RecordID_' . $i);
+            }
+            $data[$i]['taskid'] = $this->input->post($i);
+            $data[$i]['ProjectID'] = $ProjectID;
+            $data[$i]['name'] = $this->input->post('task_name_' . $i);  // Task Name
             $data[$i]['desc'] = $this->input->post('task_desc_' . $i);
             $data[$i]['opt'] = $this->input->post('task_opt_' . $i);
             $data[$i]['ml'] = $this->input->post('task_ml_' . $i);
@@ -79,7 +86,7 @@ class Triangular extends CI_Controller
             $data[$i]['time'] = 0;
             $data[$i]['unit'] = $this->input->post('unit');     // Unit
             if ($this->input->post('task_prereq_' . $i) != '-') {
-                $data[$i]['prereq'] = explode(",", $this->input->post('task_prereq_' . $i));
+                $data[$i]['prereq'] = explode(";", $this->input->post('task_prereq_' . $i));
             } else {
                 $data[$i]['prereq'][] = -1;
             }
@@ -90,6 +97,8 @@ class Triangular extends CI_Controller
             $data[$i]['lf'] = 0;
             $data[$i]['slack'] = 0;
             $data[$i]['isCritical'] = false;
+            $data[$i]['priorityLvl'] = "Low"; // Critical task or not
+            $data[$i]['type'] = "Parallel"; // Critical task or not
             $data[$i]['N'] = $this->input->post('N');
             $data[$i]['pqty'] = $proj_len;
         }
@@ -100,7 +109,7 @@ class Triangular extends CI_Controller
     {
         foreach($data as $ab)
         {
-            $id = $ab['id'];
+            $id = $ab['taskid'];
             $a = $ab['opt'];
             $m = $ab['ml'];
             $b = $ab['pes'];
@@ -154,7 +163,7 @@ class Triangular extends CI_Controller
             * If more than one prerequisite, get highest 
         */
         foreach ($data as $tasks) {
-            $id = $tasks['id'];
+            $id = $tasks['taskid'];
             if (in_array("-1", $tasks['prereq'])) //check if first task
             {
                 $data[$id]['es'] = 0;   //ES = 0
@@ -201,7 +210,7 @@ class Triangular extends CI_Controller
         $merged_pre = call_user_func_array('array_merge', $pre);    // merge $pre array to easily locate if a task is a prereq of any task
 
         foreach ($rdata as $rtasks) {
-            $rid = $rtasks['id'];
+            $rid = $rtasks['taskid'];
             if (in_array($rid, $merged_pre)) {  // if current task is a prereq of any task
                 $p = array_column($data, 'prereq');
                 $key = '';
@@ -230,6 +239,8 @@ class Triangular extends CI_Controller
             $data[$rid]['slack'] = bcsub($data[$rid]['lf'], $data[$rid]['ef'], 2);
             if ($data[$rid]['slack'] == 0) {
                 $data[$rid]['isCritical'] = true;
+                $data[$rid]['priorityLvl'] = "High";
+                $data[$rid]['type'] = "Sequential";
             }
         }
         $this->show_result($data);  // proceed to show_result
@@ -239,19 +250,42 @@ class Triangular extends CI_Controller
     {
         $data['qty'] = count($data);
         for ($j = 1; $j < $data['qty']; $j++) {
+            $data[$j]['prereq'] = implode(";", $data[$j]['prereq']);
             $project[] = $data[$j];
+            $ProjectID = $data[$j]['ProjectID'];
+            array_pop($data[$j]);
             if ($data[$j]['isCritical'] == true)
             {
                 $cp[] = $data[$j];
             }
         }
-        $arr = array(
-            'project' => $project,
-            'cp' => $cp,
-            'finish_time' => $data['finish_time'],
-            'unit' => $data[1]['unit']
-        );
+        
+        if(isset($_SESSION['new']) && $_SESSION['new'] == false)
+        {
+            $arr = array(
+                'project' => $project,
+                'cp' => $cp,
+                'finish_time' => $data['finish_time'],
+                'unit' => $data[1]['unit'],
+                'new' => false
+            );
+        }
+        else
+        {
+            $arr = array(
+                'project' => $project,
+                'cp' => $cp,
+                'finish_time' => $data['finish_time'],
+                'unit' => $data[1]['unit'],
+                'new' => true
+            );
+        }
         $this->session->set_userdata($arr);
+
+        array_pop($data);
+        array_pop($data);
+        $this->Projects_model->insertTRI($data, $ProjectID);
+
         redirect('triangular/results');
     }
 
@@ -267,6 +301,21 @@ class Triangular extends CI_Controller
             $this->load->view('template/header', $temp);
             $this->load->view('triangular/triangular_output');
             $this->load->view('template/footer'); 
+        }
+    }
+
+    public function edittriangular()
+    {
+        if(!$this->session->userdata("project"))
+        {
+            redirect("Home");            
+        }
+        else 
+        {
+            $temp['title'] = 'Triangular Distribution';
+            $this->load->view('header', $temp);
+            $this->load->view('triangular/triangular_edit');
+            $this->load->view('footer'); 
         }
     }
 }
