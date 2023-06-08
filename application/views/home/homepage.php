@@ -9,7 +9,7 @@
         </div>
         <div class="form-group">
             <label>Reference No.:</label><br>
-            <input style="width: 90%;" type="text" name="ReferenceNum" id="ReferenceNum">
+            <input style="width: 90%;" type="text" name="ReferenceNo" id="ReferenceNo">
         </div>
         <center><button style="margin-bottom: 0.5em;margin-top: 1em;" class="btn" onclick="getProject()">Access Project</button></center>
     </form>
