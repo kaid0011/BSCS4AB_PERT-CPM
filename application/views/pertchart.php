@@ -1,3 +1,7 @@
+<div class="pertchartt">
+<div class="title">
+    <h2>PERT Chart</h2>
+</div>
 <div id="allSampleContent" class="p-4 w-full">
     <script id="code">
         function init() {
@@ -155,21 +159,6 @@
                 );
 
             // here's the data defining the graph
-            // DITO KA MAGBABAGO PARA SA VALUE SA BOXES
-            // DITO KA MAGBABAGO PARA SA VALUE SA BOXES
-            // DITO KA MAGBABAGO PARA SA VALUE SA BOXES
-            // DITO KA MAGBABAGO PARA SA VALUE SA BOXES
-            // DITO KA MAGBABAGO PARA SA VALUE SA BOXES
-            // DITO KA MAGBABAGO PARA SA VALUE SA BOXES
-            // DITO KA MAGBABAGO PARA SA VALUE SA BOXES
-            // DITO KA MAGBABAGO PARA SA VALUE SA BOXES
-            // DITO KA MAGBABAGO PARA SA VALUE SA BOXES
-            // DITO KA MAGBABAGO PARA SA VALUE SA BOXES
-            // DITO KA MAGBABAGO PARA SA VALUE SA BOXES
-            // DITO KA MAGBABAGO PARA SA VALUE SA BOXES
-            // DITO KA MAGBABAGO PARA SA VALUE SA BOXES
-            // DITO KA MAGBABAGO PARA SA VALUE SA BOXES
-            // DITO KA MAGBABAGO PARA SA VALUE SA BOXES
             var nodeDataArray = [{
                     key: 1,
                     text: "Start",
@@ -200,23 +189,6 @@
             ];
 
             // DITO KA MAGBABAGO PARA SA PREREQUISITES SAKA CONNECTION NG BOXES
-            // DITO KA MAGBABAGO PARA SA PREREQUISITES SAKA CONNECTION NG BOXES
-            // DITO KA MAGBABAGO PARA SA PREREQUISITES SAKA CONNECTION NG BOXES
-            // DITO KA MAGBABAGO PARA SA PREREQUISITES SAKA CONNECTION NG BOXES
-            // DITO KA MAGBABAGO PARA SA PREREQUISITES SAKA CONNECTION NG BOXES
-            // DITO KA MAGBABAGO PARA SA PREREQUISITES SAKA CONNECTION NG BOXES
-            // DITO KA MAGBABAGO PARA SA PREREQUISITES SAKA CONNECTION NG BOXES
-            // DITO KA MAGBABAGO PARA SA PREREQUISITES SAKA CONNECTION NG BOXES
-            // DITO KA MAGBABAGO PARA SA PREREQUISITES SAKA CONNECTION NG BOXES
-            // DITO KA MAGBABAGO PARA SA PREREQUISITES SAKA CONNECTION NG BOXES
-            // DITO KA MAGBABAGO PARA SA PREREQUISITES SAKA CONNECTION NG BOXES
-            // DITO KA MAGBABAGO PARA SA PREREQUISITES SAKA CONNECTION NG BOXES
-            // DITO KA MAGBABAGO PARA SA PREREQUISITES SAKA CONNECTION NG BOXES
-            // DITO KA MAGBABAGO PARA SA PREREQUISITES SAKA CONNECTION NG BOXES
-            // DITO KA MAGBABAGO PARA SA PREREQUISITES SAKA CONNECTION NG BOXES
-            // DITO KA MAGBABAGO PARA SA PREREQUISITES SAKA CONNECTION NG BOXES
-            // DITO KA MAGBABAGO PARA SA PREREQUISITES SAKA CONNECTION NG BOXES
-            // DITO KA MAGBABAGO PARA SA PREREQUISITES SAKA CONNECTION NG BOXES
             var linkDataArray = [
                 <?php
                 $project = $_SESSION['project'];
@@ -224,25 +196,22 @@
                     $task['prereq'] =  explode(";", $task['prereq']);
                     if (count($task['prereq']) > 1) {
                         //if more than 1 prereq
-                        foreach($task['prereq'] as $prereq) {
-                ?>
-                        {
-                            from: <?php echo $prereq + 1; ?>,
-                            to: <?php echo $task['taskid'] + 1; ?>
-                        },
-                <?php
+                        foreach ($task['prereq'] as $prereq) {
+                ?> {
+                                from: <?php echo $prereq + 1; ?>,
+                                to: <?php echo $task['taskid'] + 1; ?>
+                            },
+                        <?php
                         }
-                    } 
-                    else {
+                    } else {
                         $pre = implode(",", $task['prereq']);
                         if ($pre == '-1') {
                             $pre = 0;
                         }
-                ?> 
-                {
-                    from: <?php echo $pre + 1; ?>,
-                    to: <?php echo $task['taskid'] + 1; ?>
-                },
+                        ?> {
+                            from: <?php echo $pre + 1; ?>,
+                            to: <?php echo $task['taskid'] + 1; ?>
+                        },
                 <?php }
                 } ?>
 
@@ -331,6 +300,7 @@
         window.addEventListener('DOMContentLoaded', init);
     </script>
 
-    <div id="myDiagramDiv" style="width:100%; height:400px"></div>
+    <div id="myDiagramDiv" class="box" style="width:100%; height:300px; z-index: 0;"></div>
 
+</div>
 </div>

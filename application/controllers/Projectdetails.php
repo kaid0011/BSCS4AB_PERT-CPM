@@ -1,5 +1,5 @@
 <?php
-class Main extends CI_Controller
+class Projectdetails extends CI_Controller
 {
     public function __construct()
     {
@@ -20,7 +20,7 @@ class Main extends CI_Controller
 
         $temp['title'] = 'WAPS with Simulation';
         $this->load->view('template/header', $temp);
-        $this->load->view('main/main');
+        $this->load->view('projectdetails/projectdetails');
         $this->load->view('template/footer');
     }
 
@@ -36,7 +36,7 @@ class Main extends CI_Controller
                 'ProjectDesc' => $this->input->post('ProjectDesc'),
                 'ProjectLen' => $len,
                 'Unit' => $unit,
-                'StartDate' => $this->input->post('StartDate'),
+                // 'StartDate' => $this->input->post('StartDate'),
                 'CompType' => $this->input->post('CompType'),
                 'ReferenceNo' => $this->input->post('ReferenceNo'),
                 'UserEmail' => ""
@@ -50,7 +50,7 @@ class Main extends CI_Controller
                 'ProjectDesc' => $this->input->post('ProjectDesc'),
                 'ProjectLen' => $len,
                 'Unit' => $unit,
-                'StartDate' => $this->input->post('StartDate'),
+                // 'StartDate' => $this->input->post('StartDate'),
                 'CompType' => $this->input->post('CompType'),
                 'ReferenceNo' => $this->input->post('ReferenceNo'),
                 'UserEmail' => ""

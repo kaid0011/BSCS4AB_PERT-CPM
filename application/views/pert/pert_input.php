@@ -1,14 +1,36 @@
 <div class="inputpg">
+    <div class="left-button">
+        <button onclick="back()"><i class="fa fa-arrow-left"></i></button>
+    </div>
     <div class="body-container">
         <div class="firstpg">
             <div class="title">
                 <h1>Project Evaluation Review Technique (PERT)</h1>
             </div>
-            <div class="paragone">
+            <!-- <div class="paragone">
                 <div class="description">
                     <p>PERT calculates three time estimates for each activity: optimistic, pessimistic, and most likely.
                         <br>These estimates are then used to calculate the expected time for each activity and the entire project.
                     </p>
+                </div>
+            </div> -->
+            <div class="dashboard">
+                <div class="progress-circle">
+                    <div class="steps">
+                        <span class="circle active">1</span>
+                        <span class="circle active">2</span>
+                        <span class="circle">3</span>
+                        <div class="progress-bar">
+                            <span class="indicator2"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="progress-label">
+                    <div class="steps">
+                        <span class="">Project<br>Details</span>
+                        <span class="">Input<br>Taks</span>
+                        <span class="">Results</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -41,9 +63,9 @@
                                     <td><input type="text1" name="<?php echo $i; ?>" value="<?php echo $i; ?>" readonly></td>
                                     <td><input type="text" name="task_name_<?php echo $i; ?>" id="task_name_<?php echo $i; ?>"></td>
                                     <td><input type="text" name="task_desc_<?php echo $i; ?>" id="task_desc_<?php echo $i; ?>"></td>
-                                    <td><input type="number" name="task_opt_<?php echo $i; ?>" id="task_opt_<?php echo $i; ?>" step="any" min="1" max="100" placeholder="Max. 100" onchange="check_opt(this)" required></td>
-                                    <td><input type="number" name="task_ml_<?php echo $i; ?>" id="task_ml_<?php echo $i; ?>" step="any" min="1" max="100" placeholder="Max. 100" onchange="check_ml(this)" required></td>
-                                    <td><input type="number" name="task_pes_<?php echo $i; ?>" id="task_pes_<?php echo $i; ?>" step="any" min="1" max="100" placeholder="Max. 100" onchange="check_pes(this)" required></td>
+                                    <td><input type="number" name="task_opt_<?php echo $i; ?>" id="task_opt_<?php echo $i; ?>" step="any" min="1" max="100" placeholder="Max. 100" onchange="check_opt(this)" required style="margin-right: 2px;"><span><?php echo $_SESSION['unit']?></span></td>
+                                    <td><input type="number" name="task_ml_<?php echo $i; ?>" id="task_ml_<?php echo $i; ?>" step="any" min="1" max="100" placeholder="Max. 100" onchange="check_ml(this)" required style="margin-right: 2px;"><span><?php echo $_SESSION['unit']?></span></td>
+                                    <td><input type="number" name="task_pes_<?php echo $i; ?>" id="task_pes_<?php echo $i; ?>" step="any" min="1" max="100" placeholder="Max. 100" onchange="check_pes(this)" required style="margin-right: 2px;"><span><?php echo $_SESSION['unit']?></span></td>
                                     <td><?php
                                         if ($i == 1) {
                                         ?>
@@ -241,6 +263,14 @@
         </div>
     </div>
 </div>
+<script>
+    function back() {
+        if (confirm("Are you sure you want to go back? Your task inputs will be lost.")) {
+            history.go(-1);
+        }
+        return false;
+    }
+</script>
 <script>
     $(document).ready(function() {
         var d = $("#d").val();

@@ -1,15 +1,37 @@
 <div class="inputpg">
+    <div class="left-button">
+        <button onclick="back()"><i class="fa fa-arrow-left"></i></button>
+    </div>
     <div class="body-container">
         <div class="firstpg">
             <div class="title">
                 <h1>Critical Path Method (CPM)</h1>
             </div>
-            <div class="paragone">
+            <!-- <div class="paragone">
                 <div class="description">
                     <p>
                         CPM calculates the earliest and latest start and finish times for each activity,
                         allowing project managers to determine which activities can be delayed without
                         affecting the project's overall duration.</p>
+                </div>
+            </div> -->
+            <div class="dashboard">
+                <div class="progress-circle">
+                    <div class="steps">
+                        <span class="circle active">1</span>
+                        <span class="circle active">2</span>
+                        <span class="circle">3</span>
+                        <div class="progress-bar">
+                            <span class="indicator2"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="progress-label">
+                    <div class="steps">
+                        <span class="">Project<br>Details</span>
+                        <span class="">Input<br>Taks</span>
+                        <span class="">Results</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -40,7 +62,7 @@
                                     <td><input type="text1" name="<?php echo $i; ?>" value="<?php echo $i; ?>" readonly></td>
                                     <td><input type="text" name="task_name_<?php echo $i; ?>" id="task_name_<?php echo $i; ?>"></td>
                                     <td><input type="text" name="task_desc_<?php echo $i; ?>" id="task_desc_<?php echo $i; ?>"></td>
-                                    <td><input type="number" name="task_time_<?php echo $i; ?>" id="task_time_<?php echo $i; ?>" min="1" max="100" placeholder="Max. 100" step="any" oninput="validity.valid||(value='');" required></td>
+                                    <td><input type="number" name="task_time_<?php echo $i; ?>" id="task_time_<?php echo $i; ?>" min="1" max="100" placeholder="Max. 100" step="any" oninput="validity.valid||(value='');" required  style="margin-right: 2px;"><span><?php echo $_SESSION['unit']?></span></td>
                                     <td><?php
                                         if ($i == 1) {
                                         ?>
@@ -141,7 +163,7 @@
                         <h3 class="mmodal-title"></h3>
                     </div>
                     <div class="modal-body">
-                            <hr>
+                        <hr>
                         <div class="mustknow">
                             <h2>Must Know!</h2>
                             <div class="mustknow-desc">
@@ -221,10 +243,10 @@
                                 </li>
                             </ul>
                         </div>
-                            <hr>
-                            <center>
-                                <h6><a href="<?= base_url('howtouse/cpm') ?>">Click here</a> to see more how to use WAPS with Simulation.</h6>
-                            </center>
+                        <hr>
+                        <center>
+                            <h6><a href="<?= base_url('howtouse/cpm') ?>">Click here</a> to see more how to use WAPS with Simulation.</h6>
+                        </center>
                     </div>
                 </div>
             </div>
@@ -234,13 +256,11 @@
 <script>
     $(document).ready(function() {
         var d = $("#d").val();
-        if(d == 'demo1') {
+        if (d == 'demo1') {
             demo1();
-        }
-        else if(d == 'demo2') {
+        } else if (d == 'demo2') {
             demo2();
-        }
-        else if(d == 'demo3') {
+        } else if (d == 'demo3') {
             demo3();
         }
     });
@@ -254,58 +274,58 @@
         document.getElementById('task_desc_2').value = "B";
         document.getElementById('task_time_2').value = "4";
         document.getElementById('task_prereq_2').value = "-";
-        
+
         document.getElementById('task_desc_3').value = "C";
         document.getElementById('task_time_3').value = "5";
         document.getElementById('task_prereq_3').value = "1";
-        
+
         document.getElementById('task_desc_4').value = "D";
         document.getElementById('task_time_4').value = "6";
         document.getElementById('task_prereq_4').value = "2";
-        
+
         document.getElementById('task_desc_5').value = "E";
         document.getElementById('task_time_5').value = "7";
         document.getElementById('task_prereq_5').value = "3";
-        
+
         document.getElementById('task_desc_6').value = "F";
         document.getElementById('task_time_6').value = "8";
         document.getElementById('task_prereq_6').value = "4,5";
-        
+
         document.getElementById('task_desc_7').value = "G";
         document.getElementById('task_time_7').value = "9";
         document.getElementById('task_prereq_7').value = "6";
-        
+
         document.getElementById('task_desc_8').value = "H";
         document.getElementById('task_time_8').value = "10";
         document.getElementById('task_prereq_8').value = "7";
-        
+
         document.getElementById('task_desc_9').value = "I";
         document.getElementById('task_time_9').value = "11";
         document.getElementById('task_prereq_9').value = "8";
-        
+
         document.getElementById('task_desc_10').value = "J";
         document.getElementById('task_time_10').value = "12";
         document.getElementById('task_prereq_10').value = "9";
-        
+
         document.getElementById('task_desc_11').value = "K";
         document.getElementById('task_time_11').value = "13";
         document.getElementById('task_prereq_11').value = "-";
-        
+
         document.getElementById('task_desc_12').value = "L";
         document.getElementById('task_time_12').value = "10";
         document.getElementById('task_prereq_12').value = "1";
-        
+
         document.getElementById('task_desc_13').value = "M";
         document.getElementById('task_time_13').value = "9";
         document.getElementById('task_prereq_13').value = "3";
-        
+
         document.getElementById('task_desc_14').value = "N";
         document.getElementById('task_time_14').value = "4";
         document.getElementById('task_prereq_14').value = "-";
-        
+
         document.getElementById('task_desc_15').value = "O";
         document.getElementById('task_time_15').value = "7";
-        document.getElementById('task_prereq_15').value = "-";       
+        document.getElementById('task_prereq_15').value = "-";
     }
 
     function demo2() {
@@ -317,15 +337,15 @@
         document.getElementById('task_desc_2').value = "B";
         document.getElementById('task_time_2').value = "17";
         document.getElementById('task_prereq_2').value = "1";
-        
+
         document.getElementById('task_desc_3').value = "C";
         document.getElementById('task_time_3').value = "11";
         document.getElementById('task_prereq_3').value = "1";
-        
+
         document.getElementById('task_desc_4').value = "D";
         document.getElementById('task_time_4').value = "20";
         document.getElementById('task_prereq_4').value = "2";
-        
+
         document.getElementById('task_desc_5').value = "E";
         document.getElementById('task_time_5').value = "13";
         document.getElementById('task_prereq_5').value = "3";
@@ -340,9 +360,17 @@
         document.getElementById('task_desc_2').value = "B";
         document.getElementById('task_time_2').value = "14";
         document.getElementById('task_prereq_2').value = "1";
-        
+
         document.getElementById('task_desc_3').value = "C";
         document.getElementById('task_time_3').value = "15";
         document.getElementById('task_prereq_3').value = "1,2";
+    }
+</script>
+<script>
+    function back() {
+        if (confirm("Are you sure you want to go back? Your task inputs will be lost.")) {
+            history.go(-1);
+        }
+        return false;
     }
 </script>

@@ -20,29 +20,11 @@
     </div>
     <div class="menu-items">
       <ul>
-        <li><a href="<?= base_url('') ?>">HOME</a></li>
-        <li><a href="<?= base_url('pert') ?>">PERT</a></li>
-        <li><a href="<?= base_url('cpm') ?>">CPM</a></li>
+        <li><a href="<?= base_url('') ?>">Home</a></li>
+        <li><a href="<?= base_url('projectdetails') ?>">Calculator</a></li>
+        <li><a href="<?= base_url('howtouse') ?>">How To Use?</a></li>
         <li class="dropdown">
-          <a href="javascript:void(0)" class="dropbtn">SIMULATIONS <i class="fa fa-caret-down"></i></a>
-          <div class="dropdown-content">
-            <a href="<?= base_url('normal') ?>">Normal Distribution</a>
-            <a href="<?= base_url('triangular') ?>">Triangular Distribution</a>
-            <a href="<?= base_url('betapert') ?>">BETA-PERT Distribution</a>
-          </div>
-        </li>
-        <li class="dropdown">
-          <a href="javascript:void(0)" class="dropbtn">HOW TO USE <i class="fa fa-caret-down"></i></a>
-          <div class="dropdown-content">
-            <a href="<?= base_url('howtouse/pert') ?>">PERT</a>
-            <a href="<?= base_url('howtouse/cpm') ?>">CPM</a>
-            <a href="<?= base_url('howtouse/normal') ?>">Normal Distribution</a>
-            <a href="<?= base_url('howtouse/triangular') ?>">Triangular Distribution</a>
-            <a href="<?= base_url('howtouse/betapert') ?>">BETA-PERT Distribution</a>
-          </div>
-        </li>
-        <li class="dropdown">
-          <a href="javascript:void(0)" class="dropbtn">HOW IT WORKS <i class="fa fa-caret-down"></i></a>
+          <a href="javascript:void(0)" class="dropbtn">How It Works <i class="fa fa-caret-down"></i></a>
           <div class="dropdown-content">
             <a href="<?= base_url('howitworks/pert') ?>">PERT</a>
             <a href="<?= base_url('howitworks/cpm') ?>">CPM</a>
@@ -52,7 +34,7 @@
           </div>
         </li>
         <li class="dropdown">
-          <a href="javascript:void(0)" class="dropbtn">ABOUT <i class="fa fa-caret-down"></i></a>
+          <a href="javascript:void(0)" class="dropbtn">About <i class="fa fa-caret-down"></i></a>
           <div class="dropdown-content">
             <a href="<?= base_url('aboutwaps') ?>">About WAPS</a>
             <a href="<?= base_url('aboutus') ?>">About Us</a>

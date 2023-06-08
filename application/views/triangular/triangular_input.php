@@ -1,10 +1,13 @@
 <div class="inputpg">
+    <div class="left-button">
+        <button onclick="back()"><i class="fa fa-arrow-left"></i></button>
+    </div>
     <div class="body-container">
         <div class="firstpg">
             <div class="title">
                 <h1>Triangular Distribution</h1>
             </div>
-            <div class="paragone">
+            <!-- <div class="paragone">
                 <div class="description">
                     <p>Triangular distribution: In a triangular distribution, the probability of an
                         event occurring is highest at the most likely value, and decreases as the
@@ -13,7 +16,25 @@
                         range of possible values, but are most likely to fall within a specific range.
                     </p>
                 </div>
-
+            </div> -->
+            <div class="dashboard">
+                <div class="progress-circle">
+                    <div class="steps">
+                        <span class="circle active">1</span>
+                        <span class="circle active">2</span>
+                        <span class="circle">3</span>
+                        <div class="progress-bar">
+                            <span class="indicator2"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="progress-label">
+                    <div class="steps">
+                        <span class="">Project<br>Details</span>
+                        <span class="">Input<br>Taks</span>
+                        <span class="">Results</span>
+                    </div>
+                </div>
             </div>
         </div>
         <!-- FOR DEMO PURPOSES -->
@@ -41,9 +62,9 @@
                                     <td><input type="text1" name="<?php echo $i; ?>" value="<?php echo $i; ?>" readonly></td>
                                     <td><input type="text" name="task_name_<?php echo $i; ?>" id="task_name_<?php echo $i; ?>"></td>
                                     <td><input type="text" name="task_desc_<?php echo $i; ?>" id="task_desc_<?php echo $i; ?>"></td>
-                                    <td><input type="number" name="task_opt_<?php echo $i; ?>" id="task_opt_<?php echo $i; ?>" step="any" min="1" max="100" placeholder="Max. 100" onchange="check_opt(this)" required></td>
-                                    <td><input type="number" name="task_ml_<?php echo $i; ?>" id="task_ml_<?php echo $i; ?>" step="any" min="1" max="100" placeholder="Max. 100" onchange="check_ml(this)" required></td>
-                                    <td><input type="number" name="task_pes_<?php echo $i; ?>" id="task_pes_<?php echo $i; ?>" step="any" min="1" max="100" placeholder="Max. 100" onchange="check_pes(this)" required></td>
+                                    <td><input type="number" name="task_opt_<?php echo $i; ?>" id="task_opt_<?php echo $i; ?>" step="any" min="1" max="100" placeholder="Max. 100" onchange="check_opt(this)" required style="margin-right: 2px;"><span><?php echo $_SESSION['unit'] ?></span></td>
+                                    <td><input type="number" name="task_ml_<?php echo $i; ?>" id="task_ml_<?php echo $i; ?>" step="any" min="1" max="100" placeholder="Max. 100" onchange="check_ml(this)" required style="margin-right: 2px;"><span><?php echo $_SESSION['unit'] ?></span></td>
+                                    <td><input type="number" name="task_pes_<?php echo $i; ?>" id="task_pes_<?php echo $i; ?>" step="any" min="1" max="100" placeholder="Max. 100" onchange="check_pes(this)" required style="margin-right: 2px;"><span><?php echo $_SESSION['unit'] ?></span></td>
                                     <td>
                                         <?php
                                         if ($i == 1) {
@@ -77,14 +98,15 @@
         <input type="text" name="ProjectID" value="<?php echo $_SESSION['ProjectID']; ?>" hidden>
         <div class="trials">
             <strong>Number of Trials:</strong>
-            <input type="numbers" name="N" min="1" max="1000" oninput="validity.valid||(value='');" placeholder="Max. 1000" required>
+            <center>
+                <input class="numoftrials" type="numbers" name="N" min="1" max="1000" oninput="validity.valid||(value='');" placeholder="Max. 1000" required>
+            </center>
         </div>
         <br>
         <div class="calculate">
             <button class="btn">Calculate</button>
         </div>
         </form>
-
 
         <section class="collapsible">
             <input type="checkbox" name="collapse" id="handle1" checked="checked">
