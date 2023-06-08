@@ -33,7 +33,7 @@ services:
     container_name: db
     restart: always
     environment:
-      MYSQL_DATABASE: waps
+      MYSQL_DATABASE: pertcrm
       MYSQL_USER: admin
       MYSQL_PASSWORD: password
       MYSQL_ROOT_PASSWORD: password

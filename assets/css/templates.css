@@ -674,6 +674,20 @@ div.homepg .btn {
   cursor: pointer;
 }
 
+.box2 {
+  width: 30%;
+  height: auto;
+  padding: 1.5em 1.5em;
+  margin-top: 1.5em;
+  margin-left: auto;
+  margin-right: auto;
+  /* border: 1px solid #ccc; */
+  background: #eeeeee;
+  border-radius: 10px;
+  transition: 0.9;    
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);  
+}
+
 @media (max-width: 800px) {
 
   .container,

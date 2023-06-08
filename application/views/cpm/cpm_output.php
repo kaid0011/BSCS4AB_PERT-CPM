@@ -1,6 +1,11 @@
 <div class="outputpg">
-    <div class="left-button">
+    <!-- <div class="left-button">
         <button onclick="back()"><i class="fa fa-arrow-left"></i></button>
+    </div> -->
+    <div class="left-button">
+        <?php if ($_SESSION['new'] == false) { ?>
+            <button type="button" onclick="editData()">Edit Data</button>
+        <?php } ?>
     </div>
     <div class="body-container">
         <div class="firstpg">
@@ -37,9 +42,6 @@
                 </div>
             </div>
         </div>
-        <?php if ($_SESSION['new'] == false) { ?>
-            <button type="button" onclick="editData()">Edit Data</button>
-        <?php } ?>
         <!-- BASIC MODE -->
         <div class="basic">
             <div class="grid-container">
@@ -66,7 +68,7 @@
                                     <td><?php echo $task['name']; ?></td>
                                     <td><?php echo $task['desc']; ?></td>
                                     <td><?php echo $task['time'] . " " . $task['unit']; ?></td>
-                                    <?php if($task['prereq'] == "-1") {
+                                    <?php if ($task['prereq'] == "-1") {
                                         $task['prereq'] = "-";
                                     ?>
                                         <td><?php echo $task['prereq']; ?></td>
@@ -115,7 +117,7 @@
                                     <td><?php echo $task['name']; ?></td>
                                     <td><?php echo $task['desc']; ?></td>
                                     <td><?php echo $task['time'] . " " . $task['unit']; ?></td>
-                                    <?php if($task['prereq'] == "-1") {
+                                    <?php if ($task['prereq'] == "-1") {
                                         $task['prereq'] = "-";
                                     ?>
                                         <td><?php echo $task['prereq']; ?></td>
@@ -141,7 +143,7 @@
         <center>
             <p style="margin-top: 0; font-size: 0.8em;">Basic mode <span><label class="switch"><input type="checkbox"><span class="slider round hide-off"></a></span></label></span> Professional mode</p>
         </center>
-        
+
         <!-- CARDS -->
         <div class="container">
             <div class="box">
@@ -219,7 +221,7 @@
 
             <div class="box">
                 <center>
-                <div class="getaccess">
+                    <div class="getaccess">
                         <h4>Get Access Now</h4>
                         <p>You need to enter your e-mail in order to get access for your project. Use your e-mail and the project's reference No. to access it again next time.</p>
                         <?php if ($_SESSION['new'] == 'true') { ?>
@@ -230,13 +232,13 @@
                                 <input type="email" name="UserEmail" id="UserEmail" autocomplete="off">
                             </div>
                         <?php } ?>
-                            <br>
-                            <div class="form-group">
-                                <h5>
-                                    <label>Reference No.</label>
-                                </h5>
-                                <input type="textp" name="ReferenceNo" id="ReferenceNo" value="<?php echo $_SESSION['ReferenceNo']; ?>" readonly>
-                            </div>
+                        <br>
+                        <div class="form-group">
+                            <h5>
+                                <label>Reference No.</label>
+                            </h5>
+                            <input type="textp" name="ReferenceNo" id="ReferenceNo" value="<?php echo $_SESSION['ReferenceNo']; ?>" readonly>
+                        </div>
                         <?php if ($_SESSION['new'] == 'true') { ?>
                             <button type="button" onclick="addEmail()">Get Access</button>
                         <?php } ?>
