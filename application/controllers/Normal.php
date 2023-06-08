@@ -302,9 +302,9 @@ class Normal extends CI_Controller
         else 
         {
             $temp['title'] = 'Normal Distribution';
-            $this->load->view('header', $temp);
+            $this->load->view('template/header', $temp);
             $this->load->view('normal/normal_edit');
-            $this->load->view('footer'); 
+            $this->load->view('template/footer'); 
         }
     }
 }

@@ -369,6 +369,7 @@
 <script>
     function back() {
         if (confirm("Are you sure you want to go back? Your task inputs will be lost.")) {
+            $('[input]').val('');
             history.go(-1);
         }
         return false;

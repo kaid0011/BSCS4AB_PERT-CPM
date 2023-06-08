@@ -244,9 +244,9 @@ class Cpm extends CI_Controller
         else 
         {
             $temp['title'] = 'Critical Path Method (CPM)';
-            $this->load->view('header', $temp);
+            $this->load->view('template/header', $temp);
             $this->load->view('cpm/cpm_output');
-            $this->load->view('footer'); 
+            $this->load->view('template/footer'); 
         }
     }
 
@@ -259,9 +259,9 @@ class Cpm extends CI_Controller
         else 
         {
             $temp['title'] = 'Critical Path Method (CPM)';
-            $this->load->view('header', $temp);
+            $this->load->view('template/header', $temp);
             $this->load->view('cpm/cpm_edit');
-            $this->load->view('footer'); 
+            $this->load->view('template/footer'); 
         }
     }
 }

@@ -9,7 +9,9 @@ class Home extends CI_Controller
 
     public function index()
     {
-        $this->session->sess_destroy();
+        if (!$this->session->flashdata('message')) {
+            $this->session->sess_destroy();
+        }        
         $temp['title'] = 'WAPS with Simulation';
         $this->load->view('template/header', $temp);
         $this->load->view('home/homepage');

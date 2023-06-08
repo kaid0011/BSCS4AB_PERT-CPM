@@ -19,7 +19,7 @@ class Project extends CI_Controller
     public function getProject()
     {
         $UserEmail = $this->input->post('UserEmail');
-        $ReferenceNo = $this->input->post('ReferenceNo');
+        $ReferenceNo = $this->input->post('ReferenceNo');    
 
         $Project = $this->Projects_model->getProject($UserEmail, $ReferenceNo);
 
@@ -31,8 +31,6 @@ class Project extends CI_Controller
 
             if ($Tasks) {
                 $data['Tasks'] = $Tasks;
-                // $Tasks = json_decode(json_encode($Tasks), true);
-                // $this->session->set_userdata('Tasks', $Tasks);
 
                 $i = 1;
                 if ($CompType == 'CPM') {
@@ -72,7 +70,8 @@ class Project extends CI_Controller
                         'cp' => $cp,
                         'finish_time' => max(array_column($data, 'ef')),
                         'unit' => $data[1]['unit'],
-                        'new' => false
+                        'new' => false,
+                        'ReferenceNo' => $ReferenceNo
                     );
                     $this->session->set_userdata($arr);
                     redirect('cpm/results');
@@ -123,7 +122,8 @@ class Project extends CI_Controller
                         'proj_variance' => $proj_var,
                         'proj_sd' => sqrt($proj_var), 
                         'unit' => $data[1]['unit'],
-                        'new' => false
+                        'new' => false,
+                        'ReferenceNo' => $ReferenceNo
                     );
                     $this->session->set_userdata($arr);
                     redirect('pert/results');
@@ -171,7 +171,8 @@ class Project extends CI_Controller
                         'cp' => $cp,
                         'finish_time' => max(array_column($data, 'ef')),
                         'unit' => $data[1]['unit'],
-                        'new' => false
+                        'new' => false,
+                        'ReferenceNo' => $ReferenceNo
                     );
                     $this->session->set_userdata($arr);
                     redirect('normal/results');
@@ -216,7 +217,8 @@ class Project extends CI_Controller
                         'cp' => $cp,
                         'finish_time' => max(array_column($data, 'ef')),
                         'unit' => $data[1]['unit'],
-                        'new' => false
+                        'new' => false,
+                        'ReferenceNo' => $ReferenceNo
                     );
                     $this->session->set_userdata($arr);
                     redirect('triangular/results');
@@ -265,17 +267,20 @@ class Project extends CI_Controller
                         'cp' => $cp,
                         'finish_time' => max(array_column($data, 'ef')),
                         'unit' => $data[1]['unit'],
-                        'new' => false
+                        'new' => false,
+                        'ReferenceNo' => $ReferenceNo
                     );
                     $this->session->set_userdata($arr);
                     redirect('betapert/results');
                 }
 
             } else {
-                echo "no task data";
+                $this->session->set_flashdata('message', 'This project does not exist.'); 
+                redirect('home');
             }
         } else {
-            echo 'no data';
+            $this->session->set_flashdata('message', 'This project does not exist.'); 
+            redirect('home');
         }
     }
 
