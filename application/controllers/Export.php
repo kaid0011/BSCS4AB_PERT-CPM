@@ -77,36 +77,36 @@ class Export extends CI_Controller
 
         for ($i = 0; $i <= $qty; $i++) {
             if ($i == 0) {
-                $inp = "Activity//";
-                $inp .= "Description//";
-                $inp .= "Estimated Duration//";
-                $inp .= "Pre-requisites//";
-                $inp .= "ES//";
-                $inp .= "EF//";
-                $inp .= "LS//";
-                $inp .= "LF//";
-                $inp .= "Slack//";
-                $inp .= "Critical//";
+                $inp = "Activity,";
+                $inp .= "Description,";
+                $inp .= "Estimated Duration,";
+                $inp .= "Pre-requisites,";
+                $inp .= "ES,";
+                $inp .= "EF,";
+                $inp .= "LS,";
+                $inp .= "LF,";
+                $inp .= "Slack,";
+                $inp .= "Critical,";
             } else {
-                $inp = "$i//";
-                $inp .= $this->input->post('desc_' . $i) . "//";
-                $inp .= $this->input->post('time_' . $i) . "//";
-                $inp .= $this->input->post('pre_' . $i) . "//";
-                $inp .= $this->input->post('es_' . $i) . "//";
-                $inp .= $this->input->post('ef_' . $i) . "//";
-                $inp .= $this->input->post('ls_' . $i) . "//";
-                $inp .= $this->input->post('lf_' . $i) . "//";
-                $inp .= $this->input->post('slack_' . $i) . "//";
+                $inp = "$i,";
+                $inp .= $this->input->post('desc_' . $i) . ",";
+                $inp .= $this->input->post('time_' . $i) . ",";
+                $inp .= $this->input->post('pre_' . $i) . ",";
+                $inp .= $this->input->post('es_' . $i) . ",";
+                $inp .= $this->input->post('ef_' . $i) . ",";
+                $inp .= $this->input->post('ls_' . $i) . ",";
+                $inp .= $this->input->post('lf_' . $i) . ",";
+                $inp .= $this->input->post('slack_' . $i) . ",";
                 $inp .= $this->input->post('ic_' . $i);
             }
-            $res[$i] = explode("//", $inp);
+            $res[$i] = explode(",", $inp);
         }
 
         header("Content-Type: application/vnd.ms-excel");
-        header("Content-Disposition: attachment; filename=WAPS-Results.xls");
+        header("Content-Disposition: attachment; filename=WAPS-Results.csv");
 
         foreach ($res as $row) {
-            echo implode("\t", $row) . "\n";
+            echo implode(",", $row) . "\n";
         }
     }
 }

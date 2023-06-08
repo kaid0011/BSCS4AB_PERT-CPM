@@ -40,11 +40,11 @@
                     PERT is appropriate technique which is used for the projects where the time required or needed to complete different
                     activities are not known. It provides the blueprint of project and is efficient technique for project evaluation.
                 </p>
-                <center>
+                <!-- <center>
                     <div class="learn">
                         <a class="btn" href="<?= base_url('pert') ?>">USE PERT</a>
                     </div>
-                </center>
+                </center> -->
             </div>
 
             <div class="box">
@@ -55,11 +55,11 @@
                     CPM is a technique which is used for the projects where the time needed for completion of project is already known.
                     It provides minimum time taken for completion of project.
                 </p>
-                <center>
+                <!-- <center>
                     <div class="learn">
                         <a class="btn" href="<?= base_url('cpm') ?>">USE CPM</a>
                     </div>
-                </center>
+                </center> -->
             </div>
         </div>
 
@@ -82,11 +82,11 @@
                     A probability distribution that is symmetric about the mean, indicating that data
                     nearer to the mean occur more frequently than data far from the mean.
                 </p>
-                <center>
+                <!-- <center>
                     <div class="learn">
                         <a class="btn" href="<?= base_url('normal') ?>">USE NORMAL</a>
                     </div>
-                </center>
+                </center> -->
             </div>
             <div class="box1">
                 <div class="title">
@@ -95,11 +95,11 @@
                 <p>
                     A continuous probability distribution with a triangle-shaped probability density function. It is defined by three values: a minimum value, a maximum value, and a peak value.
                 </p>
-                <center>
+                <!-- <center>
                     <div class="learn">
                         <a class="btn" href="<?= base_url('triangular') ?>">USE TRIANGULAR</a>
                     </div>
-                </center>
+                </center> -->
             </div>
             <div class="box1">
                 <div class="title">
@@ -108,11 +108,11 @@
                 <p>
                     A special case of BETA Distribution that uses three parameters namely Optimistic, Most Likely, and Pessimistic to create a smooth curve that fits well to the normal or lognormal distribution.
                 </p>
-                <center>
+                <!-- <center>
                     <div class="learn">
                         <a class="btn" href="<?= base_url('betapert') ?>">USE BETA-PERT</a>
                     </div>
-                </center>
+                </center> -->
             </div>
         </div>
         <br>

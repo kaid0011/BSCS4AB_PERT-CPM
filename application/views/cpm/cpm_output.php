@@ -1,4 +1,7 @@
 <div class="outputpg">
+    <div class="left-button">
+        <button onclick="back()"><i class="fa fa-arrow-left"></i></button>
+    </div>
     <div class="body-container">
         <div class="firstpg">
             <div class="title">
@@ -6,70 +9,125 @@
             </div>
             <div class="paragone">
                 <div class="description">
-                    <p>CPM calculates the earliest and latest start and finish times for each activity,
+                    <!-- <p>CPM calculates the earliest and latest start and finish times for each activity,
                         allowing project managers to determine which activities can be delayed without
                         affecting the project's overall duration.
                         <br>
                         This table shows the project time completion based on the data provided using the CPM Method:
-                    </p>
+                    </p> -->
+                </div>
+            </div>
+            <div class="dashboard">
+                <div class="progress-circle">
+                    <div class="steps">
+                        <span class="circle active">1</span>
+                        <span class="circle active">2</span>
+                        <span class="circle active">3</span>
+                        <div class="progress-bar">
+                            <span class="indicator3"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="progress-label">
+                    <div class="steps">
+                        <span class="">Project<br>Details</span>
+                        <span class="">Input<br>Taks</span>
+                        <span class="">Results</span>
+                    </div>
                 </div>
             </div>
         </div>
-        <div>
-            <?php if($_SESSION['new'] == 'true') { ?>
-                <button type="button" onclick="createNew()">Create New</button>
-            <?php } else { ?>
-                <button type="button" onclick="editData()">Edit Data</button>
-            <?php } ?>
-        </div>
-        <div class="grid-container">
-            <div class="tablecontainer">
-                <table class="results">
-                    <thead>
-                        <tr>
-                            <th>Activity</th>
-                            <th title="Activity Name">Name </th>
-                            <th title="Activity Description">Description </th>
-                            <th title="Estimated Activity Duration">Duration </th>
-                            <th title="Activity Number that needs to be completed first.">Pre-Requisites </th>
-                            <th class="short" title="Activity's Earliest Start Time">ES </th>
-                            <th class="short" title="Activity's Earliest Finish Time">EF </th>
-                            <th class="short" title="Activity's Latest Start Time">LS </th>
-                            <th class="short" title="Activity's Latest Finish Time">LF </th>
-                            <th class="short" title="Activity's Available Slack Time">Slack </th>
-                            <th title="If the Activity is Critical">Critical </th>
-                            <th title="">Priority Level </th>
-                            <th title="">Type </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        $project = $_SESSION['project'];
-                        foreach ($project as $task) {
-                        ?>
+
+        <!-- BASIC MODE -->
+        <div class="basic">
+            <div class="grid-container">
+                <div class="tablecontainer">
+                    <table class="results">
+                        <thead>
                             <tr>
-                                <td><?php echo $task['taskid']; ?></td>
-                                <td><?php echo $task['name']; ?></td>
-                                <td><?php echo $task['desc']; ?></td>
-                                <td><?php echo $task['time'] . " " . $task['unit']; ?></td>
-                                <td><?php echo $task['prereq']; ?></td>
-                                <td><?php echo number_format((float)$task['es'], 2, '.', ''); ?></td>
-                                <td><?php echo number_format((float)$task['ef'], 2, '.', ''); ?></td>
-                                <td><?php echo number_format((float)$task['ls'], 2, '.', ''); ?></td>
-                                <td><?php echo number_format((float)$task['lf'], 2, '.', ''); ?></td>
-                                <td><?php echo number_format((float)$task['slack'], 2, '.', ''); ?></td>
-                                <td><?php echo $task['isCritical'] == 1 ? "Yes" : "No" ; ?></td>
-                                <td><?php echo $task['priorityLvl']; ?></td>
-                                <td><?php echo $task['type']; ?></td>
+                                <th>Activity</th>
+                                <th title="Activity Name">Name </th>
+                                <th title="Activity Description">Description </th>
+                                <th title="Estimated Activity Duration">Duration </th>
+                                <th title="Activity Number that needs to be completed first.">Pre-Requisites </th>
+                                <th title="">Priority Level </th>
+                                <th title="">Type </th>
                             </tr>
-                        <?php
-                        }
-                        ?>
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            <?php
+                            $project = $_SESSION['project'];
+                            foreach ($project as $task) {
+                            ?>
+                                <tr>
+                                    <td><?php echo $task['taskid']; ?></td>
+                                    <td><?php echo $task['name']; ?></td>
+                                    <td><?php echo $task['desc']; ?></td>
+                                    <td><?php echo $task['time'] . " " . $task['unit']; ?></td>
+                                    <td><?php echo $task['prereq']; ?></td>
+                                    <td><?php echo $task['priorityLvl']; ?></td>
+                                    <td><?php echo $task['type']; ?></td>
+                                </tr>
+                            <?php
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
 
+        <!-- PROFESSIONAL MODE -->
+        <div class="professional">
+            <div class="grid-container">
+                <div class="tablecontainer">
+                    <table class="results">
+                        <thead>
+                            <tr>
+                                <th>Activity</th>
+                                <th title="Activity Name">Name </th>
+                                <th title="Activity Description">Description </th>
+                                <th title="Estimated Activity Duration">Duration </th>
+                                <th title="Activity Number that needs to be completed first.">Pre-Requisites </th>
+                                <th class="short" title="Activity's Earliest Start Time">ES </th>
+                                <th class="short" title="Activity's Earliest Finish Time">EF </th>
+                                <th class="short" title="Activity's Latest Start Time">LS </th>
+                                <th class="short" title="Activity's Latest Finish Time">LF </th>
+                                <th class="short" title="Activity's Available Slack Time">Slack </th>
+                                <th title="If the Activity is Critical">Critical </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            $project = $_SESSION['project'];
+                            foreach ($project as $task) {
+                            ?>
+                                <tr>
+                                    <td><?php echo $task['taskid']; ?></td>
+                                    <td><?php echo $task['name']; ?></td>
+                                    <td><?php echo $task['desc']; ?></td>
+                                    <td><?php echo $task['time'] . " " . $task['unit']; ?></td>
+                                    <td><?php echo $task['prereq']; ?></td>
+                                    <td><?php echo number_format((float)$task['es'], 2, '.', ''); ?></td>
+                                    <td><?php echo number_format((float)$task['ef'], 2, '.', ''); ?></td>
+                                    <td><?php echo number_format((float)$task['ls'], 2, '.', ''); ?></td>
+                                    <td><?php echo number_format((float)$task['lf'], 2, '.', ''); ?></td>
+                                    <td><?php echo number_format((float)$task['slack'], 2, '.', ''); ?></td>
+                                    <td><?php echo $task['isCritical'] == 1 ? "Yes" : "No"; ?></td>
+                                </tr>
+                            <?php
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <center>
+            <p style="margin-top: 0; font-size: 0.8em;">Basic mode <span><label class="switch"><input type="checkbox"><span class="slider round hide-off"></a></span></label></span> Professional mode</p>
+        </center>
+        
         <!-- CARDS -->
         <div class="container">
             <div class="box">
@@ -81,9 +139,9 @@
                         $max = max(array_column($cp, 'taskid'));
                         foreach ($cp as $cp) {
                             if ($cp['taskid'] == $max) {
-                                echo $cp['taskid'];
+                                echo $cp['taskid'] . " " . $_SESSION['unit'];
                             } else {
-                                echo $cp['taskid'] . " → ";
+                                echo $cp['taskid'] . " " . $_SESSION['unit'] . " → ";
                             }
                         }
                         ?>
@@ -95,100 +153,85 @@
                 <center>
                     <h4>Project Finish Time</h4>
                     <p>
-                        <?php echo number_format((float)$_SESSION['finish_time'], 2, '.', '')." ".$_SESSION['unit']; ?>
+                        <?php echo number_format((float)$_SESSION['finish_time'], 2, '.', '') . " " . $_SESSION['unit']; ?>
                     </p>
                 </center>
             </div>
         </div>
-        <div class="export">
-            <!-- Export Results Excel File -->
-            <form action="<?php echo base_url('export/result') ?>" method="post">
-                <?php
-                $len = count($project);
-                foreach ($project as $task) {
-                ?>
-                    <input type="hidden" name="<?php echo $task['taskid']; ?>" value="<?php echo $task['taskid']; ?>">
-                    <input type="hidden" name="desc_<?php echo $task['taskid']; ?>" value="<?php echo $task['desc']; ?>">
-                    <input type="hidden" name="time_<?php echo $task['taskid']; ?>" value="<?php echo $task['time']; ?>">
-                    <input type="hidden" name="pre_<?php echo $task['taskid']; ?>" value="<?php echo $task['prereq']; ?>">
-                    <input type="hidden" name="es_<?php echo $task['taskid']; ?>" value="<?php echo $task['es']; ?>">
-                    <input type="hidden" name="ef_<?php echo $task['taskid']; ?>" value="<?php echo $task['ef']; ?>">
-                    <input type="hidden" name="ls_<?php echo $task['taskid']; ?>" value="<?php echo $task['ls']; ?>">
-                    <input type="hidden" name="lf_<?php echo $task['taskid']; ?>" value="<?php echo $task['lf']; ?>">
-                    <input type="hidden" name="slack_<?php echo $task['taskid']; ?>" value="<?php echo $task['slack']; ?>">
-                    <input type="hidden" name="ic_<?php echo $task['taskid']; ?>" value="<?php echo $task['isCritical']; ?>">
-                <?php } ?>
-                <input type="hidden" name="len" value="<?php echo $len; ?>">
-                <center><button class="expbtn">Export Results</button></center>
-            </form>
-        </div>
 
-        <div>
-            <?php if($_SESSION['new'] == 'true') { ?>
-                <div class="form-group">
-                    <label for="UserEmail">Email: </label>
-                    <input type="email" name="UserEmail" id="UserEmail" autocomplete="off">
-                </div>
-                <div class="form-group">
-                    <label>Reference No.</label>
-                    <input type="text" name="ReferenceNo" id="ReferenceNo" value="<?php echo $_SESSION['ReferenceNo']; ?>" readonly>
-                </div>
-                <button type="button" onclick="addEmail()">Save</button>
-            <?php }?>          
-        </div>
 
         <!-- Gantt Chart -->
-        <div class="grid-container-gantt">
-            <div class="title">
-                <h2>Gantt Chart</h2>
-            </div>
-            <div class="gridd-container">
-                <div class="gantt">
-                    <table class="gantt-chart">
-                        <thead>
-                            <tr class="gantt-act">
-                                <th class="first"><?php echo $_SESSION['unit'] ?> </th>
-                                <?php
-                                for ($col = 1; $col <= $_SESSION['finish_time'] + 1; $col++) {
-                                    if ($col == ceil($_SESSION['finish_time']) + 1) { ?>
-                                        <th class="other"></th>
-                                    <?php } else { ?>
-                                        <th class="other" style="text-align: right;"><?php echo "$col"; ?></th>
-                                <?php }
-                                } ?>
-                            </tr>
-                        </thead>
-                        <tbody>
+        <?php $this->view('ganttchart'); ?>
+        <!-- PERT Chart -->
+        <?php $this->view('pertchart'); ?>
+
+        <div class="container">
+            <div class="box">
+                <center>
+                    <div class="export">
+                        <!-- Export Results Excel File -->
+                        <form action="<?php echo base_url('export/result') ?>" method="post">
                             <?php
-                            foreach ($project as $task) { ?>
-                                <tr>
-                                    <td><strong><?php echo "Activity " . $task['taskid']; ?></strong></td>
-                                    <td colspan="<?php echo ceil($_SESSION['finish_time']); ?>">
-                                        <?php
-                                        $waiting = ($task['es'] / $_SESSION['finish_time']) * 100;
-                                        $progress = (($task['ef'] - $task['es']) / $_SESSION['finish_time']) * 100;
-                                        $slack = (($task['lf'] - $task['ef']) / $_SESSION['finish_time']) * 100;
-                                        $total_time = $_SESSION['finish_time'] / ceil($_SESSION['finish_time']) * 100;
-                                        ?>
-                                        <div style="background-color:#B19090; width: <?php echo $total_time; ?>%">
-                                            <div class="waiting" style="position: relative; float: left; display: inline-block; width: <?php echo $waiting ?>%"></div>
-                                            <div class="progress" style="position: relative; float: left; display: inline-block; width: <?php echo $progress ?>%"></div>
-                                            <?php if ($slack != 0) { ?>
-                                                <div class="slack" style="position: relative; float: left; display: inline-block; width: <?php echo $slack ?>%"></div>
-                                            <?php }
-                                                else{} ?>
-                                            
-                                        </div>
-                                    </td>
-                                </tr>
+                            $len = count($project);
+                            foreach ($project as $task) {
+                            ?>
+                                <input type="hidden" name="<?php echo $task['taskid']; ?>" value="<?php echo $task['taskid']; ?>">
+                                <input type="hidden" name="desc_<?php echo $task['taskid']; ?>" value="<?php echo $task['desc']; ?>">
+                                <input type="hidden" name="time_<?php echo $task['taskid']; ?>" value="<?php echo $task['time']; ?>">
+                                <input type="hidden" name="pre_<?php echo $task['taskid']; ?>" value="<?php echo $task['prereq']; ?>">
+                                <input type="hidden" name="es_<?php echo $task['taskid']; ?>" value="<?php echo $task['es']; ?>">
+                                <input type="hidden" name="ef_<?php echo $task['taskid']; ?>" value="<?php echo $task['ef']; ?>">
+                                <input type="hidden" name="ls_<?php echo $task['taskid']; ?>" value="<?php echo $task['ls']; ?>">
+                                <input type="hidden" name="lf_<?php echo $task['taskid']; ?>" value="<?php echo $task['lf']; ?>">
+                                <input type="hidden" name="slack_<?php echo $task['taskid']; ?>" value="<?php echo $task['slack']; ?>">
+                                <input type="hidden" name="ic_<?php echo $task['taskid']; ?>" value="<?php echo $task['isCritical']; ?>">
                             <?php } ?>
-                        </tbody>
-                    </table>
-                </div>
+                            <input type="hidden" name="len" value="<?php echo $len; ?>">
+                            <h4>Export the Results</h4>
+                            <p>Click the "Export Results" button to download an Excel File containing the table of results for your project.</p>
+                            <button class="expbtn">Export Results</button>
+                        </form>
+                    </div>
+                    <h6 class="or"> OR </h6>
+                    <h4>Calculate a New Project</h4>
+                    <p>You can always try something new. Remember to get access of your current calculation to access it again.</p>
+                    <div class="createnew">
+                        <?php if ($_SESSION['new'] == 'true') { ?>
+                            <button type="button" onclick="createNew()">Calculate New Project</button>
+                        <?php } else { ?>
+                            <button type="button" onclick="editData()">Edit Data</button>
+                        <?php } ?>
+                    </div>
+                </center>
+            </div>
+
+            <div class="box">
+                <center>
+                    <div class="getaccess">
+                        <h4>Get Access Now</h4>
+                        <p>You need to enter your e-mail in order to get access for your project. Use your e-mail and the project's reference No. to access it again next time.</p>
+                        <?php if ($_SESSION['new'] == 'true') { ?>
+                            <div class="form-group">
+                                <h5>
+                                    <label for="UserEmail">Email: </label>
+                                </h5>
+                                <input type="email" name="UserEmail" id="UserEmail" autocomplete="off">
+                            </div>
+                            <br>
+                            <div class="form-group">
+                                <h5>
+                                    <label>Reference No.</label>
+                                </h5>
+                                <input type="textp" name="ReferenceNo" id="ReferenceNo" value="<?php echo $_SESSION['ReferenceNo']; ?>" readonly>
+                            </div>
+                            <button type="button" onclick="addEmail()">Get Access</button>
+                        <?php } ?>
+                    </div>
+                </center>
             </div>
         </div>
-        <!-- PERT Chart -->
-        <?php $this->view('trial'); ?>  
+
+
 
         <section class="collapsible">
             <input type="checkbox" name="collapse" id="handle1" checked="checked">
@@ -251,6 +294,14 @@
 </div>
 
 <script>
+    function back() {
+        if (confirm("Are you sure you want to go back?")) {
+            history.go(-1);
+        }
+        return false;
+    }
+</script>
+<script>
     function addEmail() {
         var Form = new FormData();
         var UserEmail = document.getElementById("UserEmail").value;
@@ -260,7 +311,7 @@
         Form.append("ReferenceNo", ReferenceNo);
 
         $.ajax({
-            url: "<?php echo base_url(); ?>main/addEmail",
+            url: "<?php echo base_url(); ?>projectdetails/addEmail",
             method: 'POST',
             dataType: 'json',
             processData: false,
@@ -272,18 +323,34 @@
             error: function(err) {
                 console.log(err);
             }
-        }); 
+        });
     }
 
     function createNew() {
-        if(confirm("Are you sure you want to create a new project?"))
-        {
-            window.location.href = "<?php echo base_url(); ?>main";
-        }        
+        if (confirm("Are you sure you want to create a new project?")) {
+            window.location.href = "<?php echo base_url(); ?>projectdetails";
+        }
         return false;
     }
 
     function editData() {
         window.location.href = "<?php echo base_url(); ?>cpm/editcpm";
     }
+</script>
+<script>
+    $(".basic").show();
+    $(".professional").hide();
+    $(document).ready(function() {
+        $(".switch input").on("change", function(e) {
+            const isOn = e.currentTarget.checked;
+
+            if (isOn) {
+                $(".professional").show();
+                $(".basic").hide();
+            } else {
+                $(".basic").show();
+                $(".professional").hide();
+            }
+        });
+    });
 </script>
