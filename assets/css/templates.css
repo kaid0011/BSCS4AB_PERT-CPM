@@ -1248,7 +1248,7 @@ div.outputpg .container h4{
   margin-top: 0;
 }
 
-input#ReferenceNo {
+input.EnterRef {
   border: none;
   text-align: center;
   font-size: 1.5em;

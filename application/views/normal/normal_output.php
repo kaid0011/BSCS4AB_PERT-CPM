@@ -275,7 +275,7 @@
                                 <h5>
                                     <label for="UserEmail">Email: </label>
                                 </h5>
-                                <input type="email" name="UserEmail" id="UserEmail" autocomplete="off">
+                                <input type="email" class="EnterRef" name="UserEmail" id="UserEmail" autocomplete="off">
                             </div>
                         <?php } ?>
                             <br>
