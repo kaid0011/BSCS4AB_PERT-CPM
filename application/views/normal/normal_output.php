@@ -1,6 +1,11 @@
 <div class="outputpg">
-    <div class="left-button">
+    <!-- <div class="left-button">
         <button onclick="back()"><i class="fa fa-arrow-left"></i></button>
+    </div> -->
+    <div class="left-button">
+        <?php if ($_SESSION['new'] == false) { ?>
+            <button type="button" onclick="editData()">Edit Data</button>
+        <?php } ?>
     </div>
     <div class="body-container">
         <div class="firstpg">
@@ -33,9 +38,6 @@
                 </div>
             </div>
         </div>
-        <?php if ($_SESSION['new'] == false) { ?>
-            <button type="button" onclick="editData()">Edit Data</button>
-        <?php } ?>
         <!-- BASIC MODE -->
         <div class="basic">
             <div class="grid-container">

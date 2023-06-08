@@ -1,14 +1,35 @@
 <div class="inputpg">
+    <div class="left-button">
+        <button onclick="back()"><i class="fa fa-arrow-left"></i></button>
+    </div>
     <div class="body-container">
         <div class="firstpg">
             <div class="title">
                 <h1>Normal Distribution</h1>
             </div>
-            <div class="paragone">
+            <!-- <div class="paragone">
                 <div class="description">
                     <p>Normal Distribution or Standard Normal Distribution is a probability function that describes how the values of a variable are distributed. This is considered to be the most important probability distribution in statistics due to the fact that a lot of continuous data in the aspects of nature and psychology display a bell-shaped curve in compilation and graphing. It accurately models natural events. In practice, the normal distribution is also used to model non-negative distributions.</p>
                 </div>
-
+            </div> -->
+            <div class="dashboard">
+                <div class="progress-circle">
+                    <div class="steps">
+                        <span class="circle active">1</span>
+                        <span class="circle active">2</span>
+                        <span class="circle">3</span>
+                        <div class="progress-bar">
+                            <span class="indicator2"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="progress-label">
+                    <div class="steps">
+                        <span class="">Project<br>Details</span>
+                        <span class="">Input<br>Taks</span>
+                        <span class="">Results</span>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="grid-container">
@@ -27,15 +48,15 @@
                     </thead>
                     <tbody>
                         <form action="<?php echo base_url('normal/calculate') ?>" method="post">
-                        <?php
+                            <?php
                             $project = $_SESSION['project'];
                             foreach ($project as $task) {
                                 $i = $task['taskid'];
-                        ?>
+                            ?>
                                 <tr>
                                     <td><input type="text1" name="<?php echo $i; ?>" value="<?php echo $i; ?>" readonly></td>
                                     <td>
-                                    <input type="text" name="task_name_<?php echo $i; ?>" id="task_name_<?php echo $i; ?>" value="<?php echo $task['name']; ?>">
+                                        <input type="text" name="task_name_<?php echo $i; ?>" id="task_name_<?php echo $i; ?>" value="<?php echo $task['name']; ?>">
                                         <input type="number" name="proj_len" value="<?php echo $task['pqty']; ?>" hidden>
                                         <input type="text" name="unit" value="<?php echo $task['unit']; ?>" hidden>
                                         <input type="text" name="ProjectID" value="<?php echo $task['ProjectID']; ?>" hidden>
@@ -73,7 +94,9 @@
         <br>
         <div class="trials">
             <strong>Number of Trials:</strong>
-            <input type="numbers" name="N" min="1" max="1000" oninput="validity.valid||(value='');" placeholder="Max. 1000" required>
+            <center>
+                <input class="numoftrials" type="numbers" name="N" min="1" max="1000" oninput="validity.valid||(value='');" placeholder="Max. 1000" required>
+            </center>
         </div>
         <br>
         <div class="calculate">
@@ -293,7 +316,6 @@
     </div>
 </div>
 <script>
-
     function check_opt(opt) {
         var opt = opt;
         if (!opt.validity.valid) {
@@ -328,13 +350,13 @@
             var mlv = document.getElementById("task_ml_" + pes_id).value;
             var pesv = Number(pes.value);
             mlv = Number(mlv);
-            if(pesv < mlv) {
+            if (pesv < mlv) {
                 alert('Pessimistic should be equal to or greater than Most Likely.');
                 pes.value = "";
             }
             var optv = document.getElementById("task_opt_" + pes_id).value;
             optv = Number(optv);
-            if(optv == pesv) {
+            if (optv == pesv) {
                 alert('Pessimistic should not be equal to Optimistic.');
                 pes.value = "";
             }
@@ -354,19 +376,19 @@
         document.getElementById('task_ml_2').value = "58.21";
         document.getElementById('task_pes_2').value = "60.82";
         document.getElementById('task_prereq_2').value = "1";
-        
+
         document.getElementById('task_desc_3').value = "C";
         document.getElementById('task_opt_3').value = "25.88";
         document.getElementById('task_ml_3').value = "35.61";
         document.getElementById('task_pes_3').value = "65.06";
         document.getElementById('task_prereq_3').value = "1";
-        
+
         document.getElementById('task_desc_4').value = "D";
         document.getElementById('task_opt_4').value = "37.33";
         document.getElementById('task_ml_4').value = "54.59";
         document.getElementById('task_pes_4').value = "81.48";
         document.getElementById('task_prereq_4').value = "2";
-        
+
         document.getElementById('task_desc_5').value = "E";
         document.getElementById('task_opt_5').value = "30.77";
         document.getElementById('task_ml_5').value = "36.76";
@@ -387,49 +409,49 @@
         document.getElementById('task_ml_2').value = "40.47";
         document.getElementById('task_pes_2').value = "82.16";
         document.getElementById('task_prereq_2').value = "1";
-        
+
         document.getElementById('task_desc_3').value = "C";
         document.getElementById('task_opt_3').value = "29.18";
         document.getElementById('task_ml_3').value = "35.72";
         document.getElementById('task_pes_3').value = "41.59";
         document.getElementById('task_prereq_3').value = "1";
-        
+
         document.getElementById('task_desc_4').value = "D";
         document.getElementById('task_opt_4').value = "41.98";
         document.getElementById('task_ml_4').value = "59.25";
         document.getElementById('task_pes_4').value = "62.78";
         document.getElementById('task_prereq_4').value = "2";
-        
+
         document.getElementById('task_desc_5').value = "E";
         document.getElementById('task_opt_5').value = "18.67";
         document.getElementById('task_ml_5').value = "27.72";
         document.getElementById('task_pes_5').value = "63.55";
         document.getElementById('task_prereq_5').value = "3";
-        
+
         document.getElementById('task_desc_6').value = "F";
         document.getElementById('task_opt_6').value = "20.48";
         document.getElementById('task_ml_6').value = "34.06";
         document.getElementById('task_pes_6').value = "64.53";
         document.getElementById('task_prereq_6').value = "4";
-        
+
         document.getElementById('task_desc_7').value = "G";
         document.getElementById('task_opt_7').value = "30.14";
         document.getElementById('task_ml_7').value = "45.05";
         document.getElementById('task_pes_7').value = "70.94";
         document.getElementById('task_prereq_7').value = "4";
-        
+
         document.getElementById('task_desc_8').value = "H";
         document.getElementById('task_opt_8').value = "48.64";
         document.getElementById('task_ml_8').value = "69.60";
         document.getElementById('task_pes_8').value = "81.50";
         document.getElementById('task_prereq_8').value = "5";
-        
+
         document.getElementById('task_desc_9').value = "I";
         document.getElementById('task_opt_9').value = "44.31";
         document.getElementById('task_ml_9').value = "48.14";
         document.getElementById('task_pes_9').value = "74.07";
         document.getElementById('task_prereq_9').value = "2,3";
-        
+
         document.getElementById('task_desc_10').value = "J";
         document.getElementById('task_opt_10').value = "20.78";
         document.getElementById('task_ml_10').value = "22.23";
@@ -450,83 +472,83 @@
         document.getElementById('task_ml_2').value = "74.31";
         document.getElementById('task_pes_2').value = "78.77";
         document.getElementById('task_prereq_2').value = "-";
-        
+
         document.getElementById('task_desc_3').value = "C";
         document.getElementById('task_opt_3').value = "25.90";
         document.getElementById('task_ml_3').value = "32.56";
         document.getElementById('task_pes_3').value = "46.95";
         document.getElementById('task_prereq_3').value = "2";
-        
+
         document.getElementById('task_desc_4').value = "D";
         document.getElementById('task_opt_4').value = "18.53";
         document.getElementById('task_ml_4').value = "19.27";
         document.getElementById('task_pes_4').value = "22.67";
         document.getElementById('task_prereq_4').value = "1";
-        
+
         document.getElementById('task_desc_5').value = "E";
         document.getElementById('task_opt_5').value = "29.21";
         document.getElementById('task_ml_5').value = "29.82";
         document.getElementById('task_pes_5').value = "36.56";
         document.getElementById('task_prereq_5').value = "3";
-        
+
         document.getElementById('task_desc_6').value = "F";
         document.getElementById('task_opt_6').value = "30.29";
         document.getElementById('task_ml_6').value = "34.60";
         document.getElementById('task_pes_6').value = "35.60";
         document.getElementById('task_prereq_6').value = "3";
-        
+
         document.getElementById('task_desc_7').value = "G";
         document.getElementById('task_opt_7').value = "9.20";
         document.getElementById('task_ml_7').value = "13.57";
         document.getElementById('task_pes_7').value = "18.17";
         document.getElementById('task_prereq_7').value = "2";
-        
+
         document.getElementById('task_desc_8').value = "H";
         document.getElementById('task_opt_8').value = "13.36";
         document.getElementById('task_ml_8').value = "14.86";
         document.getElementById('task_pes_8').value = "21.95";
         document.getElementById('task_prereq_8').value = "6";
-        
+
         document.getElementById('task_desc_9').value = "I";
         document.getElementById('task_opt_9').value = "19.92";
         document.getElementById('task_ml_9').value = "29.84";
         document.getElementById('task_pes_9').value = "35.15";
         document.getElementById('task_prereq_9').value = "5";
-        
+
         document.getElementById('task_desc_10').value = "J";
         document.getElementById('task_opt_10').value = "14.33";
         document.getElementById('task_ml_10').value = "21.91";
         document.getElementById('task_pes_10').value = "38.91";
         document.getElementById('task_prereq_10').value = "8";
-        
+
         document.getElementById('task_desc_11').value = "K";
         document.getElementById('task_opt_11').value = "6.54";
         document.getElementById('task_ml_11').value = "16.01";
         document.getElementById('task_pes_11').value = "24.08";
         document.getElementById('task_prereq_11').value = "7";
-        
+
         document.getElementById('task_desc_12').value = "L";
         document.getElementById('task_opt_12').value = "27.40";
         document.getElementById('task_ml_12').value = "49.60";
         document.getElementById('task_pes_12').value = "57.45";
         document.getElementById('task_prereq_12').value = "6";
-        
+
         document.getElementById('task_desc_13').value = "M";
         document.getElementById('task_opt_13').value = "46.07";
         document.getElementById('task_ml_13').value = "58.23";
         document.getElementById('task_pes_13').value = "61.61";
         document.getElementById('task_prereq_13').value = "12";
-        
+
         document.getElementById('task_desc_14').value = "N";
         document.getElementById('task_opt_14').value = "36.13";
         document.getElementById('task_ml_14').value = "37.82";
         document.getElementById('task_pes_14').value = "41.99";
         document.getElementById('task_prereq_14').value = "11";
-        
+
         document.getElementById('task_desc_15').value = "O";
         document.getElementById('task_opt_15').value = "12.15";
         document.getElementById('task_ml_15').value = "20.05";
         document.getElementById('task_pes_15').value = "23.54";
-        document.getElementById('task_prereq_15').value = "10";       
+        document.getElementById('task_prereq_15').value = "10";
     }
 </script>

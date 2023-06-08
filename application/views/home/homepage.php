@@ -1,26 +1,29 @@
+<div class="box2">
+    <center><h6>
+        Enter your Email and Project's Reference No. to access it again.
+    </h6></center><br>
+    <form action="<?php echo base_url('project/getProject') ?>" method="post">
+        <div class="form-group">
+            <label for="UserEmail">Email: </label><br>
+            <input style="width: 90%;" type="email" name="UserEmail" id="UserEmail" autocomplete="off">
+        </div>
+        <div class="form-group">
+            <label>Reference No.:</label><br>
+            <input style="width: 90%;" type="text" name="ReferenceNum" id="ReferenceNum">
+        </div>
+        <center><button style="margin-bottom: 0.5em;margin-top: 1em;" class="btn" onclick="getProject()">Access Project</button></center>
+    </form>
+    <!-- error message if project does not exist -->
+    <!-- <span style="color: red;">Project does not exist.</span> -->
+    <?php
+    if ($this->session->flashdata('message')) {
+        echo '<div style="color: red;">' . $this->session->flashdata("message") . '</div>';
+    }
+    ?>
+</div>
 <div class="homepg">
     <div class="body-container">
         <div class="firstpg">
-            <div>
-                <form action="<?php echo base_url('project/getProject') ?>" method="post">
-                    <div class="form-group">
-                        <label for="UserEmail">Email: </label>
-                        <input type="email" name="UserEmail" id="UserEmail" autocomplete="off">
-                    </div>
-                    <div class="form-group">
-                        <label>Reference No.</label>
-                        <input type="text" name="ReferenceNo" id="ReferenceNo">
-                    </div>
-                    <button class="btn" onclick="getProject()">Get Project</button>
-                </form>
-                <!-- error message if project does not exist -->
-                <!-- <span style="color: red;">Project does not exist.</span> -->
-                <?php
-                    if ($this->session->flashdata('message')) {
-                        echo '<div style="color: red;">' . $this->session->flashdata("message") . '</div>';
-                    }
-                ?>
-            </div>
             <div class="title">
                 <h1>WAPS with Simulation</h1>
                 <h2>Web-based Automated PERT-CPM Scheduler with Simulations</h2>
@@ -49,7 +52,7 @@
             </div>
         </div>
 
-        
+
 
         <div class="container">
             <div class="box">
