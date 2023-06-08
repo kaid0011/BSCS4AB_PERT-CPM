@@ -1,6 +1,26 @@
 <div class="homepg">
     <div class="body-container">
         <div class="firstpg">
+            <div>
+                <form action="<?php echo base_url('project/getProject') ?>" method="post">
+                    <div class="form-group">
+                        <label for="UserEmail">Email: </label>
+                        <input type="email" name="UserEmail" id="UserEmail" autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <label>Reference No.</label>
+                        <input type="text" name="ReferenceNo" id="ReferenceNo">
+                    </div>
+                    <button class="btn" onclick="getProject()">Get Project</button>
+                </form>
+                <!-- error message if project does not exist -->
+                <!-- <span style="color: red;">Project does not exist.</span> -->
+                <?php
+                    if ($this->session->flashdata('message')) {
+                        echo '<div style="color: red;">' . $this->session->flashdata("message") . '</div>';
+                    }
+                ?>
+            </div>
             <div class="title">
                 <h1>WAPS with Simulation</h1>
                 <h2>Web-based Automated PERT-CPM Scheduler with Simulations</h2>

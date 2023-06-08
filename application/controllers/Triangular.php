@@ -313,9 +313,9 @@ class Triangular extends CI_Controller
         else 
         {
             $temp['title'] = 'Triangular Distribution';
-            $this->load->view('header', $temp);
+            $this->load->view('template/header', $temp);
             $this->load->view('triangular/triangular_edit');
-            $this->load->view('footer'); 
+            $this->load->view('template/footer'); 
         }
     }
 }

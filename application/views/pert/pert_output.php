@@ -36,7 +36,9 @@
                 </div>
             </div>
         </div>
-
+        <?php if ($_SESSION['new'] == false) { ?>
+            <button type="button" onclick="editData()">Edit Data</button>
+        <?php } ?>
         <!-- BASIC MODE -->
         <div class="basic">
             <div class="grid-container">
@@ -70,7 +72,13 @@
                                         <?php echo number_format((float)$task['time'], 2, '.', '') . " " . $task['unit']; ?>
                                         <input type="number" name="m" id="m_<?php echo $task['taskid']; ?>" value="<?php echo round($task['time'], 2); ?>" hidden>
                                     </td>
-                                    <td><?php echo $task['prereq']; ?></td>
+                                    <?php if($task['prereq'] == "-1") {
+                                        $task['prereq'] = "-";
+                                    ?>
+                                        <td><?php echo $task['prereq']; ?></td>
+                                    <?php } else { ?>
+                                        <td><?php echo $task['prereq']; ?></td>
+                                    <?php } ?>
                                     <td><?php echo $task['priorityLvl']; ?></td>
                                     <td><?php echo $task['type']; ?></td>
                                 </tr>
@@ -124,7 +132,13 @@
                                         <?php echo number_format((float)$task['time'], 2, '.', '') . " " . $task['unit']; ?>
                                         <input type="number" name="m" id="m_<?php echo $task['taskid']; ?>" value="<?php echo round($task['time'], 2); ?>" hidden>
                                     </td>
-                                    <td><?php echo $task['prereq']; ?></td>
+                                    <?php if($task['prereq'] == "-1") {
+                                        $task['prereq'] = "-";
+                                    ?>
+                                        <td><?php echo $task['prereq']; ?></td>
+                                    <?php } else { ?>
+                                        <td><?php echo $task['prereq']; ?></td>
+                                    <?php } ?>
                                     <td>
                                         <?php echo number_format((float)$task['sd'], 2, '.', ''); ?>
                                         <input type="number" name="s" id="s_<?php echo $task['taskid']; ?>" value="<?php echo number_format((float)$task['sd'], 2, '.', ''); ?>" hidden>
@@ -288,8 +302,6 @@
                     <div class="createnew">
                         <?php if ($_SESSION['new'] == 'true') { ?>
                             <button type="button" onclick="createNew()">Calculate New Project</button>
-                        <?php } else { ?>
-                            <button type="button" onclick="editData()">Edit Data</button>
                         <?php } ?>
                     </div>
                 </center>
@@ -297,7 +309,7 @@
 
             <div class="box">
                 <center>
-                    <div class="getaccess">
+                <div class="getaccess">
                         <h4>Get Access Now</h4>
                         <p>You need to enter your e-mail in order to get access for your project. Use your e-mail and the project's reference No. to access it again next time.</p>
                         <?php if ($_SESSION['new'] == 'true') { ?>
@@ -307,6 +319,7 @@
                                 </h5>
                                 <input type="email" name="UserEmail" id="UserEmail" autocomplete="off">
                             </div>
+                        <?php } ?>
                             <br>
                             <div class="form-group">
                                 <h5>
@@ -314,6 +327,7 @@
                                 </h5>
                                 <input type="textp" name="ReferenceNo" id="ReferenceNo" value="<?php echo $_SESSION['ReferenceNo']; ?>" readonly>
                             </div>
+                        <?php if ($_SESSION['new'] == 'true') { ?>
                             <button type="button" onclick="addEmail()">Get Access</button>
                         <?php } ?>
                     </div>

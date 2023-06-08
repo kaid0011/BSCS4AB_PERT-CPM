@@ -282,9 +282,9 @@ class Pert extends CI_Controller
         else 
         {
             $temp['title'] = 'Project Evaluation Review Technique (PERT)';
-            $this->load->view('header', $temp);
+            $this->load->view('template/header', $temp);
             $this->load->view('pert/pert_edit');
-            $this->load->view('footer'); 
+            $this->load->view('template/footer'); 
         }
     }
 }

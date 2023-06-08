@@ -2,6 +2,7 @@
     <div class="left-button">
         <button onclick="back()"><i class="fa fa-arrow-left"></i></button>
     </div>
+    
     <div class="body-container">
         <div class="firstpg">
             <div class="title">
@@ -12,7 +13,7 @@
                     <p>The Beta distribution is a continuous type of probability distribution wherein it represents all the possible values of probability.
                     </p>
                 </div>
-            </div> -->
+            </div> -->           
             <div class="dashboard">
                 <div class="progress-circle">
                     <div class="steps">
@@ -33,7 +34,9 @@
                 </div>
             </div>
         </div>
-
+        <?php if ($_SESSION['new'] == false) { ?>
+            <button type="button" onclick="editData()">Edit Data</button>
+        <?php } ?>
         <!-- BASIC MODE -->
         <div class="basic">
             <div class="grid-container">
@@ -64,7 +67,13 @@
                                     <td><?php echo $task['opt'] . " " . $task['unit']; ?></td>
                                     <td><?php echo $task['pes'] . " " . $task['unit']; ?></td>
                                     <td><?php echo number_format((float)$task['time'], 2, '.', '') . " " . $task['unit']; ?></td>
-                                    <td><?php echo $task['prereq']; ?></td>
+                                    <?php if($task['prereq'] == "-1") {
+                                        $task['prereq'] = "-";
+                                    ?>
+                                        <td><?php echo $task['prereq']; ?></td>
+                                    <?php } else { ?>
+                                        <td><?php echo $task['prereq']; ?></td>
+                                    <?php } ?>
                                     <td><?php echo $task['priorityLvl']; ?></td>
                                     <td><?php echo $task['type']; ?></td>
                                 </tr>
@@ -121,7 +130,13 @@
                                     <td><?php echo number_format((float)$task['mean'], 2, '.', ''); ?></td>
                                     <td><?php echo number_format((float)$task['sd'], 2, '.', ''); ?></td>
                                     <td><?php echo number_format((float)$task['time'], 2, '.', '') . " " . $task['unit']; ?></td>
-                                    <td><?php echo $task['prereq']; ?></td>
+                                    <?php if($task['prereq'] == "-1") {
+                                        $task['prereq'] = "-";
+                                    ?>
+                                        <td><?php echo $task['prereq']; ?></td>
+                                    <?php } else { ?>
+                                        <td><?php echo $task['prereq']; ?></td>
+                                    <?php } ?>
                                     <td><?php echo number_format((float)$task['es'], 2, '.', ''); ?></td>
                                     <td><?php echo number_format((float)$task['ef'], 2, '.', ''); ?></td>
                                     <td><?php echo number_format((float)$task['ls'], 2, '.', ''); ?></td>
@@ -239,8 +254,6 @@
                     <div class="createnew">
                         <?php if ($_SESSION['new'] == 'true') { ?>
                             <button type="button" onclick="createNew()">Calculate New Project</button>
-                        <?php } else { ?>
-                            <button type="button" onclick="editData()">Edit Data</button>
                         <?php } ?>
                     </div>
                 </center>
@@ -258,6 +271,7 @@
                                 </h5>
                                 <input type="email" name="UserEmail" id="UserEmail" autocomplete="off">
                             </div>
+                        <?php } ?>
                             <br>
                             <div class="form-group">
                                 <h5>
@@ -265,6 +279,7 @@
                                 </h5>
                                 <input type="textp" name="ReferenceNo" id="ReferenceNo" value="<?php echo $_SESSION['ReferenceNo']; ?>" readonly>
                             </div>
+                        <?php if ($_SESSION['new'] == 'true') { ?>
                             <button type="button" onclick="addEmail()">Get Access</button>
                         <?php } ?>
                     </div>
