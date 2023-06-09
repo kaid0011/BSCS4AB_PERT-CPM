@@ -161,9 +161,9 @@
                         $max = max(array_column($cp, 'taskid'));
                         foreach ($cp as $cp) {
                             if ($cp['taskid'] == $max) {
-                                echo $cp['taskid'] . " " . $_SESSION['unit'];
+                                echo "Task " . $cp['taskid'];
                             } else {
-                                echo  $cp['taskid'] . " " . $_SESSION['unit'] . " → ";
+                                echo "Task " . $cp['taskid'] . " → ";
                             }
                         }
                         ?>

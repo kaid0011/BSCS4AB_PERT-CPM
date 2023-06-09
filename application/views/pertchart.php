@@ -267,7 +267,7 @@
                             textAlign: "center"
                         }),
 
-                        $(go.TextBlock, "Activity Name", {
+                        $(go.TextBlock, "Task ID", {
                             row: 1,
                             column: 0,
                             columnSpan: 3,
