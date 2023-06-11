@@ -75,7 +75,9 @@ class Cpm extends CI_Controller
         for ($i = 1; $i <= $proj_len; $i++) {
             if($_SESSION['new'] == false) {
                 $data[$i]['RecordID'] = $this->input->post('RecordID_' . $i);
-            }
+            } else {
+                $_SESSION['new'] = NULL;
+                } 
 
             $data[$i]['taskid'] = $this->input->post($i);   // Task ID
             $data[$i]['ProjectID'] = $ProjectID;
