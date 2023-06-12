@@ -1,25 +1,40 @@
-<div class="box2">
-    <center><h6>
-        Enter your Email and Project's Reference No. to access it again.
-    </h6></center><br>
-    <form action="<?php echo base_url('project/getProject') ?>" method="post">
-        <div class="form-group">
-            <label for="UserEmail">Email: </label><br>
-            <input style="width: 90%;" type="email" name="UserEmail" id="UserEmail" autocomplete="off">
-        </div>
-        <div class="form-group">
-            <label>Reference No.:</label><br>
-            <input style="width: 90%;" type="text" name="ReferenceNo" id="ReferenceNo">
-        </div>
-        <center><button style="margin-bottom: 0.5em;margin-top: 1em;" class="btn" onclick="getProject()">Access Project</button></center>
-    </form>
-    <!-- error message if project does not exist -->
-    <!-- <span style="color: red;">Project does not exist.</span> -->
-    <?php
-    if ($this->session->flashdata('message')) {
-        echo '<div style="color: red;">' . $this->session->flashdata("message") . '</div>';
-    }
-    ?>
+<div class="container">
+    <div class="box">
+        <center>
+            <h5>
+                ACCESS A PROJECT AGAIN
+            </h5>
+        </center><br>
+        <form action="<?php echo base_url('project/getProject') ?>" method="post">
+            <div class="form-group">
+                <label for="UserEmail">Email Address: </label><br>
+                <input style="width: 90%;" type="email" name="UserEmail" id="UserEmail" autocomplete="off">
+            </div>
+            <div class="form-group">
+                <label>Project's Reference Number:</label><br>
+                <input style="width: 90%;" type="text" name="ReferenceNo" id="ReferenceNo" placeholder="ex. 12345">
+            </div>
+            <center><button style="margin-bottom: 0.5em;margin-top: 1em;" class="btn" onclick="getProject()">Access Project</button></center>
+        </form>
+        <!-- error message if project does not exist -->
+        <!-- <span style="color: red;">Project does not exist.</span> -->
+        <?php
+        if ($this->session->flashdata('message')) {
+            echo '<div style="color: red;">' . $this->session->flashdata("message") . '</div>';
+        }
+        ?>
+    </div>
+    <div class="box">
+        <center>
+            <h5>
+                NO PROJECT YET
+            </h5>
+            <p style="margin-bottom: 0; padding-bottom: 2px;">Don't know which algorithm to choose?</p>
+            <a class="btn" style="margin-bottom: 0;" href="#firstpg">Learn More</a>
+            <p style="margin-bottom: 0; padding-bottom: 2px;">Ready to calculate project timeline?</p>
+            <a class="btn" style="margin-bottom: 0;" href="<?= base_url('projectdetails') ?>">Calculate</a>
+        </center>
+    </div>
 </div>
 <div class="homepg">
     <div class="body-container">
@@ -41,7 +56,7 @@
                 </p>
             </div>
         </div>
-        <div class="firstpg">
+        <div class="firstpg" id="firstpg">
             <div class="title">
                 <h3>Without Simulation</h3>
             </div>
