@@ -275,7 +275,7 @@
                                 <h5>
                                     <label for="UserEmail">Email: </label>
                                 </h5>
-                                <input type="email" class="EnterRef" name="UserEmail" id="UserEmail" autocomplete="off">
+                                <input type="email" name="UserEmail" id="UserEmail" autocomplete="off">
                             </div>
                         <?php } ?>
                             <br>
@@ -283,7 +283,7 @@
                                 <h5>
                                     <label>Reference No.</label>
                                 </h5>
-                                <input type="textp" name="ReferenceNo" id="ReferenceNo" value="<?php echo $_SESSION['ReferenceNo']; ?>" readonly>
+                                <input type="textp" class="EnterRef" name="ReferenceNo" id="ReferenceNo" value="<?php echo $_SESSION['ReferenceNo']; ?>" readonly>
                             </div>
                         <?php if ($_SESSION['new'] == 'true') { ?>
                             <button type="button" onclick="addEmail()">Get Access</button>

@@ -270,7 +270,7 @@
                                 <h5>
                                     <label for="UserEmail">Email: </label>
                                 </h5>
-                                <input type="email" class="EnterRef" name="UserEmail" id="UserEmail" autocomplete="off">
+                                <input type="email" name="UserEmail" id="UserEmail" autocomplete="off">
                             </div>
                         <?php } ?>
                             <br>
@@ -278,7 +278,7 @@
                                 <h5>
                                     <label>Reference No.</label>
                                 </h5>
-                                <input type="textp" name="ReferenceNo" id="ReferenceNo" value="<?php echo $_SESSION['ReferenceNo']; ?>" readonly>
+                                <input type="textp" class="EnterRef" name="ReferenceNo" id="ReferenceNo" value="<?php echo $_SESSION['ReferenceNo']; ?>" readonly>
                             </div>
                         <?php if ($_SESSION['new'] == 'true') { ?>
                             <button type="button" onclick="addEmail()">Get Access</button>
@@ -437,7 +437,7 @@
         Form.append("ReferenceNo", ReferenceNo);
 
         $.ajax({
-            url: "<?php echo base_url(); ?>main/addEmail",
+            url: "<?php echo base_url(); ?>projectdetails/addEmail",
             method: 'POST',
             dataType: 'json',
             processData: false,
@@ -454,7 +454,7 @@
 
     function createNew() {
         if (confirm("Are you sure you want to create a new project?")) {
-            window.location.href = "<?php echo base_url(); ?>main";
+            window.location.href = "<?php echo base_url(); ?>projectdetails";
         }
         return false;
     }
