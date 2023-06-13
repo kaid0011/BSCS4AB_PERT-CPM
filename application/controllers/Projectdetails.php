@@ -14,8 +14,8 @@ class Projectdetails extends CI_Controller
         {
             $length = 5;
             $ReferenceNo = substr(str_shuffle('0123456789'),1,$length);
+            //$ReferenceNo = date('ymdGi');
             $this->session->set_userdata('ReferenceNo', $ReferenceNo);
-            //refno = current date + project id
         }       
 
         $temp['title'] = 'WAPS with Simulation';
