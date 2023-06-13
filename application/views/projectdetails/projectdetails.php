@@ -37,7 +37,7 @@
                     </div>
                     <div class="form-group">
                         <label for="ProjectDesc">Project Description</label><br>
-                        <textarea type="text" name="ProjectDesc" id="ProjectDesc" aria-describedby="input" class="form-control" required></textarea>
+                        <textarea type="text" name="ProjectDesc" id="ProjectDesc" aria-describedby="input" class="form-control"></textarea>
                     </div>
                     <div class="form-group">
                         <label for="InputTask">Number of Tasks:</label><br>

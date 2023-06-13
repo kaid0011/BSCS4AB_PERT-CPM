@@ -155,7 +155,7 @@ class Projects_model extends CI_model{
     {
         $Comp = strtolower($CompType);
         $this->db->where('ProjectID', $ProjectID);
-        $query = $this->db->get($CompType);
+        $query = $this->db->get($Comp);
         if($query->num_rows() > 1)
         {
             return $query;
