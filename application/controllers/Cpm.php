@@ -57,6 +57,10 @@ class Cpm extends CI_Controller
         {
             redirect("Home");            
         }
+        else if(isset($_SESSION['project']))
+        {
+            redirect('cpm/results');
+        }
         else 
         {
             $temp['title'] = 'Critical Path Method (CPM)';
@@ -72,12 +76,12 @@ class Cpm extends CI_Controller
         $ProjectID = $this->input->post('ProjectID');
 
         // ASSIGNING VALUES TO ARRAY
-        for ($i = 1; $i <= $proj_len; $i++) {
-            if($_SESSION['new'] == false) {
+        for ($i = 1; $i <= $proj_len; $i++) { 
+            if(isset($_SESSION['new']) && $_SESSION['new'] == false) {
                 $data[$i]['RecordID'] = $this->input->post('RecordID_' . $i);
             } else {
                 $_SESSION['new'] = NULL;
-                } 
+            } 
 
             $data[$i]['taskid'] = $this->input->post($i);   // Task ID
             $data[$i]['ProjectID'] = $ProjectID;

@@ -57,6 +57,10 @@ class Betapert extends CI_Controller
         {
             redirect("Home");            
         }
+        else if(isset($_SESSION['project']))
+        {
+            redirect('betapert/results');
+        }
         else 
         {
             $temp['title'] = 'BETA-PERT Distribution';
@@ -73,7 +77,7 @@ class Betapert extends CI_Controller
 
         // ASSIGNING VALUES TO ARRAY
         for ($i = 1; $i <= $proj_len; $i++) {
-            if($_SESSION['new'] == false) {
+            if(isset($_SESSION['new']) && $_SESSION['new'] == false) {
                 $data[$i]['RecordID'] = $this->input->post('RecordID_' . $i);
             }
             $data[$i]['taskid'] = $this->input->post($i);   // Task ID
