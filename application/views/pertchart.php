@@ -300,7 +300,7 @@
         window.addEventListener('DOMContentLoaded', init);
     </script>
 
-    <div id="myDiagramDiv" class="box" style="width:100%; height:300px; z-index: 0;"></div>
+    <div id="myDiagramDiv" class="box" style="max-width:90%; width: auto; height:300px; z-index: 0;"></div>
 
 </div>
 </div>
