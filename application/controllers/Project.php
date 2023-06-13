@@ -76,7 +76,8 @@ class Project extends CI_Controller
                         'ReferenceNo' => $ReferenceNo
                     );
                     $this->session->set_userdata($arr);
-                    redirect("cpm/results");
+                    echo "puta";git 
+                    redirect('cpm/results');
                 }
                 else if($CompType == 'pert') {
                     foreach ($Tasks->result() as $row) {
