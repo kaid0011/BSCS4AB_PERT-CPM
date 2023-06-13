@@ -40,13 +40,13 @@
                         <textarea type="text" name="ProjectDesc" id="ProjectDesc" aria-describedby="input" class="form-control" required></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="InputTask">Number of Activities:</label><br>
+                        <label for="InputTask">Number of Tasks:</label><br>
                         <input type="number" name="proj_len" class="form-control" id="InputTask" aria-describedby="input" placeholder="Max. 20." min="2" max="20" oninput="validity.valid||(value='');" required>
                     </div>
                     <div class="form-group">
                         <label for="InputTime">Unit of Time:</label><br>
                         <select id="InputTime" name="unit" class="form-control" required>
-                            <option value="" disabled selected hidden></option>
+                            <option value="" style="color: gray;" disabled selected>Select Unit of Time</option>
                             <option value="Days">Days</option>
                             <option value="Weeks">Weeks</option>
                             <option value="Months">Months</option>
@@ -57,9 +57,9 @@
                             <input type="date" name="StartDate" id="StartDate" aria-describedby="input" class="form-control" required>
                         </div> -->
                     <div class="form-group">
-                        <label for="CompType">Computation Type</label><br>
+                        <label for="CompType">Computation Method</label><br>
                         <select name="CompType" id="CompType" class="form-control" required>
-                            <option value="">Select Computation Type</option>
+                            <option value="" style="color: gray;" disabled selected>Select Computation Type</option>
                             <option value="CPM">CPM</option>
                             <option value="PERT">PERT</option>
                             <option value="NORMAL">NORMAL</option>

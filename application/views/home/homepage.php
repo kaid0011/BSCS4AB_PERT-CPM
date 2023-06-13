@@ -1,47 +1,51 @@
-<div class="container">
-    <div class="box">
-        <center>
-            <h5>
-                ACCESS A PROJECT AGAIN
-            </h5>
-        </center><br>
-        <form action="<?php echo base_url('project/getProject') ?>" method="post">
-            <div class="form-group">
-                <label for="UserEmail">Email Address: </label><br>
-                <input style="width: 90%;" type="email" name="UserEmail" id="UserEmail" autocomplete="off">
-            </div>
-            <div class="form-group">
-                <label>Project's Reference Number:</label><br>
-                <input style="width: 90%;" type="text" name="ReferenceNo" id="ReferenceNo" placeholder="ex. 12345">
-            </div>
-            <center><button style="margin-bottom: 0.5em;margin-top: 1em;" class="btn" onclick="getProject()">Access Project</button></center>
-        </form>
-        <!-- error message if project does not exist -->
-        <!-- <span style="color: red;">Project does not exist.</span> -->
-        <?php
-        if ($this->session->flashdata('message')) {
-            echo '<div style="color: red;">' . $this->session->flashdata("message") . '</div>';
-        }
-        ?>
-    </div>
-    <div class="box">
-        <center>
-            <h5>
-                NO PROJECT YET
-            </h5>
-            <p style="margin-bottom: 0; padding-bottom: 2px;">Don't know which algorithm to choose?</p>
-            <a class="btn" style="margin-bottom: 0;" href="#firstpg">Learn More</a>
-            <p style="margin-bottom: 0; padding-bottom: 2px;">Ready to calculate project timeline?</p>
-            <a class="btn" style="margin-bottom: 0;" href="<?= base_url('projectdetails') ?>">Calculate</a>
-        </center>
-    </div>
-</div>
 <div class="homepg">
     <div class="body-container">
         <div class="firstpg">
             <div class="title">
-                <h1>WAPS with Simulation</h1>
-                <h2>Web-based Automated PERT-CPM Scheduler with Simulations</h2>
+                <h1 style="margin-bottom: 0;">Welcome to WAPS with Simulation!</h1>
+                <h2 style="margin-top: 0; font-weight: 100;">Web-based Automated PERT-CPM Scheduler with Simulations</h2>
+            </div>
+            <div class="container">
+                <div class="box">
+                    <center>
+                        <h5>
+                            ACCESS A PROJECT AGAIN
+                        </h5>
+                    </center><br>
+                    <form action="<?php echo base_url('project/getProject') ?>" method="post">
+                        <div class="form-group">
+                            <label for="UserEmail">Email Address: </label><br>
+                            <center>
+                                <input type="email" name="UserEmail" id="UserEmail" autocomplete="off">
+                            </center>
+                        </div>
+                        <div class="form-group">
+                            <label>Project's Reference Number:</label><br>
+                            <center>
+                                <input type="text" name="ReferenceNo" id="ReferenceNo" placeholder="ex. 12345">
+                            </center>
+                        </div>
+                        <center><button style="margin-bottom: 0.5em;margin-top: 1em;" class="btn" onclick="getProject()">Access Project</button></center>
+                    </form>
+                    <!-- error message if project does not exist -->
+                    <!-- <span style="color: red;">Project does not exist.</span> -->
+                    <?php
+                    if ($this->session->flashdata('message')) {
+                        echo '<div style="color: red;">' . $this->session->flashdata("message") . '</div>';
+                    }
+                    ?>
+                </div>
+                <div class="box">
+                    <center>
+                        <h5>
+                            NO PROJECT YET
+                        </h5>
+                        <p style="margin-bottom: 0; padding-bottom: 2px;">Don't know which algorithm to choose? Know more about the different methods available!</p>
+                        <a class="btn" style="margin-bottom: 0;" href="#firstpg">Learn More</a>
+                        <p style="margin-bottom: 0; padding-bottom: 2px;">Ready to calculate project timeline?</p>
+                        <a class="btn" style="margin-bottom: 0;" href="<?= base_url('projectdetails') ?>">Calculate</a>
+                    </center>
+                </div>
             </div>
             <div class="paragone">
                 <p class="paragone">WAPS offers a user-friendly interface that allows you to manage your project activities, durations, and dependencies with ease. By utilizing the power of <b>PERT (Program Evaluation and Review Technique) and CPM (Critical Path Method) algorithms</b>, WAPS helps you plan and schedule your project efficiently.

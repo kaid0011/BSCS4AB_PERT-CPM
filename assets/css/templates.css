@@ -216,11 +216,25 @@ ol>li::marker {
 input, select{
   border: 1px solid #c0c0c0;
   background-color: #fafafa;
-  border-radius: 0.5em;
+  border-radius: 4px;
   width: 90%;
   height: 2.5em;
   padding: 0em 1em;
-  margin: 0.5em 1.5em;
+  /* margin: 0.5em 1.5em; */
+  margin-bottom: 10px;
+  margin-top: 10px;
+  box-sizing: border-box;
+  font-family: 'Heebo', sans-serif;
+}
+
+div.inputpg input, div.inputpg select{
+  border: 1px solid #c0c0c0;
+  background-color: #fafafa;
+  border-radius: 4px;
+  width: 90%;
+  height: 2.5em;
+  padding: 0em 1em;
+  margin: 5px 10px;
   box-sizing: border-box;
   font-family: 'Heebo', sans-serif;
 }
@@ -1279,11 +1293,11 @@ div.policypg .body-container p {
   text-align: left;
 }
 
-.probability .container h5 {
+ .probability .container h5 {
   padding-top: 0.5em;
-  padding-bottom: 0.5em;
+  /* padding-bottom: 0.5em; */
 }
-
+/*
 .probability h2 {
   padding-top: 2em;
   padding-bottom: 0;
@@ -1291,7 +1305,7 @@ div.policypg .body-container p {
 
 .probability .container h4 {
   margin-bottom: 0.5em;
-}
+} */
 
 .probability input[type="number"] {
   text-align: center;
@@ -1392,12 +1406,12 @@ div.content center {
   text-align: center;
 }
 
-.probability input {
+/* .probability input {
   height: 3em;
   padding: 0em 1em;
   box-sizing: border-box;
   margin-bottom: 1.5em;
-}
+} */
 
 div.howtouse table.use {
   margin-left: auto;
