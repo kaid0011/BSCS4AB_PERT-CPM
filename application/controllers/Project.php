@@ -33,7 +33,7 @@ class Project extends CI_Controller
                 $data['Tasks'] = $Tasks;
 
                 $i = 1;
-                if ($CompType == 'CPM') {
+                if ($CompType == 'cpm') {
                     foreach ($Tasks->result() as $row) {
                         $data[$i]['RecordID'] = $row->RecordID;
 
@@ -76,7 +76,7 @@ class Project extends CI_Controller
                     $this->session->set_userdata($arr);
                     redirect('cpm/results');
                 }
-                else if($CompType == 'PERT') {
+                else if($CompType == 'pert') {
                     foreach ($Tasks->result() as $row) {
                         $data[$i]['RecordID'] = $row->RecordID;
 
@@ -128,7 +128,7 @@ class Project extends CI_Controller
                     $this->session->set_userdata($arr);
                     redirect('pert/results');
                 }
-                else if($CompType == 'NORMAL') {
+                else if($CompType == 'normal') {
                     foreach ($Tasks->result() as $row) {
                         $data[$i]['RecordID'] = $row->RecordID;
 
@@ -177,7 +177,7 @@ class Project extends CI_Controller
                     $this->session->set_userdata($arr);
                     redirect('normal/results');
                 }
-                else if($CompType == 'TRIANGULAR') {
+                else if($CompType == 'triangular') {
                     foreach ($Tasks->result() as $row) {
                         $data[$i]['RecordID'] = $row->RecordID;
 
@@ -223,7 +223,7 @@ class Project extends CI_Controller
                     $this->session->set_userdata($arr);
                     redirect('triangular/results');
                 }
-                else if($CompType == 'BETAPERT') {
+                else if($CompType == 'betapert') {
                     foreach ($Tasks->result() as $row) {
                         $data[$i]['RecordID'] = $row->RecordID;
 
