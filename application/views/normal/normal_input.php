@@ -274,7 +274,7 @@
                                         <p>The activity/s that must be completed before the current activity starts. </p>
                                     </li>
                                     <li>
-                                        <p>Pre-requisites of each activity must be existing activity numbers separated by commas without spaces.</p>
+                                        <p>Pre-requisites of each activity must be existing activity numbers separated by semi-colon (;) without spaces.</p>
                                     </li>
                                     <li>
                                         <p>If there are no pre-requisites, enter '-'. The first activity's pre-requisite is automatically set to '-'.</p>

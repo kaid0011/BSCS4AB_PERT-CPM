@@ -1442,6 +1442,10 @@ div.howtouse div.explained p {
   margin: 0;
 }
 
+div.howtouse div.summary p {
+  padding-bottom: 0;
+}
+
 div.howtouse img.how1 {
   /* num of act */
   width: 50em;
@@ -1459,7 +1463,7 @@ div.howtouse img.how3 {
 
 div.howtouse img.how4 {
   /* cpm res.boxes; others input; others gantt */
-  width: 45em;
+  width: 90%;
 }
 
 div.howtouse img.how5 {
