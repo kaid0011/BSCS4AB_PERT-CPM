@@ -10,13 +10,10 @@ class Projectdetails extends CI_Controller
     public function index()
     {
         $this->session->sess_destroy();
-        if(!$this->session->userdata('ReferenceNo'))
-        {
-            $length = 5;
-            $ReferenceNo = substr(str_shuffle('0123456789'),1,$length);
-            $this->session->set_userdata('ReferenceNo', $ReferenceNo);
-            //refno = current date + project id
-        }       
+        // $length = 5;
+        // $ReferenceNo = substr(str_shuffle('0123456789'),1,$length);
+        $ReferenceNo = date('ymis');
+        $this->session->set_userdata('ReferenceNo', $ReferenceNo); 
 
         $temp['title'] = 'WAPS with Simulation';
         $this->load->view('template/header', $temp);

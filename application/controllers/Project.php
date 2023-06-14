@@ -27,14 +27,14 @@ class Project extends CI_Controller
         if ($Project) {
             $ProjectID = $Project->ProjectID;
             $CompType = $Project->CompType;
-
-            $Tasks = $this->Projects_model->getTasks($ProjectID, $CompType);
-
+            
+            $Tasks = $this->Projects_model->getTasks($ProjectID, $CompType);            
+            
             if ($Tasks) {
                 $data['Tasks'] = $Tasks;
 
                 $i = 1;
-                if ($CompType == 'cpm') {
+                if ($CompType == 'CPM') {
                     foreach ($Tasks->result() as $row) {
                         $data[$i]['RecordID'] = $row->RecordID;
 
@@ -77,7 +77,7 @@ class Project extends CI_Controller
                     $this->session->set_userdata($arr);
                     redirect('cpm/results');
                 }
-                else if($CompType == 'pert') {
+                else if($CompType == 'PERT') {
                     foreach ($Tasks->result() as $row) {
                         $data[$i]['RecordID'] = $row->RecordID;
 
@@ -126,10 +126,10 @@ class Project extends CI_Controller
                         'new' => false,
                         'ReferenceNo' => $ReferenceNo
                     );
-                    $this->session->set_userdata($arr);
+                    $this->session->set_userdata($arr);                
                     redirect('pert/results');
                 }
-                else if($CompType == 'normal') {
+                else if($CompType == 'NORMAL') {
                     foreach ($Tasks->result() as $row) {
                         $data[$i]['RecordID'] = $row->RecordID;
 
@@ -178,7 +178,7 @@ class Project extends CI_Controller
                     $this->session->set_userdata($arr);
                     redirect('normal/results');
                 }
-                else if($CompType == 'triangular') {
+                else if($CompType == 'TRIANGULAR') {
                     foreach ($Tasks->result() as $row) {
                         $data[$i]['RecordID'] = $row->RecordID;
 
@@ -224,7 +224,7 @@ class Project extends CI_Controller
                     $this->session->set_userdata($arr);
                     redirect('triangular/results');
                 }
-                else if($CompType == 'betapert') {
+                else if($CompType == 'BETAPERT') {
                     foreach ($Tasks->result() as $row) {
                         $data[$i]['RecordID'] = $row->RecordID;
 
@@ -274,7 +274,10 @@ class Project extends CI_Controller
                     $this->session->set_userdata($arr);
                     redirect('betapert/results');
                 }
-
+                else {
+                    $this->session->set_flashdata('message', 'This project does not exist.'); 
+                    redirect('home');
+                }
             } else {
                 $this->session->set_flashdata('message', 'This project does not exist.'); 
                 redirect('home');
