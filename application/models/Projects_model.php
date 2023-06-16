@@ -167,6 +167,14 @@ class Projects_model extends CI_model{
         }
     }
 
+    public function getProjInfo($ProjectID)
+    {
+        $this->db->where('ProjectID', $ProjectID);
+        $query = $this->db->get('projects');
+
+        return $query->row();
+    }
+
     //////////////////////////////////////////////////////////
 
     public function getcpmResults($ProjectID)
