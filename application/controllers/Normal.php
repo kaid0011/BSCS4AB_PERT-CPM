@@ -108,7 +108,7 @@ class Normal extends CI_Controller
             $data[$i]['N'] = $this->input->post('N');   // Number of trials
             $data[$i]['pqty'] = $proj_len;
         }
-        $this->alphabeta($data);    // proceed to alphabeta function to compute task duration
+        $this->alphabeta($data);    // proceed to alphabeta function to compute task duration      
     }
 
     public function alphabeta($data)
@@ -253,6 +253,9 @@ class Normal extends CI_Controller
             }
         }
 
+        //get project info from db (06-16-23)
+        $projinfo = $this->Projects_model->getProjInfo($ProjectID);
+
         if(isset($_SESSION['new']) && $_SESSION['new'] == false)
         {
             $arr = array(
@@ -260,7 +263,10 @@ class Normal extends CI_Controller
                 'cp' => $cp,
                 'finish_time' => $data['finish_time'],
                 'unit' => $data[1]['unit'],
-                'new' => false
+                'new' => false,
+                'ProjectName' => $projinfo->ProjectName,
+                'ProjectDesc' => $projinfo->ProjectDesc,
+                'CompType' => $projinfo->CompType
             );
         }
         else
@@ -270,7 +276,10 @@ class Normal extends CI_Controller
                 'cp' => $cp,
                 'finish_time' => $data['finish_time'],
                 'unit' => $data[1]['unit'],
-                'new' => true
+                'new' => true,
+                'ProjectName' => $projinfo->ProjectName,
+                'ProjectDesc' => $projinfo->ProjectDesc,
+                'CompType' => $projinfo->CompType
             );
         }
         $this->session->set_userdata($arr);

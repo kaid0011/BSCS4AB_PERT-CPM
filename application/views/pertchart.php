@@ -1,8 +1,4 @@
-<div class="pertchartt">
-<div class="title">
-    <h2>PERT Chart</h2>
-</div>
-<div id="allSampleContent" class="p-4 w-full">
+<div id="allSampleContent" class="w-full">
     <script id="code">
         function init() {
 
@@ -299,8 +295,5 @@
         }
         window.addEventListener('DOMContentLoaded', init);
     </script>
-
-    <div id="myDiagramDiv" class="box" style="max-width:90%; width: auto; height:300px; z-index: 0;"></div>
-
-</div>
+<div id="myDiagramDiv" style="padding:0; margin: 0; height:200px;"></div>
 </div>

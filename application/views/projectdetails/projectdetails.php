@@ -1,89 +1,116 @@
-<div class="projectdetailspg">
-    <div class="left-button">
-        <button onclick="back()"><i class="fa fa-arrow-left"></i></button>
-    </div>
-    <div class="body-container">
-        <div class="firstpg">
-            <div class="title">
-                <h1>WAPS with Simulation Calculator</h1>
-            </div>
-            <div class="dashboard">
-                <div class="progress-circle">
-                    <div class="steps">
-                        <span class="circle active">1</span>
-                        <span class="circle">2</span>
-                        <span class="circle">3</span>
-                        <div class="progress-bar">
-                            <span class="indicator1"></span>
+<main id="main" class="main">
+
+    <div class="pagetitle">
+        <h1>Project Details</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="<?= base_url() ?>">WAPS</a></li>
+                <li class="breadcrumb-item active">Calculator</li>
+            </ol>
+        </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section dashboard">
+        <div class="row">
+
+            <!-- Left side columns -->
+            <div class="col-lg-8">
+                <div class="row">
+
+                    <!-- Project Details -->
+                    <div class="col-xxl-4 col-xl-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title text-uppercase pb-0 mb-0">Enter Project Details</h5>
+                                <p class="text-muted small">Step 1 of 2</p>
+
+                                <!-- Multi Columns Form -->
+                                <form class="row g-3" action="<?= base_url('projectdetails/proj_info') ?>" method="post">
+                                    <input type="text" name="ReferenceNo" id="ReferenceNo" value="<?php echo $_SESSION['ReferenceNo']; ?>" hidden>
+                                    <div class="col-md-12">
+                                        <label for="ProjectName" class="form-label">Project Name</label>
+                                        <input type="text" class="form-control" name="ProjectName" id="ProjectName" aria-describedby="input" required>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <label for="ProjectDesc" class="form-label">Project Description</label>
+                                        <textarea type="text" class="form-control" name="ProjectDesc" id="ProjectDesc" aria-describedby="input"></textarea>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="InputTask" class="form-label">Number of Tasks:</label>
+                                        <input type="number" name="proj_len" class="form-control" id="InputTask" aria-describedby="input" placeholder="Min. 2 Max. 20" min="2" max="20" onchange="validity.valid||(value='');" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="InputTime" class="form-label">Unit of Time:</label>
+                                        <select id="InputTime" name="unit" class="form-control" required>
+                                            <option value="" style="color: gray;" disabled selected>Select Unit of Time</option>
+                                            <option value="Days">Days</option>
+                                            <option value="Weeks">Weeks</option>
+                                            <option value="Months">Months</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="CompType" class="form-label">Computation Method</label><br>
+                                        <select name="CompType" id="CompType" class="form-control" required>
+                                            <option value="" style="color: gray;" disabled selected>Select Computation Type</option>
+                                            <option value="CPM">CPM</option>
+                                            <option value="PERT">PERT</option>
+                                            <option value="NORMAL">Normal Distribution</option>
+                                            <option value="TRIANGULAR">Triangular Distribution</option>
+                                            <option value="BETAPERT">BETA-PERT Distribution</option>
+                                        </select>
+                                    </div>
+                                    <div class="generate d-flex justify-content-end">
+                                        <button type="submit" class="btn btn-primary">Next Step</button>
+                                        <!-- <button type="reset" class="btn btn-secondary">Reset</button> -->
+                                    </div>
+                                </form>
+                                <!-- End Multi Columns Form -->
+
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="progress-label">
-                    <div class="steps">
-                        <span class="">Project<br>Details</span>
-                        <span class="">Input<br>Taks</span>
-                        <span class="">Results</span>
-                    </div>
+                    <!-- Enter Project Details -->
+
                 </div>
             </div>
-        </div>
-        <center>
-            <div class="form">
-                <form action="<?= base_url('projectdetails/proj_info') ?>" method="post">
-                    <input type="text" name="ReferenceNo" id="ReferenceNo" value="<?php echo $_SESSION['ReferenceNo']; ?>" hidden>
-                    <div class="form-group">
-                        <label for="ProjectName">Project Name</label><br>
-                        <input type="text" name="ProjectName" id="ProjectName" aria-describedby="input" class="form-control" required>
+            <!-- End Left side columns -->
+
+            <!-- Right side columns -->
+            <div class="col-lg-4">
+
+                <!-- Steps -->
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title text-uppercase mb-0">STEPS</h5>
+                        <ol type="1">
+                            <li>
+                                <p class="text-muted small">Enter your project's name.</p>
+                            </li>
+                            <li>
+                                <p class="text-muted small">Enter your project's description.</p>
+                            </li>
+                            <li>
+                                <p class="text-muted small mb-0">Enter your project's number of tasks.</p>
+                                <p class="text-muted small">Minimum of 2; Maximum of 20</p>
+                            </li>
+                            <li>
+                                <p class="text-muted small">Select your unit of time: Days, Weeks, or Months.</p>
+                            </li>
+                            <li>
+                                <p class="text-muted small">Select your preferred computation method: PERT, CPM, Normal Distribution, Triangular Distribution, or BETA-PERT Distribution.</p>
+                            </li>
+                            <li>
+                                <p class="text-muted small">Click 'Next Step' to proceed.</p>
+                            </li>
+                        </ol>
                     </div>
-                    <div class="form-group">
-                        <label for="ProjectDesc">Project Description</label><br>
-                        <textarea type="text" name="ProjectDesc" id="ProjectDesc" aria-describedby="input" class="form-control"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="InputTask">Number of Tasks:</label><br>
-                        <input type="number" name="proj_len" class="form-control" id="InputTask" aria-describedby="input" placeholder="Min. 2 Max. 20" min="2" max="20" onchange="validity.valid||(value='');" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="InputTime">Unit of Time:</label><br>
-                        <select id="InputTime" name="unit" class="form-control" required>
-                            <option value="" style="color: gray;" disabled selected>Select Unit of Time</option>
-                            <option value="Days">Days</option>
-                            <option value="Weeks">Weeks</option>
-                            <option value="Months">Months</option>
-                        </select>
-                    </div>
-                    <!-- <div class="form-group">
-                            <label for="StartDate">Start Date</label>
-                            <input type="date" name="StartDate" id="StartDate" aria-describedby="input" class="form-control" required>
-                        </div> -->
-                    <div class="form-group">
-                        <label for="CompType">Computation Method</label><br>
-                        <select name="CompType" id="CompType" class="form-control" required>
-                            <option value="" style="color: gray;" disabled selected>Select Computation Type</option>
-                            <option value="CPM">CPM</option>
-                            <option value="PERT">PERT</option>
-                            <option value="NORMAL">NORMAL</option>
-                            <option value="TRIANGULAR">TRIANGULAR</option>
-                            <option value="BETAPERT">BETAPERT</option>
-                        </select>
-                    </div>
+                </div>
+                <!-- End Steps -->
+
             </div>
-        </center>
+            <!-- End Right side columns -->
 
-        <div class="generate">
-            <button class="btn">Generate Table</button>
         </div>
-    </div>
-    </form>
+    </section>
 
-</div>
-</div>
-
-<script>
-    function back() {
-        if (confirm("Are you sure you want to go back? Your progress will be lost.")) {
-            history.go(-1);
-        }
-        return false;
-    }
-</script>
+</main><!-- End #main -->

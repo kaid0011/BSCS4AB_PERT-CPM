@@ -69,7 +69,7 @@ class Project extends CI_Controller
 
                     $ProjectID = $data[1]['ProjectID'];
                     $projinfo = $this->Projects_model->getProjInfo($ProjectID);
-
+                    
                     $arr = array(
                         'project' => $project,
                         'cp' => $cp,
@@ -123,6 +123,10 @@ class Project extends CI_Controller
                             $proj_var += $data[$j]['v'];
                         }
                     }
+
+                    $ProjectID = $data[1]['ProjectID'];
+                    $projinfo = $this->Projects_model->getProjInfo($ProjectID);
+
                     $arr = array(
                         'project' => $project,
                         'cp' => $cp,
@@ -131,7 +135,10 @@ class Project extends CI_Controller
                         'proj_sd' => sqrt($proj_var), 
                         'unit' => $data[1]['unit'],
                         'new' => false,
-                        'ReferenceNo' => $ReferenceNo
+                        'ReferenceNo' => $ReferenceNo,
+                        'ProjectName' => $projinfo->ProjectName,
+                        'ProjectDesc' => $projinfo->ProjectDesc,
+                        'CompType' => $projinfo->CompType
                     );
                     $this->session->set_userdata($arr);                
                     redirect('pert/results');
@@ -174,13 +181,20 @@ class Project extends CI_Controller
                             $cp[] = $data[$j];
                         }
                     }
+
+                    $ProjectID = $data[1]['ProjectID'];
+                    $projinfo = $this->Projects_model->getProjInfo($ProjectID);
+                    
                     $arr = array(
                         'project' => $project,
                         'cp' => $cp,
                         'finish_time' => max(array_column($data, 'ef')),
                         'unit' => $data[1]['unit'],
                         'new' => false,
-                        'ReferenceNo' => $ReferenceNo
+                        'ReferenceNo' => $ReferenceNo,
+                        'ProjectName' => $projinfo->ProjectName,
+                        'ProjectDesc' => $projinfo->ProjectDesc,
+                        'CompType' => $projinfo->CompType
                     );
                     $this->session->set_userdata($arr);
                     redirect('normal/results');
@@ -220,13 +234,20 @@ class Project extends CI_Controller
                             $cp[] = $data[$j];
                         }
                     }
+
+                    $ProjectID = $data[1]['ProjectID'];
+                    $projinfo = $this->Projects_model->getProjInfo($ProjectID);
+
                     $arr = array(
                         'project' => $project,
                         'cp' => $cp,
                         'finish_time' => max(array_column($data, 'ef')),
                         'unit' => $data[1]['unit'],
                         'new' => false,
-                        'ReferenceNo' => $ReferenceNo
+                        'ReferenceNo' => $ReferenceNo,
+                        'ProjectName' => $projinfo->ProjectName,
+                        'ProjectDesc' => $projinfo->ProjectDesc,
+                        'CompType' => $projinfo->CompType
                     );
                     $this->session->set_userdata($arr);
                     redirect('triangular/results');
@@ -270,13 +291,20 @@ class Project extends CI_Controller
                             $cp[] = $data[$j];
                         }
                     }
+
+                    $ProjectID = $data[1]['ProjectID'];
+                    $projinfo = $this->Projects_model->getProjInfo($ProjectID);
+
                     $arr = array(
                         'project' => $project,
                         'cp' => $cp,
                         'finish_time' => max(array_column($data, 'ef')),
                         'unit' => $data[1]['unit'],
                         'new' => false,
-                        'ReferenceNo' => $ReferenceNo
+                        'ReferenceNo' => $ReferenceNo,
+                        'ProjectName' => $projinfo->ProjectName,
+                        'ProjectDesc' => $projinfo->ProjectDesc,
+                        'CompType' => $projinfo->CompType
                     );
                     $this->session->set_userdata($arr);
                     redirect('betapert/results');

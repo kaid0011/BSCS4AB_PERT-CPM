@@ -174,7 +174,6 @@ class Projects_model extends CI_model{
 
         return $query->row();
     }
-
     //////////////////////////////////////////////////////////
 
     public function getcpmResults($ProjectID)
