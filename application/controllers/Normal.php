@@ -108,7 +108,7 @@ class Normal extends CI_Controller
             $data[$i]['N'] = $this->input->post('N');   // Number of trials
             $data[$i]['pqty'] = $proj_len;
         }
-        $this->alphabeta($data);    // proceed to alphabeta function to compute task duration
+        $this->alphabeta($data);    // proceed to alphabeta function to compute task duration      
     }
 
     public function alphabeta($data)

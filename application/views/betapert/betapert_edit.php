@@ -90,10 +90,6 @@
                                 <!-- End Default Table Example -->
 
                                 <!-- Trials -->
-                                <input type="number" name="proj_len" value="<?php echo $_SESSION['proj_len']; ?>" hidden>
-                                <input type="text" name="choice" value="<?php echo 'cpm'; ?>" hidden>
-                                <input type="text" name="unit" value="<?php echo $_SESSION['unit']; ?>" hidden>
-                                <input type="text" name="ProjectID" value="<?php echo $_SESSION['ProjectID']; ?>" hidden>
                                 <div class="row">
                                     <div class="col-6">
                                         <h6 class="mt-3 text-uppercase" style="font-size: 16px; font-weight: 600;">Number of Trials:</h6>
