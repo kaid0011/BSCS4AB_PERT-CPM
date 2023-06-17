@@ -20,6 +20,10 @@
                         <br>
                         This table shows the project time completion based on the data provided using the CPM Method:
                     </p> -->
+                    <p>Project Name: <?php echo $_SESSION['ProjectName']; ?></p>
+                    <p>Project Description: <?php echo $_SESSION['ProjectDesc']; ?></p>
+                    <p>Unit: <?php echo $_SESSION['unit']; ?></p>
+                    <p>Computation Type: <?php echo $_SESSION['CompType']; ?></p>
                 </div>
             </div>
             <div class="dashboard">
