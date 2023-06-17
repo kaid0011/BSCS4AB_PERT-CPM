@@ -233,6 +233,10 @@ class Pert extends CI_Controller
 
         //insert to db
         $this->Projects_model->insertPERT($project, $ProjectID);
+
+        //get project info from db (06-16-23)
+        $projinfo = $this->Projects_model->getProjInfo($ProjectID);
+
         if(isset($_SESSION['new']) && $_SESSION['new'] == false)
         {
             $arr = array(
@@ -242,7 +246,10 @@ class Pert extends CI_Controller
                 'proj_variance' => $proj_var,
                 'proj_sd' => sqrt($proj_var),
                 'unit' => $data[1]['unit'],
-                'new' => false
+                'new' => false,
+                'ProjectName' => $projinfo->ProjectName,
+                'ProjectDesc' => $projinfo->ProjectDesc,
+                'CompType' => $projinfo->CompType
             );
         }
         else
@@ -254,7 +261,10 @@ class Pert extends CI_Controller
                 'proj_variance' => $proj_var,
                 'proj_sd' => sqrt($proj_var),
                 'unit' => $data[1]['unit'],
-                'new' => true
+                'new' => true,
+                'ProjectName' => $projinfo->ProjectName,
+                'ProjectDesc' => $projinfo->ProjectDesc,
+                'CompType' => $projinfo->CompType
             );
         }
       

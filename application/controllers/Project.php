@@ -69,7 +69,7 @@ class Project extends CI_Controller
 
                     $ProjectID = $data[1]['ProjectID'];
                     $projinfo = $this->Projects_model->getProjInfo($ProjectID);
-
+                    
                     $arr = array(
                         'project' => $project,
                         'cp' => $cp,

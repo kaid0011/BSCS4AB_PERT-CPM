@@ -1,49 +1,28 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Free Bootstrap Admin Template : Two Page</title>
-    <!-- BOOTSTRAP STYLES-->
-    <link href="<?= base_url() ?>/assets/css/bootstrap.css" rel="stylesheet" />
-    <!-- FONTAWESOME STYLES-->
-    <!-- <link href="<?= base_url() ?>/assets/css/font-awesome.css" rel="stylesheet" /> -->
-    <!-- CUSTOM STYLES-->
-    <link href="<?= base_url() ?>/assets/css/custom.css" rel="stylesheet" />
-    <!-- GOOGLE FONTS-->
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-</head>
-
-<body>
-
+<div class="body-container">
     <div id="page-inner">
         <div class="row">
             <div class="col-md-12">
-                <h2>Admin Dashboard</h2>
+                <h2>WAPS With Simulation's Calculator</h2>
             </div>
         </div>
         <!-- /. ROW  -->
-        <hr />
         <div class="row">
             <div class="col-md-4">
-                <div class="form-group">
-                    <label>Text Input Example</label>
-                    <input class="form-control" />
-                    <p class="help-block">Help text here.</p>
-                </div>
+                <h5>Project Name</h5>
+                <input class="form-control" value="echo project name"/>
             </div>
             <div class="col-md-4">
-                <label>Click to see blank page</label>
-                <a href="blank.html" target="_blank" class="btn btn-danger btn-lg btn-block">BLANK PAGE</a>
+                <h5>Project Description</h5>
+                <input class="form-control" value="echo project desc"/>
             </div>
             <div class="col-md-4">
-                For More Examples Please visit official bootstrap website <a href="http://getbootstrap.com" target="_blank">getbootstrap.com</a>
+                <h5>Computation Method</h5>
+                <input class="form-control" value="echo comp type"/>
             </div>
         </div>
         <hr />
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <h5>Table Sample One</h5>
                 <table class="table table-striped table-bordered table-hover">
                     <thead>
@@ -83,50 +62,27 @@
                 </table>
 
             </div>
-            <div class="col-md-6">
-                <h5>Table Sample Two</h5>
-                <div class="table-responsive">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>First Name</th>
-                                <th>Last Name</th>
-                                <th>Username</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="success">
-                                <td>1</td>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                            </tr>
-                            <tr class="info">
-                                <td>2</td>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
-                            </tr>
-                            <tr class="warning">
-                                <td>3</td>
-                                <td>Larry</td>
-                                <td>the Bird</td>
-                                <td>@twitter</td>
-                            </tr>
-                            <tr class="danger">
-                                <td>4</td>
-                                <td>John</td>
-                                <td>Smith</td>
-                                <td>@jsmith</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
+            
         <!-- /. ROW  -->
         <hr />
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label>Text Input Example</label>
+                    <input class="form-control" />
+                    <p class="help-block">Help text here.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label>Click to see blank page</label>
+                <a href="blank.html" target="_blank" class="btn btn-danger btn-lg btn-block">BLANK PAGE</a>
+            </div>
+            <div class="col-md-4">
+                For More Examples Please visit official bootstrap website <a href="http://getbootstrap.com" target="_blank">getbootstrap.com</a>
+            </div>
+        </div>
+        <hr />
+        
 
         <div class="row">
             <div class="col-md-3 col-sm-3 col-xs-6">
@@ -178,7 +134,7 @@
         </div>
         <!-- /. ROW  -->
         <hr />
-        
+
 
         <div class="row">
             <div class="col-md-4">
@@ -308,7 +264,4 @@
     <!-- CUSTOM SCRIPTS -->
     <script src="assets/js/custom.js"></script>
 
-
-</body>
-
-</html>
+</div>

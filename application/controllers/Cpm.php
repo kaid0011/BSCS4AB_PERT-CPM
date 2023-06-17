@@ -219,7 +219,7 @@ class Cpm extends CI_Controller
 
         //get project info from db (06-16-23)
         $projinfo = $this->Projects_model->getProjInfo($ProjectID);
-        
+
         if(isset($_SESSION['new']) && $_SESSION['new'] == false)
         {
             $arr = array(
