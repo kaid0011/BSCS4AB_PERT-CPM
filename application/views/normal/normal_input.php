@@ -55,8 +55,7 @@
                                                 ?>
                                                     <tr>
                                                         <td><input class="form-control text-center border-0 p-1" style="width: 50px; font-size: 15px; font-weight: 600;" name="<?php echo $i; ?>" value="<?php echo $i; ?>" readonly></td>
-                                                        <td><input
-                                                         type="text" name="task_name_<?php echo $i; ?>" id="task_name_<?php echo $i; ?>"></td>
+                                                        <td><input class="form-control text-center p-1" style="font-size: 13px; width: 150px;" type="text" name="task_name_<?php echo $i; ?>" id="task_name_<?php echo $i; ?>"></td>
                                                         <td><input class="form-control text-center p-1" style="font-size: 13px; width: 150px;" type="text" name="task_desc_<?php echo $i; ?>" id="task_desc_<?php echo $i; ?>"></td>
                                                         <td><input class="form-control text-center p-1" style="font-size: 13px; width: 100px;" type="number" name="task_opt_<?php echo $i; ?>" id="task_opt_<?php echo $i; ?>" step="any" min="1" max="100" placeholder="Max. 100" onchange="check_opt(this)" required style="margin-right: 2px;"><span style="font-size: 11px;"><?php echo $_SESSION['unit'] ?></span></td>
                                                         <td><input class="form-control text-center p-1" style="font-size: 13px; width: 100px;" type="number" name="task_ml_<?php echo $i; ?>" id="task_ml_<?php echo $i; ?>" step="any" min="1" max="100" placeholder="Max. 100" onchange="check_ml(this)" required style="margin-right: 2px;"><span style="font-size: 11px;"><?php echo $_SESSION['unit'] ?></span></td>
