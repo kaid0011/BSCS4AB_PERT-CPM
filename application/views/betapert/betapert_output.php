@@ -40,88 +40,247 @@
                             </div>
                         </div>
 
-                        <!-- Results Table -->
-                        <div class="table-responsive">
-                            <table class="table text-center mt-3 table-striped">
-                                <thead class="border-top text-uppercase">
-                                    <tr>
-                                        <th scope="col">
-                                            <h6 style="font-size: 13px; font-weight:600; padding-top: 5px; padding-bottom: 5px; margin-bottom: 0;">Activity</h6>
-                                        </th>
-                                        <th scope="col">
-                                            <h6 style="font-size: 13px; font-weight:600; padding-top: 5px; padding-bottom: 5px; margin-bottom: 0;">Name</h6>
-                                        </th>
-                                        <th scope="col">
-                                            <h6 style="font-size: 13px; font-weight:600; padding-top: 5px; padding-bottom: 5px; margin-bottom: 0;">Description</h6>
-                                        </th>
-                                        <th scope="col">
-                                            <h6 style="font-size: 13px; font-weight:600; padding-top: 5px; padding-bottom: 5px; margin-bottom: 0;">Minimum Duration</h6>
-                                        </th>
-                                        <th scope="col">
-                                            <h6 style="font-size: 13px; font-weight:600; padding-top: 5px; padding-bottom: 5px; margin-bottom: 0;">Maximum Duration</h6>
-                                        </th>
-                                        <th scope="col">
-                                            <h6 style="font-size: 13px; font-weight:600; padding-top: 5px; padding-bottom: 5px; margin-bottom: 0;">Calculated Duration</h6>
-                                        </th>
-                                        <th scope="col">
-                                            <h6 style="font-size: 13px; font-weight:600; padding-top: 5px; padding-bottom: 5px; margin-bottom: 0;">Pre-Requisites</h6>
-                                        </th>
-                                        <th scope="col">
-                                            <h6 style="font-size: 13px; font-weight:600; padding-top: 5px; padding-bottom: 5px; margin-bottom: 0;">Priority Level</h6>
-                                        </th>
-                                        <th scope="col">
-                                            <h6 style="font-size: 13px; font-weight:600; padding-top: 5px; padding-bottom: 5px; margin-bottom: 0;">Type</h6>
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php
-                                    $project = $_SESSION['project'];
-                                    foreach ($project as $task) {
-                                    ?>
+                        <!-- Professional Results Table -->
+                        <div class="professional">
+                            <div class="table-responsive">
+                                <table class="table text-center mt-3 table-striped">
+                                    <thead class="border-top text-uppercase">
                                         <tr>
-                                            <td>
-                                                <p style="font-size: 13px; padding-top: 5px; padding-bottom: 5px; margin-bottom: 0;"><?php echo $task['taskid']; ?></p>
-                                            </td>
-                                            <td>
-                                                <p style="font-size: 13px; padding-top: 5px; padding-bottom: 5px; margin-bottom: 0;"><?php echo $task['name']; ?></p>
-                                            </td>
-                                            <td>
-                                                <p style="font-size: 13px; padding-top: 5px; padding-bottom: 5px; margin-bottom: 0;"><?php echo $task['desc']; ?></p>
-                                            </td>
-                                            <td>
-                                                <p style="font-size: 13px; padding-top: 5px; padding-bottom: 5px; margin-bottom: 0;"><?php echo $task['opt'] . " " . $task['unit']; ?></p>
-                                            </td><td>
-                                                <p style="font-size: 13px; padding-top: 5px; padding-bottom: 5px; margin-bottom: 0;"><?php echo $task['pes'] . " " . $task['unit']; ?></p>
-                                            </td><td>
-                                                <p style="font-size: 13px; padding-top: 5px; padding-bottom: 5px; margin-bottom: 0;"><?php echo $task['time'] . " " . $task['unit']; ?></p>
-                                            </td>
-                                            <?php if ($task['prereq'] == "-1") {
-                                                $task['prereq'] = "-";
-                                            ?>
-                                                <td>
-                                                    <p style="font-size: 13px; padding-top: 5px; padding-bottom: 5px; margin-bottom: 0;"><?php echo $task['prereq']; ?></p>
-                                                </td>
-                                            <?php } else { ?>
-                                                <td>
-                                                    <p style="font-size: 13px; padding-top: 5px; padding-bottom: 5px; margin-bottom: 0;"><?php echo $task['prereq']; ?></p>
-                                                </td>
-                                            <?php } ?>
-                                            <td>
-                                                <p style="font-size: 13px; padding-top: 5px; padding-bottom: 5px; margin-bottom: 0;"><?php echo $task['priorityLvl']; ?></p>
-                                            </td>
-                                            <td>
-                                                <p style="font-size: 13px; padding-top: 5px; padding-bottom: 5px; margin-bottom: 0;"><?php echo $task['type']; ?></p>
-                                            </td>
+                                            <th scope="col">
+                                                <h6 style="font-size: 13px; font-weight:600; padding-top: 5px; padding-bottom: 5px; margin-bottom: 0;">Task</h6>
+                                            </th>
+                                            <th scope="col">
+                                                <h6 style="font-size: 13px; font-weight:600; padding-top: 5px; padding-bottom: 5px; margin-bottom: 0;">Name</h6>
+                                            </th>
+                                            <th scope="col">
+                                                <h6 style="font-size: 13px; font-weight:600; padding-top: 5px; padding-bottom: 5px; margin-bottom: 0;">Description</h6>
+                                            </th>
+                                            <th scope="col">
+                                                <h6 style="font-size: 13px; font-weight:600; padding-top: 5px; padding-bottom: 5px; margin-bottom: 0;">Minimum Duration</h6>
+                                            </th>
+                                            <th scope="col">
+                                                <h6 style="font-size: 13px; font-weight:600; padding-top: 5px; padding-bottom: 5px; margin-bottom: 0;">Maximum Duration</h6>
+                                            </th>
+                                            <th scope="col">
+                                                <h6 style="font-size: 13px; font-weight:600; padding-top: 5px; padding-bottom: 5px; margin-bottom: 0;">Calculated Duration</h6>
+                                            </th>
+                                            <th scope="col">
+                                                <h6 style="font-size: 13px; font-weight:600; padding-top: 5px; padding-bottom: 5px; margin-bottom: 0;">Pre-Requisites</h6>
+                                            </th>
+                                            <th scope="col">
+                                                <h6 style="font-size: 13px; font-weight:600; padding-top: 5px; padding-bottom: 5px; margin-bottom: 0;">Priority Level</h6>
+                                            </th>
+                                            <th scope="col">
+                                                <h6 style="font-size: 13px; font-weight:600; padding-top: 5px; padding-bottom: 5px; margin-bottom: 0;">Type</h6>
+                                            </th>
                                         </tr>
-                                    <?php
-                                    }
-                                    ?>
-                                </tbody>
-                            </table>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                        $project = $_SESSION['project'];
+                                        foreach ($project as $task) {
+                                        ?>
+                                            <tr>
+                                                <td>
+                                                    <p style="font-size: 13px; padding-top: 5px; padding-bottom: 5px; margin-bottom: 0;"><?php echo $task['taskid']; ?></p>
+                                                </td>
+                                                <td>
+                                                    <p style="font-size: 13px; padding-top: 5px; padding-bottom: 5px; margin-bottom: 0;"><?php echo $task['name']; ?></p>
+                                                </td>
+                                                <td>
+                                                    <p style="font-size: 13px; padding-top: 5px; padding-bottom: 5px; margin-bottom: 0;"><?php echo $task['desc']; ?></p>
+                                                </td>
+                                                <td>
+                                                    <p style="font-size: 13px; padding-top: 5px; padding-bottom: 5px; margin-bottom: 0;"><?php echo $task['opt'] . " " . $task['unit']; ?></p>
+                                                </td>
+                                                <td>
+                                                    <p style="font-size: 13px; padding-top: 5px; padding-bottom: 5px; margin-bottom: 0;"><?php echo $task['pes'] . " " . $task['unit']; ?></p>
+                                                </td>
+                                                <td>
+                                                    <p style="font-size: 13px; padding-top: 5px; padding-bottom: 5px; margin-bottom: 0;"><?php echo $task['time'] . " " . $task['unit']; ?></p>
+                                                </td>
+                                                <?php if ($task['prereq'] == "-1") {
+                                                    $task['prereq'] = "-";
+                                                ?>
+                                                    <td>
+                                                        <p style="font-size: 13px; padding-top: 5px; padding-bottom: 5px; margin-bottom: 0;"><?php echo $task['prereq']; ?></p>
+                                                    </td>
+                                                <?php } else { ?>
+                                                    <td>
+                                                        <p style="font-size: 13px; padding-top: 5px; padding-bottom: 5px; margin-bottom: 0;"><?php echo $task['prereq']; ?></p>
+                                                    </td>
+                                                <?php } ?>
+                                                <td>
+                                                    <p style="font-size: 13px; padding-top: 5px; padding-bottom: 5px; margin-bottom: 0;"><?php echo $task['priorityLvl']; ?></p>
+                                                </td>
+                                                <td>
+                                                    <p style="font-size: 13px; padding-top: 5px; padding-bottom: 5px; margin-bottom: 0;"><?php echo $task['type']; ?></p>
+                                                </td>
+                                            </tr>
+                                        <?php
+                                        }
+                                        ?>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
-                        <!-- End Results Table -->
+                        <!-- End Professional Results Table -->
+
+                        <!-- Basic Results Table -->
+                        <div class="basic">
+                            <div class="table-responsive">
+                                <table class="table text-center mt-3 table-striped">
+                                    <thead class="border-top text-uppercase">
+                                        <tr>
+                                            <th scope="col">
+                                                <h6 style="font-size: 13px; font-weight:600; padding-top: 5px; padding-bottom: 5px; margin-bottom: 0;">Task</h6>
+                                            </th>
+                                            <th scope="col">
+                                                <h6 style="font-size: 13px; font-weight:600; padding-top: 5px; padding-bottom: 5px; margin-bottom: 0;">Name</h6>
+                                            </th>
+                                            <th scope="col">
+                                                <h6 style="font-size: 13px; font-weight:600; padding-top: 5px; padding-bottom: 5px; margin-bottom: 0;">Description</h6>
+                                            </th>
+                                            <th scope="col">
+                                                <h6 style="font-size: 13px; font-weight:600; padding-top: 5px; padding-bottom: 5px; margin-bottom: 0;">Optimisitic</h6>
+                                            </th>
+                                            <th scope="col">
+                                                <h6 style="font-size: 13px; font-weight:600; padding-top: 5px; padding-bottom: 5px; margin-bottom: 0;">Most Likely</h6>
+                                            </th>
+                                            <th scope="col">
+                                                <h6 style="font-size: 13px; font-weight:600; padding-top: 5px; padding-bottom: 5px; margin-bottom: 0;">Pessimistic</h6>
+                                            </th>
+                                            <th scope="col">
+                                                <h6 style="font-size: 13px; font-weight:600; padding-top: 5px; padding-bottom: 5px; margin-bottom: 0;">Calculated Duration</h6>
+                                            </th>
+                                            <th scope="col">
+                                                <h6 style="font-size: 13px; font-weight:600; padding-top: 5px; padding-bottom: 5px; margin-bottom: 0;">Pre-Requisites</h6>
+                                            </th>
+                                            <th scope="col">
+                                                <h6 style="font-size: 13px; font-weight:600; padding-top: 5px; padding-bottom: 5px; margin-bottom: 0;">Alpha</h6>
+                                            </th>
+                                            <th scope="col">
+                                                <h6 style="font-size: 13px; font-weight:600; padding-top: 5px; padding-bottom: 5px; margin-bottom: 0;">Beta</h6>
+                                            </th>
+                                            <th scope="col">
+                                                <h6 style="font-size: 13px; font-weight:600; padding-top: 5px; padding-bottom: 5px; margin-bottom: 0;">Mean</h6>
+                                            </th>
+                                            <th scope="col">
+                                                <h6 style="font-size: 13px; font-weight:600; padding-top: 5px; padding-bottom: 5px; margin-bottom: 0;">Standard Deviation</h6>
+                                            </th>
+                                            <th scope="col">
+                                                <h6 style="font-size: 13px; font-weight:600; padding-top: 5px; padding-bottom: 5px; margin-bottom: 0;">ES</h6>
+                                            </th>
+                                            <th scope="col">
+                                                <h6 style="font-size: 13px; font-weight:600; padding-top: 5px; padding-bottom: 5px; margin-bottom: 0;">EF</h6>
+                                            </th>
+                                            <th scope="col">
+                                                <h6 style="font-size: 13px; font-weight:600; padding-top: 5px; padding-bottom: 5px; margin-bottom: 0;">LS</h6>
+                                            </th>
+                                            <th scope="col">
+                                                <h6 style="font-size: 13px; font-weight:600; padding-top: 5px; padding-bottom: 5px; margin-bottom: 0;">LF</h6>
+                                            </th>
+                                            <th scope="col">
+                                                <h6 style="font-size: 13px; font-weight:600; padding-top: 5px; padding-bottom: 5px; margin-bottom: 0;">Slack Time</h6>
+                                            </th>
+                                            <th scope="col">
+                                                <h6 style="font-size: 13px; font-weight:600; padding-top: 5px; padding-bottom: 5px; margin-bottom: 0;">isCritical</h6>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                        $project = $_SESSION['project'];
+                                        foreach ($project as $task) {
+                                        ?>
+                                            <tr>
+                                                <td>
+                                                    <p style="font-size: 13px; padding-top: 5px; padding-bottom: 5px; margin-bottom: 0;"><?php echo $task['taskid']; ?></p>
+                                                </td>
+                                                <td>
+                                                    <p style="font-size: 13px; padding-top: 5px; padding-bottom: 5px; margin-bottom: 0;"><?php echo $task['name']; ?></p>
+                                                </td>
+                                                <td>
+                                                    <p style="font-size: 13px; padding-top: 5px; padding-bottom: 5px; margin-bottom: 0;"><?php echo $task['desc']; ?></p>
+                                                </td>
+                                                <td>
+                                                    <p style="font-size: 13px; padding-top: 5px; padding-bottom: 5px; margin-bottom: 0;"><?php echo $task['opt'] . " " . $task['unit']; ?></p>
+                                                </td>
+                                                <td>
+                                                    <p style="font-size: 13px; padding-top: 5px; padding-bottom: 5px; margin-bottom: 0;"><?php echo $task['ml'] . " " . $task['unit']; ?></p>
+                                                </td>
+                                                <td>
+                                                    <p style="font-size: 13px; padding-top: 5px; padding-bottom: 5px; margin-bottom: 0;"><?php echo $task['pes'] . " " . $task['unit']; ?></p>
+                                                </td>
+                                                <td>
+                                                    <p style="font-size: 13px; padding-top: 5px; padding-bottom: 5px; margin-bottom: 0;"><?php echo number_format((float)$task['time'], 2, '.', '') . " " . $task['unit']; ?></p>
+                                                </td>
+                                                <?php if ($task['prereq'] == "-1") {
+                                                    $task['prereq'] = "-";
+                                                ?>
+                                                    <td>
+                                                        <p style="font-size: 13px; padding-top: 5px; padding-bottom: 5px; margin-bottom: 0;"><?php echo $task['prereq']; ?></p>
+                                                    </td>
+                                                <?php } else { ?>
+                                                    <td>
+                                                        <p style="font-size: 13px; padding-top: 5px; padding-bottom: 5px; margin-bottom: 0;"><?php echo $task['prereq']; ?></p>
+                                                    </td>
+                                                <?php } ?>
+                                                <td>
+                                                    <p style="font-size: 13px; padding-top: 5px; padding-bottom: 5px; margin-bottom: 0;"><?php echo number_format((float)$task['alpha'], 2, '.', ''); ?></p>
+                                                </td>
+                                                <td>
+                                                    <p style="font-size: 13px; padding-top: 5px; padding-bottom: 5px; margin-bottom: 0;"><?php echo number_format((float)$task['beta'], 2, '.', ''); ?></p>
+                                                </td>
+                                                <td>
+                                                    <p style="font-size: 13px; padding-top: 5px; padding-bottom: 5px; margin-bottom: 0;"><?php echo number_format((float)$task['mean'], 2, '.', ''); ?></p>
+                                                </td>
+                                                <td>
+                                                    <p style="font-size: 13px; padding-top: 5px; padding-bottom: 5px; margin-bottom: 0;"><?php echo number_format((float)$task['sd'], 2, '.', ''); ?></p>
+                                                </td>
+                                                <td>
+                                                    <p style="font-size: 13px; padding-top: 5px; padding-bottom: 5px; margin-bottom: 0;"><?php echo number_format((float)$task['es'], 2, '.', ''); ?></p>
+                                                </td>
+                                                <td>
+                                                    <p style="font-size: 13px; padding-top: 5px; padding-bottom: 5px; margin-bottom: 0;"><?php echo number_format((float)$task['ef'], 2, '.', ''); ?></p>
+                                                </td>
+                                                <td>
+                                                    <p style="font-size: 13px; padding-top: 5px; padding-bottom: 5px; margin-bottom: 0;"><?php echo number_format((float)$task['ls'], 2, '.', ''); ?></p>
+                                                </td>
+                                                <td>
+                                                    <p style="font-size: 13px; padding-top: 5px; padding-bottom: 5px; margin-bottom: 0;"><?php echo number_format((float)$task['lf'], 2, '.', ''); ?></p>
+                                                </td>
+                                                <td>
+                                                    <p style="font-size: 13px; padding-top: 5px; padding-bottom: 5px; margin-bottom: 0;"><?php echo number_format((float)$task['slack'], 2, '.', ''); ?></p>
+                                                </td>
+                                                <td>
+                                                    <p style="font-size: 13px; padding-top: 5px; padding-bottom: 5px; margin-bottom: 0;"><?php echo $task['isCritical'] == 1 ? "Yes" : "No"; ?></p>
+                                                </td>
+                                            </tr>
+                                        <?php
+                                        }
+                                        ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- End Basic Results Table -->
                     </div>
+
+                    <!-- Toggle Switch -->
+                    <div class="d-flex justify-content-end pe-3">
+                        <p style="font-size: 12px; padding-top: 3px;">Basic Mode</p>
+                        <span>
+                            <label class="switch">
+                                <div class="form-check form-switch ms-2">
+                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                                </div>
+                            </label>
+                        </span>
+                        <p style="font-size: 12px; padding-top: 3px;">Professional Mode</p>
+                    </div>
+                    <!-- End Toggle Switch -->
+
                 </div>
             </div>
             <!-- Enter Project Details -->
