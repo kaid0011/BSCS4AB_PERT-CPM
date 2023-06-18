@@ -40,8 +40,8 @@
                             </div>
                         </div>
 
-                        <!-- Professional Results Table -->
-                        <div class="professional">
+                        <!-- Basic Results Table -->
+                        <div class="basic">
                             <div class="table-responsive">
                                 <table class="table text-center mt-3 table-striped">
                                     <thead class="border-top text-uppercase">
@@ -124,10 +124,10 @@
                                 </table>
                             </div>
                         </div>
-                        <!-- End Professional Results Table -->
+                        <!-- End Basic Results Table -->
 
-                        <!-- Basic Results Table -->
-                        <div class="basic">
+                        <!-- Professional Results Table -->
+                        <div class="professional">
                             <div class="table-responsive">
                                 <table class="table text-center mt-3 table-striped">
                                     <thead class="border-top text-uppercase">
@@ -264,7 +264,7 @@
                                 </table>
                             </div>
                         </div>
-                        <!-- End Basic Results Table -->
+                        <!-- End Professional Results Table -->
                     </div>
 
                     <!-- Toggle Switch -->
