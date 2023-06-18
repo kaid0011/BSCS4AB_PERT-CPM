@@ -5,6 +5,22 @@ class Projects_model extends CI_model{
         parent::__construct();
     }
 
+    public function countCompType()
+    {
+        $this->db->select('CompType, COUNT(*) as count');
+        $this->db->from('projects');
+        $this->db->group_by('CompType');
+
+        $query = $this->db->get();
+
+        if($query->num_rows() > 0) {
+            return $query->result();
+        }
+        else {
+            return false;
+        }
+    }
+
     public function insertProject($proj)
     {
         //insert

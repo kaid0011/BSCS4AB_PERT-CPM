@@ -260,23 +260,23 @@
                                             show: false
                                         },
                                         data: [{
-                                                value: 1048,
+                                                value: <?php echo $PERT; ?>,
                                                 name: 'PERT'
                                             },
                                             {
-                                                value: 735,
+                                                value: <?php echo $CPM; ?>,
                                                 name: 'CPM'
                                             },
                                             {
-                                                value: 580,
+                                                value: <?php echo $NORMAL; ?>,
                                                 name: 'Normal Distribution'
                                             },
                                             {
-                                                value: 484,
+                                                value: <?php echo $TRIANGULAR; ?>,
                                                 name: 'Triangular Distribution'
                                             },
                                             {
-                                                value: 300,
+                                                value: <?php echo $BETAPERT; ?>,
                                                 name: 'BETA-PERT Distribution'
                                             }
                                         ]
