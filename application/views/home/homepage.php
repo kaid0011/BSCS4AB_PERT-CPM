@@ -19,7 +19,7 @@
 
 
                     <!-- Customers Card -->
-                    <div class="col-xxl-4 col-xl-12">
+                    <div class="col-xl-12">
 
                         <div class="card info-card customers-card">
 
@@ -46,7 +46,7 @@
 
 
                     <!-- Without Simulation Card -->
-                    <div class="col-xxl-4 col-xl-12">
+                    <div class="col-xl-12">
 
                         <div class="card info-card customers-card">
 
@@ -91,7 +91,7 @@
                     <!-- End Without Simulation Card -->
 
                     <!-- With Simulation Card -->
-                    <div class="col-xxl-4 col-xl-12">
+                    <div class="col-xl-12">
 
                         <div class="card info-card customers-card">
 
