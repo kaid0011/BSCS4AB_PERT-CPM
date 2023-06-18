@@ -19,7 +19,7 @@
                 <div class="row" style="">
 
                     <!-- Project Details -->
-                    <div class="col-xxl-4 col-xl-12">
+                    <div class="col-xl-12">
                         <div class="card">
                             <div class="card-body">
                                 <h5 class="card-title pb-0 mb-0 text-uppercase">Project Tasks Details</h5>
