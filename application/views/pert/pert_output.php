@@ -333,6 +333,50 @@
                     </div>
                     <!-- End PERT Chart -->
 
+                    <div class="row" style="height: 100%;">
+                    <!-- Project Completion Probability -->
+                    <div class="col-6">
+                        <div class="card" style="height: 100%">
+                            <div class="card-body">
+                                <h5 class="card-title pb-2 text-uppercase text-center">Compute Project Completion Probability</h5>
+                                <p class="text-center">Expected Project Duration:</p>
+                                <input type="number" class="form-control text-center" name="x" id="x" required>
+                                <input type="number" name="m" id="m" value="<?php echo round($finish_time, 2); ?>" hidden>
+                                <input type="number" name="s" id="s" value="<?php echo round($proj_sd, 2); ?>" hidden>
+
+                                <p class="text-center mb-1 mt-3">Probability of Completion:</p>
+                                <input type="textp" class="form-control text-center border-0" style="font-size: 20px;" name="p" id="p" readonly>
+                            
+                                <div class="generate d-flex justify-content-center mt-3">
+                                    <button id="compute" class="btn btn-primary" type="button">Calculate</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Project Completion Probability -->
+                    
+                    <!-- Individual Task Completion Probability -->
+                    <div class="col-6">
+                        <div class="card" style="height: 100%">
+                            <div class="card-body">
+                                <h5 class="card-title pb-2 text-uppercase text-center">Compute Individual Task Completion Probability</h5>
+                                <p class="text-center">Task ID:</p>
+                                <input type="number" class="form-control text-center" name="tid" id="tid">
+                                <p class="text-center mt-3">Expected Project Duration:</p>
+                                <input type="number" class="form-control text-center" name="x_indiv" id="x_indiv">
+
+                                <p class="text-center mb-1 mt-3">Probability of Completion:</p>
+                                <input type="textp" class="form-control text-center border-0" style="font-size: 20px;" name="p_indiv" id="p_indiv" readonly>
+
+                                <div class="generate d-flex justify-content-center mt-3">
+                                    <button id="compute_indiv" class="btn btn-primary" type="button">Calculate</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Individual Task Completion Probability -->
+                    </div>
+
                 </div>
             </div>
             <!-- End Left side columns -->
@@ -411,7 +455,7 @@
                         <?php if ($_SESSION['new'] == 'true') { ?>
                             <div class="form-group mt-3">
                                 <h6 style="font-weight: 600;"><label for="UserEmail">Email: </label></h6>
-                                <input type="email" class="form-control" name="UserEmail" id="UserEmail" autocomplete="off" placeholder="Enter a valid email address">
+                                <input type="email" class="form-control text-center" name="UserEmail" id="UserEmail" autocomplete="off" placeholder="Enter a valid email address">
                             </div>
                         <?php } ?>
                         <div class="form-group mt-3">
@@ -465,7 +509,7 @@
 <!-- AJAX for Project Completion Probability -->
 <script>
     $(document).ready(function() {
-        $(".compute").click(function() {
+        $("#compute").click(function() {
             var x = $("#x").val();
             var m = $("#m").val();
             var s = $("#s").val();
@@ -494,7 +538,7 @@
 <!-- AJAX for Individual Task Completion Probability -->
 <script>
     $(document).ready(function() {
-        $(".compute_indiv").click(function() {
+        $("#compute_indiv").click(function() {
             var id = $("#tid").val();
             var x = $("#x_indiv").val();
             var m = $("#m_" + id).val();
