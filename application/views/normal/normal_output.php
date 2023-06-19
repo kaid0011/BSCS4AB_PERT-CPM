@@ -127,7 +127,7 @@
                         <!-- End Basic Results Table -->
 
                         <!-- Professional Results Table -->
-                        <div class="basic">
+                        <div class="professional">
                             <div class="table-responsive">
                                 <table class="table text-center mt-3 table-striped">
                                     <thead class="border-top text-uppercase">
