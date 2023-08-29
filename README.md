@@ -1,4 +1,5 @@
 THE DEVELOPMENT OF WAPS (WEB-BASED AUTOMATED PERT-CPM SCHEDULER WITH SIMULATION)
+old repository name: BSCS4AB_PERT-CPM
 
 This web application allow users to create a schedule for their project with different methods. The algorithms used are divided into 2: Without Simulation and With Simulation. The following are the different algorithms used:
 
